@@ -14,9 +14,9 @@
 // limitations under the License.
 */
 
-#include "reset_button.hpp"
-#include "power_button.hpp"
 #include "id_button.hpp"
+#include "power_button.hpp"
+#include "reset_button.hpp"
 
 int main(int argc, char* argv[])
 {

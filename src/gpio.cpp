@@ -14,13 +14,15 @@
 // limitations under the License.
 */
 
-#include <experimental/filesystem>
+#include "gpio.hpp"
+
 #include <fcntl.h>
+#include <unistd.h>
+
+#include <experimental/filesystem>
 #include <fstream>
 #include <phosphor-logging/elog-errors.hpp>
-#include <unistd.h>
 #include <xyz/openbmc_project/Common/error.hpp>
-#include "gpio.hpp"
 
 const static constexpr char* SYSMGR_SERVICE = "org.openbmc.managers.System";
 const static constexpr char* SYSMGR_OBJ_PATH = "/org/openbmc/managers/System";
@@ -85,7 +87,7 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
             stream.close();
         }
 
-        catch (const std::exception &e)
+        catch (const std::exception& e)
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
                 "Error in writing!",

@@ -14,5 +14,8 @@
 // limitations under the License.
 */
 #pragma once
+
+#include <sdbusplus/bus.hpp>
+
 int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus);
 void closeGpio(int fd);

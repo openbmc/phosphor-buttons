@@ -15,12 +15,14 @@
 */
 
 #pragma once
-#include <phosphor-logging/elog-errors.hpp>
-#include <unistd.h>
-#include "xyz/openbmc_project/Chassis/Common/error.hpp"
-#include "xyz/openbmc_project/Chassis/Buttons/Reset/server.hpp"
 #include "common.hpp"
 #include "gpio.hpp"
+#include "xyz/openbmc_project/Chassis/Buttons/Reset/server.hpp"
+#include "xyz/openbmc_project/Chassis/Common/error.hpp"
+
+#include <unistd.h>
+
+#include <phosphor-logging/elog-errors.hpp>
 
 const static constexpr char* RESET_BUTTON = "RESET_BUTTON";
 
@@ -29,8 +31,7 @@ struct ResetButton
           sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Reset>
 {
 
-    ResetButton(sdbusplus::bus::bus& bus, const char* path,
-                EventPtr& event,
+    ResetButton(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,
                 sd_event_io_handler_t handler = ResetButton::EventHandler) :
         sdbusplus::server::object::object<
             sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Reset>(
@@ -46,8 +47,8 @@ struct ResetButton
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
                 "RESET_BUTTON: failed to config GPIO");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::
-                Error::IOError();
+            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+                IOError();
         }
 
         ret = sd_event_add_io(event.get(), nullptr, fd, EPOLLPRI,
@@ -57,8 +58,8 @@ struct ResetButton
             phosphor::logging::log<phosphor::logging::level::ERR>(
                 "RESET_BUTTON: failed to add to event loop");
             ::closeGpio(fd);
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::
-                Error::IOError();
+            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+                IOError();
         }
     }
 
@@ -69,8 +70,8 @@ struct ResetButton
 
     void simPress() override;
 
-    static int EventHandler(sd_event_source* es, int fd,
-                            uint32_t revents, void* userdata)
+    static int EventHandler(sd_event_source* es, int fd, uint32_t revents,
+                            void* userdata)
     {
 
         int n = -1;
@@ -80,8 +81,8 @@ struct ResetButton
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
                 "RESET_BUTTON: userdata null!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::
-                Error::IOError();
+            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+                IOError();
         }
 
         ResetButton* resetButton = static_cast<ResetButton*>(userdata);
@@ -90,8 +91,8 @@ struct ResetButton
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
                 "RESET_BUTTON: null pointer!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::
-                Error::IOError();
+            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+                IOError();
         }
 
         n = ::lseek(fd, 0, SEEK_SET);
@@ -100,8 +101,8 @@ struct ResetButton
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
                 "RESET_BUTTON: lseek error!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::
-                Error::IOError();
+            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+                IOError();
         }
 
         n = ::read(fd, &buf, sizeof(buf));
@@ -109,8 +110,8 @@ struct ResetButton
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
                 "RESET_BUTTON: read error!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::
-                Error::IOError();
+            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+                IOError();
         }
 
         if (buf == '0')

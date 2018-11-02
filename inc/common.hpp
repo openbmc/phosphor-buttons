@@ -15,6 +15,11 @@
 */
 
 #pragma once
+
+#include <systemd/sd-event.h>
+
+#include <memory>
+
 struct EventDeleter
 {
     void operator()(sd_event* event) const

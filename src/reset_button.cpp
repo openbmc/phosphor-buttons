@@ -14,9 +14,9 @@
 // limitations under the License.
 */
 
-#include "xyz/openbmc_project/Chassis/Buttons/Reset/server.hpp"
-
 #include "reset_button.hpp"
+
+#include "xyz/openbmc_project/Chassis/Buttons/Reset/server.hpp"
 
 void ResetButton::simPress()
 {
