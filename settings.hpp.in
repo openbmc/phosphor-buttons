@@ -1,0 +1,3 @@
+#pragma once
+
+#cmakedefine LOOKUP_GPIO_BASE
