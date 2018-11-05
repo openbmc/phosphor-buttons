@@ -42,11 +42,23 @@ int main(int argc, char* argv[])
 
     bus.request_name("xyz.openbmc_project.Chassis.Buttons");
 
-    PowerButton powerButton{bus, POWER_DBUS_OBJECT_NAME, eventP};
+    std::unique_ptr<PowerButton> pb;
+    if (hasGpio<PowerButton>())
+    {
+        pb = std::make_unique<PowerButton>(bus, POWER_DBUS_OBJECT_NAME, eventP);
+    }
 
-    ResetButton resetButton{bus, RESET_DBUS_OBJECT_NAME, eventP};
+    std::unique_ptr<ResetButton> rb;
+    if (hasGpio<ResetButton>())
+    {
+        rb = std::make_unique<ResetButton>(bus, RESET_DBUS_OBJECT_NAME, eventP);
+    }
 
-    IDButton idButton{bus, ID_DBUS_OBJECT_NAME, eventP};
+    std::unique_ptr<IDButton> ib;
+    if (hasGpio<IDButton>())
+    {
+        ib = std::make_unique<IDButton>(bus, ID_DBUS_OBJECT_NAME, eventP);
+    }
 
     try
     {

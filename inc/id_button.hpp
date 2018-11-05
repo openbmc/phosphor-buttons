@@ -70,6 +70,11 @@ struct IDButton
 
     void simPress() override;
 
+    static const char* getGpioName()
+    {
+        return ID_BUTTON;
+    }
+
     static int EventHandler(sd_event_source* es, int fd, uint32_t revents,
                             void* userdata)
     {

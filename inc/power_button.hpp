@@ -71,6 +71,11 @@ struct PowerButton
     void simPress() override;
     void simLongPress() override;
 
+    static const char* getGpioName()
+    {
+        return POWER_BUTTON;
+    }
+
     static int EventHandler(sd_event_source* es, int fd, uint32_t revents,
                             void* userdata)
     {

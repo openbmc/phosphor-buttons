@@ -21,12 +21,18 @@
 
 #include <experimental/filesystem>
 #include <fstream>
+#include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/log.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
 const static constexpr char* SYSMGR_SERVICE = "org.openbmc.managers.System";
 const static constexpr char* SYSMGR_OBJ_PATH = "/org/openbmc/managers/System";
 const static constexpr char* SYSMGR_INTERFACE = "org.openbmc.managers.System";
+
+static constexpr auto gpioDefs = "/etc/default/obmc/gpio/gpio_defs.json";
+
+using namespace phosphor::logging;
 
 void closeGpio(int fd)
 {
@@ -34,6 +40,32 @@ void closeGpio(int fd)
     {
         ::close(fd);
     }
+}
+
+bool gpioDefined(const std::string& gpioName)
+{
+    try
+    {
+        std::ifstream gpios{gpioDefs};
+        auto json = nlohmann::json::parse(gpios, nullptr, true);
+        auto defs = json["gpio_definitions"];
+
+        auto gpio =
+            std::find_if(defs.begin(), defs.end(), [&gpioName](const auto g) {
+                return gpioName == g["name"];
+            });
+
+        if (gpio != defs.end())
+        {
+            return true;
+        }
+    }
+    catch (std::exception& e)
+    {
+        log<level::ERR>("Error parsing GPIO JSON", entry("ERROR=%s", e.what()),
+                        entry("GPIO_NAME=%s", gpioName.c_str()));
+    }
+    return false;
 }
 
 int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
@@ -47,8 +79,7 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
 
     if (result.is_method_error())
     {
-        phosphor::logging::log<phosphor::logging::level::ERR>(
-            "bus call error!");
+        log<level::ERR>("bus call error!");
         return -1;
     }
 
@@ -71,9 +102,7 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
 
     if (std::experimental::filesystem::exists(fullPath))
     {
-        phosphor::logging::log<phosphor::logging::level::INFO>(
-            "GPIO exported",
-            phosphor::logging::entry("PATH=%s", devPath.c_str()));
+        log<level::INFO>("GPIO exported", entry("PATH=%s", devPath.c_str()));
     }
     else
     {
@@ -89,10 +118,9 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
 
         catch (const std::exception& e)
         {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Error in writing!",
-                phosphor::logging::entry("PATH=%s", devPath.c_str()),
-                phosphor::logging::entry("NUM=%d", gpioNum));
+            log<level::ERR>("Error in writing!",
+                            entry("PATH=%s", devPath.c_str()),
+                            entry("NUM=%d", gpioNum));
             return -1;
         }
     }
@@ -113,9 +141,8 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
 
         catch (const std::exception& e)
         {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Error in reading!",
-                phosphor::logging::entry("PATH=%s", devPath.c_str()));
+            log<level::ERR>("Error in reading!",
+                            entry("PATH=%s", devPath.c_str()));
             return -1;
         }
 
@@ -133,8 +160,7 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
 
         catch (const std::exception& e)
         {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Error in writing!");
+            log<level::ERR>("Error in writing!");
             return -1;
         }
     }
@@ -152,8 +178,7 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
 
         catch (const std::exception& e)
         {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Error in writing!");
+            log<level::ERR>("Error in writing!");
             return -1;
         }
     }
@@ -174,8 +199,7 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
 
         catch (const std::exception& e)
         {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Error in writing!");
+            log<level::ERR>("Error in writing!");
             return -1;
         }
     }
@@ -187,7 +211,7 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
 
     if (*fd < 0)
     {
-        phosphor::logging::log<phosphor::logging::level::ERR>("open error!");
+        log<level::ERR>("open error!");
         return -1;
     }
 

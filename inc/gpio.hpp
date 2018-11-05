@@ -19,3 +19,10 @@
 
 int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus);
 void closeGpio(int fd);
+bool gpioDefined(const std::string& gpioName);
+
+template <typename T>
+bool hasGpio()
+{
+    return gpioDefined(T::getGpioName());
+}
