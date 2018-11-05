@@ -22,6 +22,7 @@
 
 #include <unistd.h>
 
+#include <chrono>
 #include <phosphor-logging/elog-errors.hpp>
 
 const static constexpr char* POWER_BUTTON = "POWER_BUTTON";
@@ -76,6 +77,16 @@ struct PowerButton
         return POWER_BUTTON;
     }
 
+    void updatePressedTime()
+    {
+        pressedTime = std::chrono::steady_clock::now();
+    }
+
+    auto getPressTime() const
+    {
+        return pressedTime;
+    }
+
     static int EventHandler(sd_event_source* es, int fd, uint32_t revents,
                             void* userdata)
     {
@@ -124,6 +135,8 @@ struct PowerButton
         {
             phosphor::logging::log<phosphor::logging::level::DEBUG>(
                 "POWER_BUTTON: pressed");
+
+            powerButton->updatePressedTime();
             // emit pressed signal
             powerButton->pressed();
         }
@@ -131,8 +144,20 @@ struct PowerButton
         {
             phosphor::logging::log<phosphor::logging::level::DEBUG>(
                 "POWER_BUTTON: released");
-            // released
-            powerButton->released();
+
+            auto now = std::chrono::steady_clock::now();
+            auto d = std::chrono::duration_cast<std::chrono::milliseconds>(
+                now - powerButton->getPressTime());
+
+            if (d > std::chrono::milliseconds(LONG_PRESS_TIME_MS))
+            {
+                powerButton->pressedLong();
+            }
+            else
+            {
+                // released
+                powerButton->released();
+            }
         }
 
         return 0;
@@ -143,4 +168,5 @@ struct PowerButton
     sdbusplus::bus::bus& bus;
     EventPtr& event;
     sd_event_io_handler_t callbackHandler;
+    decltype(std::chrono::steady_clock::now()) pressedTime;
 };
