@@ -1,0 +1,10 @@
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+2: Kuiying Wang <kuiying.wang@intel.com>
+Ok-To-Test+1: Kuiying Wang <kuiying.wang@intel.com>
+Verified+1: Kuiying Wang <kuiying.wang@intel.com>
+Verified+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Submitted-by: Kuiying Wang <kuiying.wang@intel.com>
+Submitted-at: Wed, 07 Nov 2018 02:32:48 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/15320
+Project: openbmc/phosphor-buttons
+Branch: refs/heads/master
