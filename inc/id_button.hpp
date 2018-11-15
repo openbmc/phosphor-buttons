@@ -51,6 +51,9 @@ struct IDButton
                 IOError();
         }
 
+        char buf;
+        ::read(fd, &buf, sizeof(buf));
+
         ret = sd_event_add_io(event.get(), nullptr, fd, EPOLLPRI,
                               callbackHandler, this);
         if (ret < 0)
