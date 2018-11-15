@@ -31,6 +31,7 @@ option (
 )
 
 configure_file (settings.hpp.in ${CMAKE_BINARY_DIR}/inc/settings.hpp)
+include_directories(${CMAKE_BINARY_DIR}/inc)
 
 # import sdbusplus
 find_package(PkgConfig REQUIRED)
