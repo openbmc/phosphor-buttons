@@ -54,4 +54,4 @@ link_directories(${DBUSINTERFACE_LIBRARY_DIRS})
 add_executable(${PROJECT_NAME} ${SRC_FILES} )
 target_link_libraries(${PROJECT_NAME} "${SDBUSPLUSPLUS_LIBRARIES} -lphosphor_dbus  -lstdc++fs")
 
-install (TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+install (TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_SBINDIR})
