@@ -3,7 +3,6 @@ project(buttons CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_INSTALL_RPATH ${CMAKE_INSTALL_RPATH} ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 include(GNUInstallDirs)
@@ -28,6 +27,10 @@ set(SRC_FILES src/power_button.cpp
     src/gpio.cpp
 )
 
+set (
+    SERVICE_FILES
+    service-files/xyz.openbmc_project.Chassis.Buttons@.service
+)
 option (
     LOOKUP_GPIO_BASE
     "Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0." ON
@@ -58,3 +61,4 @@ add_executable(${PROJECT_NAME} ${SRC_FILES} )
 target_link_libraries(${PROJECT_NAME} "${SDBUSPLUSPLUS_LIBRARIES} -lphosphor_dbus  -lstdc++fs")
 
 install (TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+install (FILES ${SERVICE_FILES} DESTINATION /lib/systemd/system/)
