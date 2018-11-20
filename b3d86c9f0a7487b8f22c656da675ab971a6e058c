@@ -1,0 +1,9 @@
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Verified+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+1: James Feist <james.feist@linux.intel.com>
+Code-Review+2: Kuiying Wang <kuiying.wang@intel.com>
+Submitted-by: Kuiying Wang <kuiying.wang@intel.com>
+Submitted-at: Tue, 20 Nov 2018 08:19:58 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/15870
+Project: openbmc/phosphor-buttons
+Branch: refs/heads/master
