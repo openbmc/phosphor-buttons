@@ -1,5 +1,7 @@
 #include "button_handler.hpp"
 
+#include "settings.hpp"
+
 #include <phosphor-logging/log.hpp>
 #include <xyz/openbmc_project/State/Chassis/server.hpp>
 #include <xyz/openbmc_project/State/Host/server.hpp>
@@ -18,11 +20,14 @@ constexpr auto propertyIface = "org.freedesktop.DBus.Properties";
 constexpr auto chassisIface = "xyz.openbmc_project.State.Chassis";
 constexpr auto hostIface = "xyz.openbmc_project.State.Host";
 constexpr auto powerButtonIface = "xyz.openbmc_project.Chassis.Buttons.Power";
+constexpr auto idButtonIface = "xyz.openbmc_project.Chassis.Buttons.ID";
 constexpr auto resetButtonIface = "xyz.openbmc_project.Chassis.Buttons.Reset";
 constexpr auto mapperIface = "xyz.openbmc_project.ObjectMapper";
+constexpr auto ledGroupIface = "xyz.openbmc_project.Led.Group";
 
 constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
 constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
+constexpr auto ledGroupBasePath = "/xyz/openbmc_project/led/groups/";
 
 Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
 {
@@ -48,6 +53,25 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                         sdbusRule::interface(powerButtonIface),
                     std::bind(std::mem_fn(&Handler::longPowerPressed), this,
                               std::placeholders::_1));
+        }
+    }
+    catch (SdBusError& e)
+    {
+        // The button wasn't implemented
+    }
+
+    try
+    {
+        if (!getService(ID_DBUS_OBJECT_NAME, idButtonIface).empty())
+        {
+            log<level::INFO>("Registering ID button handler");
+            idButtonReleased = std::make_unique<sdbusplus::bus::match_t>(
+                bus,
+                sdbusRule::type::signal() + sdbusRule::member("Released") +
+                    sdbusRule::path(ID_DBUS_OBJECT_NAME) +
+                    sdbusRule::interface(idButtonIface),
+                std::bind(std::mem_fn(&Handler::idPressed), this,
+                          std::placeholders::_1));
         }
     }
     catch (SdBusError& e)
@@ -191,6 +215,51 @@ void Handler::resetPressed(sdbusplus::message::message& msg)
     catch (SdBusError& e)
     {
         log<level::ERR>("Failed power state change on a reset button press",
+                        entry("ERROR=%s", e.what()));
+    }
+}
+
+void Handler::idPressed(sdbusplus::message::message& msg)
+{
+    std::string groupPath{ledGroupBasePath};
+    groupPath += ID_LED_GROUP;
+
+    auto service = getService(groupPath, ledGroupIface);
+
+    if (service.empty())
+    {
+        log<level::INFO>("No identify LED group found during ID button press",
+                         entry("GROUP=%s", groupPath.c_str()));
+        return;
+    }
+
+    try
+    {
+        auto method = bus.new_method_call(service.c_str(), groupPath.c_str(),
+                                          propertyIface, "Get");
+        method.append(ledGroupIface, "Asserted");
+        auto result = bus.call(method);
+
+        sdbusplus::message::variant<bool> state;
+        result.read(state);
+
+        state = !sdbusplus::message::variant_ns::get<bool>(state);
+
+        log<level::INFO>(
+            "Changing ID LED group state on ID LED press",
+            entry("GROUP=%s", groupPath.c_str()),
+            entry("STATE=%d",
+                  sdbusplus::message::variant_ns::get<bool>(state)));
+
+        method = bus.new_method_call(service.c_str(), groupPath.c_str(),
+                                     propertyIface, "Set");
+
+        method.append(ledGroupIface, "Asserted", state);
+        result = bus.call(method);
+    }
+    catch (SdBusError& e)
+    {
+        log<level::ERR>("Error toggling ID LED group on ID button press",
                         entry("ERROR=%s", e.what()));
     }
 }
