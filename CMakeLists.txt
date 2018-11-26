@@ -14,6 +14,7 @@ set(GPIO_BASE_LABEL_NAME "1e780000.gpio")
 set(LONG_PRESS_TIME_MS 3000)
 set(CHASSIS_STATE_OBJECT_NAME "xyz/openbmc_project/state/chassis")
 set(HOST_STATE_OBJECT_NAME "xyz/openbmc_project/state/host")
+set(ID_LED_GROUP "enclosure_identify" CACHE STRING "The identify LED group name")
 
 add_definitions(-DPOWER_DBUS_OBJECT_NAME="/${POWER_DBUS_OBJECT_NAME}0")
 add_definitions(-DRESET_DBUS_OBJECT_NAME="/${RESET_DBUS_OBJECT_NAME}0")
