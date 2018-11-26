@@ -12,12 +12,17 @@ set(RESET_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/Reset")
 set(ID_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/ID")
 set(GPIO_BASE_LABEL_NAME "1e780000.gpio")
 set(LONG_PRESS_TIME_MS 3000)
+set(CHASSIS_STATE_OBJECT_NAME "xyz/openbmc_project/state/chassis")
+set(HOST_STATE_OBJECT_NAME "xyz/openbmc_project/state/host")
 
 add_definitions(-DPOWER_DBUS_OBJECT_NAME="/${POWER_DBUS_OBJECT_NAME}0")
 add_definitions(-DRESET_DBUS_OBJECT_NAME="/${RESET_DBUS_OBJECT_NAME}0")
 add_definitions(-DID_DBUS_OBJECT_NAME="/${ID_DBUS_OBJECT_NAME}0")
 add_definitions(-DGPIO_BASE_LABEL_NAME="${GPIO_BASE_LABEL_NAME}")
 add_definitions(-DLONG_PRESS_TIME_MS=${LONG_PRESS_TIME_MS})
+add_definitions(-DHOST_STATE_OBJECT_NAME="/${HOST_STATE_OBJECT_NAME}0")
+add_definitions(-DCHASSIS_STATE_OBJECT_NAME="/${CHASSIS_STATE_OBJECT_NAME}0")
+
 set(SRC_FILES src/power_button.cpp
     src/reset_button.cpp
     src/id_button.cpp
