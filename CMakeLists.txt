@@ -25,8 +25,12 @@ set(SRC_FILES src/power_button.cpp
     src/gpio.cpp
 )
 
-option (
-    LOOKUP_GPIO_BASE
+set(HANDLER_SRC_FILES
+    src/button_handler_main.cpp
+    src/button_handler.cpp
+)
+
+option (LOOKUP_GPIO_BASE
     "Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0." ON
 )
 
@@ -55,6 +59,9 @@ link_directories(${DBUSINTERFACE_LIBRARY_DIRS})
 add_executable(${PROJECT_NAME} ${SRC_FILES} )
 target_link_libraries(${PROJECT_NAME} "${SDBUSPLUSPLUS_LIBRARIES} -lphosphor_dbus  -lstdc++fs")
 
+add_executable(button-handler ${HANDLER_SRC_FILES})
+target_link_libraries(button-handler "${SDBUSPLUSPLUS_LIBRARIES} -lphosphor_dbus")
+
 set (
     SERVICE_FILES
     ${PROJECT_SOURCE_DIR}/service_files/xyz.openbmc_project.Chassis.Buttons.service
@@ -62,3 +69,4 @@ set (
 
 install (FILES ${SERVICE_FILES} DESTINATION /lib/systemd/system/)
 install (TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_SBINDIR})
+install (TARGETS button-handler DESTINATION ${CMAKE_INSTALL_SBINDIR})
