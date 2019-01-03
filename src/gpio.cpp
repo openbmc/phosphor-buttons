@@ -247,6 +247,24 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
     }
     else if ((gpioDirection == "both"))
     {
+        // Before set gpio configure as an interrupt pin, need to set direction as 'in'
+        // or edge can't set as 'rising', 'falling' and 'both'
+        const char* in_direction = "in";
+        devPath = gpioDev + "/gpio" + std::to_string(gpioNum) + "/direction";
+
+        stream.open(devPath, std::fstream::out);
+        try
+        {
+            stream << in_direction;
+            stream.close();
+        }
+
+        catch (const std::exception& e)
+        {
+            log<level::ERR>("Error in writing!");
+            return -1;
+        }
+        devPath.clear();
 
         // For gpio configured as ‘both’, it is an interrupt pin and trigged on
         // both rising and falling signals
