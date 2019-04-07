@@ -11,5 +11,5 @@ ExecStart=/usr/bin/env button-handler
 SyslogIdentifier=button-handler
 
 [Install]
-WantedBy=obmc-standby.target
+WantedBy=multi-user.target
 
