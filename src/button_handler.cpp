@@ -125,8 +125,7 @@ bool Handler::poweredOn() const
     result.read(state);
 
     return Chassis::PowerState::On ==
-           Chassis::convertPowerStateFromString(
-               sdbusplus::message::variant_ns::get<std::string>(state));
+           Chassis::convertPowerStateFromString(std::get<std::string>(state));
 }
 
 void Handler::powerPressed(sdbusplus::message::message& msg)
@@ -243,13 +242,11 @@ void Handler::idPressed(sdbusplus::message::message& msg)
         sdbusplus::message::variant<bool> state;
         result.read(state);
 
-        state = !sdbusplus::message::variant_ns::get<bool>(state);
+        state = !std::get<bool>(state);
 
-        log<level::INFO>(
-            "Changing ID LED group state on ID LED press",
-            entry("GROUP=%s", groupPath.c_str()),
-            entry("STATE=%d",
-                  sdbusplus::message::variant_ns::get<bool>(state)));
+        log<level::INFO>("Changing ID LED group state on ID LED press",
+                         entry("GROUP=%s", groupPath.c_str()),
+                         entry("STATE=%d", std::get<bool>(state)));
 
         method = bus.new_method_call(service.c_str(), groupPath.c_str(),
                                      propertyIface, "Set");
