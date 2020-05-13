@@ -121,7 +121,7 @@ bool Handler::poweredOn() const
     method.append(chassisIface, "CurrentPowerState");
     auto result = bus.call(method);
 
-    sdbusplus::message::variant<std::string> state;
+    std::variant<std::string> state;
     result.read(state);
 
     return Chassis::PowerState::On ==
@@ -141,8 +141,7 @@ void Handler::powerPressed(sdbusplus::message::message& msg)
 
         log<level::INFO>("Handling power button press");
 
-        sdbusplus::message::variant<std::string> state =
-            convertForMessage(transition);
+        std::variant<std::string> state = convertForMessage(transition);
 
         auto service = getService(HOST_STATE_OBJECT_NAME, hostIface);
         auto method = bus.new_method_call(
@@ -171,7 +170,7 @@ void Handler::longPowerPressed(sdbusplus::message::message& msg)
 
         log<level::INFO>("Handling long power button press");
 
-        sdbusplus::message::variant<std::string> state =
+        std::variant<std::string> state =
             convertForMessage(Chassis::Transition::Off);
 
         auto service = getService(CHASSIS_STATE_OBJECT_NAME, chassisIface);
@@ -200,7 +199,7 @@ void Handler::resetPressed(sdbusplus::message::message& msg)
 
         log<level::INFO>("Handling reset button press");
 
-        sdbusplus::message::variant<std::string> state =
+        std::variant<std::string> state =
             convertForMessage(Host::Transition::Reboot);
 
         auto service = getService(HOST_STATE_OBJECT_NAME, hostIface);
@@ -239,7 +238,7 @@ void Handler::idPressed(sdbusplus::message::message& msg)
         method.append(ledGroupIface, "Asserted");
         auto result = bus.call(method);
 
-        sdbusplus::message::variant<bool> state;
+        std::variant<bool> state;
         result.read(state);
 
         state = !std::get<bool>(state);
