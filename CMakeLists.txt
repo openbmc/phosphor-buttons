@@ -10,23 +10,50 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
 set(POWER_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/Power")
 set(RESET_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/Reset")
 set(ID_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/ID")
+set(SELECTOR_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/Selector")
 set(GPIO_BASE_LABEL_NAME "1e780000.gpio")
 set(LONG_PRESS_TIME_MS 3000)
 set(CHASSIS_STATE_OBJECT_NAME "xyz/openbmc_project/state/chassis")
 set(HOST_STATE_OBJECT_NAME "xyz/openbmc_project/state/host")
+set(CHASSISSYSTEM_STATE_OBJECT_NAME "xyz/openbmc_project/state/chassis_system")
 set(ID_LED_GROUP "enclosure_identify" CACHE STRING "The identify LED group name")
 
 add_definitions(-DPOWER_DBUS_OBJECT_NAME="/${POWER_DBUS_OBJECT_NAME}0")
 add_definitions(-DRESET_DBUS_OBJECT_NAME="/${RESET_DBUS_OBJECT_NAME}0")
 add_definitions(-DID_DBUS_OBJECT_NAME="/${ID_DBUS_OBJECT_NAME}0")
+add_definitions(-DSELECTOR_DBUS_OBJECT_NAME="/${SELECTOR_DBUS_OBJECT_NAME}0")
+add_definitions(-DCHASSISSYSTEM_STATE_OBJECT_NAME="/${CHASSISSYSTEM_STATE_OBJECT_NAME}")
 add_definitions(-DGPIO_BASE_LABEL_NAME="${GPIO_BASE_LABEL_NAME}")
 add_definitions(-DLONG_PRESS_TIME_MS=${LONG_PRESS_TIME_MS})
-add_definitions(-DHOST_STATE_OBJECT_NAME="/${HOST_STATE_OBJECT_NAME}0")
-add_definitions(-DCHASSIS_STATE_OBJECT_NAME="/${CHASSIS_STATE_OBJECT_NAME}0")
+add_definitions(-DHOST_STATE_OBJECT_NAME="/${HOST_STATE_OBJECT_NAME}")
+add_definitions(-DCHASSIS_STATE_OBJECT_NAME="/${CHASSIS_STATE_OBJECT_NAME}")
+add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
+add_definitions(-DBOOST_SYSTEM_NO_DEPRECATED)
+add_definitions(-DBOOST_ALL_NO_LIB)
+add_definitions(-DBOOST_NO_RTTI)
+add_definitions(-DBOOST_NO_TYPEID)
+add_definitions(-DBOOST_ASIO_DISABLE_THREADS)
+
+IF(MULTI_HOST_FRONTPANEL)
+    add_definitions(-DMULTI_HOST_ENABLED)
+ENDIF(MULTI_HOST_FRONTPANEL)
+
+IF(TOTAL_NUMBER_OF_HOST)
+     add_definitions(-DTOTAL_NUMBER_OF_HOST=${TOTAL_NUMBER_OF_HOST})
+ELSE()
+     add_definitions(-DTOTAL_NUMBER_OF_HOST=1)
+ENDIF(TOTAL_NUMBER_OF_HOST)
+
+
+IF(CHASSIS_SYSTEM_RESET_ENABLED)
+     add_definitions(-DCHASSIS_SYSTEM_RESET_ENABLED=${CHASSIS_SYSTEM_RESET_ENABLED})
+ENDIF(CHASSIS_SYSTEM_RESET_ENABLED)
+
 
 set(SRC_FILES src/power_button.cpp
     src/reset_button.cpp
     src/id_button.cpp
+    src/selector_button.cpp
     src/main.cpp
     src/gpio.cpp
 )
