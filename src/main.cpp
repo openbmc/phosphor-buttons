@@ -17,6 +17,7 @@
 #include "id_button.hpp"
 #include "power_button.hpp"
 #include "reset_button.hpp"
+#include "selector_button.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -58,6 +59,14 @@ int main(int argc, char* argv[])
     if (hasGpio<IDButton>())
     {
         ib = std::make_unique<IDButton>(bus, ID_DBUS_OBJECT_NAME, eventP);
+    }
+
+    std::unique_ptr<SelectorButton> sb;
+    if (hasGpio<SelectorButton>())
+    {
+
+        sb = std::make_unique<SelectorButton>(bus, SELECTOR_DBUS_OBJECT_NAME,
+                                              eventP);
     }
 
     try
