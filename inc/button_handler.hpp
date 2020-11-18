@@ -3,6 +3,11 @@
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/bus/match.hpp>
 
+#define HOST_POS_PATH "/etc/swPos.data"
+#define KEY "hostPos"
+#define BMC TOTAL_NUMBER_OF_HOST + 1
+#define SERVER1 1
+
 namespace phosphor
 {
 namespace button
@@ -15,7 +20,7 @@ namespace button
  * xyz.openbmc_project.Chassis.Buttons code when
  * it detects button presses.
  *
- * There are 3 buttons supported - Power, ID, and Reset.
+ * There are 4 buttons supported - Power, ID, and Reset, Selector.
  * As not all systems may implement each button, this class will
  * check for that button on D-Bus before listening for its signals.
  */
@@ -76,11 +81,42 @@ class Handler
     void resetPressed(sdbusplus::message::message& msg);
 
     /**
+     * @brief The handler for a reset button press
+     *
+     * Reboots the host if it is powered on.
+     *
+     * @param[in] msg - sdbusplus message from signal
+     */
+    void longResetPressed(sdbusplus::message::message& msg);
+    /**
+     * @brief The handler for a selector button press
+     *
+     * Updates position as host or bmc .
+     *
+     * @param[in] msg - sdbusplus message from signal
+     */
+    void selectorPressed(sdbusplus::message::message& msg);
+
+    /**
      * @brief Checks if system is powered on
      *
      * @return true if powered on, false else
      */
     bool poweredOn() const;
+
+    /**
+     * @brief Checks if chassis is powered on
+     *s
+     * @return true if powered on, false else
+     */
+    bool chassisSystemPoweredOn() const;
+
+    /**
+     * @brief Checks if host is powered on
+     *
+     * @return true if powered on, false else
+     */
+    bool chassisPoweredOn() const;
 
     /**
      * @brief Returns the service name for an object
@@ -118,6 +154,26 @@ class Handler
      * @brief Matches on the reset button released signal
      */
     std::unique_ptr<sdbusplus::bus::match_t> resetButtonReleased;
+
+    /**
+     * @brief Matches on the selector button released signal
+     */
+    std::unique_ptr<sdbusplus::bus::match_t> selectorButtonReleased;
+
+    /**
+     * @brief Get selector switch position
+     */
+    bool getSwPpos(char* pos);
+
+    /**
+     * @brief Store selector switch position
+     */
+    bool setSwPpos(char* pos);
+
+    /**
+     * @brief Handle platform specific feature
+     */
+    void startExtPlatService(void);
 };
 
 } // namespace button
