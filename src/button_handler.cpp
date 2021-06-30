@@ -2,6 +2,8 @@
 
 #include "settings.hpp"
 
+#include <systemd/sd-journal.h>
+
 #include <phosphor-logging/log.hpp>
 #include <xyz/openbmc_project/State/Chassis/server.hpp>
 #include <xyz/openbmc_project/State/Host/server.hpp>
@@ -28,6 +30,9 @@ constexpr auto ledGroupIface = "xyz.openbmc_project.Led.Group";
 constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
 constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
 constexpr auto ledGroupBasePath = "/xyz/openbmc_project/led/groups/";
+
+std::string message;
+std::string redfishMsgId;
 
 Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
 {
@@ -149,6 +154,12 @@ void Handler::powerPressed(sdbusplus::message::message& msg)
         method.append(hostIface, "RequestedHostTransition", state);
 
         bus.call(method);
+
+        message = "The power button pressed";
+        redfishMsgId = "OpenBMC.0.1.PowerButtonPressed";
+
+        sd_journal_send("MESSAGE=%s", message.c_str(), "REDFISH_MESSAGE_ID=%s",
+                        redfishMsgId.c_str(), NULL);
     }
     catch (SdBusError& e)
     {
@@ -179,6 +190,12 @@ void Handler::longPowerPressed(sdbusplus::message::message& msg)
         method.append(chassisIface, "RequestedPowerTransition", state);
 
         bus.call(method);
+
+        message = "The power button long pressed";
+        redfishMsgId = "OpenBMC.0.1.PowerButtonPressed";
+
+        sd_journal_send("MESSAGE=%s", message.c_str(), "REDFISH_MESSAGE_ID=%s",
+                        redfishMsgId.c_str(), NULL);
     }
     catch (SdBusError& e)
     {
@@ -209,6 +226,12 @@ void Handler::resetPressed(sdbusplus::message::message& msg)
         method.append(hostIface, "RequestedHostTransition", state);
 
         bus.call(method);
+
+        message = "The reset button pressed";
+        redfishMsgId = "OpenBMC.0.1.ResetButtonPressed";
+
+        sd_journal_send("MESSAGE=%s", message.c_str(), "REDFISH_MESSAGE_ID=%s",
+                        redfishMsgId.c_str(), NULL);
     }
     catch (SdBusError& e)
     {
