@@ -16,6 +16,24 @@
       "revId": "5de5ea685f671aa201f61c09a38a636ee4bbca91",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e66af1df_45b54098",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2021-07-19T02:16:11Z",
+      "side": 1,
+      "message": "Please attach Tested field with test result.",
+      "parentUuid": "3d6e29c8_da7ba6d7",
+      "revId": "5de5ea685f671aa201f61c09a38a636ee4bbca91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
