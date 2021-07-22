@@ -105,6 +105,30 @@
       "revId": "5de5ea685f671aa201f61c09a38a636ee4bbca91",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f159a5c4_b29a5f22",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-07-22T14:50:05Z",
+      "side": 1,
+      "message": "\u003e for better or for worse, this is the other half of the logging bifurcation in openbmc\n\nYes, I am aware.  As of right now only Intel-originated repositories are following this \"design\" and we should stop the propagation further.\n\n\u003e Do you have any suggestion on where to log the button events? In management perspective, all events should been logged.\n\n@Matt, we can make informational Log-Entries, right?\n\n@Thang, I poked Ed on Discord about this.  We do need to figure something out.  I don\u0027t think adding log messages like this sprinkled throughout all the code is a good approach, and I do recognize your team were just following examples / documentation found elsewhere.",
+      "parentUuid": "887d1975_51291690",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 52
+      },
+      "revId": "5de5ea685f671aa201f61c09a38a636ee4bbca91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
