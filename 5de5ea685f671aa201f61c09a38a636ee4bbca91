@@ -34,6 +34,29 @@
       "revId": "5de5ea685f671aa201f61c09a38a636ee4bbca91",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b859cd96_ff571d01",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-07-22T10:52:50Z",
+      "side": 1,
+      "message": "Why are we doing this?  This is an absolutely terrible design.  We should not have every single application know about Redfish and do special things for it.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 52
+      },
+      "revId": "5de5ea685f671aa201f61c09a38a636ee4bbca91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
