@@ -57,6 +57,30 @@
       "revId": "5de5ea685f671aa201f61c09a38a636ee4bbca91",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f34b3f8_3620a165",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-07-22T13:06:55Z",
+      "side": 1,
+      "message": "for better or for worse, this is the other half of the logging bifurcation in openbmc: https://github.com/openbmc/docs/blob/master/architecture/redfish-logging-in-bmcweb.md",
+      "parentUuid": "b859cd96_ff571d01",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 52
+      },
+      "revId": "5de5ea685f671aa201f61c09a38a636ee4bbca91",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
