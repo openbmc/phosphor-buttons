@@ -14,7 +14,6 @@ namespace button
 namespace sdbusRule = sdbusplus::bus::match::rules;
 using namespace sdbusplus::xyz::openbmc_project::State::server;
 using namespace phosphor::logging;
-using sdbusplus::exception::SdBusError;
 
 constexpr auto propertyIface = "org.freedesktop.DBus.Properties";
 constexpr auto chassisIface = "xyz.openbmc_project.State.Chassis";
@@ -55,7 +54,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                               std::placeholders::_1));
         }
     }
-    catch (SdBusError& e)
+    catch (sdbusplus::exception::exception& e)
     {
         // The button wasn't implemented
     }
@@ -74,7 +73,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                           std::placeholders::_1));
         }
     }
-    catch (SdBusError& e)
+    catch (sdbusplus::exception::exception& e)
     {
         // The button wasn't implemented
     }
@@ -93,7 +92,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                           std::placeholders::_1));
         }
     }
-    catch (SdBusError& e)
+    catch (sdbusplus::exception::exception& e)
     {
         // The button wasn't implemented
     }
@@ -150,7 +149,7 @@ void Handler::powerPressed(sdbusplus::message::message& msg)
 
         bus.call(method);
     }
-    catch (SdBusError& e)
+    catch (sdbusplus::exception::exception& e)
     {
         log<level::ERR>("Failed power state change on a power button press",
                         entry("ERROR=%s", e.what()));
@@ -180,7 +179,7 @@ void Handler::longPowerPressed(sdbusplus::message::message& msg)
 
         bus.call(method);
     }
-    catch (SdBusError& e)
+    catch (sdbusplus::exception::exception& e)
     {
         log<level::ERR>("Failed powering off on long power button press",
                         entry("ERROR=%s", e.what()));
@@ -210,7 +209,7 @@ void Handler::resetPressed(sdbusplus::message::message& msg)
 
         bus.call(method);
     }
-    catch (SdBusError& e)
+    catch (sdbusplus::exception::exception& e)
     {
         log<level::ERR>("Failed power state change on a reset button press",
                         entry("ERROR=%s", e.what()));
@@ -253,7 +252,7 @@ void Handler::idPressed(sdbusplus::message::message& msg)
         method.append(ledGroupIface, "Asserted", state);
         result = bus.call(method);
     }
-    catch (SdBusError& e)
+    catch (sdbusplus::exception::exception& e)
     {
         log<level::ERR>("Error toggling ID LED group on ID button press",
                         entry("ERROR=%s", e.what()));
