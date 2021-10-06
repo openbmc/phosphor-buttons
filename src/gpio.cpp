@@ -104,7 +104,7 @@ bool gpioDefined(const std::string& gpioName)
             return true;
         }
     }
-    catch (std::exception& e)
+    catch (const std::exception& e)
     {
         log<level::ERR>("Error parsing GPIO JSON", entry("ERROR=%s", e.what()),
                         entry("GPIO_NAME=%s", gpioName.c_str()));
@@ -138,7 +138,7 @@ std::optional<std::tuple<int, std::string>>
                             entry("GPIO_NAME=%s", gpioName.c_str()));
         }
     }
-    catch (std::exception& e)
+    catch (const std::exception& e)
     {
         log<level::ERR>("Error parsing GPIO JSON", entry("ERROR=%s", e.what()),
                         entry("GPIO_NAME=%s", gpioName.c_str()));

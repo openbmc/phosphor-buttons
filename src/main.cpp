@@ -71,7 +71,7 @@ int main(int argc, char* argv[])
                 phosphor::logging::entry("RET=%d", ret));
         }
     }
-    catch (std::exception& e)
+    catch (const std::exception& e)
     {
         phosphor::logging::log<phosphor::logging::level::ERR>(e.what());
         ret = -1;
