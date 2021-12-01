@@ -15,19 +15,24 @@ namespace sdbusRule = sdbusplus::bus::match::rules;
 using namespace sdbusplus::xyz::openbmc_project::State::server;
 using namespace phosphor::logging;
 
-constexpr auto propertyIface = "org.freedesktop.DBus.Properties";
 constexpr auto chassisIface = "xyz.openbmc_project.State.Chassis";
 constexpr auto hostIface = "xyz.openbmc_project.State.Host";
 constexpr auto powerButtonIface = "xyz.openbmc_project.Chassis.Buttons.Power";
 constexpr auto idButtonIface = "xyz.openbmc_project.Chassis.Buttons.ID";
 constexpr auto resetButtonIface = "xyz.openbmc_project.Chassis.Buttons.Reset";
-constexpr auto mapperIface = "xyz.openbmc_project.ObjectMapper";
 constexpr auto ledGroupIface = "xyz.openbmc_project.Led.Group";
+constexpr auto ledGroupBasePath = "/xyz/openbmc_project/led/groups/";
+constexpr auto hostSelectorIface =
+    "xyz.openbmc_project.Chassis.Buttons.HostSelector";
+constexpr auto debugHostSelectorIface =
+    "xyz.openbmc_project.Chassis.Buttons.DebugHostSelector";
 
+constexpr auto propertyIface = "org.freedesktop.DBus.Properties";
+constexpr auto mapperIface = "xyz.openbmc_project.ObjectMapper";
 constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
 constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
-constexpr auto ledGroupBasePath = "/xyz/openbmc_project/led/groups/";
 
+constexpr auto BMC_POSITION = "0";
 Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
 {
     try
@@ -98,6 +103,11 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
     }
 }
 
+bool Handler::isMultiHost()
+{
+    // return true in case seletor object is available
+    return (!getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty());
+}
 std::string Handler::getService(const std::string& path,
                                 const std::string& interface) const
 {
@@ -112,11 +122,43 @@ std::string Handler::getService(const std::string& path,
     return objectData.begin()->first;
 }
 
-bool Handler::poweredOn() const
+int Handler::getHostSelectorValue()
 {
-    auto service = getService(CHASSIS_STATE_OBJECT_NAME, chassisIface);
+    auto HSService = getService(HS_DBUS_OBJECT_NAME, hostSelectorIface);
+
+    if (HSService.empty())
+    {
+        log<level::INFO>("Host Selector service not available");
+        return -1;
+    }
+
+    try
+    {
+        auto method = bus.new_method_call(
+            HSService.c_str(), HS_DBUS_OBJECT_NAME, propertyIface, "Get");
+        method.append(hostSelectorIface, "Position");
+        auto result = bus.call(method);
+
+        std::variant<size_t> HSPositionVariant;
+        result.read(HSPositionVariant);
+
+        auto position = std::get<size_t>(HSPositionVariant);
+        return position;
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        log<level::ERR>("Error reading Host selector Position",
+                        entry("ERROR=%s", e.what()));
+    }
+}
+
+bool Handler::poweredOn(std::string hostIndex) const
+{
+
+    auto chassisObjectName = CHASSIS_STATE_OBJECT_NAME + hostIndex;
+    auto service = getService(chassisObjectName.c_str(), chassisIface);
     auto method = bus.new_method_call(
-        service.c_str(), CHASSIS_STATE_OBJECT_NAME, propertyIface, "Get");
+        service.c_str(), chassisObjectName.c_str(), propertyIface, "Get");
     method.append(chassisIface, "CurrentPowerState");
     auto result = bus.call(method);
 
@@ -130,10 +172,31 @@ bool Handler::poweredOn() const
 void Handler::powerPressed(sdbusplus::message::message& msg)
 {
     auto transition = Host::Transition::On;
-
+    // single host index is zero
+    std::string hostIndex = "0";
     try
     {
-        if (poweredOn())
+        if (isMultiHost())
+        {
+            int hostSelectorPos = getHostSelectorValue();
+
+            if (!hostSelectorPos)
+            {
+                log<level::INFO>("host sel position is set to BMC or not "
+                                 "valid.ignoring power button press");
+
+                return;
+            }
+
+            hostIndex = std::to_string(hostSelectorPos);
+
+            auto infoMsg =
+                "multi host system detected.Host selector position is : " +
+                hostIndex;
+            log<level::INFO>(infoMsg.c_str());
+        }
+
+        if (poweredOn(hostIndex))
         {
             transition = Host::Transition::Off;
         }
@@ -142,9 +205,11 @@ void Handler::powerPressed(sdbusplus::message::message& msg)
 
         std::variant<std::string> state = convertForMessage(transition);
 
-        auto service = getService(HOST_STATE_OBJECT_NAME, hostIface);
+        auto hostStateObjectName = HOST_STATE_OBJECT_NAME + hostIndex;
+
+        auto service = getService(hostStateObjectName.c_str(), hostIface);
         auto method = bus.new_method_call(
-            service.c_str(), HOST_STATE_OBJECT_NAME, propertyIface, "Set");
+            service.c_str(), hostStateObjectName.c_str(), propertyIface, "Set");
         method.append(hostIface, "RequestedHostTransition", state);
 
         bus.call(method);
@@ -155,12 +220,54 @@ void Handler::powerPressed(sdbusplus::message::message& msg)
                         entry("ERROR=%s", e.what()));
     }
 }
-
+void Handler::doMultiHostSledCycle()
+{
+    // chassis system reset or sled cycle
+    std::variant<std::string> state =
+        convertForMessage(Chassis::Transition::PowerCycle);
+    auto objPathStr = CHASSISSYSTEM_STATE_OBJECT_NAME + std::to_string(0);
+    auto service = getService(objPathStr.c_str(), chassisIface);
+    auto method = bus.new_method_call(service.c_str(), objPathStr.c_str(),
+                                      propertyIface, "Set");
+    method.append(chassisIface, "RequestedPowerTransition", state);
+    bus.call(method);
+}
 void Handler::longPowerPressed(sdbusplus::message::message& msg)
 {
+    // single host index is zero
+    std::string hostIndex = "0";
+
     try
     {
-        if (!poweredOn())
+        if (isMultiHost())
+        {
+            int hostSelectorPos = getHostSelectorValue();
+
+            if (!hostSelectorPos)
+            {
+                log<level::INFO>("host sel position is set to BMC or not "
+                                 "valid.ignoring long power button press");
+
+                return;
+            }
+
+            hostIndex = std::to_string(hostSelectorPos);
+
+            auto infoMsg =
+                "multi host system detected.Host selector position is : " +
+                hostIndex;
+            log<level::INFO>(infoMsg.c_str());
+
+            if (hostIndex == BMC_POSITION)
+            {
+#if CHASSIS_SYSTEM_RESET_ENABLED
+                doMultiHostSledCycle()
+#endif
+                    return;
+            }
+        }
+
+        if (!poweredOn(hostIndex))
         {
             log<level::INFO>(
                 "Power is off so ignoring long power button press");
@@ -171,10 +278,10 @@ void Handler::longPowerPressed(sdbusplus::message::message& msg)
 
         std::variant<std::string> state =
             convertForMessage(Chassis::Transition::Off);
-
-        auto service = getService(CHASSIS_STATE_OBJECT_NAME, chassisIface);
+        auto chassisStateObjName = CHASSIS_STATE_OBJECT_NAME + hostIndex;
+        auto service = getService(chassisStateObjName.c_str(), chassisIface);
         auto method = bus.new_method_call(
-            service.c_str(), CHASSIS_STATE_OBJECT_NAME, propertyIface, "Set");
+            service.c_str(), chassisStateObjName.c_str(), propertyIface, "Set");
         method.append(chassisIface, "RequestedPowerTransition", state);
 
         bus.call(method);
@@ -188,9 +295,32 @@ void Handler::longPowerPressed(sdbusplus::message::message& msg)
 
 void Handler::resetPressed(sdbusplus::message::message& msg)
 {
+    // single host index is zero
+    std::string hostIndex = "0";
+
     try
     {
-        if (!poweredOn())
+
+        if (isMultiHost())
+        {
+            int hostSelectorPos = getHostSelectorValue();
+
+            if (!hostSelectorPos)
+            {
+                log<level::INFO>("host sel position is set to BMC or not "
+                                 "valid.ignoring reset button press");
+
+                return;
+            }
+
+            hostIndex = std::to_string(hostSelectorPos);
+            auto infoMsg =
+                "multi host system detected.Host selector position is : " +
+                hostIndex;
+            log<level::INFO>(infoMsg.c_str());
+        }
+
+        if (!poweredOn(hostIndex))
         {
             log<level::INFO>("Power is off so ignoring reset button press");
             return;
@@ -200,10 +330,10 @@ void Handler::resetPressed(sdbusplus::message::message& msg)
 
         std::variant<std::string> state =
             convertForMessage(Host::Transition::Reboot);
-
-        auto service = getService(HOST_STATE_OBJECT_NAME, hostIface);
+        auto hostStateObjName = HOST_STATE_OBJECT_NAME + hostIndex;
+        auto service = getService(hostStateObjName.c_str(), hostIface);
         auto method = bus.new_method_call(
-            service.c_str(), HOST_STATE_OBJECT_NAME, propertyIface, "Set");
+            service.c_str(), hostStateObjName.c_str(), propertyIface, "Set");
 
         method.append(hostIface, "RequestedHostTransition", state);
 

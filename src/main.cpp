@@ -14,9 +14,12 @@
 // limitations under the License.
 */
 
-#include "id_button.hpp"
-#include "power_button.hpp"
-#include "reset_button.hpp"
+#include "button_factory.hpp"
+#include "gpio.hpp"
+
+#include <fstream>
+#include <nlohmann/json.hpp>
+static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 
 int main(int argc, char* argv[])
 {
@@ -42,22 +45,41 @@ int main(int argc, char* argv[])
 
     bus.request_name("xyz.openbmc_project.Chassis.Buttons");
 
-    std::unique_ptr<PowerButton> pb;
-    if (hasGpio<PowerButton>())
-    {
-        pb = std::make_unique<PowerButton>(bus, POWER_DBUS_OBJECT_NAME, eventP);
-    }
+    std::vector<std::unique_ptr<buttonIface>> buttonInterfaces;
+    buttonFactory buttonFactoryInstance;
 
-    std::unique_ptr<ResetButton> rb;
-    if (hasGpio<ResetButton>())
-    {
-        rb = std::make_unique<ResetButton>(bus, RESET_DBUS_OBJECT_NAME, eventP);
-    }
+    std::ifstream gpios{gpioDefFile};
+    auto json = nlohmann::json::parse(gpios, nullptr, true);
+    auto gpioDefs = json["gpio_definitions"];
 
-    std::unique_ptr<IDButton> ib;
-    if (hasGpio<IDButton>())
+    // load gpio config from gpio defs json file and create button interface
+    // objects based on the button form factor type
+
+    for (auto groupGpioConfig : gpioDefs)
     {
-        ib = std::make_unique<IDButton>(bus, ID_DBUS_OBJECT_NAME, eventP);
+        std::string formFactorName = groupGpioConfig["name"];
+        buttonConfig buttonCfg;
+        std::unique_ptr<buttonIface> tempButtonIf;
+        auto groupGpio = groupGpioConfig["gpio_config"];
+
+        for (auto gpioConfig : groupGpio)
+        {
+            gpioInfo gpioCfg;
+            gpioCfg.number = getGpioNum(gpioConfig["pin"]);
+            gpioCfg.direction = gpioConfig["direction"];
+            buttonCfg.formFactorName = formFactorName;
+            buttonCfg.gpios.push_back(gpioCfg);
+
+            std::string errorMsg = "checkGpios : gpioCfg.number =" +
+                                   std::to_string(gpioCfg.number) +
+                                   ",gpioCfg.direction =" + gpioCfg.direction;
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                errorMsg.c_str());
+        }
+
+        tempButtonIf = buttonFactoryInstance.createInstance(formFactorName, bus,
+                                                            eventP, buttonCfg);
+        buttonInterfaces.push_back(std::move(tempButtonIf));
     }
 
     try

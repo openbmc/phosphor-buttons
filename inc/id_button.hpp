@@ -15,6 +15,7 @@
 */
 
 #pragma once
+#include "button_interface.hpp"
 #include "common.hpp"
 #include "gpio.hpp"
 #include "xyz/openbmc_project/Chassis/Buttons/ID/server.hpp"
@@ -28,56 +29,107 @@ const static constexpr char* ID_BUTTON = "ID_BTN";
 
 struct IDButton
     : sdbusplus::server::object::object<
-          sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::ID>
+          sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::ID>,
+      public buttonIface
 {
 
     IDButton(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,
+             buttonConfig& buttonCfg,
              sd_event_io_handler_t handler = IDButton::EventHandler) :
         sdbusplus::server::object::object<
             sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::ID>(
             bus, path),
-        fd(-1), bus(bus), event(event), callbackHandler(handler)
+        buttonIface(bus, event, buttonCfg)
     {
 
         int ret = -1;
-
+        callbackHandler = handler;
         // config gpio
-        ret = ::configGpio(ID_BUTTON, &fd, bus);
+        ret = configGroupGpio(bus, buttonIFconfig);
+
         if (ret < 0)
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
-                "ID_BUTTON: failed to config GPIO");
+                (getFormFactorType() + " : failed to config GPIO").c_str());
             throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                 IOError();
         }
 
+        init();
+    }
+
+    ~IDButton()
+    {
+        ::closeGpio(buttonIFconfig.gpios[0].fd);
+    }
+    virtual void init()
+    {
         char buf;
+        int fd = buttonIFconfig.gpios[0].fd;
         ::read(fd, &buf, sizeof(buf));
 
-        ret = sd_event_add_io(event.get(), nullptr, fd, EPOLLPRI,
-                              callbackHandler, this);
+        int ret = sd_event_add_io(event.get(), nullptr, fd, EPOLLPRI,
+                                  callbackHandler, this);
         if (ret < 0)
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
-                "ID_BUTTON: failed to add to event loop");
+                (getFormFactorType() + " : failed to add to event loop")
+                    .c_str());
             ::closeGpio(fd);
             throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                 IOError();
         }
     }
-
-    ~IDButton()
-    {
-        ::closeGpio(fd);
-    }
-
     void simPress() override;
 
-    static const char* getGpioName()
+    template <typename T>
+    static std::string getFormFactorName()
     {
         return ID_BUTTON;
     }
 
+    static const char* getDbusObjectPath()
+    {
+        return ID_DBUS_OBJECT_NAME;
+    }
+    virtual void doEventHandling(sd_event_source* es, int fd, uint32_t revents)
+    {
+        int n = -1;
+        char buf = '0';
+        n = ::lseek(fd, 0, SEEK_SET);
+
+        if (n < 0)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                (getFormFactorType() + " : lseek error!").c_str());
+            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+                IOError();
+        }
+
+        n = ::read(fd, &buf, sizeof(buf));
+        if (n < 0)
+        {
+            phosphor::logging::log<phosphor::logging::level::ERR>(
+                (getFormFactorType() + " : read error!").c_str());
+            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+                IOError();
+        }
+
+        if (buf == '0')
+        {
+            phosphor::logging::log<phosphor::logging::level::DEBUG>(
+                (getFormFactorType() + " : pressed").c_str());
+            // emit pressed signal
+            pressed();
+        }
+        else
+        {
+            phosphor::logging::log<phosphor::logging::level::DEBUG>(
+                (getFormFactorType() + " : released").c_str());
+            // released
+            released();
+        }
+    }
     static int EventHandler(sd_event_source* es, int fd, uint32_t revents,
                             void* userdata)
     {
@@ -103,46 +155,7 @@ struct IDButton
                 IOError();
         }
 
-        n = ::lseek(fd, 0, SEEK_SET);
-
-        if (n < 0)
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "ID_BUTTON: lseek error!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-                IOError();
-        }
-
-        n = ::read(fd, &buf, sizeof(buf));
-        if (n < 0)
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "ID_BUTTON: read error!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-                IOError();
-        }
-
-        if (buf == '0')
-        {
-            phosphor::logging::log<phosphor::logging::level::DEBUG>(
-                "ID_BUTTON: pressed");
-            // emit pressed signal
-            idButton->pressed();
-        }
-        else
-        {
-            phosphor::logging::log<phosphor::logging::level::DEBUG>(
-                "ID_BUTTON: released");
-            // released
-            idButton->released();
-        }
-
+        idButton->doEventHandling(es, fd, revents);
         return 0;
     }
-
-  private:
-    int fd;
-    sdbusplus::bus::bus& bus;
-    EventPtr& event;
-    sd_event_io_handler_t callbackHandler;
 };

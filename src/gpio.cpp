@@ -25,12 +25,9 @@
 #include <fstream>
 #include <gpioplus/utility/aspeed.hpp>
 #include <nlohmann/json.hpp>
-#include <optional>
 #include <phosphor-logging/log.hpp>
-#include <tuple>
 
 const std::string gpioDev = "/sys/class/gpio";
-static constexpr auto gpioDefs = "/etc/default/obmc/gpio/gpio_defs.json";
 
 using namespace phosphor::logging;
 namespace fs = std::experimental::filesystem;
@@ -86,75 +83,35 @@ uint32_t getGpioNum(const std::string& gpioPin)
     return getGpioBase() + offset;
 }
 
-bool gpioDefined(const std::string& gpioName)
+int configGroupGpio(sdbusplus::bus::bus& bus, buttonConfig& buttonIFConfig)
 {
-    try
+    int result = 0;
+    // iterate the list of gpios from the button interface config
+    // and initialize them
+    for (auto& gpioCfg : buttonIFConfig.gpios)
     {
-        std::ifstream gpios{gpioDefs};
-        auto json = nlohmann::json::parse(gpios, nullptr, true);
-        auto defs = json["gpio_definitions"];
-
-        auto gpio =
-            std::find_if(defs.begin(), defs.end(), [&gpioName](const auto g) {
-                return gpioName == g["name"];
-            });
-
-        if (gpio != defs.end())
+        result = configGpio(bus, gpioCfg);
+        if (result < 0)
         {
-            return true;
+
+            std::string errorMsg =
+                "Error configuring gpio: GPIO_NUM=" +
+                std::to_string(gpioCfg.number) +
+                ",BUTTON_NAME=" + buttonIFConfig.formFactorName;
+            log<level::ERR>(errorMsg.c_str());
+
+            break;
         }
     }
-    catch (const std::exception& e)
-    {
-        log<level::ERR>("Error parsing GPIO JSON", entry("ERROR=%s", e.what()),
-                        entry("GPIO_NAME=%s", gpioName.c_str()));
-    }
-    return false;
+
+    return result;
 }
 
-std::optional<std::tuple<int, std::string>>
-    getGpioConfig(const std::string& gpioName)
+int configGpio(sdbusplus::bus::bus& bus, gpioInfo& gpioConfig)
 {
 
-    try
-    {
-        std::ifstream gpios{gpioDefs};
-        auto json = nlohmann::json::parse(gpios, nullptr, true);
-        auto defs = json["gpio_definitions"];
-
-        auto gpio =
-            std::find_if(defs.begin(), defs.end(), [&gpioName](const auto g) {
-                return gpioName == g["name"];
-            });
-
-        if (gpio != defs.end())
-        {
-            return std::make_tuple(getGpioNum((*gpio)["pin"]),
-                                   (*gpio)["direction"]);
-        }
-        else
-        {
-            log<level::ERR>("Unable to find GPIO in the definitions",
-                            entry("GPIO_NAME=%s", gpioName.c_str()));
-        }
-    }
-    catch (const std::exception& e)
-    {
-        log<level::ERR>("Error parsing GPIO JSON", entry("ERROR=%s", e.what()),
-                        entry("GPIO_NAME=%s", gpioName.c_str()));
-    }
-    return {};
-}
-
-int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
-{
-    auto config = getGpioConfig(gpioName);
-    if (!config)
-    {
-        return -1;
-    }
-
-    auto [gpioNum, gpioDirection] = *config;
+    auto gpioNum = gpioConfig.number;
+    auto gpioDirection = gpioConfig.direction;
 
     std::string devPath{gpioDev};
 
@@ -286,13 +243,16 @@ int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus)
 
     devPath = gpioDev + "/gpio" + std::to_string(gpioNum) + "/value";
 
-    *fd = ::open(devPath.c_str(), O_RDWR | O_NONBLOCK);
+    auto fd = ::open(devPath.c_str(), O_RDWR | O_NONBLOCK);
 
-    if (*fd < 0)
+    if (fd < 0)
     {
         log<level::ERR>("open error!");
         return -1;
     }
+
+    gpioConfig.fd = fd;
+    log<level::INFO>("configGpio: gpio open success");
 
     return 0;
 }
