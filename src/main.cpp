@@ -14,9 +14,15 @@
 // limitations under the License.
 */
 
+#include "gpio.hpp"
 #include "id_button.hpp"
 #include "power_button.hpp"
 #include "reset_button.hpp"
+
+#include <fstream>
+#include <nlohmann/json.hpp>
+
+static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 
 int main(int argc, char* argv[])
 {
@@ -42,22 +48,47 @@ int main(int argc, char* argv[])
 
     bus.request_name("xyz.openbmc_project.Chassis.Buttons");
 
+    std::ifstream gpios{gpioDefFile};
+    auto json = nlohmann::json::parse(gpios, nullptr, true);
+    auto gpioDefs = json["gpio_definitions"];
+
+    // load gpio config from gpio defs json file and create button interface
+    // objects based on the button form factor type
     std::unique_ptr<PowerButton> pb;
-    if (hasGpio<PowerButton>())
-    {
-        pb = std::make_unique<PowerButton>(bus, POWER_DBUS_OBJECT_NAME, eventP);
-    }
-
     std::unique_ptr<ResetButton> rb;
-    if (hasGpio<ResetButton>())
-    {
-        rb = std::make_unique<ResetButton>(bus, RESET_DBUS_OBJECT_NAME, eventP);
-    }
-
     std::unique_ptr<IDButton> ib;
-    if (hasGpio<IDButton>())
+
+    for (auto groupGpioConfig : gpioDefs)
     {
-        ib = std::make_unique<IDButton>(bus, ID_DBUS_OBJECT_NAME, eventP);
+        std::string formFactorName = groupGpioConfig["name"];
+        buttonConfig buttonCfg;
+        auto groupGpio = groupGpioConfig["gpio_config"];
+
+        for (auto gpioConfig : groupGpio)
+        {
+            gpioInfo gpioCfg;
+            gpioCfg.number = getGpioNum(gpioConfig["pin"]);
+            gpioCfg.direction = gpioConfig["direction"];
+            buttonCfg.formFactorName = formFactorName;
+            buttonCfg.gpios.push_back(gpioCfg);
+        }
+        if (buttonCfg.formFactorName == PowerButton::getGpioName())
+        {
+            pb = std::make_unique<PowerButton>(bus, POWER_DBUS_OBJECT_NAME,
+                                               eventP, buttonCfg);
+        }
+
+        if (buttonCfg.formFactorName == ResetButton::getGpioName())
+        {
+            rb = std::make_unique<ResetButton>(bus, RESET_DBUS_OBJECT_NAME,
+                                               eventP, buttonCfg);
+        }
+
+        if (buttonCfg.formFactorName == IDButton::getGpioName())
+        {
+            ib = std::make_unique<IDButton>(bus, ID_DBUS_OBJECT_NAME, eventP,
+                                            buttonCfg);
+        }
     }
 
     try

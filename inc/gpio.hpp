@@ -16,13 +16,40 @@
 #pragma once
 
 #include <sdbusplus/bus.hpp>
+#include <string>
+#include <vector>
 
-int configGpio(const char* gpioName, int* fd, sdbusplus::bus::bus& bus);
-void closeGpio(int fd);
-bool gpioDefined(const std::string& gpioName);
-
-template <typename T>
-bool hasGpio()
+// this struct has the gpio config for single gpio
+struct gpioInfo
 {
-    return gpioDefined(T::getGpioName());
-}
+    int fd; // io fd mapped with the gpio
+    uint32_t number;
+    std::string direction;
+};
+
+// this struct represents button interface
+struct buttonConfig
+{
+    std::string formFactorName;  // name of the button interface
+    std::vector<gpioInfo> gpios; // holds single or group gpio config
+                                 // corresponding to button interface
+};
+
+/**
+ * @brief iterates over the list of gpios and configures gpios them
+ * config which is set from gpio defs json file.
+ * The fd of the configured gpio is stored in buttonConfig.gpios container
+ * @return int returns 0 on successful config of all gpios
+ */
+
+int configGroupGpio(sdbusplus::bus::bus& bus, buttonConfig& buttonCfg);
+
+/**
+ * @brief  configures and initializes the single gpio
+ * @return int returns 0 on successful config of all gpios
+ */
+
+int configGpio(sdbusplus::bus::bus& bus, gpioInfo& gpioConfig);
+
+uint32_t getGpioNum(const std::string& gpioPin);
+void closeGpio(int fd);

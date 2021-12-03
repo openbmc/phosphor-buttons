@@ -32,17 +32,20 @@ struct IDButton
 {
 
     IDButton(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,
+             buttonConfig& buttonCfg,
              sd_event_io_handler_t handler = IDButton::EventHandler) :
         sdbusplus::server::object::object<
             sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::ID>(
             bus, path),
-        fd(-1), bus(bus), event(event), callbackHandler(handler)
+        fd(-1), buttonIFConfig(buttonCfg), bus(bus), event(event),
+        callbackHandler(handler)
     {
 
         int ret = -1;
 
-        // config gpio
-        ret = ::configGpio(ID_BUTTON, &fd, bus);
+        // config group gpio based on the gpio defs read from the json file
+        ret = configGroupGpio(bus, buttonIFConfig);
+
         if (ret < 0)
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
@@ -50,6 +53,9 @@ struct IDButton
             throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                 IOError();
         }
+        // initialize the button io fd from the buttonConfig
+        // which has fd stored when configGroupGpio is called
+        fd = buttonIFConfig.gpios[0].fd;
 
         char buf;
         ::read(fd, &buf, sizeof(buf));
@@ -73,7 +79,7 @@ struct IDButton
 
     void simPress() override;
 
-    static const char* getGpioName()
+    static const std::string getGpioName()
     {
         return ID_BUTTON;
     }
@@ -142,6 +148,7 @@ struct IDButton
 
   private:
     int fd;
+    buttonConfig buttonIFConfig;
     sdbusplus::bus::bus& bus;
     EventPtr& event;
     sd_event_io_handler_t callbackHandler;

@@ -33,17 +33,20 @@ struct PowerButton
 {
 
     PowerButton(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,
+                buttonConfig& buttonCfg,
                 sd_event_io_handler_t handler = PowerButton::EventHandler) :
         sdbusplus::server::object::object<
             sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Power>(
             bus, path),
-        fd(-1), bus(bus), event(event), callbackHandler(handler)
+        fd(-1), buttonIFConfig(buttonCfg), bus(bus), event(event),
+        callbackHandler(handler)
     {
 
         int ret = -1;
 
-        // config gpio
-        ret = ::configGpio(POWER_BUTTON, &fd, bus);
+        // config group gpio based on the gpio defs read from the json file
+        ret = configGroupGpio(bus, buttonIFConfig);
+
         if (ret < 0)
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
@@ -51,6 +54,10 @@ struct PowerButton
             throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                 IOError();
         }
+
+        // initialize the button io fd from the buttonConfig
+        // which has fd stored when configGroupGpio is called
+        fd = buttonIFConfig.gpios[0].fd;
 
         char buf;
         ::read(fd, &buf, sizeof(buf));
@@ -75,7 +82,7 @@ struct PowerButton
     void simPress() override;
     void simLongPress() override;
 
-    static const char* getGpioName()
+    static const std::string getGpioName()
     {
         return POWER_BUTTON;
     }
@@ -168,6 +175,7 @@ struct PowerButton
 
   private:
     int fd;
+    buttonConfig buttonIFConfig; // button iface io details
     sdbusplus::bus::bus& bus;
     EventPtr& event;
     sd_event_io_handler_t callbackHandler;
