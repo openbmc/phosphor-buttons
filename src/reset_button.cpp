@@ -18,7 +18,51 @@
 
 #include "xyz/openbmc_project/Chassis/Buttons/Reset/server.hpp"
 
+// add the button iface class to registry
+static ButtonIFRegister<ResetButton> buttonRegister;
+
 void ResetButton::simPress()
 {
     pressed();
+}
+
+void ResetButton::handleEvent(sd_event_source* es, int fd, uint32_t revents)
+{
+    int n = -1;
+    char buf = '0';
+
+    n = ::lseek(fd, 0, SEEK_SET);
+
+    if (n < 0)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "RESET_BUTTON: lseek error!");
+
+        return;
+    }
+
+    n = ::read(fd, &buf, sizeof(buf));
+    if (n < 0)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "RESET_BUTTON: read error!");
+        return;
+    }
+
+    if (buf == '0')
+    {
+        phosphor::logging::log<phosphor::logging::level::DEBUG>(
+            "RESET_BUTTON: pressed");
+        // emit pressed signal
+        pressed();
+    }
+    else
+    {
+        phosphor::logging::log<phosphor::logging::level::DEBUG>(
+            "RESET_BUTTON: released");
+        // released
+        released();
+    }
+
+    return;
 }

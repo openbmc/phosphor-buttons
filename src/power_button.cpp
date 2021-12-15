@@ -16,6 +16,9 @@
 
 #include "power_button.hpp"
 
+// add the button iface class to registry
+static ButtonIFRegister<PowerButton> buttonRegister;
+
 void PowerButton::simPress()
 {
     pressed();
@@ -24,4 +27,67 @@ void PowerButton::simPress()
 void PowerButton::simLongPress()
 {
     pressedLong();
+}
+
+void PowerButton::updatePressedTime()
+{
+    pressedTime = std::chrono::steady_clock::now();
+}
+
+auto PowerButton::getPressTime() const
+{
+    return pressedTime;
+}
+
+void PowerButton::handleEvent(sd_event_source* es, int fd, uint32_t revents)
+{
+
+    int n = -1;
+    char buf = '0';
+
+    n = ::lseek(fd, 0, SEEK_SET);
+
+    if (n < 0)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "POWER_BUTTON: lseek error!");
+        return;
+    }
+
+    n = ::read(fd, &buf, sizeof(buf));
+    if (n < 0)
+    {
+        phosphor::logging::log<phosphor::logging::level::ERR>(
+            "POWER_BUTTON: read error!");
+        return;
+    }
+
+    if (buf == '0')
+    {
+        phosphor::logging::log<phosphor::logging::level::DEBUG>(
+            "POWER_BUTTON: pressed");
+
+        updatePressedTime();
+        // emit pressed signal
+        pressed();
+    }
+    else
+    {
+        phosphor::logging::log<phosphor::logging::level::DEBUG>(
+            "POWER_BUTTON: released");
+
+        auto now = std::chrono::steady_clock::now();
+        auto d = std::chrono::duration_cast<std::chrono::milliseconds>(
+            now - getPressTime());
+
+        if (d > std::chrono::milliseconds(LONG_PRESS_TIME_MS))
+        {
+            pressedLong();
+        }
+        else
+        {
+            // released
+            released();
+        }
+    }
 }

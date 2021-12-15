@@ -42,14 +42,14 @@ struct buttonConfig
  * @return int returns 0 on successful config of all gpios
  */
 
-int configGroupGpio(sdbusplus::bus::bus& bus, buttonConfig& buttonCfg);
+int configGroupGpio(buttonConfig& buttonCfg);
 
 /**
  * @brief  configures and initializes the single gpio
  * @return int returns 0 on successful config of all gpios
  */
 
-int configGpio(sdbusplus::bus::bus& bus, gpioInfo& gpioConfig);
+int configGpio(gpioInfo& gpioConfig);
 
 uint32_t getGpioNum(const std::string& gpioPin);
 void closeGpio(int fd);
