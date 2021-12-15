@@ -83,14 +83,14 @@ uint32_t getGpioNum(const std::string& gpioPin)
     return getGpioBase() + offset;
 }
 
-int configGroupGpio(sdbusplus::bus::bus& bus, buttonConfig& buttonIFConfig)
+int configGroupGpio(buttonConfig& buttonIFConfig)
 {
     int result = 0;
     // iterate the list of gpios from the button interface config
     // and initialize them
     for (auto& gpioCfg : buttonIFConfig.gpios)
     {
-        result = configGpio(bus, gpioCfg);
+        result = configGpio(gpioCfg);
         if (result < 0)
         {
 
@@ -107,7 +107,7 @@ int configGroupGpio(sdbusplus::bus::bus& bus, buttonConfig& buttonIFConfig)
     return result;
 }
 
-int configGpio(sdbusplus::bus::bus& bus, gpioInfo& gpioConfig)
+int configGpio(gpioInfo& gpioConfig)
 {
 
     auto gpioNum = gpioConfig.number;
