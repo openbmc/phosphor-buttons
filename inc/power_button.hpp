@@ -15,6 +15,8 @@
 */
 
 #pragma once
+#include "button_factory.hpp"
+#include "button_interface.hpp"
 #include "common.hpp"
 #include "gpio.hpp"
 #include "xyz/openbmc_project/Chassis/Buttons/Power/server.hpp"
@@ -29,7 +31,8 @@ const static constexpr char* POWER_BUTTON = "POWER_BUTTON";
 
 struct PowerButton
     : sdbusplus::server::object::object<
-          sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Power>
+          sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Power>,
+      public buttonIface
 {
 
     PowerButton(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,
@@ -38,11 +41,11 @@ struct PowerButton
         sdbusplus::server::object::object<
             sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Power>(
             bus, path),
-        fd(-1), buttonIFConfig(buttonCfg), bus(bus), event(event),
-        callbackHandler(handler)
+        buttonIface(bus, event, buttonCfg)
     {
 
         int ret = -1;
+        callbackHandler = handler;
 
         // config group gpio based on the gpio defs read from the json file
         ret = configGroupGpio(bus, buttonIFConfig);
@@ -54,130 +57,36 @@ struct PowerButton
             throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                 IOError();
         }
-
-        // initialize the button io fd from the buttonConfig
-        // which has fd stored when configGroupGpio is called
-        fd = buttonIFConfig.gpios[0].fd;
-
-        char buf;
-        ::read(fd, &buf, sizeof(buf));
-
-        ret = sd_event_add_io(event.get(), nullptr, fd, EPOLLPRI,
-                              callbackHandler, this);
-        if (ret < 0)
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "POWER_BUTTON: failed to add to event loop");
-            ::closeGpio(fd);
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-                IOError();
-        }
+        init();
     }
 
-    ~PowerButton()
+    virtual ~PowerButton()
     {
-        ::closeGpio(fd);
+        ::closeGpio(buttonIFConfig.gpios[0].fd);
     }
 
     void simPress() override;
     void simLongPress() override;
 
-    static const std::string getGpioName()
+    virtual void init();
+
+    template <typename T>
+    static const std::string getFormFactorName()
     {
         return POWER_BUTTON;
     }
 
-    void updatePressedTime()
+    static const char* getDbusObjectPath()
     {
-        pressedTime = std::chrono::steady_clock::now();
+        return POWER_DBUS_OBJECT_NAME;
     }
-
-    auto getPressTime() const
-    {
-        return pressedTime;
-    }
+    void updatePressedTime();
+    auto getPressTime() const;
+    virtual void doEventHandling(sd_event_source* es, int fd, uint32_t revents);
 
     static int EventHandler(sd_event_source* es, int fd, uint32_t revents,
-                            void* userdata)
-    {
+                            void* userdata);
 
-        int n = -1;
-        char buf = '0';
-
-        if (!userdata)
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "POWER_BUTTON: userdata null!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-                IOError();
-        }
-
-        PowerButton* powerButton = static_cast<PowerButton*>(userdata);
-
-        if (!powerButton)
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "POWER_BUTTON: null pointer!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-                IOError();
-        }
-
-        n = ::lseek(fd, 0, SEEK_SET);
-
-        if (n < 0)
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "POWER_BUTTON: lseek error!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-                IOError();
-        }
-
-        n = ::read(fd, &buf, sizeof(buf));
-        if (n < 0)
-        {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "POWER_BUTTON: read error!");
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-                IOError();
-        }
-
-        if (buf == '0')
-        {
-            phosphor::logging::log<phosphor::logging::level::DEBUG>(
-                "POWER_BUTTON: pressed");
-
-            powerButton->updatePressedTime();
-            // emit pressed signal
-            powerButton->pressed();
-        }
-        else
-        {
-            phosphor::logging::log<phosphor::logging::level::DEBUG>(
-                "POWER_BUTTON: released");
-
-            auto now = std::chrono::steady_clock::now();
-            auto d = std::chrono::duration_cast<std::chrono::milliseconds>(
-                now - powerButton->getPressTime());
-
-            if (d > std::chrono::milliseconds(LONG_PRESS_TIME_MS))
-            {
-                powerButton->pressedLong();
-            }
-            else
-            {
-                // released
-                powerButton->released();
-            }
-        }
-
-        return 0;
-    }
-
-  private:
-    int fd;
-    buttonConfig buttonIFConfig; // button iface io details
-    sdbusplus::bus::bus& bus;
-    EventPtr& event;
-    sd_event_io_handler_t callbackHandler;
+  protected:
     decltype(std::chrono::steady_clock::now()) pressedTime;
 };
