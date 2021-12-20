@@ -2,6 +2,201 @@
   "comments": [
     {
       "key": {
+        "uuid": "7488a9f8_b86e2028",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "Is \u0027unordered_map\u0027 sufficient here?",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bf6410d_42d52208",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "Can you make a typedef for this?  This is pretty hard to read.",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 12,
+        "endChar": 58
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10bcb4a8_cb4eea0e",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "This should be a private member of buttonFactory.",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56e664b9_1af63081",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "Classes are typically ButtonFactory (UpperCamelCase) in this codebase, right?",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ab5e077_18a9bcdf",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "Is the object path really tied to the class (statically) like this?  I\u0027m very surprised.  How do we handle multiple instances of a similar button?  We don\u0027t have any?\n\nI guess I\u0027m fine if everything is compile-time deduced if it really can be done that way.",
+      "range": {
+        "startLine": 38,
+        "startChar": 48,
+        "endLine": 38,
+        "endChar": 70
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60341164_eec19fb2",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "Just \u0027return\u0027.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 23
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59cdfda0_7bf6dc29",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "This std::move is meaningless.  You are returning by value.  The temporary cast to an r-value reference isn\u0027t helpful.  The compiler should be using RVO anyhow and by doing the cast you could actually be harming this optimization.",
+      "range": {
+        "startLine": 59,
+        "startChar": 19,
+        "endLine": 59,
+        "endChar": 39
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e76e73c_8988ce3c",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "You realize how silly this logic is, right?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd33f1b5_ae0b86cf",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "I really don\u0027t like the nullptr opportunity here.  Can we just throw an exception?  Maybe just use:\n\n`buttonIfaceRegister.at(name)(bus, event, buttonCfg)` and let the \u0027at\u0027 exception bubble up?",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a2634b2_529e8982",
         "filename": "inc/button_interface.hpp",
         "patchSetId": 1
@@ -42,6 +237,29 @@
     },
     {
       "key": {
+        "uuid": "a6c6885c_ff51cdde",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "Can this just be \u0027config\u0027?",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5df89ca_4667b4b0",
         "filename": "inc/id_button.hpp",
         "patchSetId": 1
@@ -58,6 +276,53 @@
         "startChar": 0,
         "endLine": 30,
         "endChar": 6
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "919590bf_ba0ed1f9",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "There is no harm in inheriting a struct from a class or vis-versa.  They are identical except the default permissions.",
+      "parentUuid": "f5df89ca_4667b4b0",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87496316_32c1b4e3",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "A struct is public by default. ;)",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 12
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
@@ -82,6 +347,161 @@
     },
     {
       "key": {
+        "uuid": "b5579f2a_7bd24c69",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "I don\u0027t think this is necessary.",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 11
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cdecda2_55f3b860",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "I\u0027m slightly surprised you\u0027ve added \u0027virtual\u0027 onto this class.  Is there any reason for that?  I don\u0027t see any obvious reason you\u0027ve made all these classes additionally virtual.\n\nDo you maybe want this class to be \u0027final\u0027?  That would have been less unusual to me.",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 11
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc310b5_8efe50e5",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "Why is this templated?  I must be missing something.\n\nDo you want these to be constexpr functions?\n\nI would probably recommend \u0027string_view\u0027 in this case.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 42
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2506dd3_117b8893",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "constexpr function?  Does this need to be char*?  Should this be string_view?",
+      "range": {
+        "startLine": 74,
+        "startChar": 11,
+        "endLine": 74,
+        "endChar": 22
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb7da4b2_7dd8d576",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "How about \u0027handleEvent\u0027?",
+      "range": {
+        "startLine": 79,
+        "startChar": 17,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57c33330_0ec2a26f",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \u0027override\u0027?",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27261b5d_aaad1604",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "I\u0027m quite surprised to see this function in each subclass of ButtonIface.  Why doesn\u0027t ButtonIface generate the callback for the sd event itself?  They\u0027re all the same... they all should call the virtual doEventHandling function, right?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 44
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68790bae_23003c21",
         "filename": "inc/id_button.hpp",
         "patchSetId": 1
@@ -98,6 +518,120 @@
         "startChar": 0,
         "endLine": 83,
         "endChar": 12
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e537581_df22069a",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "We have no need to check the read results here?",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa543ac6_36b944fd",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "I know the old code was doing this but I\u0027m fairly surprised we are throwing from inside an sd-event handler.  Hopefully main doesn\u0027t catch this and simply crashes.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f004471c_f86762b1",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "Is this really necessary?  In what cases would we have not sent \u0027this\u0027 into the sd_event registration?",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01e8e0ea_4aa8dfc0",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "This is pointless.  You already checked for nullptr on line 91.",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b493e07c_8e2f6a81",
+        "filename": "src/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "So... we just silently drop nullptrs (ie. bad configs)?  This is not good.",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01557706_dccedd1e",
+        "filename": "src/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-20T23:25:36Z",
+      "side": 1,
+      "message": "As mentioned elsewhere, I would just turn this into a throw-on-bad-config and make this:\n\nbuttonInterfaces.emplace_back(ButtonFactory::createInstance(...));",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 64
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
