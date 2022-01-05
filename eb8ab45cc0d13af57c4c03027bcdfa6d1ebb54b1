@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "7488a9f8_b86e2028",
         "filename": "inc/button_factory.hpp",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "Is \u0027unordered_map\u0027 sufficient here?",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b690f309_b39258a4",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7488a9f8_b86e2028",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "3bf6410d_42d52208",
         "filename": "inc/button_factory.hpp",
@@ -37,10 +56,34 @@
         "endChar": 58
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc1a2eef_6139605b",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bf6410d_42d52208",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 12,
+        "endChar": 58
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "10bcb4a8_cb4eea0e",
         "filename": "inc/button_factory.hpp",
@@ -54,10 +97,28 @@
       "side": 1,
       "message": "This should be a private member of buttonFactory.",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36a63fbf_46f1da30",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10bcb4a8_cb4eea0e",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "56e664b9_1af63081",
         "filename": "inc/button_factory.hpp",
@@ -77,10 +138,34 @@
         "endChar": 19
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d52d0e1_bb67beec",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56e664b9_1af63081",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4ab5e077_18a9bcdf",
         "filename": "inc/button_factory.hpp",
@@ -100,10 +185,34 @@
         "endChar": 70
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "356dafe3_158ed9d1",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "I have explained about this in the comment #70",
+      "parentUuid": "4ab5e077_18a9bcdf",
+      "range": {
+        "startLine": 38,
+        "startChar": 48,
+        "endLine": 38,
+        "endChar": 70
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "60341164_eec19fb2",
         "filename": "inc/button_factory.hpp",
@@ -123,10 +232,34 @@
         "endChar": 23
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "052bb12f_15ab7945",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60341164_eec19fb2",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 23
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "59cdfda0_7bf6dc29",
         "filename": "inc/button_factory.hpp",
@@ -146,10 +279,34 @@
         "endChar": 39
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c2f69e_5fc1e6c5",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59cdfda0_7bf6dc29",
+      "range": {
+        "startLine": 59,
+        "startChar": 19,
+        "endLine": 59,
+        "endChar": 39
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "6e76e73c_8988ce3c",
         "filename": "inc/button_factory.hpp",
@@ -169,10 +326,10 @@
         "endChar": 27
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "fd33f1b5_ae0b86cf",
         "filename": "inc/button_factory.hpp",
@@ -192,10 +349,58 @@
         "endChar": 27
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5a0de61_03c0e09c",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd33f1b5_ae0b86cf",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9844c41e_90c48c3f",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e76e73c_8988ce3c",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4a2634b2_529e8982",
         "filename": "inc/button_interface.hpp",
@@ -215,10 +420,10 @@
         "endChar": 7
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d29721a7_40672bae",
         "filename": "inc/button_interface.hpp",
@@ -232,10 +437,10 @@
       "side": 1,
       "message": "can be a const function",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a6c6885c_ff51cdde",
         "filename": "inc/button_interface.hpp",
@@ -255,10 +460,34 @@
         "endChar": 31
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dbd5707_61b4e534",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6c6885c_ff51cdde",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "f5df89ca_4667b4b0",
         "filename": "inc/id_button.hpp",
@@ -278,10 +507,10 @@
         "endChar": 6
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "919590bf_ba0ed1f9",
         "filename": "inc/id_button.hpp",
@@ -302,10 +531,34 @@
         "endChar": 6
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d4c9e78_2599f2ee",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "To avoid confusion I have replaced button struct definitions with class.",
+      "parentUuid": "919590bf_ba0ed1f9",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "87496316_32c1b4e3",
         "filename": "inc/id_button.hpp",
@@ -325,10 +578,34 @@
         "endChar": 12
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3465515f_1397fa79",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "all button iface definitions are changed as class definition.",
+      "parentUuid": "87496316_32c1b4e3",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 12
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "ebe24b82_52c1c896",
         "filename": "inc/id_button.hpp",
@@ -342,10 +619,10 @@
       "side": 1,
       "message": "why did you take this out of the initialization list?",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b5579f2a_7bd24c69",
         "filename": "inc/id_button.hpp",
@@ -365,10 +642,34 @@
         "endChar": 11
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b5c8175_27dc8e96",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5579f2a_7bd24c69",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 11
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "6cdecda2_55f3b860",
         "filename": "inc/id_button.hpp",
@@ -388,10 +689,34 @@
         "endChar": 11
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "df59376e_b5c85224",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "just for code clarity i have added. removed them now.",
+      "parentUuid": "6cdecda2_55f3b860",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 11
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4dc310b5_8efe50e5",
         "filename": "inc/id_button.hpp",
@@ -411,10 +736,10 @@
         "endChar": 42
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f2506dd3_117b8893",
         "filename": "inc/id_button.hpp",
@@ -434,10 +759,10 @@
         "endChar": 22
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "cb7da4b2_7dd8d576",
         "filename": "inc/id_button.hpp",
@@ -457,10 +782,10 @@
         "endChar": 32
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "57c33330_0ec2a26f",
         "filename": "inc/id_button.hpp",
@@ -474,10 +799,34 @@
       "side": 1,
       "message": "Shouldn\u0027t this be \u0027override\u0027?",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27ab0d56_7293422e",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb7da4b2_7dd8d576",
+      "range": {
+        "startLine": 79,
+        "startChar": 17,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "27261b5d_aaad1604",
         "filename": "inc/id_button.hpp",
@@ -497,10 +846,34 @@
         "endChar": 44
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3442f89_28ca07a6",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27261b5d_aaad1604",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 44
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "68790bae_23003c21",
         "filename": "inc/id_button.hpp",
@@ -520,10 +893,10 @@
         "endChar": 12
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5e537581_df22069a",
         "filename": "src/id_button.cpp",
@@ -537,10 +910,28 @@
       "side": 1,
       "message": "We have no need to check the read results here?",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f688cdd_7a899628",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e537581_df22069a",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "fa543ac6_36b944fd",
         "filename": "src/id_button.cpp",
@@ -560,10 +951,34 @@
         "endChar": 22
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2349380e_1b7510de",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "exception throw is removed and only the userdata ptr is checked if not empty before calling handleEvent.",
+      "parentUuid": "fa543ac6_36b944fd",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "f004471c_f86762b1",
         "filename": "src/id_button.cpp",
@@ -577,10 +992,28 @@
       "side": 1,
       "message": "Is this really necessary?  In what cases would we have not sent \u0027this\u0027 into the sd_event registration?",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75dcd1c9_2663f676",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f004471c_f86762b1",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "01e8e0ea_4aa8dfc0",
         "filename": "src/id_button.cpp",
@@ -594,10 +1027,28 @@
       "side": 1,
       "message": "This is pointless.  You already checked for nullptr on line 91.",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d26d1ce_bea64d71",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01e8e0ea_4aa8dfc0",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "b493e07c_8e2f6a81",
         "filename": "src/main.cpp",
@@ -611,10 +1062,28 @@
       "side": 1,
       "message": "So... we just silently drop nullptrs (ie. bad configs)?  This is not good.",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "622ca4a9_37a4e6a3",
+        "filename": "src/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "answered this comment in the below comment.",
+      "parentUuid": "b493e07c_8e2f6a81",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "01557706_dccedd1e",
         "filename": "src/main.cpp",
@@ -634,8 +1103,31 @@
         "endChar": 64
       },
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
-      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
-      "unresolved": true
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf2a5f3d_7be14af1",
+        "filename": "src/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:23:36Z",
+      "side": 1,
+      "message": "Thanks for the suggestion Patrick.\nThe createInstance method returns if there is a matching button iface definition found in the buttonIface registry.\nwe might get null pointer if the form factor name provided in the json config is wrong or invalid for the specific button type. In this case is it ideal to skip creating that specific button instance and keep instances for other valid configs rather than stopping the application.\ncould you share your opinion on this?",
+      "parentUuid": "01557706_dccedd1e",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 64
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
