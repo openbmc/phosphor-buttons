@@ -16,6 +16,189 @@
       "message": "#70",
       "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00531e4f_3dcce883",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "Seems like there are still a lot of unresolved comments as well.  Here are some additional suggestions.",
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf7cd80f_05091b49",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "minor: prefer C++11 using syntax over typedef.\nhttps://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rt-using\n\nusing buttonIfCreatorMethod \u003d ...",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "993c2ced_720870ea",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "Not really necessary since you\u0027re not doing anything in the constructor anyhow.  If you really want an explicit empty constructor then \"\u003d default;\" is probably a better approach.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0f5cde6_63d94807",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "This is where the confusion on these \u0027getFormFactorName\u0027 functions is coming from...\n\nThese should be simply T::getFormFactorName() and the definition should drop the template.  There is no case where you are calling something like \u0027T::getFormFactorName\u003cS\u003e()\u0027 so the extra template argument is clutter.",
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "291242ca_492da7a4",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "I\u0027m surprised this even compiled.  We have an implicit \u0027else\u0027 branch that doesn\u0027t return anything?\n\nEarlier I suggested getting rid of the \u0027find\u0027 and simply using \u0027at\u0027 so that the missing name problem becomes an exception.",
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9521b85_4e750987",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "Matt suggested making this:\n\n  virtual std::string getFormFactorType() const\n\nIs there a need for this to be virtual?  I don\u0027t see any obvious uses of it as an overload.",
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4659974b_b74b7c8b",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "I don\u0027t know if this is what you want or intended, but by changing IdButton to a class (from a struct) you\u0027ve made private the sdbusplus::object inheritance.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 72
+      },
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38eb806a_aee8487e",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "This is the part I\u0027m thinking can be removed...  See line 44 of ButtonFactory.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01e96f41_8070e9a4",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "This looks like a pretty common pattern (add a file descriptor into the sd_event).  Can you put this into ButtonInterface?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }

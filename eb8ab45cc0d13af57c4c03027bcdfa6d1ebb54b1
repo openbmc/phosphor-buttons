@@ -402,6 +402,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29178754_c1df0fd7",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be resolved.",
+      "parentUuid": "f5a0de61_03c0e09c",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a2634b2_529e8982",
         "filename": "inc/button_interface.hpp",
         "patchSetId": 1
@@ -1004,6 +1028,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe6e71f5_43c13f5b",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "You said \"exception throw is removed\" but I clearly see this one and one on lines 63 and 72.",
+      "parentUuid": "2349380e_1b7510de",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f004471c_f86762b1",
         "filename": "src/id_button.cpp",
         "patchSetId": 1
@@ -1144,6 +1192,30 @@
       "side": 1,
       "message": "Thanks for the suggestion Patrick.\nThe createInstance method returns if there is a matching button iface definition found in the buttonIface registry.\nwe might get null pointer if the form factor name provided in the json config is wrong or invalid for the specific button type. In this case is it ideal to skip creating that specific button instance and keep instances for other valid configs rather than stopping the application.\ncould you share your opinion on this?",
       "parentUuid": "01557706_dccedd1e",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 64
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eb3446a_cf4d3a54",
+        "filename": "src/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-05T16:24:06Z",
+      "side": 1,
+      "message": "I\u0027d rather we get a hard failure for a bad config.  It is much easier to identify a bug when the systemd.service is in a fail state than if the application silently creates an ERROR journal entry.  Nobody looks at those, so a bug that is introduced might go undetected for a long time.",
+      "parentUuid": "bf2a5f3d_7be14af1",
       "range": {
         "startLine": 74,
         "startChar": 0,
