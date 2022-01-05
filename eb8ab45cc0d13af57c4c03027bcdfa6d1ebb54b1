@@ -741,6 +741,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5ae6345_19b5dfae",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-05T15:32:47Z",
+      "side": 1,
+      "message": "The idea behind this is for some button interfaces which is discussed in the\nfollowing design ( host selector switch ,serial console mux)\nhttps://gerrit.openbmc-project.xyz/c/openbmc/docs/+/45544\nthough form factor type is similar, There may be some oem specific code logic needed for the above mentioned button iface types.\nfor this purpose the virtual methods init() and eventHandle() are added in the button iface base class. \nEach button Iface class can have multiple derived classes with oem specific init() and handleEvent() implementations in case it is needed. This template method is added  to enable static polymorphism to the derived classes so that the formFactorName in the derived classes will be available at compile time.which will be used to create the button iface instance using factory class.",
+      "parentUuid": "4dc310b5_8efe50e5",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 42
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2506dd3_117b8893",
         "filename": "inc/id_button.hpp",
         "patchSetId": 1
