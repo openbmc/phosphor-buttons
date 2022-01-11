@@ -58,6 +58,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7102e0cd_bc2e672d",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf7cd80f_05091b49",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "993c2ced_720870ea",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-01-05T16:24:06Z",
       "side": 1,
       "message": "Not really necessary since you\u0027re not doing anything in the constructor anyhow.  If you really want an explicit empty constructor then \"\u003d default;\" is probably a better approach.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 5
+      },
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88bd0ff6_a195f3ab",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "993c2ced_720870ea",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -98,6 +146,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4fd7d7c_d8a48f53",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0f5cde6_63d94807",
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "291242ca_492da7a4",
@@ -115,6 +181,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "064e1f09_aab9c83a",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "291242ca_492da7a4",
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9521b85_4e750987",
@@ -128,6 +212,24 @@
       "writtenOn": "2022-01-05T16:24:06Z",
       "side": 1,
       "message": "Matt suggested making this:\n\n  virtual std::string getFormFactorType() const\n\nIs there a need for this to be virtual?  I don\u0027t see any obvious uses of it as an overload.",
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1e6ef72_21a4c95c",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "this is not needed as virtual method changed it.",
+      "parentUuid": "a9521b85_4e750987",
       "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -178,6 +280,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c353f6db_9cde906a",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38eb806a_aee8487e",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01e96f41_8070e9a4",
@@ -191,6 +317,30 @@
       "writtenOn": "2022-01-05T16:24:06Z",
       "side": 1,
       "message": "This looks like a pretty common pattern (add a file descriptor into the sd_event).  Can you put this into ButtonInterface?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "3644124e3f14fabae1fe6bfa2f7f12ca1cabae73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad3e0724_3aebe891",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "There is some other button interfaces based on new multihost phosphor buttons design which can have multiple gpio and callback function mapping needed  and also certain button interfaces a will not necessarily have gpio io events to be monitored via sd-event rather it might monitor dbus property change via sdbus match function.so it is better to keep these under individual button interface classes.",
+      "parentUuid": "01e96f41_8070e9a4",
       "range": {
         "startLine": 32,
         "startChar": 0,

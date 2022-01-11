@@ -212,6 +212,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be8c149a_d4e95970",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "356dafe3_158ed9d1",
+      "range": {
+        "startLine": 38,
+        "startChar": 48,
+        "endLine": 38,
+        "endChar": 70
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60341164_eec19fb2",
@@ -414,6 +438,30 @@
       "side": 1,
       "message": "This doesn\u0027t seem to be resolved.",
       "parentUuid": "f5a0de61_03c0e09c",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dcec0cb_f5261e4a",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29178754_c1df0fd7",
       "range": {
         "startLine": 61,
         "startChar": 0,
@@ -1052,6 +1100,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03da77e1_eb9a6c7c",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "now all exceptions are removed except the ones in constructor as there is no need to create the objects if gpio config or sd event loop addition is failed.",
+      "parentUuid": "fe6e71f5_43c13f5b",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f004471c_f86762b1",
         "filename": "src/id_button.cpp",
         "patchSetId": 1
@@ -1216,6 +1288,30 @@
       "side": 1,
       "message": "I\u0027d rather we get a hard failure for a bad config.  It is much easier to identify a bug when the systemd.service is in a fail state than if the application silently creates an ERROR journal entry.  Nobody looks at those, so a bug that is introduced might go undetected for a long time.",
       "parentUuid": "bf2a5f3d_7be14af1",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 64
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d647f241_65dec974",
+        "filename": "src/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-11T14:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8eb3446a_cf4d3a54",
       "range": {
         "startLine": 74,
         "startChar": 0,
