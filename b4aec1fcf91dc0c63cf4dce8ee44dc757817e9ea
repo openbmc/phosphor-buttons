@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8bf097d_48b3f338",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-18T13:25:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ac8b5b6_b071f739",
+      "revId": "b4aec1fcf91dc0c63cf4dce8ee44dc757817e9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7370e545_a95f01b8",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-14T18:36:17Z",
       "side": 1,
       "message": "This still should be a const function.\n\n    std::string getFormFactorType() const",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 35
+      },
+      "revId": "b4aec1fcf91dc0c63cf4dce8ee44dc757817e9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04510c0c_ea8c7d2f",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-18T13:25:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7370e545_a95f01b8",
       "range": {
         "startLine": 47,
         "startChar": 4,
@@ -58,6 +100,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bcfe3e8_0ce3989c",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-18T13:25:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "09576456_033ec091",
+      "revId": "b4aec1fcf91dc0c63cf4dce8ee44dc757817e9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7627588e_4cfe6cf0",
@@ -71,6 +131,24 @@
       "writtenOn": "2022-01-14T18:36:17Z",
       "side": 1,
       "message": "override?",
+      "revId": "b4aec1fcf91dc0c63cf4dce8ee44dc757817e9ea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9454a39_5cf60176",
+        "filename": "inc/power_button.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-18T13:25:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7627588e_4cfe6cf0",
       "revId": "b4aec1fcf91dc0c63cf4dce8ee44dc757817e9ea",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
