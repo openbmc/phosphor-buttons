@@ -672,6 +672,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b29a41d5_2aa909c1",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d4c9e78_2599f2ee",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87496316_32c1b4e3",
@@ -925,6 +949,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fbb822f_996807d5",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5ae6345_19b5dfae",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 42
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2506dd3_117b8893",
@@ -938,6 +986,30 @@
       "writtenOn": "2021-12-20T23:25:36Z",
       "side": 1,
       "message": "constexpr function?  Does this need to be char*?  Should this be string_view?",
+      "range": {
+        "startLine": 74,
+        "startChar": 11,
+        "endLine": 74,
+        "endChar": 22
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72047f4c_25ed1f67",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:43:23Z",
+      "side": 1,
+      "message": "I see this is now constexpr.  Can it be string_view or is that not helpful here?  (I didn\u0027t get a response previously).",
+      "parentUuid": "f2506dd3_117b8893",
       "range": {
         "startLine": 74,
         "startChar": 11,
@@ -1014,6 +1086,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21bbe576_46b8d409",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:43:23Z",
+      "side": 1,
+      "message": "Stil appears missing.",
+      "parentUuid": "57c33330_0ec2a26f",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27261b5d_aaad1604",
         "filename": "inc/id_button.hpp",
         "patchSetId": 1
@@ -1072,6 +1162,30 @@
       "writtenOn": "2021-12-15T22:19:25Z",
       "side": 1,
       "message": "don\u0027t need",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 12
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "751aa859_55990fa5",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68790bae_23003c21",
       "range": {
         "startLine": 83,
         "startChar": 0,
@@ -1202,6 +1316,30 @@
       "side": 1,
       "message": "now all exceptions are removed except the ones in constructor as there is no need to create the objects if gpio config or sd event loop addition is failed.",
       "parentUuid": "fe6e71f5_43c13f5b",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bf70b37_a8de443f",
+        "filename": "src/id_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:43:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "03da77e1_eb9a6c7c",
       "range": {
         "startLine": 43,
         "startChar": 0,
