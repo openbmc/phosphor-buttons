@@ -495,6 +495,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6ee524a_4dcc14e5",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:40:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a2634b2_529e8982",
+      "range": {
+        "startLine": 8,
+        "startChar": 6,
+        "endLine": 8,
+        "endChar": 7
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d29721a7_40672bae",
@@ -508,6 +532,24 @@
       "writtenOn": "2021-12-15T22:19:25Z",
       "side": 1,
       "message": "can be a const function",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7b0a0bc_6edfc55c",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:40:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d29721a7_40672bae",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -677,6 +719,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8800e317_7715b5bd",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:40:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3465515f_1397fa79",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 12
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebe24b82_52c1c896",
@@ -778,6 +844,30 @@
       "side": 1,
       "message": "just for code clarity i have added. removed them now.",
       "parentUuid": "6cdecda2_55f3b860",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 11
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2a35557_a3f9e1ad",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-19T19:40:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df59376e_b5c85224",
       "range": {
         "startLine": 67,
         "startChar": 4,
