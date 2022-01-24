@@ -52,6 +52,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4987b507_0d992c9f",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-24T18:29:00Z",
+      "side": 1,
+      "message": "I have moved deinit() method to individual destructors.does the check that \"assert  deinit is not called\" in base constructor additionally needed or this is fine?. Also to maintain uniformity i have also moved init calls to individual constructors is this fine?",
+      "parentUuid": "00517f28_b7bb91ba",
+      "revId": "4d1dc699b9a260f57369ff05e22220274971c4ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3469265a_87b2f21d",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-01-19T19:40:55Z",
       "side": 1,
       "message": "Ideally we\u0027d make init/deInit \"protected:\" now.  I think you only want them called from the constructor/destructor.",
+      "revId": "4d1dc699b9a260f57369ff05e22220274971c4ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c5406f3_a6804d47",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-24T18:29:00Z",
+      "side": 1,
+      "message": "this is not needed since now the init and deInit are called in derived class",
+      "parentUuid": "3469265a_87b2f21d",
       "revId": "4d1dc699b9a260f57369ff05e22220274971c4ff",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }

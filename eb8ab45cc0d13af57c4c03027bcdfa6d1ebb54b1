@@ -1020,6 +1020,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "524be834_7bd5e5f4",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-24T18:29:00Z",
+      "side": 1,
+      "message": "dbus object name is a preprocessor macro provided from cmake file.\nalso this method\u0027s output is required to provide as sdbus object constructor which expects const char*.since string_view does not directly provide const char* shall we keep this as const char*?",
+      "parentUuid": "72047f4c_25ed1f67",
+      "range": {
+        "startLine": 74,
+        "startChar": 11,
+        "endLine": 74,
+        "endChar": 22
+      },
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb7da4b2_7dd8d576",
@@ -1098,6 +1122,24 @@
       "side": 1,
       "message": "Stil appears missing.",
       "parentUuid": "57c33330_0ec2a26f",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37475c4c_6044c8fe",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-24T18:29:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21bbe576_46b8d409",
       "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
