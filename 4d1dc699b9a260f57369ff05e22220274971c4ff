@@ -103,6 +103,24 @@
       "parentUuid": "3469265a_87b2f21d",
       "revId": "4d1dc699b9a260f57369ff05e22220274971c4ff",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e236d72_50c71e67",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-01-24T22:38:35Z",
+      "side": 1,
+      "message": "Don\u0027t you still want the function \u0027protected\u0027 though?  You don\u0027t want external users to call \u0027init\u0027 or \u0027deInit\u0027.  You only want derived classes to call them... so it should be protected with \u0027protected\u0027.",
+      "parentUuid": "2c5406f3_a6804d47",
+      "revId": "4d1dc699b9a260f57369ff05e22220274971c4ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
