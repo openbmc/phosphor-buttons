@@ -802,6 +802,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "000ae4e5_0c38e253",
+        "filename": "inc/id_button.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-01-31T06:32:03Z",
+      "side": 1,
+      "message": "The callback handler initialization is now moved to base class initialization list\nas it is common method for all derived classes.",
+      "parentUuid": "dd78b848_474a14f1",
+      "revId": "eb8ab45cc0d13af57c4c03027bcdfa6d1ebb54b1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5579f2a_7bd24c69",
