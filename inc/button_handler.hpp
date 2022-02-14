@@ -7,7 +7,12 @@ namespace phosphor
 {
 namespace button
 {
-
+enum class PowerEvent
+{
+    powerPressed,
+    longPowerPressed,
+    resetPressed
+};
 /**
  * @class Handler
  *
@@ -80,19 +85,40 @@ class Handler
      *
      * @return true if powered on, false else
      */
-    bool poweredOn() const;
+    bool poweredOn(size_t hostNumber) const;
 
-    /**
-     * @brief Returns the service name for an object
-     *
-     * @param[in] path - the object path
-     * @param[in] interface - the interface name
-     *
+    /*
      * @return std::string - the D-Bus service name if found, else
      *                       an empty string
      */
     std::string getService(const std::string& path,
                            const std::string& interface) const;
+
+    /**
+     * @brief gets the valid host selector value in multi host
+     * system
+     *
+     * @return size_t throws exception if host selector position is
+     * invalid or not available.
+     */
+
+    size_t getHostSelectorValue();
+
+    /**
+     * @brief checks if the system has multi host
+     * based on the host selector property availability
+     *
+     * @return bool returns true if multi host system
+     * else returns false.
+     */
+    bool isMultiHost();
+    /**
+     * @brief trigger the power ctrl event based on the
+     *  button press event type.
+     *
+     * @return void
+     */
+    void handlePowerEvent(PowerEvent powerEventType);
 
     /**
      * @brief sdbusplus connection object
