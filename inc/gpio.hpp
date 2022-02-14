@@ -15,6 +15,7 @@
 */
 #pragma once
 
+#include <nlohmann/json.hpp>
 #include <sdbusplus/bus.hpp>
 #include <string>
 #include <vector>
@@ -53,3 +54,5 @@ int configGpio(gpioInfo& gpioConfig);
 
 uint32_t getGpioNum(const std::string& gpioPin);
 void closeGpio(int fd);
+// global json object which holds gpio_defs.json configs
+extern nlohmann::json gpioDefs;

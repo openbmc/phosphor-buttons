@@ -80,19 +80,33 @@ class Handler
      *
      * @return true if powered on, false else
      */
-    bool poweredOn() const;
+    bool poweredOn(std::string hostIndex) const;
 
     /**
-     * @brief Returns the service name for an object
+     * @brief gets the valid host selector value in multi host
+     * system
      *
-     * @param[in] path - the object path
-     * @param[in] interface - the interface name
-     *
-     * @return std::string - the D-Bus service name if found, else
-     *                       an empty string
+     * @return int returns negative value if host selector position is invalid
+     * or not available.
      */
-    std::string getService(const std::string& path,
-                           const std::string& interface) const;
+
+    int getHostSelectorValue();
+
+    /**
+     * @brief checks if the system has multi host
+     * based on the host selector property availability
+     *
+     * @return bool returns true if multi host system
+     * else returns false.
+     */
+    bool isMultiHost();
+    /**
+     * @brief does sled cycle for multi host system
+     *
+     * @return void returns true if multi host system
+     * else returns false.
+     */
+    void doMultiHostSledCycle();
 
     /**
      * @brief sdbusplus connection object
@@ -118,6 +132,13 @@ class Handler
      * @brief Matches on the reset button released signal
      */
     std::unique_ptr<sdbusplus::bus::match_t> resetButtonReleased;
+
+    /*
+     * @return std::string - the D-Bus service name if found, else
+     *                       an empty string
+     */
+    std::string getService(const std::string& path,
+                           const std::string& interface) const;
 };
 
 } // namespace button

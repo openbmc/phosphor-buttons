@@ -22,6 +22,9 @@
 #include <phosphor-logging/elog-errors.hpp>
 static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 
+using namespace phosphor::logging;
+nlohmann::json gpioDefs;
+
 int main(int argc, char* argv[])
 {
     int ret = 0;
@@ -49,8 +52,8 @@ int main(int argc, char* argv[])
     std::vector<std::unique_ptr<ButtonIface>> buttonInterfaces;
 
     std::ifstream gpios{gpioDefFile};
-    auto json = nlohmann::json::parse(gpios, nullptr, true);
-    auto gpioDefs = json["gpio_definitions"];
+    auto gpioDefJson = nlohmann::json::parse(gpios, nullptr, true);
+    gpioDefs = gpioDefJson["gpio_definitions"];
 
     // load gpio config from gpio defs json file and create button interface
     // objects based on the button form factor type
