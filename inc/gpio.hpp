@@ -15,6 +15,7 @@
 */
 #pragma once
 
+#include <nlohmann/json.hpp>
 #include <sdbusplus/bus.hpp>
 #include <string>
 #include <vector>
@@ -30,9 +31,9 @@ struct gpioInfo
 // this struct represents button interface
 struct buttonConfig
 {
-    std::string formFactorName;  // name of the button interface
-    std::vector<gpioInfo> gpios; // holds single or group gpio config
-                                 // corresponding to button interface
+    std::string formFactorName;   // name of the button interface
+    std::vector<gpioInfo> gpios;  // holds single or group gpio config
+    nlohmann::json extraJsonInfo; // corresponding to button interface
 };
 
 /**
@@ -53,3 +54,5 @@ int configGpio(gpioInfo& gpioConfig);
 
 uint32_t getGpioNum(const std::string& gpioPin);
 void closeGpio(int fd);
+// global json object which holds gpio_defs.json configs
+extern nlohmann::json gpioDefs;
