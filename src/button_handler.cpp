@@ -5,7 +5,6 @@
 #include <phosphor-logging/log.hpp>
 #include <xyz/openbmc_project/State/Chassis/server.hpp>
 #include <xyz/openbmc_project/State/Host/server.hpp>
-
 namespace phosphor
 {
 namespace button
@@ -15,18 +14,24 @@ namespace sdbusRule = sdbusplus::bus::match::rules;
 using namespace sdbusplus::xyz::openbmc_project::State::server;
 using namespace phosphor::logging;
 
-constexpr auto propertyIface = "org.freedesktop.DBus.Properties";
 constexpr auto chassisIface = "xyz.openbmc_project.State.Chassis";
 constexpr auto hostIface = "xyz.openbmc_project.State.Host";
 constexpr auto powerButtonIface = "xyz.openbmc_project.Chassis.Buttons.Power";
 constexpr auto idButtonIface = "xyz.openbmc_project.Chassis.Buttons.ID";
 constexpr auto resetButtonIface = "xyz.openbmc_project.Chassis.Buttons.Reset";
-constexpr auto mapperIface = "xyz.openbmc_project.ObjectMapper";
 constexpr auto ledGroupIface = "xyz.openbmc_project.Led.Group";
+constexpr auto ledGroupBasePath = "/xyz/openbmc_project/led/groups/";
+constexpr auto hostSelectorIface =
+    "xyz.openbmc_project.Chassis.Buttons.HostSelector";
+constexpr auto debugHostSelectorIface =
+    "xyz.openbmc_project.Chassis.Buttons.DebugHostSelector";
+
+constexpr auto propertyIface = "org.freedesktop.DBus.Properties";
+constexpr auto mapperIface = "xyz.openbmc_project.ObjectMapper";
 
 constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
 constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
-constexpr auto ledGroupBasePath = "/xyz/openbmc_project/led/groups/";
+constexpr auto BMC_POSITION = 0;
 
 Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
 {
@@ -97,7 +102,11 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
         // The button wasn't implemented
     }
 }
-
+bool Handler::isMultiHost()
+{
+    // return true in case seletor object is available
+    return (!getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty());
+}
 std::string Handler::getService(const std::string& path,
                                 const std::string& interface) const
 {
@@ -111,12 +120,43 @@ std::string Handler::getService(const std::string& path,
 
     return objectData.begin()->first;
 }
-
-bool Handler::poweredOn() const
+size_t Handler::getHostSelectorValue()
 {
-    auto service = getService(CHASSIS_STATE_OBJECT_NAME, chassisIface);
+    auto HSService = getService(HS_DBUS_OBJECT_NAME, hostSelectorIface);
+
+    if (HSService.empty())
+    {
+        log<level::INFO>("Host Selector dbus object not available");
+        throw std::invalid_argument("Host selector dbus object not available");
+    }
+
+    try
+    {
+        auto method = bus.new_method_call(
+            HSService.c_str(), HS_DBUS_OBJECT_NAME, propertyIface, "Get");
+        method.append(hostSelectorIface, "Position");
+        auto result = bus.call(method);
+
+        std::variant<size_t> HSPositionVariant;
+        result.read(HSPositionVariant);
+
+        auto position = std::get<size_t>(HSPositionVariant);
+        return position;
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        log<level::ERR>("Error reading Host selector Position",
+                        entry("ERROR=%s", e.what()));
+        throw;
+    }
+}
+bool Handler::poweredOn(size_t hostNumber) const
+{
+    auto chassisObjectName =
+        CHASSIS_STATE_OBJECT_NAME + std::to_string(hostNumber);
+    auto service = getService(chassisObjectName.c_str(), chassisIface);
     auto method = bus.new_method_call(
-        service.c_str(), CHASSIS_STATE_OBJECT_NAME, propertyIface, "Get");
+        service.c_str(), chassisObjectName.c_str(), propertyIface, "Get");
     method.append(chassisIface, "CurrentPowerState");
     auto result = bus.call(method);
 
@@ -127,27 +167,115 @@ bool Handler::poweredOn() const
            Chassis::convertPowerStateFromString(std::get<std::string>(state));
 }
 
-void Handler::powerPressed(sdbusplus::message::message& msg)
+void Handler::handlePowerEvent(POWER_EVENT powerEventType)
 {
-    auto transition = Host::Transition::On;
+    std::string objPathName;
+    std::string dbusIfaceName;
+    std::string transitionName;
+    std::variant<Host::Transition, Chassis::Transition> transition;
 
-    try
+    size_t hostNumber = 0;
+    auto isMultiHostSystem = isMultiHost();
+    if (isMultiHostSystem)
     {
-        if (poweredOn())
-        {
-            transition = Host::Transition::Off;
+        hostNumber = getHostSelectorValue();
+        log<level::ERR>("multi host system detected : ",
+                        entry("POSITION=%d", hostNumber));
+    }
+
+    std::string hostNumStr = std::to_string(hostNumber);
+
+    // ignore  power and reset button events if BMC is selected.
+    if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
+        (powerEventType != POWER_EVENT::longPowerPressed))
+    {
+        log<level::INFO>("handlePowerEvent : BMC selected on multihost system."
+                         "ignoring power and reset button events...");
+        return;
+    }
+
+    switch (powerEventType)
+    {
+        case POWER_EVENT::powerPressed: {
+            objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
+            dbusIfaceName = hostIface;
+            transitionName = "RequestedHostTransition";
+
+            transition = Host::Transition::On;
+
+            if (poweredOn(hostNumber))
+            {
+                transition = Host::Transition::Off;
+            }
+            log<level::INFO>("handlePowerEvent : handle power button press ");
+
+            break;
+        }
+        case POWER_EVENT::longPowerPressed: {
+            dbusIfaceName = chassisIface;
+            transitionName = "RequestedPowerTransition";
+            objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+            transition = Chassis::Transition::Off;
+
+            /*  multi host system :
+                    hosts (1 to N) - host shutdown
+                    bmc (0) - sled cycle
+                single host system :
+                    host(0) - host shutdown
+            */
+            if (isMultiHostSystem && (hostNumber == BMC_POSITION))
+            {
+#if CHASSIS_SYSTEM_RESET_ENABLED
+                objPathName = CHASSISSYSTEM_STATE_OBJECT_NAME + hostNumStr;
+                transition = Chassis::Transition::PowerCycle;
+#else
+                return;
+#endif
+            }
+            else if (!poweredOn(hostNumber))
+            {
+                log<level::INFO>(
+                    "Power is off so ignoring long power button press");
+                return;
+            }
+            log<level::INFO>(
+                "handlePowerEvent : handle long power button press");
+
+            break;
         }
 
-        log<level::INFO>("Handling power button press");
+        case POWER_EVENT::resetPressed: {
 
-        std::variant<std::string> state = convertForMessage(transition);
+            objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
+            dbusIfaceName = hostIface;
+            transitionName = "RequestedHostTransition";
 
-        auto service = getService(HOST_STATE_OBJECT_NAME, hostIface);
-        auto method = bus.new_method_call(
-            service.c_str(), HOST_STATE_OBJECT_NAME, propertyIface, "Set");
-        method.append(hostIface, "RequestedHostTransition", state);
+            if (!poweredOn(hostNumber))
+            {
+                log<level::INFO>("Power is off so ignoring reset button press");
+                return;
+            }
 
-        bus.call(method);
+            log<level::INFO>("Handling reset button press");
+            transition = Host::Transition::Reboot;
+            break;
+        }
+        default: {
+            log<level::ERR>("invalid power event. skipping...");
+            return;
+        }
+    }
+    auto service = getService(objPathName.c_str(), dbusIfaceName);
+    auto method = bus.new_method_call(service.c_str(), objPathName.c_str(),
+                                      propertyIface, "Set");
+    method.append(dbusIfaceName, transitionName, transition);
+    bus.call(method);
+}
+void Handler::powerPressed(sdbusplus::message::message& msg)
+{
+    try
+    {
+        handlePowerEvent(POWER_EVENT::powerPressed);
     }
     catch (const sdbusplus::exception::exception& e)
     {
@@ -155,29 +283,11 @@ void Handler::powerPressed(sdbusplus::message::message& msg)
                         entry("ERROR=%s", e.what()));
     }
 }
-
 void Handler::longPowerPressed(sdbusplus::message::message& msg)
 {
     try
     {
-        if (!poweredOn())
-        {
-            log<level::INFO>(
-                "Power is off so ignoring long power button press");
-            return;
-        }
-
-        log<level::INFO>("Handling long power button press");
-
-        std::variant<std::string> state =
-            convertForMessage(Chassis::Transition::Off);
-
-        auto service = getService(CHASSIS_STATE_OBJECT_NAME, chassisIface);
-        auto method = bus.new_method_call(
-            service.c_str(), CHASSIS_STATE_OBJECT_NAME, propertyIface, "Set");
-        method.append(chassisIface, "RequestedPowerTransition", state);
-
-        bus.call(method);
+        handlePowerEvent(POWER_EVENT::longPowerPressed);
     }
     catch (const sdbusplus::exception::exception& e)
     {
@@ -190,24 +300,7 @@ void Handler::resetPressed(sdbusplus::message::message& msg)
 {
     try
     {
-        if (!poweredOn())
-        {
-            log<level::INFO>("Power is off so ignoring reset button press");
-            return;
-        }
-
-        log<level::INFO>("Handling reset button press");
-
-        std::variant<std::string> state =
-            convertForMessage(Host::Transition::Reboot);
-
-        auto service = getService(HOST_STATE_OBJECT_NAME, hostIface);
-        auto method = bus.new_method_call(
-            service.c_str(), HOST_STATE_OBJECT_NAME, propertyIface, "Set");
-
-        method.append(hostIface, "RequestedHostTransition", state);
-
-        bus.call(method);
+        handlePowerEvent(POWER_EVENT::resetPressed);
     }
     catch (const sdbusplus::exception::exception& e)
     {

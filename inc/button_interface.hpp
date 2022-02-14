@@ -50,8 +50,9 @@ class ButtonIface
 
             ButtonIface* buttonIface = static_cast<ButtonIface*>(userdata);
             buttonIface->handleEvent(es, fd, revents);
-            return 0;
         }
+
+        return 0;
     }
 
     std::string getFormFactorType() const
