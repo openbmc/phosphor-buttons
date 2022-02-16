@@ -67,6 +67,384 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50e2d5c3_06356942",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "To me it is bad to work on strings (instead of size_t).  Can we convert the hostIndex to an integer as soon as possible and keep it internally as that?  We should only be operating on strings when we deal with dbus.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a654ed8f_c05aa466",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "size_t -- this is a countable entity.\n\nPrefer to avoid return code style functions as well (ie. -1).  Can this be an exception?",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 7
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d39b2392_a056c6d9",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "I suspect this is \u0027const\u0027.  Is it \u0027static\u0027?",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fa17c34_6e878f65",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Hmm... void or bool?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 26
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "172b0d49_445a1472",
+        "filename": "inc/gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Isn\u0027t there a better way than exposing the whole json globally?  DOn\u0027t we already have this gpioInfo structure to hold the config?",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ca46ae_11a757dd",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "`static constexpr auto`.\n\nThe const is redundant.\n\n\u003e A constexpr specifier used in an object declaration implies const.\n\nhttps://en.cppreference.com/w/cpp/language/constexpr",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "109f3c70_ecd42727",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Why is \u00276\u0027 appropriate?  Can we document that?\n\nOn Bletchley we have 6 hosts... is 6 still appropriate there?",
+      "range": {
+        "startLine": 34,
+        "startChar": 49,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5d57ff4_57589809",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "size_t on these, please.",
+      "range": {
+        "startLine": 34,
+        "startChar": 23,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6bd2982_5e53e0c7",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "These look like they can be scoped as static members of the HostSelector class, right?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 48
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1ef8067_20b0760a",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Prefer you to not use arbitrary magic numbers.\n\nstatic constexpr auto INVALID_INDEX \u003d std::numeric_limits\u003csize_t\u003e::max();",
+      "range": {
+        "startLine": 36,
+        "startChar": 43,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bdbffa4_4fa6e04d",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Please avoid \u0027using namespace\u0027 in a header file unless it is scoped in a namespace or class.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36f1f171_add6d12f",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "You may want \"class HostSelector final\".\n\nBased on the calls to \u0027init\u0027 and the discussion I have on line 50 about signal generation, this class likely can\u0027t correctly handle becoming inherited so we should explicitly disallow it.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bce09345_ef621d84",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "prefer object_t",
+      "range": {
+        "startLine": 40,
+        "startChar": 47,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6719d91f_20a2fe18",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "You have some issues with the dbus signals being emitted by this object construction.  Since you\u0027re using the default parameter for action (emit_object_added), the object is going to emit the InterfacesAdded signal right away and then you\u0027re going to emit PropertiesChanged signals as you set up the object fully in the rest of the constructor (such as by line 66).  This is incorrect; you end up emitting useless property values with the InterfacesAdded (which other programs might react to) and then sending excess signals for the PropertiesChanged.\n\nWhat you should do is pass `defer_emit` here, on all set property calls pass the parameter `skipSignal \u003d true`, and then at the end of construction (line ~69), call `object_t::emit_object_added()`.",
+      "range": {
+        "startLine": 50,
+        "startChar": 29,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba72326e_bd09e6d6",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Use `hostSelectorPosition \u003d 0` on line 93 instead.",
+      "range": {
+        "startLine": 51,
+        "startChar": 8,
+        "endLine": 51,
+        "endChar": 31
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3158c2ae_a34167ec",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Why would you do this (calling setPropertyByName)?  Can\u0027t you just use \u0027maxPosition(cfg[\"max_position\"])` directly?",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29572a0d_43672a6d",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "nit: prefer to remove this spurious newline (unless clang-format inserted it, but I suspect not).",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2abb85ed_2827facb",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Can we do something to not keep ahold of a random json blob?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 28
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc8ce984_f0e5ff24",
         "filename": "src/button_handler.cpp",
         "patchSetId": 1
@@ -78,6 +456,464 @@
       "writtenOn": "2022-02-15T02:14:22Z",
       "side": 1,
       "message": "ID button still need support multiple host right?\nID button is one of the buttons on the front panel.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1857c504_627fca2d",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Can we avoid a string here?",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec3cfbb9_d5293585",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Can\u0027t we just keep it on the BMC position then?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 18
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef455936_d7dcfc1a",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "I\u0027m slightly confused how this works.  Isn\u0027t the HostSelector in this same daemon?  You can\u0027t use dbus to call against your own service.  It\u0027ll give you an ELOOP error:\n\nhttps://github.com/systemd/systemd/blob/f55fe53ffce351bb55b6190cf36511c37f99d766/src/libsystemd/sd-bus/sd-bus.c#L2434\n\n\nCan we just find the object inside our own service and get the property from it by the object-\u003eposition() method?",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 39
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f113e9f9_1efdc715",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "This path (catching an exception) results in a missing return.  I\u0027m surprised the compiler didn\u0027t catch this for you.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa4c297c_3fef9a78",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "We should probably do something to explicitly check for BMC also, right?",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "664c03b7_30cdbcfe",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Please don\u0027t form log messages this way.  Data added to log messages should use the structured logging facilities.\n\nIf you want you can upgrade this code to use the lg2 interfaces.",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 46
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e3b35d_5dbe2ee9",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "It feels like the logic for doMultiHostSledCycle and longPowerPresssed could be simplified.\n\nMost of the code you\u0027ve added to \u0027longPowerPressed\u0027 is simply about modifying the \u0027objPathStr\u0027 and \u0027state\u0027 values.  Can we default those at the beginning of longPowerPressed and modify either objPathStr or state based on the getHostSelectorValue?  I think that would collapse some of the logic or at least reduce the duplication between the two functions.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed6e758b_1abb5779",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "I don\u0027t believe you need to do this `convertForMessage` call here.  You can just store a `variant\u003cChassis::Transition\u003e` and add it to the message on line 230.",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7cafc6e_e5d364dc",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "I\u0027m confused by this language.  Line 259 is looking for \"BMC_POSITION\" but this log indicates that the host selector might be set to BMC?",
+      "range": {
+        "startLine": 246,
+        "startChar": 62,
+        "endLine": 247,
+        "endChar": 39
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a77ce71_a96b9e89",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Does this mean we have no way to do a sled cycle for something like Tiogapass?",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 38
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f15bb8f7_ddb66425",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "strange indentation here.  Did clang-format run on this code?",
+      "range": {
+        "startLine": 264,
+        "startChar": 17,
+        "endLine": 264,
+        "endChar": 20
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e7e54a_85a45ce3",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "This convertForMessage isn\u0027t necessary either.",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 56
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e564871_2a6da7b7",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "language issue here as well about BMC.",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 70
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c33c8288_4386b6b0",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Fix dynamic message creation for logging.",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 46
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be4e2629_a3697952",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "I don\u0027t think you\u0027ve handled the BMC_INDEX case in this function.",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 0
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97480e69_5728b227",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Don\u0027t use \u0027setPropertyByName\u0027.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e444d90f_5745b9ec",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Can we improve the variable name and/or documentation?  Based on line 108 it looks like \"gpio low\" \u003d \"true\" here, which is not intuitive.  Maybe you could create an enumeration instead to express the gpio value?",
+      "range": {
+        "startLine": 59,
+        "startChar": 53,
+        "endLine": 59,
+        "endChar": 62
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9415cb1_47d84a07",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Is there any kind of race condition to worry about here?  It appears that if the selector changes from 0001 to 0010 we\u0027ll get two events.  It is possible that the selector has an intermediate position of 0011.  This has two effects:\n\n1. We get N signals for the PropertyChanged depending on how many binary wires changed.\n\n2. Some applications my temporarily see a host-selector value that is inaccurate (such as 3 in this example).\n\n#2 worries me slightly for other applications that may start to use the host-selector, such as the code to handle the UART mux.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 5
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f10365b_5f060d89",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Can we convert from fd -\u003e host # here?  It doesn\u0027t look like there is need for anyone else to have the fd, so let\u0027s convert as early as possible.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4337703_a5417a16",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Avoid forming dynamic log messages like this or use the lg2 APIs.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 40
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba375043_db30e1d8",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "Don\u0027t use setPropertyByName.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac6cd93b_17bc4dde",
+        "filename": "src/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T21:18:55Z",
+      "side": 1,
+      "message": "I\u0027d like to see everything we need included in the parsed gpio config.",
       "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
