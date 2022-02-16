@@ -26,6 +26,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4fe29b3_1ff37776",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T16:48:52Z",
+      "side": 1,
+      "message": "Per the Yv2 specifications there is not an ID button on the front panel.\n\n\u003e A power button, a reset button, a USB connector and an OCP debug card header are provided on the front panel of the baseboard; they all belong to the current active server. The user could turn a rotary switch or press select switch on new OCP debug card w/LCD to select an 1S server as the current active server.\n\nhttps://www.opencompute.org/documents/facebook-multi-node-server-platform-yosemite-v2-design-specification",
+      "parentUuid": "a51803a2_a60f263d",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 5
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "696c98e1_5b515922",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-16T16:48:52Z",
+      "side": 1,
+      "message": "(I\u0027ve not reviewed the code yet)",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc8ce984_f0e5ff24",
         "filename": "src/button_handler.cpp",
         "patchSetId": 1
