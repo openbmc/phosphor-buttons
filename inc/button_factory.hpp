@@ -54,8 +54,15 @@ class ButtonFactory
     {
 
         // find matching name in the registry and call factory method.
-
-        return buttonIfaceRegistry.at(name)(bus, event, buttonCfg);
+        auto objectIter = buttonIfaceRegistry.find(name);
+        if (objectIter != buttonIfaceRegistry.end())
+        {
+            return objectIter->second(bus, event, buttonCfg);
+        }
+        else
+        {
+            return nullptr;
+        }
     }
 
   private:

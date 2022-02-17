@@ -55,23 +55,44 @@ int main(int argc, char* argv[])
     // load gpio config from gpio defs json file and create button interface
     // objects based on the button form factor type
 
-    for (auto groupGpioConfig : gpioDefs)
+    for (const auto& gpioConfig : gpioDefs)
     {
-        std::string formFactorName = groupGpioConfig["name"];
+        std::string formFactorName = gpioConfig["name"];
         buttonConfig buttonCfg;
-        auto groupGpio = groupGpioConfig["gpio_config"];
+        buttonCfg.formFactorName = formFactorName;
 
-        for (auto gpioConfig : groupGpio)
+        /* The folloing code checks if the gpio config read
+        from json file is single gpio config or group gpio config,
+        based on that further data is processed. */
+        if (gpioConfig.contains("group_gpio_config"))
+        {
+            const auto& groupGpio = gpioConfig["group_gpio_config"];
+
+            for (const auto& config : groupGpio)
+            {
+                gpioInfo gpioCfg;
+                gpioCfg.number = getGpioNum(config["pin"]);
+                gpioCfg.direction = config["direction"];
+                buttonCfg.gpios.push_back(gpioCfg);
+            }
+        }
+        else
         {
             gpioInfo gpioCfg;
             gpioCfg.number = getGpioNum(gpioConfig["pin"]);
             gpioCfg.direction = gpioConfig["direction"];
-            buttonCfg.formFactorName = formFactorName;
             buttonCfg.gpios.push_back(gpioCfg);
         }
-
-        buttonInterfaces.emplace_back(ButtonFactory::instance().createInstance(
-            formFactorName, bus, eventP, buttonCfg));
+        auto tempButtonIf = ButtonFactory::instance().createInstance(
+            formFactorName, bus, eventP, buttonCfg);
+        /* There are additional gpio configs present in some platforms
+         that are not supported in phosphor-buttons.
+        But they may be used by other applications. so skipping such configs
+        if present in gpio_defs.json file*/
+        if (tempButtonIf)
+        {
+            buttonInterfaces.emplace_back(std::move(tempButtonIf));
+        }
     }
 
     try
