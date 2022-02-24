@@ -1,0 +1,8 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Patrick Williams <patrick@stwcx.xyz>
+Code-Review+2: Matt Spinler <spinler@us.ibm.com>
+Submitted-by: Naveen Moses  <naveen.mosess@hcl.com>
+Submitted-at: Thu, 24 Feb 2022 10:54:57 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-buttons/+/51332
+Project: openbmc/phosphor-buttons
+Branch: refs/heads/master
