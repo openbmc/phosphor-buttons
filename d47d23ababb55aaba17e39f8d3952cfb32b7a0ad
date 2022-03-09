@@ -99,6 +99,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c716042_26ac25fe",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50e2d5c3_06356942",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a654ed8f_c05aa466",
@@ -112,6 +130,30 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "size_t -- this is a countable entity.\n\nPrefer to avoid return code style functions as well (ie. -1).  Can this be an exception?",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 7
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f72a9392_0c378a85",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a654ed8f_c05aa466",
       "range": {
         "startLine": 93,
         "startChar": 4,
@@ -139,6 +181,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9940aab6_c73d57e2",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "multihost system is determined by checking availability of host selector dbus object.\"this\" pointer needs to be passed to access member method : getService().",
+      "parentUuid": "d39b2392_a056c6d9",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fa17c34_6e878f65",
@@ -152,6 +212,30 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "Hmm... void or bool?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 26
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6bfd175_fa312024",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fa17c34_6e878f65",
       "range": {
         "startLine": 106,
         "startChar": 0,
@@ -220,6 +304,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "265b654d_f26a7d7f",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9ca46ae_11a757dd",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "109f3c70_ecd42727",
@@ -256,6 +364,54 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "size_t on these, please.",
+      "range": {
+        "startLine": 34,
+        "startChar": 23,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32036088_7146a379",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "it was added because the initial pos read from Host selector switch was 6. it is removed and the mapping is done as json config in gpio_defs.json file.",
+      "parentUuid": "109f3c70_ecd42727",
+      "range": {
+        "startLine": 34,
+        "startChar": 49,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc711782_86eb8c98",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e5d57ff4_57589809",
       "range": {
         "startLine": 34,
         "startChar": 23,
@@ -312,6 +468,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c0a3a64_b2f37fc7",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1ef8067_20b0760a",
+      "range": {
+        "startLine": 36,
+        "startChar": 43,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bdbffa4_4fa6e04d",
@@ -325,6 +505,24 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "Please avoid \u0027using namespace\u0027 in a header file unless it is scoped in a namespace or class.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed5acfa_12b6177d",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bdbffa4_4fa6e04d",
       "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -375,6 +573,54 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00a968e6_1f82238c",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bce09345_ef621d84",
+      "range": {
+        "startLine": 40,
+        "startChar": 47,
+        "endLine": 40,
+        "endChar": 61
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1f0f160_8b2af33b",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36f1f171_add6d12f",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6719d91f_20a2fe18",
@@ -388,6 +634,30 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "You have some issues with the dbus signals being emitted by this object construction.  Since you\u0027re using the default parameter for action (emit_object_added), the object is going to emit the InterfacesAdded signal right away and then you\u0027re going to emit PropertiesChanged signals as you set up the object fully in the rest of the constructor (such as by line 66).  This is incorrect; you end up emitting useless property values with the InterfacesAdded (which other programs might react to) and then sending excess signals for the PropertiesChanged.\n\nWhat you should do is pass `defer_emit` here, on all set property calls pass the parameter `skipSignal \u003d true`, and then at the end of construction (line ~69), call `object_t::emit_object_added()`.",
+      "range": {
+        "startLine": 50,
+        "startChar": 29,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e641671b_218e5c36",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6719d91f_20a2fe18",
       "range": {
         "startLine": 50,
         "startChar": 29,
@@ -421,6 +691,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e7b705e_c5caf305",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba72326e_bd09e6d6",
+      "range": {
+        "startLine": 51,
+        "startChar": 8,
+        "endLine": 51,
+        "endChar": 31
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3158c2ae_a34167ec",
@@ -434,6 +728,24 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "Why would you do this (calling setPropertyByName)?  Can\u0027t you just use \u0027maxPosition(cfg[\"max_position\"])` directly?",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "415fc1ed_332419e2",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3158c2ae_a34167ec",
       "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -455,6 +767,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a59ee765_dc39b1dd",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29572a0d_43672a6d",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2abb85ed_2827facb",
@@ -468,6 +798,30 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "Can we do something to not keep ahold of a random json blob?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 28
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "802004f3_18e779c7",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2abb85ed_2827facb",
       "range": {
         "startLine": 96,
         "startChar": 0,
@@ -577,6 +931,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17914655_444866b6",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "exception is thrown as host selector dbus object itself cant be obtained",
+      "parentUuid": "cdfcabe2_85fee7a0",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 18
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef455936_d7dcfc1a",
@@ -676,6 +1054,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc5f591_208ed26e",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa4c297c_3fef9a78",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "664c03b7_30cdbcfe",
@@ -689,6 +1085,30 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "Please don\u0027t form log messages this way.  Data added to log messages should use the structured logging facilities.\n\nIf you want you can upgrade this code to use the lg2 interfaces.",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 46
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91c5f159_ca1bd0fa",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664c03b7_30cdbcfe",
       "range": {
         "startLine": 192,
         "startChar": 0,
@@ -716,6 +1136,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d150c5a_1ebeaebe",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63e3b35d_5dbe2ee9",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed6e758b_1abb5779",
@@ -739,6 +1177,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a57305b_f83b9e5b",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed6e758b_1abb5779",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7cafc6e_e5d364dc",
@@ -752,6 +1214,30 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "I\u0027m confused by this language.  Line 259 is looking for \"BMC_POSITION\" but this log indicates that the host selector might be set to BMC?",
+      "range": {
+        "startLine": 246,
+        "startChar": 62,
+        "endLine": 247,
+        "endChar": 39
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9f7ea9c_7dbb4c8a",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "if bmc position is set only power long press event is handled(power press and reset press are skipped)",
+      "parentUuid": "d7cafc6e_e5d364dc",
       "range": {
         "startLine": 246,
         "startChar": 62,
@@ -832,6 +1318,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "496a1c5a_c71f634e",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f15bb8f7_ddb66425",
+      "range": {
+        "startLine": 264,
+        "startChar": 17,
+        "endLine": 264,
+        "endChar": 20
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5e7e54a_85a45ce3",
@@ -845,6 +1355,30 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "This convertForMessage isn\u0027t necessary either.",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 56
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb28b5f2_ce38660f",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5e7e54a_85a45ce3",
       "range": {
         "startLine": 276,
         "startChar": 0,
@@ -878,6 +1412,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d7f3c39_806b89ba",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e564871_2a6da7b7",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 70
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c33c8288_4386b6b0",
@@ -901,6 +1459,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ee1a93c_383f3713",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c33c8288_4386b6b0",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 46
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be4e2629_a3697952",
@@ -914,6 +1496,30 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "I don\u0027t think you\u0027ve handled the BMC_INDEX case in this function.",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 0
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c593611_654f9753",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be4e2629_a3697952",
       "range": {
         "startLine": 330,
         "startChar": 0,
@@ -955,6 +1561,24 @@
       "side": 1,
       "message": "since the property which is being read/set and button object under which this property is modified are associated with the same bus i believe the sdbusplus get/set property will not work. that is why opted for setpropertybyname method.Is there any impact using this method?",
       "parentUuid": "97480e69_5728b227",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e054c935_28252c0c",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7ab562f_d1eaead4",
       "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -1053,6 +1677,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d88eee2_b75fd43f",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "host selector property is updated only if a respective key value pair is present\nin the host selector map config.otherwise the intermediate value is held in the host selector member variable. also the processes act on property change of host selector position can do some initial check on the property value before proceeding further.",
+      "parentUuid": "70c21ee3_4d553226",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 5
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f10365b_5f060d89",
@@ -1066,6 +1714,24 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "Can we convert from fd -\u003e host # here?  It doesn\u0027t look like there is need for anyone else to have the fd, so let\u0027s convert as early as possible.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78fd78b1_ad0b9877",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Here the fd value not mapped to host position value. each fd has a 1 to one map of the gpio bit order  bit0 - fd 1, bit1 - fd 2 etc.",
+      "parentUuid": "5f10365b_5f060d89",
       "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -1093,6 +1759,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b26a20_3a290665",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4337703_a5417a16",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 40
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba375043_db30e1d8",
@@ -1110,6 +1800,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dc3232b_67528acb",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba375043_db30e1d8",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac6cd93b_17bc4dde",
@@ -1123,6 +1831,24 @@
       "writtenOn": "2022-02-16T21:18:55Z",
       "side": 1,
       "message": "I\u0027d like to see everything we need included in the parsed gpio config.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bdb4e69_3c1c9013",
+        "filename": "src/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-09T11:50:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac6cd93b_17bc4dde",
       "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
