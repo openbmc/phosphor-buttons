@@ -283,6 +283,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "165924c3_7798e625",
+        "filename": "inc/gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-22T17:16:41Z",
+      "side": 1,
+      "message": "Can we put a reference to the local json structure into the gpioInfo for the extended info?  I don\u0027t really like low level objects re-parsing json.",
+      "parentUuid": "3292e990_d38abf7e",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9ca46ae_11a757dd",
         "filename": "inc/hostSelector_switch.hpp",
         "patchSetId": 1

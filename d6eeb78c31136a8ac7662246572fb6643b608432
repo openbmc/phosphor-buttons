@@ -16,6 +16,178 @@
       "message": "additionally removed duplication code in button-handler",
       "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78ad56a4_c807e1ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-22T17:16:41Z",
+      "side": 1,
+      "message": "A few minor issues.  Looks like it is getting pretty close to me.",
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4213bd55_8f3eac81",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-22T17:16:41Z",
+      "side": 1,
+      "message": "This search is what I\u0027d like to avoid.  Can we put this reference in the gpioinfo for the object?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 51
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83025e54_dce83e07",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-22T17:16:41Z",
+      "side": 1,
+      "message": "Why is this level::ERR?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 58
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf7a6bd7_95d1f525",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-22T17:16:41Z",
+      "side": 1,
+      "message": "Would be good to add the enum value here as an extra parameter so we can figure it out from the journal.",
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3d99f90_b6ceebbd",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-22T17:16:41Z",
+      "side": 1,
+      "message": "Again, preference is to not create strings like this for logging.  Either add them as metadata or switch to the lg2 API.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 26
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b21af656_94c177b6",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-22T17:16:41Z",
+      "side": 1,
+      "message": "auto",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 42
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ecdb50b_9d77f043",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-22T17:16:41Z",
+      "side": 1,
+      "message": "Why is this \u0027unsigned\u0027?  It looks like on line 69 it is a \u0027int\u0027.  Do we need a cast?  Should it be size_t?",
+      "range": {
+        "startLine": 77,
+        "startChar": 24,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1857d41a_fee2c4b0",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-22T17:16:41Z",
+      "side": 1,
+      "message": "auto",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 42
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
