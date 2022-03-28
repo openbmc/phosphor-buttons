@@ -58,6 +58,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03eac49e_39a86c86",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-28T12:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4213bd55_8f3eac81",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 51
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83025e54_dce83e07",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-03-22T17:16:41Z",
       "side": 1,
       "message": "Why is this level::ERR?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 58
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7008db1b_0d77f036",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-28T12:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83025e54_dce83e07",
       "range": {
         "startLine": 182,
         "startChar": 0,
@@ -98,6 +146,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c7dfb61_b3511f19",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-28T12:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf7a6bd7_95d1f525",
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3d99f90_b6ceebbd",
@@ -111,6 +177,30 @@
       "writtenOn": "2022-03-22T17:16:41Z",
       "side": 1,
       "message": "Again, preference is to not create strings like this for logging.  Either add them as metadata or switch to the lg2 API.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 26
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "283ad4dd_aabb18dc",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-28T12:56:32Z",
+      "side": 1,
+      "message": "currently changed the additional logging data as metadata.",
+      "parentUuid": "a3d99f90_b6ceebbd",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -144,6 +234,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7fff687_3d17e65f",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-28T12:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b21af656_94c177b6",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 42
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ecdb50b_9d77f043",
@@ -167,6 +281,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0a37bf2_b17ece04",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-28T12:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ecdb50b_9d77f043",
+      "range": {
+        "startLine": 77,
+        "startChar": 24,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1857d41a_fee2c4b0",
@@ -180,6 +318,30 @@
       "writtenOn": "2022-03-22T17:16:41Z",
       "side": 1,
       "message": "auto",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 42
+      },
+      "revId": "d6eeb78c31136a8ac7662246572fb6643b608432",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35b3d6fd_3da0944d",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-03-28T12:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1857d41a_fee2c4b0",
       "range": {
         "startLine": 79,
         "startChar": 4,
