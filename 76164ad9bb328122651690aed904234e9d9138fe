@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de21d2dc_7204808b",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-28T14:08:42Z",
+      "side": 1,
+      "message": "Does this compile without something like https://en.cppreference.com/w/cpp/utility/to_underlying ?  I\u0027m surprised because I didn\u0027t think we could directly cast an enum to an integer with the logging interfaces.",
+      "range": {
+        "startLine": 265,
+        "startChar": 46,
+        "endLine": 265,
+        "endChar": 60
+      },
+      "revId": "76164ad9bb328122651690aed904234e9d9138fe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
