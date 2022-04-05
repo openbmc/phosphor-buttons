@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35f0dc7f_c3d13700",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-04-05T10:58:54Z",
+      "side": 1,
+      "message": "yes we need to address this.but the change is not only needed to be done in this patch set files.the files with button interface class definitions  power_button.cpp, reset_button.cpp also needs to be changed. shall we create a separate review to address this issue?",
+      "parentUuid": "163c45bc_5253bd56",
+      "revId": "7892058fd97cd7658bcdcf3e664acfb14f7e0d27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3cd44fe6_5d935d69",
         "filename": "src/hostSelector_switch.cpp",
         "patchSetId": 4
@@ -31,6 +49,30 @@
       "writtenOn": "2022-04-01T18:19:20Z",
       "side": 1,
       "message": "What is 4 here - number of gpio lines? \nMaybe make it a const/constexpr with a variable so that one knows...",
+      "range": {
+        "startLine": 28,
+        "startChar": 27,
+        "endLine": 28,
+        "endChar": 37
+      },
+      "revId": "7892058fd97cd7658bcdcf3e664acfb14f7e0d27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f920f3cd_b301eed9",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-04-05T10:58:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cd44fe6_5d935d69",
       "range": {
         "startLine": 28,
         "startChar": 27,
@@ -54,6 +96,30 @@
       "writtenOn": "2022-04-01T18:19:20Z",
       "side": 1,
       "message": "I think the number of entries depends on gpio config/json file. \n\nIs it possible we will have more gpios entries (\u003e4)?\nJust trying to understand...",
+      "range": {
+        "startLine": 30,
+        "startChar": 19,
+        "endLine": 30,
+        "endChar": 31
+      },
+      "revId": "7892058fd97cd7658bcdcf3e664acfb14f7e0d27",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cb4ba41_2df72da9",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-04-05T10:58:54Z",
+      "side": 1,
+      "message": "It is possible.The max index number is calculated from the number of GPIO configs mentioned in the json config for host selector.",
+      "parentUuid": "17a1f5ba_58956756",
       "range": {
         "startLine": 30,
         "startChar": 19,
