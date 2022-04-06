@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5b824526_eb4918dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-04-06T06:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4fe29b3_1ff37776",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 5
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "696c98e1_5b515922",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -528,6 +552,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f98c9790_85481f4e",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-04-06T06:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6bd2982_5e53e0c7",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 48
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bdbffa4_4fa6e04d",
@@ -881,6 +929,24 @@
       "writtenOn": "2022-02-15T02:14:22Z",
       "side": 1,
       "message": "ID button still need support multiple host right?\nID button is one of the buttons on the front panel.",
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06d97c45_8930fef4",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-04-06T06:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc8ce984_f0e5ff24",
       "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -1284,6 +1350,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8bb04f3_4e1c7dd6",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-04-06T06:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9f7ea9c_7dbb4c8a",
+      "range": {
+        "startLine": 246,
+        "startChar": 62,
+        "endLine": 247,
+        "endChar": 39
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a77ce71_a96b9e89",
@@ -1321,6 +1411,30 @@
       "side": 1,
       "message": "The original single host implementation for power button longpress was actually triggering the host power off. since in multihost implementation we have separate host numbers 1 to N for hosts and 0 position become bmc position.That is why the sled cycle command was able to be added.but for single host 0 position was representing both host and bmc it was not possible. we may need find a solution if sled cycle is needed for single host systems.",
       "parentUuid": "6a77ce71_a96b9e89",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 38
+      },
+      "revId": "d47d23ababb55aaba17e39f8d3952cfb32b7a0ad",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a65e7ee_7bcdb818",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-04-06T06:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a45319b_5ad58efe",
       "range": {
         "startLine": 259,
         "startChar": 0,
