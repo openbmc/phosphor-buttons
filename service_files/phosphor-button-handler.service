@@ -7,8 +7,7 @@ After=obmc-mapper.target
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/env button-handler
-SyslogIdentifier=button-handler
+ExecStart=/usr/bin/button-handler
 
 [Install]
 WantedBy=multi-user.target
