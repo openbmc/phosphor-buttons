@@ -12,6 +12,7 @@
 
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
 
 #include <fstream>
 #include <iostream>
@@ -19,12 +20,6 @@
 static constexpr std::string_view HOST_SELECTOR = "HOST_SELECTOR";
 
 static constexpr auto INVALID_INDEX = std::numeric_limits<size_t>::max();
-
-enum class GpioState
-{
-    low,
-    high
-};
 
 class HostSelector final :
     public sdbusplus::server::object_t<
