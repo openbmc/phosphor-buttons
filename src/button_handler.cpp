@@ -24,7 +24,7 @@ constexpr auto ledGroupBasePath = "/xyz/openbmc_project/led/groups/";
 constexpr auto hostSelectorIface =
     "xyz.openbmc_project.Chassis.Buttons.HostSelector";
 constexpr auto debugHostSelectorIface =
-    "xyz.openbmc_project.Chassis.Buttons.DebugHostSelector";
+    "xyz.openbmc_project.Chassis.Buttons.Button";
 
 constexpr auto propertyIface = "org.freedesktop.DBus.Properties";
 constexpr auto mapperIface = "xyz.openbmc_project.ObjectMapper";
@@ -45,7 +45,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                 sdbusRule::type::signal() + sdbusRule::member("Released") +
                     sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
                     sdbusRule::interface(powerButtonIface),
-                std::bind(std::mem_fn(&Handler::powerPressed), this,
+                std::bind(std::mem_fn(&Handler::powerReleased), this,
                           std::placeholders::_1));
 
             powerButtonLongPressReleased =
@@ -55,7 +55,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                         sdbusRule::member("PressedLong") +
                         sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
                         sdbusRule::interface(powerButtonIface),
-                    std::bind(std::mem_fn(&Handler::longPowerPressed), this,
+                    std::bind(std::mem_fn(&Handler::longPowerReleased), this,
                               std::placeholders::_1));
         }
     }
@@ -74,7 +74,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                 sdbusRule::type::signal() + sdbusRule::member("Released") +
                     sdbusRule::path(ID_DBUS_OBJECT_NAME) +
                     sdbusRule::interface(idButtonIface),
-                std::bind(std::mem_fn(&Handler::idPressed), this,
+                std::bind(std::mem_fn(&Handler::idReleased), this,
                           std::placeholders::_1));
         }
     }
@@ -93,7 +93,26 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                 sdbusRule::type::signal() + sdbusRule::member("Released") +
                     sdbusRule::path(RESET_DBUS_OBJECT_NAME) +
                     sdbusRule::interface(resetButtonIface),
-                std::bind(std::mem_fn(&Handler::resetPressed), this,
+                std::bind(std::mem_fn(&Handler::resetReleased), this,
+                          std::placeholders::_1));
+        }
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        // The button wasn't implemented
+    }
+    try
+    {
+        if (!getService(DBG_HS_DBUS_OBJECT_NAME, debugHostSelectorIface)
+                 .empty())
+        {
+            log<level::INFO>("Registering debug host selector button handler");
+            debugHSButtonReleased = std::make_unique<sdbusplus::bus::match_t>(
+                bus,
+                sdbusRule::type::signal() + sdbusRule::member("Released") +
+                    sdbusRule::path(DBG_HS_DBUS_OBJECT_NAME) +
+                    sdbusRule::interface(debugHostSelectorIface),
+                std::bind(std::mem_fn(&Handler::debugHSReleased), this,
                           std::placeholders::_1));
         }
     }
@@ -126,7 +145,7 @@ size_t Handler::getHostSelectorValue()
 
     if (HSService.empty())
     {
-        log<level::INFO>("Host Selector dbus object not available");
+        log<level::INFO>("Host selector dbus object not available");
         throw std::invalid_argument("Host selector dbus object not available");
     }
 
@@ -145,7 +164,7 @@ size_t Handler::getHostSelectorValue()
     }
     catch (const sdbusplus::exception::exception& e)
     {
-        log<level::ERR>("Error reading Host selector Position",
+        log<level::ERR>("Error reading host selector position",
                         entry("ERROR=%s", e.what()));
         throw;
     }
@@ -179,7 +198,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     if (isMultiHostSystem)
     {
         hostNumber = getHostSelectorValue();
-        log<level::INFO>("Multi host system detected : ",
+        log<level::INFO>("Multi-host system detected : ",
                          entry("POSITION=%d", hostNumber));
     }
 
@@ -187,17 +206,16 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
     // ignore  power and reset button events if BMC is selected.
     if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
-        (powerEventType != PowerEvent::longPowerPressed))
+        (powerEventType != PowerEvent::longPowerReleased))
     {
-        log<level::INFO>("handlePowerEvent : BMC selected on multihost system."
+        log<level::INFO>("handlePowerEvent : BMC selected on multi-host system."
                          "ignoring power and reset button events...");
         return;
     }
 
     switch (powerEventType)
     {
-        case PowerEvent::powerPressed:
-        {
+        case PowerEvent::powerReleased: {
             objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
             dbusIfaceName = hostIface;
             transitionName = "RequestedHostTransition";
@@ -208,12 +226,11 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
             {
                 transition = Host::Transition::Off;
             }
-            log<level::INFO>("handlePowerEvent : handle power button press ");
+            log<level::INFO>("handlePowerEvent : Handle power button press ");
 
             break;
         }
-        case PowerEvent::longPowerPressed:
-        {
+        case PowerEvent::longPowerReleased: {
             dbusIfaceName = chassisIface;
             transitionName = "RequestedPowerTransition";
             objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
@@ -246,8 +263,8 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
             break;
         }
 
-        case PowerEvent::resetPressed:
-        {
+        case PowerEvent::resetReleased: {
+
             objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
             dbusIfaceName = hostIface;
             transitionName = "RequestedHostTransition";
@@ -262,8 +279,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
             transition = Host::Transition::Reboot;
             break;
         }
-        default:
-        {
+        default: {
             log<level::ERR>(
                 "Invalid power event. skipping...",
                 entry("EVENT=%d", static_cast<int>(powerEventType)));
@@ -277,11 +293,11 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     method.append(dbusIfaceName, transitionName, transition);
     bus.call(method);
 }
-void Handler::powerPressed(sdbusplus::message::message& /* msg */)
+void Handler::powerReleased(sdbusplus::message::message& msg)
 {
     try
     {
-        handlePowerEvent(PowerEvent::powerPressed);
+        handlePowerEvent(PowerEvent::powerReleased);
     }
     catch (const sdbusplus::exception::exception& e)
     {
@@ -289,11 +305,11 @@ void Handler::powerPressed(sdbusplus::message::message& /* msg */)
                         entry("ERROR=%s", e.what()));
     }
 }
-void Handler::longPowerPressed(sdbusplus::message::message& /* msg */)
+void Handler::longPowerReleased(sdbusplus::message::message& msg)
 {
     try
     {
-        handlePowerEvent(PowerEvent::longPowerPressed);
+        handlePowerEvent(PowerEvent::longPowerReleased);
     }
     catch (const sdbusplus::exception::exception& e)
     {
@@ -302,11 +318,11 @@ void Handler::longPowerPressed(sdbusplus::message::message& /* msg */)
     }
 }
 
-void Handler::resetPressed(sdbusplus::message::message& /* msg */)
+void Handler::resetReleased(sdbusplus::message::message& msg)
 {
     try
     {
-        handlePowerEvent(PowerEvent::resetPressed);
+        handlePowerEvent(PowerEvent::resetReleased);
     }
     catch (const sdbusplus::exception::exception& e)
     {
@@ -315,7 +331,7 @@ void Handler::resetPressed(sdbusplus::message::message& /* msg */)
     }
 }
 
-void Handler::idPressed(sdbusplus::message::message& /* msg */)
+void Handler::idReleased(sdbusplus::message::message& msg)
 {
     std::string groupPath{ledGroupBasePath};
     groupPath += ID_LED_GROUP;
@@ -357,5 +373,66 @@ void Handler::idPressed(sdbusplus::message::message& /* msg */)
                         entry("ERROR=%s", e.what()));
     }
 }
+
+void Handler::increaseHSPosition()
+{
+
+    try
+    {
+        auto HSService = getService(HS_DBUS_OBJECT_NAME, hostSelectorIface);
+
+        if (HSService.empty())
+        {
+            log<level::ERR>("Host selector service not available");
+            return;
+        }
+
+        auto getHSProperty = [this](std::string propertyName,
+                                    std::string HSDBusName) {
+            auto method =
+                bus.new_method_call(HSDBusName.c_str(), HS_DBUS_OBJECT_NAME,
+                                    phosphor::button::propertyIface, "Get");
+            method.append(phosphor::button::hostSelectorIface, propertyName);
+            auto result = bus.call(method);
+            std::variant<size_t> PropertyVariant;
+            result.read(PropertyVariant);
+            auto propertyValue = std::get<size_t>(PropertyVariant);
+
+            return propertyValue;
+        };
+
+        auto maxPosition = getHSProperty("MaxPosition", HSService);
+        auto position = getHSProperty("Position", HSService);
+
+        std::variant<size_t> HSPositionVariant =
+            (position < maxPosition) ? (position + 1) : 0;
+
+        auto method =
+            bus.new_method_call(HSService.c_str(), HS_DBUS_OBJECT_NAME,
+                                phosphor::button::propertyIface, "Set");
+        method.append(phosphor::button::hostSelectorIface, "Position");
+        method.append(HSPositionVariant);
+        auto result = bus.call(method);
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        log<level::ERR>("Error modifying host selector position",
+                        entry("ERROR=%s", e.what()));
+    }
+}
+
+void Handler::debugHSReleased(sdbusplus::message::message& msg)
+{
+    try
+    {
+        increaseHSPosition();
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        log<level::ERR>("Failed power process debug host selector button press",
+                        entry("ERROR=%s", e.what()));
+    }
+}
+
 } // namespace button
 } // namespace phosphor

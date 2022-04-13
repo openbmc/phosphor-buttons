@@ -14,6 +14,8 @@ conf_data.set_quoted('POWER_DBUS_OBJECT_NAME', 'xyz/openbmc_project/Chassis/Butt
 conf_data.set_quoted('RESET_DBUS_OBJECT_NAME', 'xyz/openbmc_project/Chassis/Buttons/Reset')
 conf_data.set_quoted('ID_DBUS_OBJECT_NAME', 'xyz/openbmc_project/Chassis/Buttons/ID')
 conf_data.set_quoted('HS_DBUS_OBJECT_NAME', 'xyz/openbmc_project/Chassis/Buttons/HostSelector')
+conf_data.set_quoted('DBG_HS_DBUS_OBJECT_NAME', 'xyz/openbmc_project/Chassis/Buttons/DebugHostSelector')
+
 conf_data.set_quoted('GPIO_BASE_LABEL_NAME', '/com/inspur/cpld/motherboard/acfail')
 conf_data.set_quoted('BUTTON_PATH', '1e780000.gpio')
 conf_data.set_quoted('CHASSIS_STATE_OBJECT_NAME', 'xyz/openbmc_project/state/chassis')
@@ -53,6 +55,7 @@ deps = [
 sources_buttons = [
     'src/gpio.cpp',
     'src/hostSelector_switch.cpp',
+    'src/debugHostSelector_button.cpp',
     'src/id_button.cpp',
     'src/main.cpp',
     'src/power_button.cpp',
