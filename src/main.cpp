@@ -19,6 +19,7 @@
 
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
 
 #include <fstream>
 static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
@@ -29,15 +30,13 @@ int main(void)
 {
     int ret = 0;
 
-    phosphor::logging::log<phosphor::logging::level::INFO>(
-        "Start Phosphor buttons service...");
+    lg2::info("Start Phosphor buttons service...");
 
     sd_event* event = nullptr;
     ret = sd_event_default(&event);
     if (ret < 0)
     {
-        phosphor::logging::log<phosphor::logging::level::ERR>(
-            "Error creating a default sd_event handler");
+        lg2::error("Error creating a default sd_event handler");
         return ret;
     }
     EventPtr eventP{event};
@@ -68,6 +67,8 @@ int main(void)
         /* The folloing code checks if the gpio config read
         from json file is single gpio config or group gpio config,
         based on that further data is processed. */
+        lg2::debug("Found button config : {FORM_FACTOR_NAME}",
+                   "FORM_FACTOR_NAME", buttonCfg.formFactorName);
         if (gpioConfig.contains("group_gpio_config"))
         {
             const auto& groupGpio = gpioConfig["group_gpio_config"];
@@ -105,9 +106,8 @@ int main(void)
         ret = sd_event_loop(eventP.get());
         if (ret < 0)
         {
-            phosphor::logging::log<phosphor::logging::level::ERR>(
-                "Error occurred during the sd_event_loop",
-                phosphor::logging::entry("RET=%d", ret));
+            lg2::error("Error occurred during the sd_event_loop : {RESULT}",
+                       "RESULT", ret);
         }
     }
     catch (const std::exception& e)
