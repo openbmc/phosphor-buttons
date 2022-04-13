@@ -8,9 +8,9 @@ namespace button
 {
 enum class PowerEvent
 {
-    powerPressed,
-    longPowerPressed,
-    resetPressed
+    powerReleased,
+    longPowerReleased,
+    resetReleased
 };
 /**
  * @class Handler
@@ -49,7 +49,7 @@ class Handler
      *
      * @param[in] msg - sdbusplus message from signal
      */
-    void powerPressed(sdbusplus::message::message& msg);
+    void powerReleased(sdbusplus::message::message& msg);
 
     /**
      * @brief The handler for a long power button press
@@ -59,7 +59,7 @@ class Handler
      *
      * @param[in] msg - sdbusplus message from signal
      */
-    void longPowerPressed(sdbusplus::message::message& msg);
+    void longPowerReleased(sdbusplus::message::message& msg);
 
     /**
      * @brief The handler for an ID button press
@@ -68,7 +68,7 @@ class Handler
      *
      * @param[in] msg - sdbusplus message from signal
      */
-    void idPressed(sdbusplus::message::message& msg);
+    void idReleased(sdbusplus::message::message& msg);
 
     /**
      * @brief The handler for a reset button press
@@ -77,7 +77,18 @@ class Handler
      *
      * @param[in] msg - sdbusplus message from signal
      */
-    void resetPressed(sdbusplus::message::message& msg);
+    void resetReleased(sdbusplus::message::message& msg);
+
+    /**
+     * @brief The handler for a OCP debug card host selector button press
+     *
+     * In multi host system increases host position by 1 up to max host
+     * position.
+     *
+     * @param[in] msg - sdbusplus message from signal
+     */
+
+    void debugHSReleased(sdbusplus::message::message& msg);
 
     /**
      * @brief Checks if system is powered on
@@ -102,7 +113,14 @@ class Handler
      */
 
     size_t getHostSelectorValue();
+    /**
+     * @brief increases the host selector position property
+     * by 1 upto max host selector position
+     *
+     * @return void
+     */
 
+    void increaseHSPosition();
     /**
      * @brief checks if the system has multi host
      * based on the host selector property availability
@@ -143,6 +161,11 @@ class Handler
      * @brief Matches on the reset button released signal
      */
     std::unique_ptr<sdbusplus::bus::match_t> resetButtonReleased;
+
+    /**
+     * @brief Matches on the ocp debug host selector  button released signal
+     */
+    std::unique_ptr<sdbusplus::bus::match_t> debugHSButtonReleased;
 };
 
 } // namespace button
