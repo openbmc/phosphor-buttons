@@ -21,6 +21,12 @@
 #include <string>
 #include <vector>
 
+enum class GpioState
+{
+    low,
+    high
+};
+
 // this struct has the gpio config for single gpio
 struct gpioInfo
 {
