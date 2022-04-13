@@ -17,12 +17,6 @@ static constexpr std::string_view HOST_SELECTOR = "HOST_SELECTOR";
 
 static constexpr auto INVALID_INDEX = std::numeric_limits<size_t>::max();
 
-enum class GpioState
-{
-    low,
-    high
-};
-
 class HostSelector final : public sdbusplus::server::object_t<
                                sdbusplus::xyz::openbmc_project::Chassis::
                                    Buttons::server::HostSelector>,

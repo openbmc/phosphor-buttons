@@ -11,6 +11,7 @@ set(POWER_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/Power")
 set(RESET_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/Reset")
 set(ID_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/ID")
 set(HS_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/HostSelector")
+set(DBG_HS_DBUS_OBJECT_NAME "xyz/openbmc_project/Chassis/Buttons/DebugHostSelector")
 
 set(GPIO_BASE_LABEL_NAME "1e780000.gpio")
 set(LONG_PRESS_TIME_MS 3000)
@@ -24,6 +25,7 @@ add_definitions(-DPOWER_DBUS_OBJECT_NAME="/${POWER_DBUS_OBJECT_NAME}0")
 add_definitions(-DRESET_DBUS_OBJECT_NAME="/${RESET_DBUS_OBJECT_NAME}0")
 add_definitions(-DID_DBUS_OBJECT_NAME="/${ID_DBUS_OBJECT_NAME}0")
 add_definitions(-DHS_DBUS_OBJECT_NAME="/${HS_DBUS_OBJECT_NAME}")
+add_definitions(-DDBG_HS_DBUS_OBJECT_NAME="/${DBG_HS_DBUS_OBJECT_NAME}")
 
 add_definitions(-DGPIO_BASE_LABEL_NAME="${GPIO_BASE_LABEL_NAME}")
 add_definitions(-DLONG_PRESS_TIME_MS=${LONG_PRESS_TIME_MS})
@@ -35,7 +37,7 @@ set(SRC_FILES src/power_button.cpp
     src/reset_button.cpp
     src/id_button.cpp
     src/hostSelector_switch.cpp
-
+    src/debugHostSelector_button.cpp
     src/main.cpp
     src/gpio.cpp
 )
