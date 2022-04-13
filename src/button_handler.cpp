@@ -23,7 +23,7 @@ constexpr auto ledGroupBasePath = "/xyz/openbmc_project/led/groups/";
 constexpr auto hostSelectorIface =
     "xyz.openbmc_project.Chassis.Buttons.HostSelector";
 constexpr auto debugHostSelectorIface =
-    "xyz.openbmc_project.Chassis.Buttons.DebugHostSelector";
+    "xyz.openbmc_project.Chassis.Buttons.Button";
 
 constexpr auto propertyIface = "org.freedesktop.DBus.Properties";
 constexpr auto mapperIface = "xyz.openbmc_project.ObjectMapper";
@@ -98,6 +98,25 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
     {
         // The button wasn't implemented
     }
+    try
+    {
+        if (!getService(DBG_HS_DBUS_OBJECT_NAME, debugHostSelectorIface)
+                 .empty())
+        {
+            lg2::info("Registering debug host selector button handler");
+            debugHSButtonReleased = std::make_unique<sdbusplus::bus::match_t>(
+                bus,
+                sdbusRule::type::signal() + sdbusRule::member("Released") +
+                    sdbusRule::path(DBG_HS_DBUS_OBJECT_NAME) +
+                    sdbusRule::interface(debugHostSelectorIface),
+                std::bind(std::mem_fn(&Handler::debugHostSelectorReleased),
+                          this, std::placeholders::_1));
+        }
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        // The button wasn't implemented
+    }
 }
 bool Handler::isMultiHost()
 {
@@ -123,7 +142,7 @@ size_t Handler::getHostSelectorValue()
 
     if (HSService.empty())
     {
-        lg2::info("Host Selector dbus object not available");
+        lg2::info("Host selector dbus object not available");
         throw std::invalid_argument("Host selector dbus object not available");
     }
 
@@ -142,7 +161,7 @@ size_t Handler::getHostSelectorValue()
     }
     catch (const sdbusplus::exception::exception& e)
     {
-        lg2::error("Error reading Host selector Position: {ERROR}", "ERROR", e);
+        lg2::error("Error reading host selector position: {ERROR}", "ERROR", e);
         throw;
     }
 }
@@ -175,7 +194,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     if (isMultiHostSystem)
     {
         hostNumber = getHostSelectorValue();
-        lg2::info("Multi host system detected : {POSITION}", "POSITION",
+        lg2::info("Multi-host system detected : {POSITION}", "POSITION",
                   hostNumber);
     }
 
@@ -183,10 +202,10 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
     // ignore  power and reset button events if BMC is selected.
     if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
-        (powerEventType != PowerEvent::longPowerPressed))
+        (powerEventType != PowerEvent::longPowerReleased))
     {
         lg2::info(
-            "handlePowerEvent : BMC selected on multihost system. ignoring power and reset button events...");
+            "handlePowerEvent : BMC selected on multi-host system. ignoring power and reset button events...");
         return;
     }
 
@@ -204,11 +223,11 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
             {
                 transition = Host::Transition::Off;
             }
-            lg2::info("handlePowerEvent : handle power button press ");
+            lg2::info("handlePowerEvent : Handle power button press ");
 
             break;
         }
-        case PowerEvent::longPowerPressed:
+        case PowerEvent::longPowerReleased:
         {
             dbusIfaceName = chassisIface;
             transitionName = "RequestedPowerTransition";
@@ -351,5 +370,60 @@ void Handler::idReleased(sdbusplus::message::message& /* msg */)
                    "ERROR", e);
     }
 }
+
+void Handler::increaseHostSelectorPosition()
+{
+    try
+    {
+        auto HSService = getService(HS_DBUS_OBJECT_NAME, hostSelectorIface);
+
+        if (HSService.empty())
+        {
+            lg2::error("Host selector service not available");
+            return;
+        }
+
+        auto method =
+            bus.new_method_call(HSService.c_str(), HS_DBUS_OBJECT_NAME,
+                                phosphor::button::propertyIface, "GetAll");
+        method.append(phosphor::button::hostSelectorIface);
+        auto result = bus.call(method);
+        std::unordered_map<std::string, std::variant<size_t>> properties;
+        result.read(properties);
+
+        auto maxPosition = std::get<size_t>(properties.at("MaxPosition"));
+        auto position = std::get<size_t>(properties.at("Position"));
+
+        std::variant<size_t> HSPositionVariant =
+            (position < maxPosition) ? (position + 1) : 0;
+
+        method = bus.new_method_call(HSService.c_str(), HS_DBUS_OBJECT_NAME,
+                                     phosphor::button::propertyIface, "Set");
+        method.append(phosphor::button::hostSelectorIface, "Position");
+
+        method.append(HSPositionVariant);
+        result = bus.call(method);
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        lg2::error("Error modifying host selector position : {ERROR}", "ERROR",
+                   e);
+    }
+}
+
+void Handler::debugHostSelectorReleased(sdbusplus::message::message& /* msg */)
+{
+    try
+    {
+        increaseHostSelectorPosition();
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        lg2::error(
+            "Failed power process debug host selector button press : {ERROR}",
+            "ERROR", e);
+    }
+}
+
 } // namespace button
 } // namespace phosphor
