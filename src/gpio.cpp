@@ -21,7 +21,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#include <experimental/filesystem>
+#include <filesystem>
 #include <fstream>
 #include <gpioplus/utility/aspeed.hpp>
 #include <nlohmann/json.hpp>
@@ -30,7 +30,7 @@
 const std::string gpioDev = "/sys/class/gpio";
 
 using namespace phosphor::logging;
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 void closeGpio(int fd)
 {

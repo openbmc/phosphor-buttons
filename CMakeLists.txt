@@ -72,7 +72,7 @@ include_directories(${DBUSINTERFACE_INCLUDE_DIRS})
 link_directories(${DBUSINTERFACE_LIBRARY_DIRS})
 
 add_executable(${PROJECT_NAME} ${SRC_FILES} )
-target_link_libraries(${PROJECT_NAME} "${SDBUSPLUSPLUS_LIBRARIES} -lphosphor_dbus  -lstdc++fs")
+target_link_libraries(${PROJECT_NAME} "${SDBUSPLUSPLUS_LIBRARIES} -lphosphor_dbus")
 
 add_executable(button-handler ${HANDLER_SRC_FILES})
 target_link_libraries(button-handler "${SDBUSPLUSPLUS_LIBRARIES} -lphosphor_dbus")
