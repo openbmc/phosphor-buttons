@@ -24,15 +24,16 @@
 
 #include <unistd.h>
 
-#include <chrono>
 #include <phosphor-logging/elog-errors.hpp>
+
+#include <chrono>
 
 static constexpr std::string_view POWER_BUTTON = "POWER_BUTTON";
 
-class PowerButton
-    : public sdbusplus::server::object::object<
-          sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Power>,
-      public ButtonIface
+class PowerButton :
+    public sdbusplus::server::object::object<
+        sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Power>,
+    public ButtonIface
 {
   public:
     PowerButton(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,
@@ -47,7 +48,6 @@ class PowerButton
 
     ~PowerButton()
     {
-
         deInit();
     }
 

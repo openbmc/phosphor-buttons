@@ -196,7 +196,8 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
     switch (powerEventType)
     {
-        case PowerEvent::powerPressed: {
+        case PowerEvent::powerPressed:
+        {
             objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
             dbusIfaceName = hostIface;
             transitionName = "RequestedHostTransition";
@@ -211,7 +212,8 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
             break;
         }
-        case PowerEvent::longPowerPressed: {
+        case PowerEvent::longPowerPressed:
+        {
             dbusIfaceName = chassisIface;
             transitionName = "RequestedPowerTransition";
             objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
@@ -244,8 +246,8 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
             break;
         }
 
-        case PowerEvent::resetPressed: {
-
+        case PowerEvent::resetPressed:
+        {
             objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
             dbusIfaceName = hostIface;
             transitionName = "RequestedHostTransition";
@@ -260,7 +262,8 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
             transition = Host::Transition::Reboot;
             break;
         }
-        default: {
+        default:
+        {
             log<level::ERR>(
                 "Invalid power event. skipping...",
                 entry("EVENT=%d", static_cast<int>(powerEventType)));

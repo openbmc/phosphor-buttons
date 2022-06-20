@@ -21,11 +21,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#include <filesystem>
-#include <fstream>
 #include <gpioplus/utility/aspeed.hpp>
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/log.hpp>
+
+#include <filesystem>
+#include <fstream>
 
 const std::string gpioDev = "/sys/class/gpio";
 
@@ -93,7 +94,6 @@ int configGroupGpio(buttonConfig& buttonIFConfig)
         result = configGpio(gpioCfg);
         if (result < 0)
         {
-
             std::string errorMsg =
                 "Error configuring gpio: GPIO_NUM=" +
                 std::to_string(gpioCfg.number) +
@@ -109,7 +109,6 @@ int configGroupGpio(buttonConfig& buttonIFConfig)
 
 int configGpio(gpioInfo& gpioConfig)
 {
-
     auto gpioNum = gpioConfig.number;
     auto gpioDirection = gpioConfig.direction;
 
