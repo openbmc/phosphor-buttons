@@ -203,14 +203,15 @@ int configGpio(gpioInfo& gpioConfig)
     }
     else if ((gpioDirection == "both"))
     {
-        // Before set gpio configure as an interrupt pin, need to set direction
-        // as 'in' or edge can't set as 'rising', 'falling' and 'both'
-        const char* in_direction = "in";
         devPath = gpioDev + "/gpio" + std::to_string(gpioNum) + "/direction";
 
         stream.open(devPath, std::fstream::out);
         try
         {
+            // Before set gpio configure as an interrupt pin, need to set
+            // direction as 'in' or edge can't set as 'rising', 'falling' and
+            // 'both'
+            const char* in_direction = "in";
             stream << in_direction;
             stream.close();
         }

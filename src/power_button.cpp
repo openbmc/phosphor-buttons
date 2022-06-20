@@ -39,7 +39,8 @@ auto PowerButton::getPressTime() const
     return pressedTime;
 }
 
-void PowerButton::handleEvent(sd_event_source* es, int fd, uint32_t revents)
+void PowerButton::handleEvent(sd_event_source* /* es */, int fd,
+                              uint32_t /* revents */)
 {
     int n = -1;
     char buf = '0';

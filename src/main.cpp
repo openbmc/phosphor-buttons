@@ -26,7 +26,7 @@ static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 using namespace phosphor::logging;
 nlohmann::json gpioDefs;
 
-int main(int argc, char* argv[])
+int main(void)
 {
     int ret = 0;
 
