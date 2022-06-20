@@ -4,6 +4,7 @@
 #include "gpio.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
+
 #include <unordered_map>
 
 using buttonIfCreatorMethod = std::function<std::unique_ptr<ButtonIface>(
@@ -16,7 +17,6 @@ using buttonIfCreatorMethod = std::function<std::unique_ptr<ButtonIface>(
 
 class ButtonFactory
 {
-
   public:
     static ButtonFactory& instance()
     {
@@ -35,7 +35,6 @@ class ButtonFactory
     template <typename T>
     void addToRegistry()
     {
-
         buttonIfaceRegistry[std::string(T::getFormFactorName())] =
             [](sdbusplus::bus::bus& bus, EventPtr& event,
                buttonConfig& buttonCfg) {
@@ -52,7 +51,6 @@ class ButtonFactory
                                                 EventPtr& event,
                                                 buttonConfig& buttonCfg)
     {
-
         // find matching name in the registry and call factory method.
         auto objectIter = buttonIfaceRegistry.find(name);
         if (objectIter != buttonIfaceRegistry.end())
