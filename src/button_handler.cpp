@@ -1,6 +1,6 @@
-#include "button_handler.hpp"
+#include "config.h"
 
-#include "settings.hpp"
+#include "button_handler.hpp"
 
 #include <phosphor-logging/log.hpp>
 #include <xyz/openbmc_project/State/Chassis/server.hpp>

@@ -14,9 +14,9 @@
 // limitations under the License.
 */
 
-#include "gpio.hpp"
+#include "config.h"
 
-#include "settings.hpp"
+#include "gpio.hpp"
 
 #include <fcntl.h>
 #include <unistd.h>
