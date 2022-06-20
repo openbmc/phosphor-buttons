@@ -28,10 +28,10 @@
 
 static constexpr std::string_view RESET_BUTTON = "RESET_BUTTON";
 
-class ResetButton
-    : public sdbusplus::server::object::object<
-          sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Reset>,
-      public ButtonIface
+class ResetButton :
+    public sdbusplus::server::object::object<
+        sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Reset>,
+    public ButtonIface
 {
   public:
     ResetButton(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,

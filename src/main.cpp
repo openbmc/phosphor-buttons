@@ -17,9 +17,10 @@
 #include "button_factory.hpp"
 #include "gpio.hpp"
 
-#include <fstream>
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
+
+#include <fstream>
 static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 
 using namespace phosphor::logging;

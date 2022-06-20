@@ -8,10 +8,11 @@
 
 #include <unistd.h>
 
-#include <fstream>
-#include <iostream>
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
+
+#include <fstream>
+#include <iostream>
 
 static constexpr std::string_view HOST_SELECTOR = "HOST_SELECTOR";
 
@@ -23,10 +24,11 @@ enum class GpioState
     high
 };
 
-class HostSelector final : public sdbusplus::server::object_t<
-                               sdbusplus::xyz::openbmc_project::Chassis::
-                                   Buttons::server::HostSelector>,
-                           public ButtonIface
+class HostSelector final :
+    public sdbusplus::server::object_t<
+        sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::
+            HostSelector>,
+    public ButtonIface
 {
   public:
     HostSelector(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,

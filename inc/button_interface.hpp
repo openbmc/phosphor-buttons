@@ -9,7 +9,6 @@
 //
 class ButtonIface
 {
-
   public:
     ButtonIface(sdbusplus::bus::bus& bus, EventPtr& event,
                 buttonConfig& buttonCfg,
@@ -31,8 +30,7 @@ class ButtonIface
         }
     }
     virtual ~ButtonIface()
-    {
-    }
+    {}
 
     /**
      * @brief This method is called from sd-event provided callback function
@@ -47,7 +45,6 @@ class ButtonIface
     {
         if (userdata)
         {
-
             ButtonIface* buttonIface = static_cast<ButtonIface*>(userdata);
             buttonIface->handleEvent(es, fd, revents);
         }
@@ -70,7 +67,6 @@ class ButtonIface
 
     virtual void init()
     {
-
         // initialize the button io fd from the buttonConfig
         // which has fd stored when configGroupGpio is called
         for (auto gpioCfg : config.gpios)

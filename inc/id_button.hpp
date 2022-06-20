@@ -28,12 +28,11 @@
 
 static constexpr std::string_view ID_BUTTON = "ID_BTN";
 
-class IDButton
-    : public sdbusplus::server::object::object<
-          sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::ID>,
-      public ButtonIface
+class IDButton :
+    public sdbusplus::server::object::object<
+        sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::ID>,
+    public ButtonIface
 {
-
   public:
     IDButton(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,
              buttonConfig& buttonCfg) :
