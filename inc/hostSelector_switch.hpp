@@ -1,4 +1,6 @@
 #pragma once
+#include "config.h"
+
 #include "button_factory.hpp"
 #include "button_interface.hpp"
 #include "common.hpp"
