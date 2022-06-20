@@ -1,0 +1,6 @@
+option(
+    'id-led-group',
+    type : 'string',
+    value: 'enclosure_identify',
+    description : 'The identify LED group name'
+)
