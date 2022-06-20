@@ -2,7 +2,7 @@
 
 #include "button_handler.hpp"
 
-#include <phosphor-logging/log.hpp>
+#include <phosphor-logging/lg2.hpp>
 #include <xyz/openbmc_project/State/Chassis/server.hpp>
 #include <xyz/openbmc_project/State/Host/server.hpp>
 namespace phosphor
@@ -12,7 +12,6 @@ namespace button
 
 namespace sdbusRule = sdbusplus::bus::match::rules;
 using namespace sdbusplus::xyz::openbmc_project::State::server;
-using namespace phosphor::logging;
 
 constexpr auto chassisIface = "xyz.openbmc_project.State.Chassis";
 constexpr auto hostIface = "xyz.openbmc_project.State.Host";
@@ -39,7 +38,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
     {
         if (!getService(POWER_DBUS_OBJECT_NAME, powerButtonIface).empty())
         {
-            log<level::INFO>("Starting power button handler");
+            lg2::info("Starting power button handler");
             powerButtonReleased = std::make_unique<sdbusplus::bus::match_t>(
                 bus,
                 sdbusRule::type::signal() + sdbusRule::member("Released") +
@@ -68,7 +67,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
     {
         if (!getService(ID_DBUS_OBJECT_NAME, idButtonIface).empty())
         {
-            log<level::INFO>("Registering ID button handler");
+            lg2::info("Registering ID button handler");
             idButtonReleased = std::make_unique<sdbusplus::bus::match_t>(
                 bus,
                 sdbusRule::type::signal() + sdbusRule::member("Released") +
@@ -87,7 +86,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
     {
         if (!getService(RESET_DBUS_OBJECT_NAME, resetButtonIface).empty())
         {
-            log<level::INFO>("Registering reset button handler");
+            lg2::info("Registering reset button handler");
             resetButtonReleased = std::make_unique<sdbusplus::bus::match_t>(
                 bus,
                 sdbusRule::type::signal() + sdbusRule::member("Released") +
@@ -126,7 +125,7 @@ size_t Handler::getHostSelectorValue()
 
     if (HSService.empty())
     {
-        log<level::INFO>("Host Selector dbus object not available");
+        lg2::info("Host Selector dbus object not available");
         throw std::invalid_argument("Host selector dbus object not available");
     }
 
@@ -145,8 +144,7 @@ size_t Handler::getHostSelectorValue()
     }
     catch (const sdbusplus::exception::exception& e)
     {
-        log<level::ERR>("Error reading Host selector Position",
-                        entry("ERROR=%s", e.what()));
+        lg2::error("Error reading Host selector Position: {ERROR}", "ERROR", e);
         throw;
     }
 }
@@ -179,8 +177,8 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     if (isMultiHostSystem)
     {
         hostNumber = getHostSelectorValue();
-        log<level::INFO>("Multi host system detected : ",
-                         entry("POSITION=%d", hostNumber));
+        lg2::info("Multi host system detected : {POSITION}", "POSITION",
+                  hostNumber);
     }
 
     std::string hostNumStr = std::to_string(hostNumber);
@@ -189,8 +187,8 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
         (powerEventType != PowerEvent::longPowerPressed))
     {
-        log<level::INFO>("handlePowerEvent : BMC selected on multihost system."
-                         "ignoring power and reset button events...");
+        lg2::info(
+            "handlePowerEvent : BMC selected on multihost system. ignoring power and reset button events...");
         return;
     }
 
@@ -208,7 +206,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
             {
                 transition = Host::Transition::Off;
             }
-            log<level::INFO>("handlePowerEvent : handle power button press ");
+            lg2::info("handlePowerEvent : handle power button press ");
 
             break;
         }
@@ -236,12 +234,10 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
             }
             else if (!poweredOn(hostNumber))
             {
-                log<level::INFO>(
-                    "Power is off so ignoring long power button press");
+                lg2::info("Power is off so ignoring long power button press");
                 return;
             }
-            log<level::INFO>(
-                "handlePowerEvent : handle long power button press");
+            lg2::info("handlePowerEvent : handle long power button press");
 
             break;
         }
@@ -254,19 +250,18 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
             if (!poweredOn(hostNumber))
             {
-                log<level::INFO>("Power is off so ignoring reset button press");
+                lg2::info("Power is off so ignoring reset button press");
                 return;
             }
 
-            log<level::INFO>("Handling reset button press");
+            lg2::info("Handling reset button press");
             transition = Host::Transition::Reboot;
             break;
         }
         default:
         {
-            log<level::ERR>(
-                "Invalid power event. skipping...",
-                entry("EVENT=%d", static_cast<int>(powerEventType)));
+            lg2::error("{EVENT} is invalid power event. skipping...", "EVENT",
+                       (int)powerEventType);
 
             return;
         }
@@ -285,8 +280,8 @@ void Handler::powerPressed(sdbusplus::message::message& /* msg */)
     }
     catch (const sdbusplus::exception::exception& e)
     {
-        log<level::ERR>("Failed power state change on a power button press",
-                        entry("ERROR=%s", e.what()));
+        lg2::error("Failed power state change on a power button press: {ERROR}",
+                   "ERROR", e);
     }
 }
 void Handler::longPowerPressed(sdbusplus::message::message& /* msg */)
@@ -297,8 +292,8 @@ void Handler::longPowerPressed(sdbusplus::message::message& /* msg */)
     }
     catch (const sdbusplus::exception::exception& e)
     {
-        log<level::ERR>("Failed powering off on long power button press",
-                        entry("ERROR=%s", e.what()));
+        lg2::error("Failed powering off on long power button press: {ERROR}",
+                   "ERROR", e);
     }
 }
 
@@ -310,8 +305,8 @@ void Handler::resetPressed(sdbusplus::message::message& /* msg */)
     }
     catch (const sdbusplus::exception::exception& e)
     {
-        log<level::ERR>("Failed power state change on a reset button press",
-                        entry("ERROR=%s", e.what()));
+        lg2::error("Failed power state change on a reset button press: {ERROR}",
+                   "ERROR", e);
     }
 }
 
@@ -324,8 +319,8 @@ void Handler::idPressed(sdbusplus::message::message& /* msg */)
 
     if (service.empty())
     {
-        log<level::INFO>("No identify LED group found during ID button press",
-                         entry("GROUP=%s", groupPath.c_str()));
+        lg2::info("No found {GROUP} during ID button press:", "GROUP",
+                  groupPath);
         return;
     }
 
@@ -341,9 +336,9 @@ void Handler::idPressed(sdbusplus::message::message& /* msg */)
 
         state = !std::get<bool>(state);
 
-        log<level::INFO>("Changing ID LED group state on ID LED press",
-                         entry("GROUP=%s", groupPath.c_str()),
-                         entry("STATE=%d", std::get<bool>(state)));
+        lg2::info(
+            "Changing ID LED group state on ID LED press, GROUP = {GROUP}, STATE = {STATE}",
+            "GROUP", groupPath, "STATE", std::get<bool>(state));
 
         method = bus.new_method_call(service.c_str(), groupPath.c_str(),
                                      propertyIface, "Set");
@@ -353,8 +348,8 @@ void Handler::idPressed(sdbusplus::message::message& /* msg */)
     }
     catch (const sdbusplus::exception::exception& e)
     {
-        log<level::ERR>("Error toggling ID LED group on ID button press",
-                        entry("ERROR=%s", e.what()));
+        lg2::error("Error toggling ID LED group on ID button press: {ERROR}",
+                   "ERROR", e);
     }
 }
 } // namespace button
