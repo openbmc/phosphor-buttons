@@ -23,14 +23,13 @@
 
 #include <gpioplus/utility/aspeed.hpp>
 #include <nlohmann/json.hpp>
-#include <phosphor-logging/log.hpp>
+#include <phosphor-logging/lg2.hpp>
 
 #include <filesystem>
 #include <fstream>
 
 const std::string gpioDev = "/sys/class/gpio";
 
-using namespace phosphor::logging;
 namespace fs = std::filesystem;
 
 void closeGpio(int fd)
@@ -68,7 +67,7 @@ uint32_t getGpioBase()
         }
     }
 
-    log<level::ERR>("Could not find GPIO base");
+    lg2::error("Could not find GPIO base");
     throw std::runtime_error("Could not find GPIO base!");
 #else
     return 0;
@@ -94,11 +93,8 @@ int configGroupGpio(buttonConfig& buttonIFConfig)
         result = configGpio(gpioCfg);
         if (result < 0)
         {
-            std::string errorMsg =
-                "Error configuring gpio: GPIO_NUM=" +
-                std::to_string(gpioCfg.number) +
-                ",BUTTON_NAME=" + buttonIFConfig.formFactorName;
-            log<level::ERR>(errorMsg.c_str());
+            lg2::error("{NAME}: Error configuring gpio: {NUM}", "NAME",
+                       buttonIFConfig.formFactorName, "NUM", gpioCfg.number);
 
             break;
         }
@@ -124,7 +120,7 @@ int configGpio(gpioInfo& gpioConfig)
 
     if (fs::exists(fullPath))
     {
-        log<level::INFO>("GPIO exported", entry("PATH=%s", devPath.c_str()));
+        lg2::info("GPIO exported: {PATH}", "PATH", devPath);
     }
     else
     {
@@ -139,9 +135,8 @@ int configGpio(gpioInfo& gpioConfig)
 
         catch (const std::exception& e)
         {
-            log<level::ERR>("Error in writing!",
-                            entry("PATH=%s", devPath.c_str()),
-                            entry("NUM=%d", gpioNum));
+            lg2::error("{NUM} error in writing: {PATH}", "NUM", gpioNum, "PATH",
+                       devPath);
             return -1;
         }
     }
@@ -161,8 +156,7 @@ int configGpio(gpioInfo& gpioConfig)
 
         catch (const std::exception& e)
         {
-            log<level::ERR>("Error in reading!",
-                            entry("PATH=%s", devPath.c_str()));
+            lg2::error("Error in reading: {PATH}", "PATH", devPath);
             return -1;
         }
 
@@ -180,7 +174,7 @@ int configGpio(gpioInfo& gpioConfig)
 
         catch (const std::exception& e)
         {
-            log<level::ERR>("Error in writing!");
+            lg2::error("Error in writing: {ERROR}", "ERROR", e);
             return -1;
         }
     }
@@ -197,7 +191,7 @@ int configGpio(gpioInfo& gpioConfig)
 
         catch (const std::exception& e)
         {
-            log<level::ERR>("Error in writing!");
+            lg2::error("Error in writing: {ERROR}", "ERROR", e);
             return -1;
         }
     }
@@ -218,7 +212,7 @@ int configGpio(gpioInfo& gpioConfig)
 
         catch (const std::exception& e)
         {
-            log<level::ERR>("Error in writing!");
+            lg2::error("Error in writing: {ERROR}", "ERROR", e);
             return -1;
         }
         devPath.clear();
@@ -236,7 +230,7 @@ int configGpio(gpioInfo& gpioConfig)
 
         catch (const std::exception& e)
         {
-            log<level::ERR>("Error in writing!");
+            lg2::error("Error in writing: {ERROR}", "ERROR", e);
             return -1;
         }
     }
@@ -247,7 +241,7 @@ int configGpio(gpioInfo& gpioConfig)
 
     if (fd < 0)
     {
-        log<level::ERR>("open error!");
+        lg2::error("Open error: {FD}", "FD", fd);
         return -1;
     }
 
