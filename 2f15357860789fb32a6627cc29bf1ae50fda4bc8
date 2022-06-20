@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15aa0ded_87dfd217",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-06-20T14:55:09Z",
+      "side": 1,
+      "message": "If you delete this now, I think you\u0027ll coreq the bump on this commit to changing the recipes in bitbake to use meson instead.",
+      "revId": "2f15357860789fb32a6627cc29bf1ae50fda4bc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53b1b4a0_ab9fb21f",
         "filename": "meson.build",
         "patchSetId": 2
