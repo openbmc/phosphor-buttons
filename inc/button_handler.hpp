@@ -39,7 +39,7 @@ class Handler
      *
      * @param[in] bus - sdbusplus connection object
      */
-    Handler(sdbusplus::bus::bus& bus);
+    explicit Handler(sdbusplus::bus::bus& bus);
 
   private:
     /**

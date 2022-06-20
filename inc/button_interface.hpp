@@ -108,8 +108,8 @@ class ButtonIface
         }
     }
 
-    buttonConfig config;
     sdbusplus::bus::bus& bus;
     EventPtr& event;
+    buttonConfig config;
     sd_event_io_handler_t callbackHandler;
 };
