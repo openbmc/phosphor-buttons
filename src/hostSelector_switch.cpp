@@ -1,9 +1,13 @@
 
 #include "hostSelector_switch.hpp"
 
+#include <error.h>
+
+#include <phosphor-logging/lg2.hpp>
+
 // add the button iface class to registry
 static ButtonIFRegister<HostSelector> buttonRegister;
-using namespace phosphor::logging;
+
 size_t HostSelector::getMappedHSConfig(size_t hsPosition)
 {
     size_t adjustedPosition = INVALID_INDEX; // set bmc as default value
@@ -16,9 +20,8 @@ size_t HostSelector::getMappedHSConfig(size_t hsPosition)
     }
     else
     {
-        log<level::DEBUG>(
-            "getMappedHSConfig : no valid value in map.",
-            entry("FORM_FACTOR_TYPE=%s", (getFormFactorType()).c_str()));
+        lg2::debug("getMappedHSConfig : {TYPE}: no valid value in map.", "TYPE",
+                   getFormFactorType());
     }
     return adjustedPosition;
 }
@@ -43,9 +46,8 @@ void HostSelector::setInitialHostSelectorValue()
 
         if (result < 0)
         {
-            log<level::ERR>(
-                "gpio fd lseek error!",
-                entry("FORM_FACTOR_TYPE=%s", (getFormFactorType()).c_str()));
+            lg2::error("{TYPE}: Gpio fd lseek error: {ERROR}", "TYPE",
+                       getFormFactorType(), "ERROR", errno);
             throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                 IOError();
         }
@@ -53,9 +55,8 @@ void HostSelector::setInitialHostSelectorValue()
         result = ::read(config.gpios[index].fd, &buf, sizeof(buf));
         if (result < 0)
         {
-            log<level::ERR>(
-                "gpio fd read error!",
-                entry("FORM_FACTOR_TYPE=%s", (getFormFactorType()).c_str()));
+            lg2::error("{TYPE}: Gpio fd read error: {ERROR}", "TYPE",
+                       getFormFactorType(), "ERROR", errno);
             throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                 IOError();
         }
@@ -104,18 +105,16 @@ void HostSelector::handleEvent(sd_event_source* /* es */, int fd,
 
     if (n < 0)
     {
-        log<level::ERR>(
-            "gpio fd lseek error!",
-            entry("FORM_FACTOR_TYPE=%s", (getFormFactorType()).c_str()));
+        lg2::error("{TYPE}: Gpio fd lseek error: {ERROR}", "TYPE",
+                   getFormFactorType(), "ERROR", errno);
         return;
     }
 
     n = ::read(fd, &buf, sizeof(buf));
     if (n < 0)
     {
-        log<level::ERR>(
-            "gpio fd read error!",
-            entry("FORM_FACTOR_TYPE=%s", (getFormFactorType()).c_str()));
+        lg2::error("{TYPE}: Gpio fd read error: {ERROR}", "TYPE",
+                   getFormFactorType(), "ERROR", errno);
         throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
             IOError();
     }
