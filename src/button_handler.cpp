@@ -277,7 +277,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     method.append(dbusIfaceName, transitionName, transition);
     bus.call(method);
 }
-void Handler::powerPressed(sdbusplus::message::message& msg)
+void Handler::powerPressed(sdbusplus::message::message& /* msg */)
 {
     try
     {
@@ -289,7 +289,7 @@ void Handler::powerPressed(sdbusplus::message::message& msg)
                         entry("ERROR=%s", e.what()));
     }
 }
-void Handler::longPowerPressed(sdbusplus::message::message& msg)
+void Handler::longPowerPressed(sdbusplus::message::message& /* msg */)
 {
     try
     {
@@ -302,7 +302,7 @@ void Handler::longPowerPressed(sdbusplus::message::message& msg)
     }
 }
 
-void Handler::resetPressed(sdbusplus::message::message& msg)
+void Handler::resetPressed(sdbusplus::message::message& /* msg */)
 {
     try
     {
@@ -315,7 +315,7 @@ void Handler::resetPressed(sdbusplus::message::message& msg)
     }
 }
 
-void Handler::idPressed(sdbusplus::message::message& msg)
+void Handler::idPressed(sdbusplus::message::message& /* msg */)
 {
     std::string groupPath{ledGroupBasePath};
     groupPath += ID_LED_GROUP;

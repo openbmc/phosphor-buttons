@@ -37,7 +37,7 @@ size_t HostSelector::getGpioIndex(int fd)
 void HostSelector::setInitialHostSelectorValue()
 {
     char buf;
-    for (int index = 0; index < gpioLineCount; index++)
+    for (size_t index = 0; index < gpioLineCount; index++)
     {
         auto result = ::lseek(config.gpios[index].fd, 0, SEEK_SET);
 
@@ -94,7 +94,8 @@ void HostSelector::setHostSelectorValue(int fd, GpioState state)
  * init() function can be created to override the default event handling
  */
 
-void HostSelector::handleEvent(sd_event_source* es, int fd, uint32_t revents)
+void HostSelector::handleEvent(sd_event_source* /* es */, int fd,
+                               uint32_t /* revents */)
 {
     int n = -1;
     char buf = '0';

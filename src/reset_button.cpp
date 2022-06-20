@@ -26,7 +26,8 @@ void ResetButton::simPress()
     pressed();
 }
 
-void ResetButton::handleEvent(sd_event_source* es, int fd, uint32_t revents)
+void ResetButton::handleEvent(sd_event_source* /* es */, int fd,
+                              uint32_t /* revents */)
 {
     int n = -1;
     char buf = '0';
