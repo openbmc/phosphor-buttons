@@ -1,0 +1,203 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad9124bf_607df504",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "Overall, looks pretty good.  A bunch of nits.",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26680fc3_fd62f075",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "Do we need to capture `result` and/or `errno`?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bee62535_7105c19c",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "Probably should include (\"ERROR\", e)?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c3f0798_28a13080",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "\"ERROR\", e?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60b7b56c_dce49fe6",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "The fd isn\u0027t too useful.  You probably want errno.\n\n```\nRETURN VALUE\n       On success, open(), openat(), and creat() return the new file descriptor (a  nonnegative  integer).   On\n       error, -1 is returned and errno is set to indicate the error.\n```",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e02549_81d2064d",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "Useful to have errno?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f6136ff_406da3cb",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 56,
+        "startChar": 40,
+        "endLine": 56,
+        "endChar": 45
+      },
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8685812c_5d6bb45e",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "errno?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0a22718_12ad926b",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "errno?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03e234eb_f51f5919",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "errno?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f42e30a9_b03f4fce",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:08:06Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 113,
+        "startChar": 36,
+        "endLine": 113,
+        "endChar": 41
+      },
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
