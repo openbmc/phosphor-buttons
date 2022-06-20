@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53b1b4a0_ab9fb21f",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-20T11:03:12Z",
+      "side": 1,
+      "message": "You can simplify this quite a bit per the phosphor-host-ipmid meson.build:\n\n```\nif cpp.has_header_symbol(\n        \u0027nlohmann/json.hpp\u0027,\n        \u0027nlohmann::json::string_t\u0027,\n        required:false)\n    nlohmann_json_dep \u003d declare_dependency()\nelse\n    nlohmann_json_dep \u003d dependency(\u0027nlohmann-json\u0027)\nendif\n```",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 5
+      },
+      "revId": "2f15357860789fb32a6627cc29bf1ae50fda4bc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
