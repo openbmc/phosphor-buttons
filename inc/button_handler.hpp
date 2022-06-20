@@ -1,5 +1,4 @@
 #pragma once
-
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/bus/match.hpp>
 
