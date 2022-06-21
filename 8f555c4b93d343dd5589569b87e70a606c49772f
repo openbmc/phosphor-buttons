@@ -178,6 +178,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "426ef4ad_634ac67d",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-21T04:21:39Z",
+      "side": 1,
+      "message": "The path is helpful but what about the errno?",
+      "parentUuid": "807962ad_7cfb0fae",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26e02549_81d2064d",
         "filename": "src/hostSelector_switch.cpp",
         "patchSetId": 2
@@ -207,6 +225,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "26e02549_81d2064d",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c148c0_7bd2e2d6",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-21T04:21:39Z",
+      "side": 1,
+      "message": "You added \u0027result\u0027 which is just -1 and not errno.\n\n```\nRETURN VALUE\n       Upon successful completion, lseek() returns the resulting offset location as measured in bytes from  the\n       beginning  of the file.  On error, the value (off_t) -1 is returned and errno is set to indicate the er‐\n       ror.\n```",
+      "parentUuid": "0b59bc2c_6cef6b12",
       "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -295,6 +331,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3752ef1d_6c7bcd53",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-21T04:21:39Z",
+      "side": 1,
+      "message": "still no errno.",
+      "parentUuid": "442fc7db_711970b6",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0a22718_12ad926b",
         "filename": "src/hostSelector_switch.cpp",
         "patchSetId": 2
@@ -324,6 +378,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b0a22718_12ad926b",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da02ee43_4adcbba9",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-21T04:21:39Z",
+      "side": 1,
+      "message": "still no errno.",
+      "parentUuid": "6524d7f6_a4b097ce",
       "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -406,6 +478,24 @@
         "endLine": 113,
         "endChar": 41
       },
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce69ef97_8308d3ee",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-21T04:21:39Z",
+      "side": 1,
+      "message": "still no errno.",
+      "parentUuid": "8b02f645_a99cf980",
       "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
