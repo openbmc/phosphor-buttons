@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ae9f6fe_591315fd",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:37Z",
+      "side": 1,
+      "message": "\u003e If you delete this now, I think you\u0027ll coreq the bump on this commit to changing the recipes in bitbake to use meson instead.\n\nCorrect, I will update bump after this patch is merged",
+      "parentUuid": "15aa0ded_87dfd217",
+      "revId": "2f15357860789fb32a6627cc29bf1ae50fda4bc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53b1b4a0_ab9fb21f",
         "filename": "meson.build",
         "patchSetId": 2
@@ -31,6 +49,30 @@
       "writtenOn": "2022-06-20T11:03:12Z",
       "side": 1,
       "message": "You can simplify this quite a bit per the phosphor-host-ipmid meson.build:\n\n```\nif cpp.has_header_symbol(\n        \u0027nlohmann/json.hpp\u0027,\n        \u0027nlohmann::json::string_t\u0027,\n        required:false)\n    nlohmann_json_dep \u003d declare_dependency()\nelse\n    nlohmann_json_dep \u003d dependency(\u0027nlohmann-json\u0027)\nendif\n```",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 5
+      },
+      "revId": "2f15357860789fb32a6627cc29bf1ae50fda4bc8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "744e73c8_7fae83b6",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53b1b4a0_ab9fb21f",
       "range": {
         "startLine": 35,
         "startChar": 0,
