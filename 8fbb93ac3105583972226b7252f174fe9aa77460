@@ -16,6 +16,24 @@
       "message": "I\u0027m surprised this is what Kuiyang is looking for.  Don\u0027t you want some sort of perma-link of which revision of the .clang-format you are picking up?\n\nSomething like:\n\nhttps://github.com/openbmc/docs/blob/ac5d544553934f8083c61c5986a1420261bc8a4c/style/cpp/.clang-format",
       "revId": "8fbb93ac3105583972226b7252f174fe9aa77460",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a8c7c17_62f58f46",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T04:50:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45ce6e19_d3c911b8",
+      "revId": "8fbb93ac3105583972226b7252f174fe9aa77460",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
