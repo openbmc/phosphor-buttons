@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55aa0bb7_d950d6f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "\u003e Overall, looks pretty good.  A bunch of nits.\n\nThanks Patrick",
+      "parentUuid": "ad9124bf_607df504",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26680fc3_fd62f075",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-06-20T11:08:06Z",
       "side": 1,
       "message": "Do we need to capture `result` and/or `errno`?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba6929be_3d299598",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26680fc3_fd62f075",
       "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -52,6 +88,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da766092_6cb0351f",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bee62535_7105c19c",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c3f0798_28a13080",
@@ -65,6 +119,24 @@
       "writtenOn": "2022-06-20T11:08:06Z",
       "side": 1,
       "message": "\"ERROR\", e?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d3563da_e3f8286a",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c3f0798_28a13080",
       "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -86,6 +158,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "807962ad_7cfb0fae",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Ack\nI think the path should be added",
+      "parentUuid": "60b7b56c_dce49fe6",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26e02549_81d2064d",
@@ -99,6 +189,24 @@
       "writtenOn": "2022-06-20T11:08:06Z",
       "side": 1,
       "message": "Useful to have errno?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b59bc2c_6cef6b12",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26e02549_81d2064d",
       "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -143,6 +251,48 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63217dd0_ff9299b4",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f6136ff_406da3cb",
+      "range": {
+        "startLine": 56,
+        "startChar": 40,
+        "endLine": 56,
+        "endChar": 45
+      },
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "442fc7db_711970b6",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8685812c_5d6bb45e",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0a22718_12ad926b",
@@ -156,6 +306,24 @@
       "writtenOn": "2022-06-20T11:08:06Z",
       "side": 1,
       "message": "errno?",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6524d7f6_a4b097ce",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a22718_12ad926b",
       "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -190,6 +358,48 @@
       "writtenOn": "2022-06-20T11:08:06Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 113,
+        "startChar": 36,
+        "endLine": 113,
+        "endChar": 41
+      },
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b02f645_a99cf980",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03e234eb_f51f5919",
+      "revId": "8f555c4b93d343dd5589569b87e70a606c49772f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3c6a4cc_e7065b9c",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T00:07:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f42e30a9_b03f4fce",
       "range": {
         "startLine": 113,
         "startChar": 36,
