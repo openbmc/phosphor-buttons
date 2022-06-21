@@ -16,6 +16,24 @@
       "message": "You\u0027re still missing the [provides].",
       "revId": "40e3edf68fcafbbcdc90b29e02b59b2c080dd6d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fed7b91_6dd0564c",
+        "filename": "subprojects/nlohmann_json.wrap",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2022-06-21T04:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14aa7061_8d2214d6",
+      "revId": "40e3edf68fcafbbcdc90b29e02b59b2c080dd6d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
