@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6ace4d3_b5b676fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001292
+      },
+      "writtenOn": "2022-07-05T16:32:09Z",
+      "side": 1,
+      "message": "Few minor naming and standards issues I would like to see corrected.  Rest of patch looks good.  Thanks!",
+      "revId": "4f19880f217696ae05d12b3961a922e7d16dcf2f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93cd933d_30e51d3d",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1001292
+      },
+      "writtenOn": "2022-07-05T16:32:09Z",
+      "side": 1,
+      "message": "It would be good to keep the function name standard already present as indicated in line 115 and not abbreviate HostSelector as HS in this function and again in the function name in line 123.",
+      "revId": "4f19880f217696ae05d12b3961a922e7d16dcf2f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ca414de_ba20a50e",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001292
+      },
+      "writtenOn": "2022-07-05T16:32:09Z",
+      "side": 1,
+      "message": "Please reformat to keep within the 80 char line limit standard.",
+      "revId": "4f19880f217696ae05d12b3961a922e7d16dcf2f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af3d5365_368f20c2",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1001292
+      },
+      "writtenOn": "2022-07-05T16:32:09Z",
+      "side": 1,
+      "message": "Please modify function name to indicate HostSelector instead of \"HS\"",
+      "revId": "4f19880f217696ae05d12b3961a922e7d16dcf2f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
