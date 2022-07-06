@@ -21,7 +21,7 @@ conf_data.set_quoted('CHASSISSYSTEM_STATE_OBJECT_NAME', 'xyz/openbmc_project/sta
 conf_data.set_quoted('HOST_STATE_OBJECT_NAME', 'xyz/openbmc_project/state/host')
 conf_data.set_quoted('ID_LED_GROUP', get_option('id-led-group'))
 
-conf_data.set('LONG_PRESS_TIME_MS', 3000)
+conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))
 
 configure_file(output: 'config.h',
     configuration: conf_data

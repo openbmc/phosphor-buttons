@@ -4,3 +4,10 @@ option(
     value: 'enclosure_identify',
     description : 'The identify LED group name'
 )
+
+option(
+    'long-press-time-ms',
+    type : 'integer',
+    value: 3000,
+    description : 'Time to long press the button'
+)
