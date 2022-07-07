@@ -11,3 +11,10 @@ option(
     value: 3000,
     description : 'Time to long press the button'
 )
+
+option(
+    'lookup-gpio-base',
+    type : 'feature',
+    value: 'enabled',
+    description : 'Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0.'
+)

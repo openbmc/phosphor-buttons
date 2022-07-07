@@ -10,18 +10,19 @@ project(
 )
 
 conf_data = configuration_data()
-conf_data.set_quoted('POWER_DBUS_OBJECT_NAME', 'xyz/openbmc_project/Chassis/Buttons/Power')
-conf_data.set_quoted('RESET_DBUS_OBJECT_NAME', 'xyz/openbmc_project/Chassis/Buttons/Reset')
-conf_data.set_quoted('ID_DBUS_OBJECT_NAME', 'xyz/openbmc_project/Chassis/Buttons/ID')
-conf_data.set_quoted('HS_DBUS_OBJECT_NAME', 'xyz/openbmc_project/Chassis/Buttons/HostSelector')
-conf_data.set_quoted('GPIO_BASE_LABEL_NAME', '/com/inspur/cpld/motherboard/acfail')
+conf_data.set_quoted('POWER_DBUS_OBJECT_NAME', '/xyz/openbmc_project/Chassis/Buttons/Power0')
+conf_data.set_quoted('RESET_DBUS_OBJECT_NAME', '/xyz/openbmc_project/Chassis/Buttons/Reset0')
+conf_data.set_quoted('ID_DBUS_OBJECT_NAME', '/xyz/openbmc_project/Chassis/Buttons/ID0')
+conf_data.set_quoted('HS_DBUS_OBJECT_NAME', '/xyz/openbmc_project/Chassis/Buttons/HostSelector')
+conf_data.set_quoted('GPIO_BASE_LABEL_NAME', '1e780000.gpio')
 conf_data.set_quoted('BUTTON_PATH', '1e780000.gpio')
-conf_data.set_quoted('CHASSIS_STATE_OBJECT_NAME', 'xyz/openbmc_project/state/chassis')
-conf_data.set_quoted('CHASSISSYSTEM_STATE_OBJECT_NAME', 'xyz/openbmc_project/state/chassis_system')
-conf_data.set_quoted('HOST_STATE_OBJECT_NAME', 'xyz/openbmc_project/state/host')
+conf_data.set_quoted('CHASSIS_STATE_OBJECT_NAME', '/xyz/openbmc_project/state/chassis')
+conf_data.set_quoted('CHASSISSYSTEM_STATE_OBJECT_NAME', '/xyz/openbmc_project/state/chassis_system')
+conf_data.set_quoted('HOST_STATE_OBJECT_NAME', '/xyz/openbmc_project/state/host')
 conf_data.set_quoted('ID_LED_GROUP', get_option('id-led-group'))
 
 conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))
+conf_data.set('LOOKUP_GPIO_BASE', get_option('lookup-gpio-base').enabled())
 
 configure_file(output: 'config.h',
     configuration: conf_data
