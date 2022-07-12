@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f41b4c36_8edbc410",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001292
+      },
+      "writtenOn": "2022-07-12T14:44:38Z",
+      "side": 1,
+      "message": "A couple of questions about the updated patchset.",
+      "revId": "1d758b57ef41832eae39aae7a335ff5344fa1242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ff44a86_ae0091fc",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1001292
+      },
+      "writtenOn": "2022-07-12T14:44:38Z",
+      "side": 1,
+      "message": "If you find MaxPosition (or Position below) should you break out of the for loop to help performance?",
+      "revId": "1d758b57ef41832eae39aae7a335ff5344fa1242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acae58e7_a17eff45",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1001292
+      },
+      "writtenOn": "2022-07-12T14:44:38Z",
+      "side": 1,
+      "message": "Is it an error condition if the name isn\u0027t MaxPosition or \u0027Position\u0027?  If so, an else clause should be added to handle it.",
+      "revId": "1d758b57ef41832eae39aae7a335ff5344fa1242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
