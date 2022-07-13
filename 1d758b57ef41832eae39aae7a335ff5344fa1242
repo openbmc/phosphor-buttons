@@ -52,6 +52,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4051fcd9_f4da5641",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-13T07:27:26Z",
+      "side": 1,
+      "message": "we are getting all properties associated with HostSelector interface. So we are only reading 2 properties.",
+      "parentUuid": "2ff44a86_ae0091fc",
+      "revId": "1d758b57ef41832eae39aae7a335ff5344fa1242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acae58e7_a17eff45",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-07-12T14:44:38Z",
       "side": 1,
       "message": "Is it an error condition if the name isn\u0027t MaxPosition or \u0027Position\u0027?  If so, an else clause should be added to handle it.",
+      "revId": "1d758b57ef41832eae39aae7a335ff5344fa1242",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ed7c771_60720764",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-13T07:27:26Z",
+      "side": 1,
+      "message": "these two are the properties we need.there wont be any other property name under HostSelector interface.even in case of any other property, ignoring it is fine. no need to report error. Error in case of reading the properties Position or MaxPosition will be handled in the try catch exception block.",
+      "parentUuid": "acae58e7_a17eff45",
       "revId": "1d758b57ef41832eae39aae7a335ff5344fa1242",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
