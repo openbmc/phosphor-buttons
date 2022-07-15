@@ -10,7 +10,10 @@ enum class PowerEvent
 {
     powerPressed,
     longPowerPressed,
-    resetPressed
+    resetPressed,
+    powerReleased,
+    longPowerReleased,
+    resetReleased
 };
 /**
  * @class Handler
@@ -49,7 +52,7 @@ class Handler
      *
      * @param[in] msg - sdbusplus message from signal
      */
-    void powerPressed(sdbusplus::message::message& msg);
+    void powerReleased(sdbusplus::message::message& msg);
 
     /**
      * @brief The handler for a long power button press
@@ -68,7 +71,7 @@ class Handler
      *
      * @param[in] msg - sdbusplus message from signal
      */
-    void idPressed(sdbusplus::message::message& msg);
+    void idReleased(sdbusplus::message::message& msg);
 
     /**
      * @brief The handler for a reset button press
@@ -77,7 +80,7 @@ class Handler
      *
      * @param[in] msg - sdbusplus message from signal
      */
-    void resetPressed(sdbusplus::message::message& msg);
+    void resetReleased(sdbusplus::message::message& msg);
 
     /**
      * @brief Checks if system is powered on
@@ -132,7 +135,7 @@ class Handler
     /**
      * @brief Matches on the power button long press released signal
      */
-    std::unique_ptr<sdbusplus::bus::match_t> powerButtonLongPressReleased;
+    std::unique_ptr<sdbusplus::bus::match_t> powerButtonLongPressed;
 
     /**
      * @brief Matches on the ID button released signal

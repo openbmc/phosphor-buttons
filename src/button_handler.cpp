@@ -44,18 +44,16 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                 sdbusRule::type::signal() + sdbusRule::member("Released") +
                     sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
                     sdbusRule::interface(powerButtonIface),
-                std::bind(std::mem_fn(&Handler::powerPressed), this,
+                std::bind(std::mem_fn(&Handler::powerReleased), this,
                           std::placeholders::_1));
 
-            powerButtonLongPressReleased =
-                std::make_unique<sdbusplus::bus::match_t>(
-                    bus,
-                    sdbusRule::type::signal() +
-                        sdbusRule::member("PressedLong") +
-                        sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
-                        sdbusRule::interface(powerButtonIface),
-                    std::bind(std::mem_fn(&Handler::longPowerPressed), this,
-                              std::placeholders::_1));
+            powerButtonLongPressed = std::make_unique<sdbusplus::bus::match_t>(
+                bus,
+                sdbusRule::type::signal() + sdbusRule::member("PressedLong") +
+                    sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
+                    sdbusRule::interface(powerButtonIface),
+                std::bind(std::mem_fn(&Handler::longPowerPressed), this,
+                          std::placeholders::_1));
         }
     }
     catch (const sdbusplus::exception::exception& e)
@@ -73,7 +71,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                 sdbusRule::type::signal() + sdbusRule::member("Released") +
                     sdbusRule::path(ID_DBUS_OBJECT_NAME) +
                     sdbusRule::interface(idButtonIface),
-                std::bind(std::mem_fn(&Handler::idPressed), this,
+                std::bind(std::mem_fn(&Handler::idReleased), this,
                           std::placeholders::_1));
         }
     }
@@ -92,7 +90,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                 sdbusRule::type::signal() + sdbusRule::member("Released") +
                     sdbusRule::path(RESET_DBUS_OBJECT_NAME) +
                     sdbusRule::interface(resetButtonIface),
-                std::bind(std::mem_fn(&Handler::resetPressed), this,
+                std::bind(std::mem_fn(&Handler::resetReleased), this,
                           std::placeholders::_1));
         }
     }
@@ -194,7 +192,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
     switch (powerEventType)
     {
-        case PowerEvent::powerPressed:
+        case PowerEvent::powerReleased:
         {
             objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
             dbusIfaceName = hostIface;
@@ -242,7 +240,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
             break;
         }
 
-        case PowerEvent::resetPressed:
+        case PowerEvent::resetReleased:
         {
             objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
             dbusIfaceName = hostIface;
@@ -273,11 +271,11 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     method.append(dbusIfaceName, transitionName, transition);
     bus.call(method);
 }
-void Handler::powerPressed(sdbusplus::message::message& /* msg */)
+void Handler::powerReleased(sdbusplus::message::message& /* msg */)
 {
     try
     {
-        handlePowerEvent(PowerEvent::powerPressed);
+        handlePowerEvent(PowerEvent::powerReleased);
     }
     catch (const sdbusplus::exception::exception& e)
     {
@@ -298,11 +296,11 @@ void Handler::longPowerPressed(sdbusplus::message::message& /* msg */)
     }
 }
 
-void Handler::resetPressed(sdbusplus::message::message& /* msg */)
+void Handler::resetReleased(sdbusplus::message::message& /* msg */)
 {
     try
     {
-        handlePowerEvent(PowerEvent::resetPressed);
+        handlePowerEvent(PowerEvent::resetReleased);
     }
     catch (const sdbusplus::exception::exception& e)
     {
@@ -311,7 +309,7 @@ void Handler::resetPressed(sdbusplus::message::message& /* msg */)
     }
 }
 
-void Handler::idPressed(sdbusplus::message::message& /* msg */)
+void Handler::idReleased(sdbusplus::message::message& /* msg */)
 {
     std::string groupPath{ledGroupBasePath};
     groupPath += ID_LED_GROUP;
