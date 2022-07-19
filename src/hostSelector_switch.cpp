@@ -61,7 +61,7 @@ void HostSelector::setInitialHostSelectorValue()
                 IOError();
         }
         GpioState gpioState =
-            (buf == '0') ? (GpioState::low) : (GpioState::high);
+            (buf == '0') ? (GpioState::deassert) : (GpioState::assert);
         setHostSelectorValue(config.gpios[index].fd, gpioState);
         size_t hsPosMapped = getMappedHSConfig(hostSelectorPosition);
         if (hsPosMapped != INVALID_INDEX)
@@ -83,7 +83,7 @@ void HostSelector::setHostSelectorValue(int fd, GpioState state)
 
     auto clr_bit = [](size_t& val, size_t n) { val &= ~(0xff & (1 << n)); };
 
-    auto bit_op = (state == GpioState::low) ? set_bit : clr_bit;
+    auto bit_op = (state == GpioState::deassert) ? set_bit : clr_bit;
 
     bit_op(hostSelectorPosition, pos);
     return;
@@ -120,7 +120,8 @@ void HostSelector::handleEvent(sd_event_source* /* es */, int fd,
     }
 
     // read the gpio state for the io event received
-    GpioState gpioState = (buf == '0') ? (GpioState::low) : (GpioState::high);
+    GpioState gpioState =
+        (buf == '0') ? (GpioState::deassert) : (GpioState::assert);
 
     setHostSelectorValue(fd, gpioState);
 
