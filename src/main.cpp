@@ -48,7 +48,6 @@ int main(void)
         bus, "/xyz/openbmc_project/Chassis/Buttons"};
 
     bus.request_name("xyz.openbmc_project.Chassis.Buttons");
-    //
     std::vector<std::unique_ptr<ButtonIface>> buttonInterfaces;
 
     std::ifstream gpios{gpioDefFile};
@@ -77,6 +76,10 @@ int main(void)
                 gpioInfo gpioCfg;
                 gpioCfg.number = getGpioNum(config["pin"]);
                 gpioCfg.direction = config["direction"];
+                gpioCfg.name = config["name"];
+                gpioCfg.polarity = (config["polarity"] == "active_high")
+                                       ? GpioPolarity::activeHigh
+                                       : GpioPolarity::activeLow;
                 buttonCfg.gpios.push_back(gpioCfg);
             }
         }
