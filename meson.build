@@ -20,6 +20,8 @@ conf_data.set_quoted('HS_DBUS_OBJECT_NAME',
                  '/xyz/openbmc_project/Chassis/Buttons/HostSelector')
 conf_data.set_quoted('DBG_HS_DBUS_OBJECT_NAME',
                  '/xyz/openbmc_project/Chassis/Buttons/DebugHostSelector')
+conf_data.set_quoted('SERIAL_CONSOLE_MUX_DBUS_OBJECT_NAME',
+                 '/xyz/openbmc_project/Chassis/Buttons/SerialUartMux')
 conf_data.set_quoted('GPIO_BASE_LABEL_NAME', '1e780000.gpio')
 conf_data.set_quoted('CHASSIS_STATE_OBJECT_NAME',
                  '/xyz/openbmc_project/state/chassis')
@@ -63,6 +65,7 @@ sources_buttons = [
     'src/gpio.cpp',
     'src/hostSelector_switch.cpp',
     'src/debugHostSelector_button.cpp',
+    'src/serial_uart_mux.cpp',
     'src/id_button.cpp',
     'src/main.cpp',
     'src/power_button.cpp',

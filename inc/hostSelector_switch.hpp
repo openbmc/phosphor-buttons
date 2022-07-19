@@ -12,6 +12,7 @@
 
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
+#include <phosphor-logging/lg2.hpp>
 
 #include <fstream>
 #include <iostream>

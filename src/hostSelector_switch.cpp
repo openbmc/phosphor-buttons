@@ -3,8 +3,6 @@
 
 #include <error.h>
 
-#include <phosphor-logging/lg2.hpp>
-
 // add the button iface class to registry
 static ButtonIFRegister<HostSelector> buttonRegister;
 
