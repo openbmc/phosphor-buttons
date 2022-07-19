@@ -30,9 +30,59 @@
 #include <fstream>
 
 const std::string gpioDev = "/sys/class/gpio";
-
 namespace fs = std::filesystem;
+std::unordered_map<GpioPolarity, GPIOBufferValue> GpioValueMap = {
+    {GpioPolarity::activeLow, {'0', '1'}},
+    {GpioPolarity::activeHigh, {'1', '0'}}};
 
+void setGpioState(int fd, GpioPolarity polarity, GpioState state)
+{
+    char writeBuffer;
+
+    if (state == GpioState::high)
+    {
+        writeBuffer = GpioValueMap[polarity].assert;
+    }
+    else
+    {
+        writeBuffer = GpioValueMap[polarity].deassert;
+    }
+
+    auto result = ::write(fd, &writeBuffer, sizeof(writeBuffer));
+    if (result < 0)
+    {
+        lg2::error("GPIO write error {GPIOFD} : {ERRORNO}", "GPIOFD", fd,
+                   "ERRORNO", errno);
+    }
+    return;
+}
+GpioState getGpioState(int fd, GpioPolarity polarity)
+{
+    int result = -1;
+    char readBuffer = '0';
+
+    result = ::lseek(fd, 0, SEEK_SET);
+
+    if (result < 0)
+    {
+        lg2::error("GPIO lseek error {GPIOFD}: {ERROR}", "GPIOFD", fd, "ERROR",
+                   errno);
+        return GpioState::invalid;
+    }
+
+    result = ::read(fd, &readBuffer, sizeof(readBuffer));
+    if (result < 0)
+    {
+        lg2::error("GPIO read error {GPIOFD}: {ERRORNO}", "GPIOFD", fd,
+                   "ERRORNO", errno);
+        throw std::runtime_error("GPIO read failed");
+    }
+    // read the gpio state for the io event received
+    GpioState gpioState = (readBuffer == GpioValueMap[polarity].assert)
+                              ? (GpioState::high)
+                              : (GpioState::low);
+    return gpioState;
+}
 void closeGpio(int fd)
 {
     if (fd > 0)
