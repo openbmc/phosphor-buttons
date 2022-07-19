@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a708e260_fd08d411",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-07-19T19:29:29Z",
+      "side": 1,
+      "message": "I don\u0027t think this is used in this file?",
+      "revId": "4747e7938d3e20c2e61d830899598339d92f29c2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ee17db6_c0c47365",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-07-19T19:29:29Z",
+      "side": 1,
+      "message": "while I can\u0027t think of a reason that MaxPosition or Position wouldn\u0027t be returned in the GetAll call, if they weren\u0027t there you\u0027d end up operating on uninitialized variables on lines 407/408 and wouldn\u0027t know it.\n\nMaybe just access them directly so you\u0027ll at least crash if they aren\u0027t there?",
+      "revId": "4747e7938d3e20c2e61d830899598339d92f29c2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
