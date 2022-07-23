@@ -43,8 +43,8 @@ int main(void)
     EventPtr eventP{event};
     event = nullptr;
 
-    sdbusplus::bus::bus bus = sdbusplus::bus::new_default();
-    sdbusplus::server::manager::manager objManager{
+    sdbusplus::bus_t bus = sdbusplus::bus::new_default();
+    sdbusplus::server::manager_t objManager{
         bus, "/xyz/openbmc_project/Chassis/Buttons"};
 
     bus.request_name("xyz.openbmc_project.Chassis.Buttons");
