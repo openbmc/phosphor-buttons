@@ -32,7 +32,7 @@ constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
 constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
 constexpr auto BMC_POSITION = 0;
 
-Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
+Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
 {
     try
     {
@@ -58,7 +58,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                               std::placeholders::_1));
         }
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         // The button wasn't implemented
     }
@@ -77,7 +77,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                           std::placeholders::_1));
         }
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         // The button wasn't implemented
     }
@@ -96,7 +96,7 @@ Handler::Handler(sdbusplus::bus::bus& bus) : bus(bus)
                           std::placeholders::_1));
         }
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         // The button wasn't implemented
     }
@@ -142,7 +142,7 @@ size_t Handler::getHostSelectorValue()
         auto position = std::get<size_t>(HSPositionVariant);
         return position;
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         lg2::error("Error reading Host selector Position: {ERROR}", "ERROR", e);
         throw;
@@ -273,45 +273,45 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     method.append(dbusIfaceName, transitionName, transition);
     bus.call(method);
 }
-void Handler::powerPressed(sdbusplus::message::message& /* msg */)
+void Handler::powerPressed(sdbusplus::message_t& /* msg */)
 {
     try
     {
         handlePowerEvent(PowerEvent::powerPressed);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         lg2::error("Failed power state change on a power button press: {ERROR}",
                    "ERROR", e);
     }
 }
-void Handler::longPowerPressed(sdbusplus::message::message& /* msg */)
+void Handler::longPowerPressed(sdbusplus::message_t& /* msg */)
 {
     try
     {
         handlePowerEvent(PowerEvent::longPowerPressed);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         lg2::error("Failed powering off on long power button press: {ERROR}",
                    "ERROR", e);
     }
 }
 
-void Handler::resetPressed(sdbusplus::message::message& /* msg */)
+void Handler::resetPressed(sdbusplus::message_t& /* msg */)
 {
     try
     {
         handlePowerEvent(PowerEvent::resetPressed);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         lg2::error("Failed power state change on a reset button press: {ERROR}",
                    "ERROR", e);
     }
 }
 
-void Handler::idPressed(sdbusplus::message::message& /* msg */)
+void Handler::idPressed(sdbusplus::message_t& /* msg */)
 {
     std::string groupPath{ledGroupBasePath};
     groupPath += ID_LED_GROUP;
@@ -347,7 +347,7 @@ void Handler::idPressed(sdbusplus::message::message& /* msg */)
         method.append(ledGroupIface, "Asserted", state);
         result = bus.call(method);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         lg2::error("Error toggling ID LED group on ID button press: {ERROR}",
                    "ERROR", e);
