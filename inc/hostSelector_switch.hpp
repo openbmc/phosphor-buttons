@@ -33,7 +33,7 @@ class HostSelector final :
     public ButtonIface
 {
   public:
-    HostSelector(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,
+    HostSelector(sdbusplus::bus_t& bus, const char* path, EventPtr& event,
                  buttonConfig& buttonCfg) :
         sdbusplus::server::object_t<sdbusplus::xyz::openbmc_project::Chassis::
                                         Buttons::server::HostSelector>(

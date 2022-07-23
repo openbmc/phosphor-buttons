@@ -10,8 +10,7 @@
 class ButtonIface
 {
   public:
-    ButtonIface(sdbusplus::bus::bus& bus, EventPtr& event,
-                buttonConfig& buttonCfg,
+    ButtonIface(sdbusplus::bus_t& bus, EventPtr& event, buttonConfig& buttonCfg,
                 sd_event_io_handler_t handler = ButtonIface::EventHandler) :
         bus(bus),
         event(event), config(buttonCfg), callbackHandler(handler)
@@ -108,7 +107,7 @@ class ButtonIface
         }
     }
 
-    sdbusplus::bus::bus& bus;
+    sdbusplus::bus_t& bus;
     EventPtr& event;
     buttonConfig config;
     sd_event_io_handler_t callbackHandler;

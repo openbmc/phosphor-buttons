@@ -31,14 +31,14 @@
 static constexpr std::string_view RESET_BUTTON = "RESET_BUTTON";
 
 class ResetButton :
-    public sdbusplus::server::object::object<
+    public sdbusplus::server::object_t<
         sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Reset>,
     public ButtonIface
 {
   public:
-    ResetButton(sdbusplus::bus::bus& bus, const char* path, EventPtr& event,
+    ResetButton(sdbusplus::bus_t& bus, const char* path, EventPtr& event,
                 buttonConfig& buttonCfg) :
-        sdbusplus::server::object::object<
+        sdbusplus::server::object_t<
             sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Reset>(
             bus, path),
         ButtonIface(bus, event, buttonCfg)
