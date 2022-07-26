@@ -55,6 +55,241 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec91b30e_ded4d488",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "There is a whole lot of implicitly defined and undocumented JSON requirements here.  Please figure out a way to document it.  At least give a schema and/or example of what this code is expecting so someone doesn\u0027t have to reverse engineer your code to figure out how to program this thing.",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0411b68_548632b7",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Why is 3 wires hard coded?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 2
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42072798_b3b51584",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Why is the mux also a HostSelector?  Don\u0027t we already have a HostSelector?  I\u0027m slightly surprised by this, but maybe that is appropriate.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b54eb74a_7cbb9b39",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "bus_t",
+      "range": {
+        "startLine": 51,
+        "startChar": 29,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb83df45_4200cd2e",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "`decltype(serialUartMuxMap)`?  Avoid repeating yourself.",
+      "range": {
+        "startLine": 61,
+        "startChar": 36,
+        "endLine": 61,
+        "endChar": 62
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a265427a_0e69b7dd",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "message_t",
+      "range": {
+        "startLine": 80,
+        "startChar": 48,
+        "endLine": 80,
+        "endChar": 64
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "810a5ad6_c5793f2c",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Why does this end up being a uint8_t?  What does it represent?  The character from the GPIO buttons interface?  Please document.",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "084c4249_accead26",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "What is the meaning of \u0027hs\u0027?  This is not an intuitive name to me.  (I suspect \"host selector\" but let\u0027s be more explicit in naming).",
+      "range": {
+        "startLine": 90,
+        "startChar": 45,
+        "endLine": 90,
+        "endChar": 47
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ab3cabc_dac21467",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "What is this mapping?  Host positions to GPIO value?  Should this be a size_t to size_t?",
+      "range": {
+        "startLine": 91,
+        "startChar": 31,
+        "endLine": 91,
+        "endChar": 47
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3586e383_6f5f47fa",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Move #include \u003clg2\u003e here.",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea19f3c_217cbe7f",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Please leverage:\n\ninclude/sdbusplus/bus/match.hpp:inline auto propertiesChanged(const std::string\u0026 p, const std::string\u0026 i)",
+      "range": {
+        "startLine": 17,
+        "startChar": 12,
+        "endLine": 19,
+        "endChar": 72
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "399e7537_28bc27a3",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -102,6 +337,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bbb19bf6_d1e242ef",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Just spell it out.  No sense in making it harder to read the code just to save 2 characters.",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74ff3e27_04baa5ef",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "For consistency I prefer errno to be \"ERRNO\" and \"ERROR\" to be for exception text.  Check throughout.",
+      "range": {
+        "startLine": 42,
+        "startChar": 48,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "472254e5_7db5d804",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -113,6 +394,30 @@
       "writtenOn": "2022-07-25T21:56:27Z",
       "side": 1,
       "message": "did you mean to say that a \u00271\u0027 is low as opposed to high?\n\n\nI guess you could skip the whole line and just have\n    return buf \u003d\u003d \u00271\u0027;",
+      "range": {
+        "startLine": 57,
+        "startChar": 26,
+        "endLine": 57,
+        "endChar": 57
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53751697_11206edf",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "This is very unintuitive if so.  Please make sure 1 \u003d high unless you have a good reason otherwise.  If you need polarity in the JSON, add it.",
+      "parentUuid": "472254e5_7db5d804",
       "range": {
         "startLine": 57,
         "startChar": 26,
@@ -148,6 +453,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5647c52_011b7849",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Seems we have some polarity issue here too?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 9
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e45cc24c_1155ffcc",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Please set up the map to avoid having to do string processing at runtime.  Do it once during init if you have to.",
+      "range": {
+        "startLine": 75,
+        "startChar": 27,
+        "endLine": 75,
+        "endChar": 69
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13912365_0e0c49b0",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Raw casting of an enum to a uint8_t is potentially undefined behavior.  Can you improve this?",
+      "range": {
+        "startLine": 76,
+        "startChar": 35,
+        "endLine": 76,
+        "endChar": 64
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18dceeff_42fcb42f",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "What is the purpose of these extra characters and the extra space at the beginning?",
+      "range": {
+        "startLine": 81,
+        "startChar": 66,
+        "endLine": 81,
+        "endChar": 68
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed51249a_4c2065ed",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -165,6 +562,46 @@
         "endLine": 116,
         "endChar": 14
       },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84fdd00f_9efd4808",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "You could have multiple properties that changed in a single signal.  Please convert this to a loop.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 9
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79750b74_05aa9f59",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 1,
+      "message": "Please log it.",
       "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f376109a_057d5fb2",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-07-26T16:42:31Z",
+      "side": 0,
+      "message": "Not sure why this was removed here.  \"include what you use\" is typical suggested behavior for includes and phosphor-logging is certainly used inside this file.",
+      "revId": "ba33275d9fbf89bdaa75c241b87b5520bb54c440",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
