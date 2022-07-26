@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59547139_b2798a25",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0d39414b_b3943b5e",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec91b30e_ded4d488",
         "filename": "inc/serial_uart_mux.hpp",
         "patchSetId": 3
@@ -72,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2ac8778_bab8c260",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ec91b30e_ded4d488",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0411b68_548632b7",
         "filename": "inc/serial_uart_mux.hpp",
         "patchSetId": 3
@@ -83,6 +119,30 @@
       "writtenOn": "2022-07-26T16:42:31Z",
       "side": 1,
       "message": "Why is 3 wires hard coded?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 2
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ad5ce71_86e4c719",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d0411b68_548632b7",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -118,6 +178,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3edfe923_ed430b98",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "phosphor-buttons interface class needs a dbus object associated with it. So I have used HostSelector\u0027s dbus object as it is relatable rather than introducing a new dbus interface.",
+      "parentUuid": "42072798_b3b51584",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b54eb74a_7cbb9b39",
         "filename": "inc/serial_uart_mux.hpp",
         "patchSetId": 3
@@ -129,6 +213,30 @@
       "writtenOn": "2022-07-26T16:42:31Z",
       "side": 1,
       "message": "bus_t",
+      "range": {
+        "startLine": 51,
+        "startChar": 29,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ea9d28f_50ee2c3f",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b54eb74a_7cbb9b39",
       "range": {
         "startLine": 51,
         "startChar": 29,
@@ -164,6 +272,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e87cf33d_0a89c370",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bb83df45_4200cd2e",
+      "range": {
+        "startLine": 61,
+        "startChar": 36,
+        "endLine": 61,
+        "endChar": 62
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a265427a_0e69b7dd",
         "filename": "inc/serial_uart_mux.hpp",
         "patchSetId": 3
@@ -175,6 +307,30 @@
       "writtenOn": "2022-07-26T16:42:31Z",
       "side": 1,
       "message": "message_t",
+      "range": {
+        "startLine": 80,
+        "startChar": 48,
+        "endLine": 80,
+        "endChar": 64
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "776cdb54_3086bc2a",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a265427a_0e69b7dd",
       "range": {
         "startLine": 80,
         "startChar": 48,
@@ -204,6 +360,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7092622_1e918bb6",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "This represents the index of debug card present GPIO config, which is part of the JSON GPIO configs along with the serial uart MUX select GPIOs,",
+      "parentUuid": "810a5ad6_c5793f2c",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "084c4249_accead26",
         "filename": "inc/serial_uart_mux.hpp",
         "patchSetId": 3
@@ -215,6 +389,30 @@
       "writtenOn": "2022-07-26T16:42:31Z",
       "side": 1,
       "message": "What is the meaning of \u0027hs\u0027?  This is not an intuitive name to me.  (I suspect \"host selector\" but let\u0027s be more explicit in naming).",
+      "range": {
+        "startLine": 90,
+        "startChar": 45,
+        "endLine": 90,
+        "endChar": 47
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d025e5f3_ea4be894",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "084c4249_accead26",
       "range": {
         "startLine": 90,
         "startChar": 45,
@@ -250,6 +448,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc0ad36f_01c9379f",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2ab3cabc_dac21467",
+      "range": {
+        "startLine": 91,
+        "startChar": 31,
+        "endLine": 91,
+        "endChar": 47
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3586e383_6f5f47fa",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -267,6 +489,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14c0dc5f_046ad56c",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3586e383_6f5f47fa",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ea19f3c_217cbe7f",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -278,6 +518,30 @@
       "writtenOn": "2022-07-26T16:42:31Z",
       "side": 1,
       "message": "Please leverage:\n\ninclude/sdbusplus/bus/match.hpp:inline auto propertiesChanged(const std::string\u0026 p, const std::string\u0026 i)",
+      "range": {
+        "startLine": 17,
+        "startChar": 12,
+        "endLine": 19,
+        "endChar": 72
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "368e8693_de9f02ee",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ea19f3c_217cbe7f",
       "range": {
         "startLine": 17,
         "startChar": 12,
@@ -360,6 +624,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2a95960_ed21c448",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bbb19bf6_d1e242ef",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "74ff3e27_04baa5ef",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -371,6 +659,30 @@
       "writtenOn": "2022-07-26T16:42:31Z",
       "side": 1,
       "message": "For consistency I prefer errno to be \"ERRNO\" and \"ERROR\" to be for exception text.  Check throughout.",
+      "range": {
+        "startLine": 42,
+        "startChar": 48,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "622b74ff_45588a85",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "74ff3e27_04baa5ef",
       "range": {
         "startLine": 42,
         "startChar": 48,
@@ -430,6 +742,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba8dddf9_33032421",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "53751697_11206edf",
+      "range": {
+        "startLine": 57,
+        "startChar": 26,
+        "endLine": 57,
+        "endChar": 57
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49e2b48e_ff59ae84",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -441,6 +777,30 @@
       "writtenOn": "2022-07-25T21:56:27Z",
       "side": 1,
       "message": "These don\u0027t need to be captured by reference since they don\u0027t change.",
+      "range": {
+        "startLine": 66,
+        "startChar": 32,
+        "endLine": 67,
+        "endChar": 37
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40dfe375_40b186b8",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "49e2b48e_ff59ae84",
       "range": {
         "startLine": 66,
         "startChar": 32,
@@ -476,6 +836,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f9aaf5b_5a71d3aa",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e5647c52_011b7849",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 9
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e45cc24c_1155ffcc",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -487,6 +871,30 @@
       "writtenOn": "2022-07-26T16:42:31Z",
       "side": 1,
       "message": "Please set up the map to avoid having to do string processing at runtime.  Do it once during init if you have to.",
+      "range": {
+        "startLine": 75,
+        "startChar": 27,
+        "endLine": 75,
+        "endChar": 69
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d560e155_c713cf21",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e45cc24c_1155ffcc",
       "range": {
         "startLine": 75,
         "startChar": 27,
@@ -522,6 +930,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d65d946_e3f1a196",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "13912365_0e0c49b0",
+      "range": {
+        "startLine": 76,
+        "startChar": 35,
+        "endLine": 76,
+        "endChar": 64
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18dceeff_42fcb42f",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -533,6 +965,30 @@
       "writtenOn": "2022-07-26T16:42:31Z",
       "side": 1,
       "message": "What is the purpose of these extra characters and the extra space at the beginning?",
+      "range": {
+        "startLine": 81,
+        "startChar": 66,
+        "endLine": 81,
+        "endChar": 68
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "944b2c67_621a2bec",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "18dceeff_42fcb42f",
       "range": {
         "startLine": 81,
         "startChar": 66,
@@ -568,6 +1024,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "357f568e_e0229d29",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ed51249a_4c2065ed",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 14
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84fdd00f_9efd4808",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -591,6 +1071,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ff80323_ebb5ceb5",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "84fdd00f_9efd4808",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 9
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "79750b74_05aa9f59",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 3
@@ -602,6 +1106,24 @@
       "writtenOn": "2022-07-26T16:42:31Z",
       "side": 1,
       "message": "Please log it.",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fc010e7_d5d72854",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-07-26T20:22:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "79750b74_05aa9f59",
       "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
