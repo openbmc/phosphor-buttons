@@ -1,0 +1,416 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e7ed6a_5d4827d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "I see no update to the readme file.",
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da19315b_30351eee",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Are we missing a call to ButtonIFRegister somewhere?",
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64b173bf_743135ea",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Why do we have a path?",
+      "range": {
+        "startLine": 24,
+        "startChar": 41,
+        "endLine": 24,
+        "endChar": 74
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3041c1d_2f1d93e5",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "I don\u0027t understand the purpose in this variable.  Don\u0027t we save the button config?  Is it really useful to save a portion of it elsewhere?",
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbaa2c34_4220efd8",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "I\u0027d prefer a clearer string here like \"not-a-dbus-object\" so that if it ends up being put somewhere it is more obvious.",
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9678228c_bd8770a8",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Do you want map, unordered_map, or vector?",
+      "range": {
+        "startLine": 66,
+        "startChar": 9,
+        "endLine": 66,
+        "endChar": 12
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e9ca44a_7a796acb",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Have you tested this?  I don\u0027t know how you can put an empty string for interface.  Don\u0027t we have a dbus-interface that we\u0027re specifically looking for signals from?\n\n`sdbusplus::xyz::openbmc_project::Chassis:Buttons::client::HostSelector::interface` maybe?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 43
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e07bcb9b_bc3ecd7f",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Please log ({ERROR}, e) also.",
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e13a53d1_f65ded52",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Should we move this to the constructor to make sure we\u0027re only doing this search once?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 5
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddff47e4_1978f844",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "I really don\u0027t follow the complexity of putting this in a lambda and iterating over integers.  Why don\u0027t we have all this code in the for-loop on line 90 that iterates over `config.gpios` directly?",
+      "range": {
+        "startLine": 56,
+        "startChar": 67,
+        "endLine": 56,
+        "endChar": 74
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81a99ce1_4b012a06",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "auto\u0026 ?  const gpioInfo\u0026 ?",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 16
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "717fd037_fec49bc0",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "const std::string\u0026 ?",
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3edd696_364f07a8",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Why not compare with gpioConfig.name directly?",
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ce69f82_7c0fe4ae",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Would a ternary make this more obvious?",
+      "range": {
+        "startLine": 66,
+        "startChar": 13,
+        "endLine": 73,
+        "endChar": 9
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef705015_7f2b89b7",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Why not use gpioConfig.polarity directly?",
+      "range": {
+        "startLine": 74,
+        "startChar": 36,
+        "endLine": 74,
+        "endChar": 44
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be651ba0_6702c8f2",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "I will say that the use of \u0027high\u0027/\u0027low\u0027 and a \u0027polarity\u0027 make it less obvious to me in general.  It seems like we really have \"asserted\"/\"deasserted\" and a polarity that determines which direction is \"asserted\".",
+      "range": {
+        "startLine": 74,
+        "startChar": 36,
+        "endLine": 74,
+        "endChar": 55
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2bb2427_f9a45dad",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "\"interface\" (capitalization)",
+      "range": {
+        "startLine": 97,
+        "startChar": 16,
+        "endLine": 97,
+        "endChar": 25
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7d65525_edde3cc2",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Why are you forward declaring this?",
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e6e7a11_40e34c11",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "I suspect this should be HostSelector::PropertiesVariant.  Otherwise you\u0027re going to later end up with a potential runtime failure if we ever add a new property to HostSelector.\n\nPropertiesVariant is unfortunately only put on the server.hpp, so where I put ::client:: elsewhere you should probably switch to ::server::.",
+      "range": {
+        "startLine": 99,
+        "startChar": 26,
+        "endLine": 99,
+        "endChar": 46
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8360c007_3d60a633",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-08-10T15:47:31Z",
+      "side": 1,
+      "message": "Looks like generally we use \u0027ERROR\u0027 and not \u0027EXCEPTION\u0027.  Please keep it consistent.",
+      "range": {
+        "startLine": 121,
+        "startChar": 61,
+        "endLine": 121,
+        "endChar": 70
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
