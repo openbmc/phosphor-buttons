@@ -71,6 +71,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "032f77e8_f8c83a2e",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59547139_b2798a25",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec91b30e_ded4d488",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "ec91b30e_ded4d488",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02abccde_0ac735b4",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "I have explained the gpio config details in readme file",
+      "parentUuid": "d2ac8778_bab8c260",
       "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -143,6 +179,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "d0411b68_548632b7",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 2
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab78713c_fe3b4d80",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ad5ce71_86e4c719",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -200,6 +260,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da03b75b_49853c01",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Removed the dbus interface for this class.",
+      "parentUuid": "3edfe923_ed430b98",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b54eb74a_7cbb9b39",
@@ -237,6 +321,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "b54eb74a_7cbb9b39",
+      "range": {
+        "startLine": 51,
+        "startChar": 29,
+        "endLine": 51,
+        "endChar": 37
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a3c062e_2ce25a1c",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ea9d28f_50ee2c3f",
       "range": {
         "startLine": 51,
         "startChar": 29,
@@ -294,6 +402,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b3d81dd_1aa8039c",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e87cf33d_0a89c370",
+      "range": {
+        "startLine": 61,
+        "startChar": 36,
+        "endLine": 61,
+        "endChar": 62
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a265427a_0e69b7dd",
@@ -341,6 +473,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25db5949_40d58276",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "776cdb54_3086bc2a",
+      "range": {
+        "startLine": 80,
+        "startChar": 48,
+        "endLine": 80,
+        "endChar": 64
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "810a5ad6_c5793f2c",
@@ -372,6 +528,24 @@
       "side": 1,
       "message": "This represents the index of debug card present GPIO config, which is part of the JSON GPIO configs along with the serial uart MUX select GPIOs,",
       "parentUuid": "810a5ad6_c5793f2c",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ea2a6c0_393dc72f",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "instead of getting index from config, introduced name for each group gpio, so that the debug card present gpio is directly read from json config based on the name \"debug_card_present\".",
+      "parentUuid": "f7092622_1e918bb6",
       "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -413,6 +587,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "084c4249_accead26",
+      "range": {
+        "startLine": 90,
+        "startChar": 45,
+        "endLine": 90,
+        "endChar": 47
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f30d22dd_0d576560",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d025e5f3_ea4be894",
       "range": {
         "startLine": 90,
         "startChar": 45,
@@ -470,6 +668,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2419d2c_6a852717",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc0ad36f_01c9379f",
+      "range": {
+        "startLine": 91,
+        "startChar": 31,
+        "endLine": 91,
+        "endChar": 47
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3586e383_6f5f47fa",
@@ -501,6 +723,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "3586e383_6f5f47fa",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8271ae80_8faf0924",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14c0dc5f_046ad56c",
       "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -542,6 +782,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "0ea19f3c_217cbe7f",
+      "range": {
+        "startLine": 17,
+        "startChar": 12,
+        "endLine": 19,
+        "endChar": 72
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dd69214_fb2e71cd",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "368e8693_de9f02ee",
       "range": {
         "startLine": 17,
         "startChar": 12,
@@ -646,6 +910,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed00c3c0_4295bdc4",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2a95960_ed21c448",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74ff3e27_04baa5ef",
@@ -683,6 +971,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "74ff3e27_04baa5ef",
+      "range": {
+        "startLine": 42,
+        "startChar": 48,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e94c13_42e93e07",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "622b74ff_45588a85",
       "range": {
         "startLine": 42,
         "startChar": 48,
@@ -754,6 +1066,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "53751697_11206edf",
+      "range": {
+        "startLine": 57,
+        "startChar": 26,
+        "endLine": 57,
+        "endChar": 57
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdf97813_05d117a0",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done .Introduced polarity in gpio config, as well as added getter and setter methods in gpio.cpp to modify gpio states.",
+      "parentUuid": "ba8dddf9_33032421",
       "range": {
         "startLine": 57,
         "startChar": 26,
@@ -858,6 +1194,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "503387ba_2b54be28",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f9aaf5b_5a71d3aa",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 9
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e45cc24c_1155ffcc",
@@ -895,6 +1255,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "e45cc24c_1155ffcc",
+      "range": {
+        "startLine": 75,
+        "startChar": 27,
+        "endLine": 75,
+        "endChar": 69
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a97c392f_ffcde405",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d560e155_c713cf21",
       "range": {
         "startLine": 75,
         "startChar": 27,
@@ -952,6 +1336,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cbca15c_135ae869",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d65d946_e3f1a196",
+      "range": {
+        "startLine": 76,
+        "startChar": 35,
+        "endLine": 76,
+        "endChar": 64
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18dceeff_42fcb42f",
@@ -989,6 +1397,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "18dceeff_42fcb42f",
+      "range": {
+        "startLine": 81,
+        "startChar": 66,
+        "endLine": 81,
+        "endChar": 68
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9ddb4c2_0058a200",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "944b2c67_621a2bec",
       "range": {
         "startLine": 81,
         "startChar": 66,
@@ -1046,6 +1478,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4439d88_e0429d4a",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "357f568e_e0229d29",
+      "range": {
+        "startLine": 116,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 14
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84fdd00f_9efd4808",
@@ -1093,6 +1549,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6271c71_cc9faaed",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ff80323_ebb5ceb5",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 9
+      },
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79750b74_05aa9f59",
@@ -1124,6 +1604,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "79750b74_05aa9f59",
+      "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16a050b7_1368f807",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-08-10T15:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fc010e7_d5d72854",
       "revId": "b25b3515abcd717475b3dca23e814a58d6037cae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
