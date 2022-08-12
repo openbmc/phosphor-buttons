@@ -129,12 +129,17 @@ std::string Handler::getService(const std::string& path,
     auto method = bus.new_method_call(mapperService, mapperObjPath, mapperIface,
                                       "GetObject");
     method.append(path, std::vector{interface});
-    auto result = bus.call(method);
-
-    std::map<std::string, std::vector<std::string>> objectData;
-    result.read(objectData);
-
-    return objectData.begin()->first;
+    try
+    {
+        auto result = bus.call(method);
+        std::map<std::string, std::vector<std::string>> objectData;
+        result.read(objectData);
+        return objectData.begin()->first;
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        return std::string();
+    }
 }
 size_t Handler::getHostSelectorValue()
 {
