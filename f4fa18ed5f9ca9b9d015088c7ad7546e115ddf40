@@ -693,6 +693,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd9d4b50_a6c2f4f6",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-09-19T12:06:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ce7912e_17da918f",
+      "range": {
+        "startLine": 74,
+        "startChar": 36,
+        "endLine": 74,
+        "endChar": 55
+      },
+      "revId": "f4fa18ed5f9ca9b9d015088c7ad7546e115ddf40",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2bb2427_f9a45dad",
