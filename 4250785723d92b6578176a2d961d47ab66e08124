@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78b40b2d_abbfa57b",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2022-09-21T11:07:01Z",
+      "side": 1,
+      "message": "throw error message or print error message here?",
+      "range": {
+        "startLine": 141,
+        "startChar": 14,
+        "endLine": 141,
+        "endChar": 29
+      },
+      "revId": "4250785723d92b6578176a2d961d47ab66e08124",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
