@@ -22,6 +22,30 @@
       },
       "revId": "4250785723d92b6578176a2d961d47ab66e08124",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14f35285_d6edd1d4",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-09-21T13:30:40Z",
+      "side": 1,
+      "message": "Looks like there is a bunch of code that expects getService to just return an empty string if the service doesn\u0027t exist, so I\u0027d say what you have is fine.",
+      "parentUuid": "78b40b2d_abbfa57b",
+      "range": {
+        "startLine": 141,
+        "startChar": 14,
+        "endLine": 141,
+        "endChar": 29
+      },
+      "revId": "4250785723d92b6578176a2d961d47ab66e08124",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
