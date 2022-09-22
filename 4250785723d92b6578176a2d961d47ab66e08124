@@ -70,6 +70,30 @@
       },
       "revId": "4250785723d92b6578176a2d961d47ab66e08124",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acea6c77_3ae5bc8c",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2022-09-22T02:28:23Z",
+      "side": 1,
+      "message": "I think we should not print anything in getService() function. And we already log in handleEvent() function for power, reset and uid buttons.",
+      "parentUuid": "8d0dab57_1f04c381",
+      "range": {
+        "startLine": 141,
+        "startChar": 14,
+        "endLine": 141,
+        "endChar": 29
+      },
+      "revId": "4250785723d92b6578176a2d961d47ab66e08124",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
