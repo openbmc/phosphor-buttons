@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f7afb39_91220282",
+        "filename": "README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-13T06:02:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ac8368ad_d6c3b6c0",
+      "range": {
+        "startLine": 77,
+        "startChar": 39,
+        "endLine": 77,
+        "endChar": 44
+      },
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d4dd103_26475fa2",
         "filename": "README.md",
         "patchSetId": 8
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-12T15:25:43Z",
       "side": 1,
       "message": "nit: spelling.  Also, seems like this line should end in a period if it\u0027s a full sentence, and on the next line \u0027more\u0027 should be capitalized.",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 13
+      },
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac58bc0f_19125be1",
+        "filename": "README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-13T06:02:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9d4dd103_26475fa2",
       "range": {
         "startLine": 80,
         "startChar": 4,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "223a8305_86d5bd22",
+        "filename": "README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-13T06:02:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94547714_44bc5c71",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 50
+      },
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f33ca3a_629208d2",
         "filename": "inc/serial_uart_mux.hpp",
         "patchSetId": 8
@@ -89,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3857626_654ebc34",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-13T06:02:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9f33ca3a_629208d2",
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04baa8c0_d67e5d4e",
         "filename": "src/serial_uart_mux.cpp",
         "patchSetId": 8
@@ -100,6 +190,24 @@
       "writtenOn": "2022-10-12T15:25:43Z",
       "side": 1,
       "message": "nit:  may as well just delete line 51 and have\nauto debugCardpresent \u003d isOC....\n\nAlso, I guess technically it should be camel case so debugCardPresent",
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44eed195_5e0b6ae3",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-13T06:02:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "04baa8c0_d67e5d4e",
       "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
