@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1751d893_afd884ff",
+        "filename": "README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-17T15:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f7afb39_91220282",
+      "range": {
+        "startLine": 77,
+        "startChar": 39,
+        "endLine": 77,
+        "endChar": 44
+      },
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d4dd103_26475fa2",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "9d4dd103_26475fa2",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 13
+      },
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cb054ec_14e7aadd",
+        "filename": "README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-17T15:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac58bc0f_19125be1",
       "range": {
         "startLine": 80,
         "startChar": 4,
@@ -142,6 +190,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80c83d86_093c0f46",
+        "filename": "README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-17T15:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "223a8305_86d5bd22",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 50
+      },
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f33ca3a_629208d2",
@@ -177,6 +249,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b85ddd3_ef81ca13",
+        "filename": "inc/serial_uart_mux.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-17T15:59:04Z",
+      "side": 1,
+      "message": "Done. added the minimum possible config check",
+      "parentUuid": "a3857626_654ebc34",
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04baa8c0_d67e5d4e",
@@ -208,6 +298,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "04baa8c0_d67e5d4e",
+      "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f71f76_cc0a7c29",
+        "filename": "src/serial_uart_mux.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001093
+      },
+      "writtenOn": "2022-10-17T15:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44eed195_5e0b6ae3",
       "revId": "6efd3f6e568c3367da6c7940cea85217dadb52b4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
