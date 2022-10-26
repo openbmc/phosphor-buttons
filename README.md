@@ -86,9 +86,14 @@ https://github.com/openbmc/docs/blob/master/designs/multihost-phosphor-buttons.m
 The host selector has four gpios associated. So the related gpios are mentioned
 in a json array named "group_gpio_config".
 
+**Group gpio config**
 * name         - This is name of the specific gpio line
 * pin          - This represents the pin number from linux dts file.
 * polarity     - polarity type of the gpio
+
+**Host selector specific config**
+* name         - This is name of the component (host selector)
+* type         - This represents the type of host selector (gpio based or i2c based)
 * max_position - This represents the max number of hosts in the multi-host
 bmc system.
 * host_selector_map - This map is oem specific host position map which has how the
@@ -99,7 +104,7 @@ to host position 1.
 ```
         {
             "name" : "HOST_SELECTOR",
-
+            "type" : "gpio",
             "group_gpio_config" : [
             {
                 "name" : "host_select_0",
@@ -145,6 +150,36 @@ to host position 1.
                 }
 
         },
+```
+### I2c based Host selector  config example
+If  the host selector value is read from a i2c interface 
+the following config is needed
+* name         - This is name of the component (host selector)
+* type         - This represents the type of host selector (gpio based or i2c based)
+* max_position - This represents the max number of hosts in the multi-host
+bmc system.
+* busId       - This represents thei2c bus number
+* address     - this is i2c device address
+* offset      - offset of the host position value in i2c device
+* host_selector_map - This map is oem specific host position map which has how the
+value read from the host selector gpios is mapped to the respective host number.
+```
+     {
+            "name" : "HOST_SELECTOR",
+            "type" : "i2c",
+            "busId" : 13,
+            "address" : 16,
+            "offset" : 9,
+            "max_position" : 4,
+            "host_selector_map" : {
+                    "6" : 0,
+                    "7": 1,
+                    "8": 2,
+                    "9": 3,
+                    "10": 4,
+                }
+    
+        }
 ```
 ### Serial uart mux config
 Similar to host selector there are multiple gpios associated with the

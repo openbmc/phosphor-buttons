@@ -42,6 +42,7 @@ sdbusplus_dep = dependency('sdbusplus')
 phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
 phosphor_logging_dep = dependency('phosphor-logging')
 gpioplus_dep = dependency('gpioplus')
+i2c_dep = meson.get_compiler('cpp').find_library('i2c')
 
 cpp = meson.get_compiler('cpp')
 if cpp.has_header_symbol(
@@ -59,6 +60,7 @@ deps = [
     phosphor_logging_dep,
     nlohmann_json_dep,
     gpioplus_dep,
+    i2c_dep,
 ]
 
 sources_buttons = [
