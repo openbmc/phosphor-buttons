@@ -91,7 +91,7 @@ class Handler
      * @param[in] msg - sdbusplus message from signal
      */
 
-    void debugHostSelectorReleased(sdbusplus::message::message& msg);
+    void debugHostSelectorReleased(sdbusplus::message_t& msg);
 
     /**
      * @brief Checks if system is powered on

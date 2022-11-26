@@ -113,7 +113,7 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
                           this, std::placeholders::_1));
         }
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         // The button wasn't implemented
     }
@@ -136,7 +136,7 @@ std::string Handler::getService(const std::string& path,
         result.read(objectData);
         return objectData.begin()->first;
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         return std::string();
     }
@@ -409,20 +409,20 @@ void Handler::increaseHostSelectorPosition()
         method.append(HSPositionVariant);
         result = bus.call(method);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         lg2::error("Error modifying host selector position : {ERROR}", "ERROR",
                    e);
     }
 }
 
-void Handler::debugHostSelectorReleased(sdbusplus::message::message& /* msg */)
+void Handler::debugHostSelectorReleased(sdbusplus::message_t& /* msg */)
 {
     try
     {
         increaseHostSelectorPosition();
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         lg2::error(
             "Failed power process debug host selector button press : {ERROR}",
