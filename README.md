@@ -1,23 +1,25 @@
 # phosphor-buttons
 
-Phosphor-buttons has a collection of IO event handler interfaces
-for physical inputs which are part of OCP front panel.
+Phosphor-buttons has a collection of IO event handler interfaces for physical
+inputs which are part of OCP front panel.
 
-It defines an individual dbus interface object for each physical
-button/switch inputs such as power button, reset button etc.
-Each of this button interfaces monitors it's associated io for event changes and calls
-the respective event handlers.
+It defines an individual dbus interface object for each physical button/switch
+inputs such as power button, reset button etc. Each of this button interfaces
+monitors it's associated io for event changes and calls the respective event
+handlers.
 
 ## Gpio defs config
-In order to monitor a button/input interface the
-respective gpio config details should be mentioned in the
-gpio defs json file - "/etc/default/obmc/gpio/gpio_defs.json"
 
- 1. The button interface type name.
- 2. An array consists of single or multiple
-    gpio configs associated with the specific button interface.
+In order to monitor a button/input interface the respective gpio config details
+should be mentioned in the gpio defs json file -
+"/etc/default/obmc/gpio/gpio_defs.json"
+
+1.  The button interface type name.
+2.  An array consists of single or multiple gpio configs associated with the
+    specific button interface.
 
 ## example gpio def Json config
+
 ```
 {
     "gpio_definitions": [
@@ -64,9 +66,12 @@ gpio defs json file - "/etc/default/obmc/gpio/gpio_defs.json"
 
 }
 ```
+
 ## Single gpio config
-This config is original config which can be used for configs with only single gpio
-such as power button,reset button, OCP debug card host select button.
+
+This config is original config which can be used for configs with only single
+gpio such as power button,reset button, OCP debug card host select button.
+
 ```
     {
         "name": "POWER_BUTTON",
@@ -74,28 +79,33 @@ such as power button,reset button, OCP debug card host select button.
         "direction": "both"
     },
 ```
-**Note:**  this config is used by most of the other platforms so this format is kept
-as it is so that existing gpio configs do not get affected.
+
+**Note:** this config is used by most of the other platforms so this format is
+kept as it is so that existing gpio configs do not get affected.
 
 ## Group gpio config
-The following configs are related to multi-host bmc systems
-more info explained in the design:
+
+The following configs are related to multi-host bmc systems more info explained
+in the design:
 https://github.com/openbmc/docs/blob/master/designs/multihost-phosphor-buttons.md
 
 ### Host selector gpio config example
+
 The host selector has four gpios associated. So the related gpios are mentioned
 in a json array named "group_gpio_config".
 
-* name         - This is name of the specific gpio line
-* pin          - This represents the pin number from linux dts file.
-* polarity     - polarity type of the gpio
-* max_position - This represents the max number of hosts in the multi-host
-bmc system.
-* host_selector_map - This map is oem specific host position map which has how the
-value read from the host selector gpios is mapped to the respective host number.
+- name - This is name of the specific gpio line
+- pin - This represents the pin number from linux dts file.
+- polarity - polarity type of the gpio
+- max_position - This represents the max number of hosts in the multi-host bmc
+  system.
+- host_selector_map - This map is oem specific host position map which has how
+  the value read from the host selector gpios is mapped to the respective host
+  number.
 
 Example : The value of "7" derived from the 4 host select gpio lines are mapped
 to host position 1.
+
 ```
         {
             "name" : "HOST_SELECTOR",
@@ -146,23 +156,26 @@ to host position 1.
 
         },
 ```
+
 ### Serial uart mux config
-Similar to host selector there are multiple gpios associated with the
-serial uart mux. These gpio configs are specificed as part of json array
- "group_gpio_config".
 
-Here the serial uart mux output is accessed via OCP debug card. SO the OCP
-debug card present gpio is mentioned part of the group_gpio_config. The debug
-card present gpio is identified by its name "debug_card_present".
+Similar to host selector there are multiple gpios associated with the serial
+uart mux. These gpio configs are specificed as part of json array
+"group_gpio_config".
 
-The other gpios part of the group gpio config is serial uart MUX gpio select lines
-and serial_uart_rx line.
+Here the serial uart mux output is accessed via OCP debug card. SO the OCP debug
+card present gpio is mentioned part of the group_gpio_config. The debug card
+present gpio is identified by its name "debug_card_present".
 
-* name - this is name of the specific gpio line
-* pin -  this represents the pin number from linux dts file.
-* polarity - polarity type of the gpio
-* serial_uart_mux_map - This is the map for selected host position to the serial
-uart mux select output value
+The other gpios part of the group gpio config is serial uart MUX gpio select
+lines and serial_uart_rx line.
+
+- name - this is name of the specific gpio line
+- pin - this represents the pin number from linux dts file.
+- polarity - polarity type of the gpio
+- serial_uart_mux_map - This is the map for selected host position to the serial
+  uart mux select output value
+
 ```
     {
         "name" : "SERIAL_UART_MUX",
