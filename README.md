@@ -12,15 +12,15 @@ handlers.
 
 In order to monitor a button/input interface the respective gpio config details
 should be mentioned in the gpio defs json file -
-"/etc/default/obmc/gpio/gpio_defs.json"
+`/etc/default/obmc/gpio/gpio_defs.json`
 
-1.  The button interface type name.
-2.  An array consists of single or multiple gpio configs associated with the
-    specific button interface.
+1. The button interface type name.
+2. An array consists of single or multiple gpio configs associated with the
+   specific button interface.
 
 ## example gpio def Json config
 
-```
+```json
 {
     "gpio_definitions": [
         {
@@ -72,12 +72,12 @@ should be mentioned in the gpio defs json file -
 This config is original config which can be used for configs with only single
 gpio such as power button,reset button, OCP debug card host select button.
 
-```
-    {
-        "name": "POWER_BUTTON",
-        "pin": "D0",
-        "direction": "both"
-    },
+```json
+{
+    "name": "POWER_BUTTON",
+    "pin": "D0",
+    "direction": "both"
+},
 ```
 
 **Note:** this config is used by most of the other platforms so this format is
@@ -87,12 +87,12 @@ kept as it is so that existing gpio configs do not get affected.
 
 The following configs are related to multi-host bmc systems more info explained
 in the design:
-https://github.com/openbmc/docs/blob/master/designs/multihost-phosphor-buttons.md
+<https://github.com/openbmc/docs/blob/master/designs/multihost-phosphor-buttons.md>
 
 ### Host selector gpio config example
 
 The host selector has four gpios associated. So the related gpios are mentioned
-in a json array named "group_gpio_config".
+in a json array named group_gpio_config.
 
 - name - This is name of the specific gpio line
 - pin - This represents the pin number from linux dts file.
@@ -106,55 +106,50 @@ in a json array named "group_gpio_config".
 Example : The value of "7" derived from the 4 host select gpio lines are mapped
 to host position 1.
 
-```
-        {
-            "name" : "HOST_SELECTOR",
+```json
+{
+  "name": "HOST_SELECTOR",
 
-            "group_gpio_config" : [
-            {
-                "name" : "host_select_0",
-                "pin": "AA4",
-                "direction": "both",
-                "polarity" : "active_high"
-
-            },
-            {
-                "name" : "host_select_1",
-                "pin": "AA5",
-                "direction": "both",
-                "polarity" : "active_high"
-
-            },
-            {
-                "name" : "host_select_2",
-                "pin": "AA6",
-                "direction": "both",
-                "polarity" : "active_high"
-
-            },
-            {
-                "name" : "host_select_3",
-                "pin": "AA7",
-                "direction": "both",
-                "polarity" : "active_high"
-
-            }
-            ],
-            "max_position" : 4,
-            "host_selector_map" : {
-                    "6" : 0,
-                    "7": 1,
-                    "8": 2,
-                    "9": 3,
-                    "10": 4,
-                    "11": 0,
-                    "12": 1,
-                    "13": 2,
-                    "14" : 3,
-                    "15" : 4
-                }
-
-        },
+  "group_gpio_config": [
+    {
+      "name": "host_select_0",
+      "pin": "AA4",
+      "direction": "both",
+      "polarity": "active_high"
+    },
+    {
+      "name": "host_select_1",
+      "pin": "AA5",
+      "direction": "both",
+      "polarity": "active_high"
+    },
+    {
+      "name": "host_select_2",
+      "pin": "AA6",
+      "direction": "both",
+      "polarity": "active_high"
+    },
+    {
+      "name": "host_select_3",
+      "pin": "AA7",
+      "direction": "both",
+      "polarity": "active_high"
+    }
+  ],
+  "max_position": 4,
+  "host_selector_map": {
+    "6": 0,
+    "7": 1,
+    "8": 2,
+    "9": 3,
+    "10": 4,
+    "11": 0,
+    "12": 1,
+    "13": 2,
+    "14": 3,
+    "15": 4
+  }
+}
 ```
 
 ### Serial uart mux config
@@ -176,57 +171,54 @@ lines and serial_uart_rx line.
 - serial_uart_mux_map - This is the map for selected host position to the serial
   uart mux select output value
 
-```
+```json
+{
+  "name": "SERIAL_UART_MUX",
+
+  "group_gpio_config": [
     {
-        "name" : "SERIAL_UART_MUX",
-
-        "group_gpio_config" : [
-        {
-            "name" : "serial_uart_sel_0",
-            "pin": "E0",
-            "direction": "out",
-            "polarity" : "active_high"
-        },
-        {
-            "name" : "serial_uart_sel_1",
-            "pin": "E1",
-            "direction": "out",
-            "polarity" : "active_high"
-        },
-        {
-            "name" : "serial_uart_sel_2",
-            "pin": "E2",
-            "direction": "out",
-            "polarity" : "active_high"
-        },
-        {
-            "name" : "serial_uart_sel_3",
-            "pin": "E3",
-            "direction": "out",
-            "polarity" : "active_high"
-        },
-        {
-            "name" : "serial_uart_rx",
-            "pin": "E4",
-            "direction": "out",
-            "polarity" : "active_high"
-        },
-        {
-            "name" : "debug_card_present",
-            "pin": "R3",
-            "direction": "both",
-            "polarity" : "active_high"
-
-        }
-
-    ],
-    "serial_uart_mux_map" : {
-            "0" : 4,
-            "1": 0,
-            "2": 1,
-            "3": 2,
-            "4": 3
-        }
-
+      "name": "serial_uart_sel_0",
+      "pin": "E0",
+      "direction": "out",
+      "polarity": "active_high"
+    },
+    {
+      "name": "serial_uart_sel_1",
+      "pin": "E1",
+      "direction": "out",
+      "polarity": "active_high"
+    },
+    {
+      "name": "serial_uart_sel_2",
+      "pin": "E2",
+      "direction": "out",
+      "polarity": "active_high"
+    },
+    {
+      "name": "serial_uart_sel_3",
+      "pin": "E3",
+      "direction": "out",
+      "polarity": "active_high"
+    },
+    {
+      "name": "serial_uart_rx",
+      "pin": "E4",
+      "direction": "out",
+      "polarity": "active_high"
+    },
+    {
+      "name": "debug_card_present",
+      "pin": "R3",
+      "direction": "both",
+      "polarity": "active_high"
     }
+  ],
+  "serial_uart_mux_map": {
+    "0": 4,
+    "1": 0,
+    "2": 1,
+    "3": 2,
+    "4": 3
+  }
+}
 ```
