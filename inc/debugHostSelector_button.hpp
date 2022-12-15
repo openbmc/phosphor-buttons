@@ -43,6 +43,7 @@ class DebugHostSelector final :
     void simPress() override;
     void simRelease() override;
     void simLongPress() override;
+    void simLongerPress() override;
     void handleEvent(sd_event_source* es, int fd, uint32_t revents) override;
 
     static constexpr std::string_view getFormFactorName()

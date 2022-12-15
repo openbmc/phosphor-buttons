@@ -3,6 +3,8 @@
 #include "button_handler.hpp"
 
 #include <phosphor-logging/lg2.hpp>
+#include <iostream>
+#include <string>
 #include <xyz/openbmc_project/State/Chassis/server.hpp>
 #include <xyz/openbmc_project/State/Host/server.hpp>
 namespace phosphor
@@ -55,10 +57,49 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
                 std::bind(std::mem_fn(&Handler::longPowerPressed), this,
                           std::placeholders::_1));
         }
+
+        if (getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty())
+        {
+            int chassisMax = numberOfChassis();
+            for (int chassisNum = 0; chassisNum <= chassisMax; chassisNum++)
+            {
+                lg2::info("Starting multi power button handler");
+                if (!getService(POWER_DBUS_OBJECT_NAME + std::to_string(chassisNum), powerButtonIface).empty())
+                {
+                    std::shared_ptr<sdbusplus::bus::match_t> multiPowerReleaseMatch = std::make_shared<sdbusplus::bus::match_t>(
+                        bus,
+                        sdbusRule::type::signal() + sdbusRule::member("Released") +
+                            sdbusRule::path(POWER_DBUS_OBJECT_NAME + std::to_string(chassisNum)) +
+                            sdbusRule::interface(powerButtonIface),
+                        std::bind(std::mem_fn(&Handler::powerReleased), this,
+                                std::placeholders::_1));
+                    multiPowerButtonReleased.emplace_back(multiPowerReleaseMatch);
+
+                    std::shared_ptr<sdbusplus::bus::match_t> multiPowerLongPressedMatch = std::make_shared<sdbusplus::bus::match_t>(
+                        bus,
+                        sdbusRule::type::signal() + sdbusRule::member("PressedLong") +
+                            sdbusRule::path(POWER_DBUS_OBJECT_NAME + std::to_string(chassisNum)) +
+                            sdbusRule::interface(powerButtonIface),
+                        std::bind(std::mem_fn(&Handler::longPowerPressed), this,
+                                std::placeholders::_1));
+                    multiPowerButtonLongPressed.emplace_back(multiPowerLongPressedMatch);
+
+                    std::shared_ptr<sdbusplus::bus::match_t> multiPowerLongerPressedMatch = std::make_shared<sdbusplus::bus::match_t>(
+                        bus,
+                        sdbusRule::type::signal() + sdbusRule::member("PressedLonger") +
+                            sdbusRule::path(POWER_DBUS_OBJECT_NAME + std::to_string(chassisNum)) +
+                            sdbusRule::interface(powerButtonIface),
+                        std::bind(std::mem_fn(&Handler::longerPowerPressed), this,
+                                std::placeholders::_1));
+                    multiPowerButtonLongerPressed.emplace_back(multiPowerLongerPressedMatch);
+                }
+            }
+        }
     }
     catch (const sdbusplus::exception_t& e)
     {
-        // The button wasn't implemented
+        lg2::error("Create power button handler error: {ERROR}",
+            "ERROR", e);
     }
 
     try
@@ -120,8 +161,14 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
 }
 bool Handler::isMultiHost()
 {
-    // return true in case host selector object is available
-    return (!getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty());
+    if (static_cast<std::string>(INSTANCES) != "0")
+    {
+        return true;
+    }
+    else
+    {
+        return (!getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty());
+    }
 }
 std::string Handler::getService(const std::string& path,
                                 const std::string& interface) const
@@ -187,7 +234,7 @@ bool Handler::poweredOn(size_t hostNumber) const
            Chassis::convertPowerStateFromString(std::get<std::string>(state));
 }
 
-void Handler::handlePowerEvent(PowerEvent powerEventType)
+void Handler::handlePowerEvent(PowerEvent powerEventType, std::string chassisPath)
 {
     std::string objPathName;
     std::string dbusIfaceName;
@@ -195,41 +242,52 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     std::variant<Host::Transition, Chassis::Transition> transition;
 
     size_t hostNumber = 0;
+    std::string hostNumStr(1, chassisPath.back());
     auto isMultiHostSystem = isMultiHost();
-    if (isMultiHostSystem)
+
+    if (!getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty())
     {
         hostNumber = getHostSelectorValue();
         lg2::info("Multi-host system detected : {POSITION}", "POSITION",
-                  hostNumber);
-    }
+                hostNumber);
 
-    std::string hostNumStr = std::to_string(hostNumber);
+        hostNumStr = std::to_string(hostNumber);
 
-    // ignore  power and reset button events if BMC is selected.
-    if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
-        (powerEventType != PowerEvent::longPowerReleased))
-    {
-        lg2::info(
-            "handlePowerEvent : BMC selected on multi-host system. ignoring power and reset button events...");
-        return;
+        // ignore  power and reset button events if BMC is selected.
+        if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
+            (powerEventType != PowerEvent::longPowerReleased))
+        {
+            lg2::info(
+                "handlePowerEvent : BMC selected on multi-host system. ignoring power and reset button events...");
+            return;
+        }
     }
 
     switch (powerEventType)
     {
         case PowerEvent::powerReleased:
         {
-            objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
-            dbusIfaceName = hostIface;
-            transitionName = "RequestedHostTransition";
-
-            transition = Host::Transition::On;
-
-            if (poweredOn(hostNumber))
+            if (!getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty())
             {
-                transition = Host::Transition::Off;
-            }
-            lg2::info("handlePowerEvent : Handle power button press ");
+                objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
+                dbusIfaceName = hostIface;
+                transitionName = "RequestedHostTransition";
 
+                transition = Host::Transition::On;
+
+                if (poweredOn(hostNumber))
+                {
+                    transition = Host::Transition::Off;
+                }
+                lg2::info("handlePowerEvent : Handle power button press ");
+            }
+            else
+            {
+                dbusIfaceName = chassisIface;
+                objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+                transitionName = "RequestedPowerTransition";
+                transition = Chassis::Transition::On;
+            }
             break;
         }
         case PowerEvent::longPowerReleased:
@@ -263,7 +321,28 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
             break;
         }
+        case PowerEvent::longPowerPressed:
+        {
+            dbusIfaceName = chassisIface;
+            transitionName = "RequestedPowerTransition";
+            objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+            transition = Chassis::Transition::PowerCycle;
+            break;
+        }
+        case PowerEvent::longerPowerPressed:
+        {
+            dbusIfaceName = chassisIface;
+            transitionName = "RequestedPowerTransition";
+            objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+            transition = Chassis::Transition::Off;
 
+            if (hostNumStr == "0")
+            {
+                objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+                transition = Chassis::Transition::PowerCycle;
+            }
+            break;
+        }
         case PowerEvent::resetReleased:
         {
             objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
@@ -295,11 +374,12 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     method.append(dbusIfaceName, transitionName, transition);
     bus.call(method);
 }
-void Handler::powerReleased(sdbusplus::message_t& /* msg */)
+
+void Handler::powerReleased(sdbusplus::message_t& msg/* msg */)
 {
     try
     {
-        handlePowerEvent(PowerEvent::powerReleased);
+        handlePowerEvent(PowerEvent::powerReleased, msg.get_path());
     }
     catch (const sdbusplus::exception_t& e)
     {
@@ -307,11 +387,12 @@ void Handler::powerReleased(sdbusplus::message_t& /* msg */)
                    "ERROR", e);
     }
 }
-void Handler::longPowerPressed(sdbusplus::message_t& /* msg */)
+
+void Handler::longPowerPressed(sdbusplus::message_t& msg/* msg */)
 {
     try
     {
-        handlePowerEvent(PowerEvent::longPowerPressed);
+        handlePowerEvent(PowerEvent::longPowerPressed, msg.get_path());
     }
     catch (const sdbusplus::exception_t& e)
     {
@@ -320,11 +401,24 @@ void Handler::longPowerPressed(sdbusplus::message_t& /* msg */)
     }
 }
 
-void Handler::resetReleased(sdbusplus::message_t& /* msg */)
+void Handler::longerPowerPressed(sdbusplus::message_t& msg/* msg */)
 {
     try
     {
-        handlePowerEvent(PowerEvent::resetReleased);
+        handlePowerEvent(PowerEvent::longerPowerPressed, msg.get_path());
+    }
+    catch (const sdbusplus::exception_t& e)
+    {
+        lg2::error("Failed powering off on longer power button press: {ERROR}",
+                   "ERROR", e);
+    }
+}
+
+void Handler::resetReleased(sdbusplus::message_t& msg/* msg */)
+{
+    try
+    {
+        handlePowerEvent(PowerEvent::resetReleased, msg.get_path());
     }
     catch (const sdbusplus::exception_t& e)
     {

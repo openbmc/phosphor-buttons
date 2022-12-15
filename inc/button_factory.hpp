@@ -42,6 +42,19 @@ class ButtonFactory
                                            buttonCfg);
             };
     }
+
+    template <typename T>
+    void addToRegistry(std::string chassisNumber)
+    {
+        buttonIfaceRegistry[std::string(T::getFormFactorName()) + chassisNumber] =
+            [=](sdbusplus::bus_t& bus, EventPtr& event,
+               buttonConfig& buttonCfg) {
+                return std::make_unique<T>(bus,
+                      (std::string(T::getDbusObjectPath()) + chassisNumber).c_str(),
+                       event, buttonCfg);
+            };
+    }
+
     /**
      * @brief this method returns the button interface object
      *    corresponding to the button formfactor name provided
@@ -76,5 +89,14 @@ class ButtonIFRegister
     {
         // register the class factory function
         ButtonFactory::instance().addToRegistry<T>();
+    }
+
+    ButtonIFRegister(int chassisMax)
+    {
+        // register the class factory function
+        for (int chassisNum = 0; chassisNum <= chassisMax; chassisNum++)
+        {
+            ButtonFactory::instance().addToRegistry<T>(std::to_string(chassisNum));
+        }
     }
 };
