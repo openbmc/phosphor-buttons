@@ -15,9 +15,11 @@
 */
 
 #include "power_button.hpp"
+#include "button_handler.hpp"
 
 // add the button iface class to registry
 static ButtonIFRegister<PowerButton> buttonRegister;
+static ButtonIFRegister<PowerButton> multiButtonRegister(phosphor::button::numberOfChassis());
 
 void PowerButton::simPress()
 {
@@ -27,6 +29,11 @@ void PowerButton::simPress()
 void PowerButton::simLongPress()
 {
     pressedLong();
+}
+
+void PowerButton::simLongerPress()
+{
+    pressedLonger();
 }
 
 void PowerButton::updatePressedTime()
@@ -80,14 +87,24 @@ void PowerButton::handleEvent(sd_event_source* /* es */, int fd,
         auto d = std::chrono::duration_cast<std::chrono::milliseconds>(
             now - getPressTime());
 
-        if (d > std::chrono::milliseconds(LONG_PRESS_TIME_MS))
+        if (d < std::chrono::milliseconds(LONG_PRESS_TIME_MS))
         {
-            pressedLong();
+            released();
+        }
+        else if (static_cast<std::string>(SUPPORT_LONGER_PRESS) == "true")
+        {
+            if(d < std::chrono::milliseconds(LONGER_PRESS_TIME_MS))
+            {
+                pressedLong();
+            }
+            else
+            {
+                pressedLonger();
+            }
         }
         else
         {
-            // released
-            released();
+            pressedLong();
         }
     }
 }
