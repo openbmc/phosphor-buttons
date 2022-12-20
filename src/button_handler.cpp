@@ -207,7 +207,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
     // ignore  power and reset button events if BMC is selected.
     if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
-        (powerEventType != PowerEvent::longPowerReleased))
+        (powerEventType != PowerEvent::longPowerPressed))
     {
         lg2::info(
             "handlePowerEvent : BMC selected on multi-host system. ignoring power and reset button events...");
@@ -232,7 +232,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
             break;
         }
-        case PowerEvent::longPowerReleased:
+        case PowerEvent::longPowerPressed:
         {
             dbusIfaceName = chassisIface;
             transitionName = "RequestedPowerTransition";
