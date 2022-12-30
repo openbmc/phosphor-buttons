@@ -55,6 +55,7 @@ class PowerButton :
 
     void simPress() override;
     void simLongPress() override;
+    void simLongerPress() override;
 
     static constexpr std::string_view getFormFactorName()
     {

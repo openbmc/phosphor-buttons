@@ -18,6 +18,11 @@ void DebugHostSelector::simLongPress()
     pressedLong();
 }
 
+void DebugHostSelector::simLongerPress()
+{
+    pressedLonger();
+}
+
 /**
  * @brief This method is called from sd-event provided callback function
  * callbackHandler if platform specific event handling is needed then a
