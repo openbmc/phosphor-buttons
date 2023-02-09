@@ -37,7 +37,7 @@ class ResetButton :
 {
   public:
     ResetButton(sdbusplus::bus_t& bus, const char* path, EventPtr& event,
-                buttonConfig& buttonCfg) :
+                ButtonConfig& buttonCfg) :
         sdbusplus::server::object_t<
             sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Reset>(
             bus, path),
