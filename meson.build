@@ -63,6 +63,7 @@ deps = [
 
 sources_buttons = [
     'src/gpio.cpp',
+    'src/cpld.cpp',
     'src/hostSelector_switch.cpp',
     'src/debugHostSelector_button.cpp',
     'src/serial_uart_mux.cpp',
