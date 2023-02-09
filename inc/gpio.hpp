@@ -21,6 +21,8 @@
 #include <string>
 #include <vector>
 
+struct buttonConfig;
+
 // enum to represent gpio states
 enum class GpioState
 {
@@ -51,14 +53,6 @@ struct gpioInfo
     GpioPolarity polarity;
 };
 
-// this struct represents button interface
-struct buttonConfig
-{
-    std::string formFactorName;   // name of the button interface
-    std::vector<gpioInfo> gpios;  // holds single or group gpio config
-    nlohmann::json extraJsonInfo; // corresponding to button interface
-};
-
 /**
  * @brief iterates over the list of gpios and configures gpios them
  * config which is set from gpio defs json file.
@@ -73,7 +67,7 @@ int configGroupGpio(buttonConfig& buttonCfg);
  * @return int returns 0 on successful config of all gpios
  */
 
-int configGpio(gpioInfo& gpioConfig);
+int configGpio(gpioInfo& gpioConfig, buttonConfig& buttonIFConfig);
 
 uint32_t getGpioNum(const std::string& gpioPin);
 // Set gpio state based on polarity
@@ -81,6 +75,5 @@ void setGpioState(int fd, GpioPolarity polarity, GpioState state);
 // Get gpio state based on polarity
 GpioState getGpioState(int fd, GpioPolarity polarity);
 
-void closeGpio(int fd);
 // global json object which holds gpio_defs.json configs
 extern nlohmann::json gpioDefs;
