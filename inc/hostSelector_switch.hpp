@@ -36,11 +36,14 @@ class HostSelector final :
     {
         init();
         // read and store the host selector position Map
-        hsPosMap = buttonCfg.extraJsonInfo.at("host_selector_map")
-                       .get<std::map<std::string, int>>();
-        maxPosition(buttonCfg.extraJsonInfo["max_position"], true);
-        gpioLineCount = buttonCfg.gpios.size();
+        if (buttonCfg.type == ConfigType::gpio)
+        {
+            hsPosMap = buttonCfg.extraJsonInfo.at("host_selector_map")
+                           .get<std::map<std::string, int>>();
+            gpioLineCount = buttonCfg.gpios.size();
+        }
         setInitialHostSelectorValue();
+        maxPosition(buttonCfg.extraJsonInfo["max_position"], true);
         emit_object_added();
     }
 
@@ -63,6 +66,7 @@ class HostSelector final :
     size_t getGpioIndex(int fd);
     void setInitialHostSelectorValue(void);
     void setHostSelectorValue(int fd, GpioState state);
+    char getValueFromFd(int fd);
 
   protected:
     size_t hostSelectorPosition = 0;
