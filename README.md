@@ -152,6 +152,30 @@ to host position 1.
 }
 ```
 
+### Host selector cpld config example
+
+There are also some systems that get the host selector selection from the CPLD, the configuration is provided below.
+
+- name - The button interface type name.
+- i2c_bus - The i2c bus of cpld
+- i2c_address - The i2c address of cpld
+- register_name - The register file name exported by CLD driver for IO event listen
+- max_position - This represents the max number of hosts in the multi-host bmc system.
+
+```json
+{
+  "cpld_definitions": [
+    {
+      "name": "HOST_SELECTOR",
+      "i2c_bus": 12,
+      "i2c_address": 15,
+      "register_name": "uart-selection-debug-card",
+      "max_position": 4
+    }
+  ]
+}
+```
+
 ### Serial uart mux config
 
 Similar to host selector there are multiple gpios associated with the serial
