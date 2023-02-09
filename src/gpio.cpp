@@ -16,7 +16,7 @@
 
 #include "config.h"
 
-#include "gpio.hpp"
+#include "button_config.hpp"
 
 #include <error.h>
 #include <fcntl.h>
@@ -83,13 +83,6 @@ GpioState getGpioState(int fd, GpioPolarity polarity)
                               : (GpioState::deassert);
     return gpioState;
 }
-void closeGpio(int fd)
-{
-    if (fd > 0)
-    {
-        ::close(fd);
-    }
-}
 
 uint32_t getGpioBase()
 {
@@ -141,7 +134,7 @@ int configGroupGpio(buttonConfig& buttonIFConfig)
     // and initialize them
     for (auto& gpioCfg : buttonIFConfig.gpios)
     {
-        result = configGpio(gpioCfg);
+        result = configGpio(gpioCfg, buttonIFConfig);
         if (result < 0)
         {
             lg2::error("{NAME}: Error configuring gpio-{NUM}: {RESULT}", "NAME",
@@ -155,7 +148,7 @@ int configGroupGpio(buttonConfig& buttonIFConfig)
     return result;
 }
 
-int configGpio(gpioInfo& gpioConfig)
+int configGpio(gpioInfo& gpioConfig, buttonConfig& buttonIFConfig)
 {
     auto gpioNum = gpioConfig.number;
     auto gpioDirection = gpioConfig.direction;
@@ -300,6 +293,7 @@ int configGpio(gpioInfo& gpioConfig)
     }
 
     gpioConfig.fd = fd;
+    buttonIFConfig.fds.push_back(fd);
 
     return 0;
 }
