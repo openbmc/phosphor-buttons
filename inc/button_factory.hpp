@@ -1,7 +1,7 @@
 #pragma once
 
 #include "button_interface.hpp"
-#include "gpio.hpp"
+#include "button_config.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 
