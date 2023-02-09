@@ -1,7 +1,7 @@
 #pragma once
 
+#include "button_config.hpp"
 #include "common.hpp"
-#include "gpio.hpp"
 #include "xyz/openbmc_project/Chassis/Common/error.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
@@ -10,20 +10,31 @@
 class ButtonIface
 {
   public:
-    ButtonIface(sdbusplus::bus_t& bus, EventPtr& event, buttonConfig& buttonCfg,
+    ButtonIface(sdbusplus::bus_t& bus, EventPtr& event, ButtonConfig& buttonCfg,
                 sd_event_io_handler_t handler = ButtonIface::EventHandler) :
         bus(bus),
         event(event), config(buttonCfg), callbackHandler(handler)
     {
         int ret = -1;
+        std::string configType;
 
-        // config group gpio based on the gpio defs read from the json file
-        ret = configGroupGpio(config);
+        // config group gpio or cpld based on the defs read from the json file
+        if (buttonCfg.type == ConfigType::gpio)
+        {
+            configType = "GPIO";
+            ret = configGroupGpio(config);
+        }
+        else if (buttonCfg.type == ConfigType::cpld)
+        {
+            configType = "CPLD";
+            ret = configCpld(config);
+        }
 
         if (ret < 0)
         {
             phosphor::logging::log<phosphor::logging::level::ERR>(
-                (getFormFactorType() + " : failed to config GPIO").c_str());
+                (getFormFactorType() + " : failed to config " + configType)
+                    .c_str());
             throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                 IOError();
         }
@@ -66,12 +77,11 @@ class ButtonIface
 
     virtual void init()
     {
-        // initialize the button io fd from the buttonConfig
-        // which has fd stored when configGroupGpio is called
-        for (auto gpioCfg : config.gpios)
+        // initialize the button io fd from the ButtonConfig
+        // which has fd stored when configGroupGpio or configCpld is called
+        for (auto fd : config.fds)
         {
             char buf;
-            int fd = gpioCfg.fd;
 
             int ret = ::read(fd, &buf, sizeof(buf));
             if (ret < 0)
@@ -87,7 +97,10 @@ class ButtonIface
                 phosphor::logging::log<phosphor::logging::level::ERR>(
                     (getFormFactorType() + " : failed to add to event loop")
                         .c_str());
-                ::closeGpio(fd);
+                if (fd > 0)
+                {
+                    ::close(fd);
+                }
                 throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                     IOError();
             }
@@ -101,14 +114,17 @@ class ButtonIface
      */
     virtual void deInit()
     {
-        for (auto gpioCfg : config.gpios)
+        for (auto fd : config.fds)
         {
-            ::closeGpio(gpioCfg.fd);
+            if (fd > 0)
+            {
+                ::close(fd);
+            }
         }
     }
 
     sdbusplus::bus_t& bus;
     EventPtr& event;
-    buttonConfig config;
+    ButtonConfig config;
     sd_event_io_handler_t callbackHandler;
 };

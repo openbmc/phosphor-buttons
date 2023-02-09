@@ -23,7 +23,7 @@ class SerialUartMux final : public ButtonIface
 {
   public:
     SerialUartMux(sdbusplus::bus_t& bus, [[maybe_unused]] const char* path,
-                  EventPtr& event, buttonConfig& buttonCfg) :
+                  EventPtr& event, ButtonConfig& buttonCfg) :
         ButtonIface(bus, event, buttonCfg)
     {
         init();
@@ -78,6 +78,6 @@ class SerialUartMux final : public ButtonIface
   protected:
     size_t gpioLineCount;
     std::unique_ptr<sdbusplus::bus::match_t> hostPositionChanged;
-    gpioInfo debugCardPresentGpio;
+    GpioInfo debugCardPresentGpio;
     std::unordered_map<size_t, size_t> serialUartMuxMap;
 };

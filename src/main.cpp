@@ -14,8 +14,8 @@
 // limitations under the License.
 */
 
+#include "button_config.hpp"
 #include "button_factory.hpp"
-#include "gpio.hpp"
 
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
@@ -24,10 +24,11 @@
 #include <fstream>
 static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 
-nlohmann::json gpioDefs;
-
 int main(void)
 {
+    nlohmann::json gpioDefs;
+    nlohmann::json cpldDefs;
+
     int ret = 0;
 
     lg2::info("Start Phosphor buttons service...");
@@ -50,8 +51,34 @@ int main(void)
     std::vector<std::unique_ptr<ButtonIface>> buttonInterfaces;
 
     std::ifstream gpios{gpioDefFile};
-    auto gpioDefJson = nlohmann::json::parse(gpios, nullptr, true);
-    gpioDefs = gpioDefJson["gpio_definitions"];
+    auto configDefJson = nlohmann::json::parse(gpios, nullptr, true);
+    gpioDefs = configDefJson["gpio_definitions"];
+    cpldDefs = configDefJson["cpld_definitions"];
+
+    // load cpld config from gpio defs json file and create button interface
+    for (const auto& cpldConfig : cpldDefs)
+    {
+        std::string formFactorName = cpldConfig["name"];
+
+        ButtonConfig buttonCfg;
+        buttonCfg.type = ConfigType::cpld;
+        buttonCfg.formFactorName = formFactorName;
+        buttonCfg.extraJsonInfo = cpldConfig;
+
+        CpldInfo cpldCfg;
+        cpldCfg.registerName = cpldConfig["register_name"];
+
+        cpldCfg.i2cAddress = cpldConfig["i2c_address"].get<int>();
+        cpldCfg.i2cBus = cpldConfig["i2c_bus"].get<int>();
+        buttonCfg.cpld = cpldCfg;
+
+        auto tempButtonIf = ButtonFactory::instance().createInstance(
+            formFactorName, bus, eventP, buttonCfg);
+        if (tempButtonIf)
+        {
+            buttonInterfaces.emplace_back(std::move(tempButtonIf));
+        }
+    }
 
     // load gpio config from gpio defs json file and create button interface
     // objects based on the button form factor type
@@ -59,9 +86,10 @@ int main(void)
     for (const auto& gpioConfig : gpioDefs)
     {
         std::string formFactorName = gpioConfig["name"];
-        buttonConfig buttonCfg;
+        ButtonConfig buttonCfg;
         buttonCfg.formFactorName = formFactorName;
         buttonCfg.extraJsonInfo = gpioConfig;
+        buttonCfg.type = ConfigType::gpio;
 
         /* The folloing code checks if the gpio config read
         from json file is single gpio config or group gpio config,
@@ -74,7 +102,7 @@ int main(void)
 
             for (const auto& config : groupGpio)
             {
-                gpioInfo gpioCfg;
+                GpioInfo gpioCfg;
                 gpioCfg.number = getGpioNum(config["pin"]);
                 gpioCfg.direction = config["direction"];
                 gpioCfg.name = config["name"];
@@ -86,7 +114,7 @@ int main(void)
         }
         else
         {
-            gpioInfo gpioCfg;
+            GpioInfo gpioCfg;
             gpioCfg.number = getGpioNum(gpioConfig["pin"]);
             gpioCfg.direction = gpioConfig["direction"];
             buttonCfg.gpios.push_back(gpioCfg);
