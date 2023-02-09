@@ -37,37 +37,59 @@ size_t HostSelector::getGpioIndex(int fd)
     }
     return INVALID_INDEX;
 }
-void HostSelector::setInitialHostSelectorValue()
+
+char HostSelector::getValueFromFd(int fd)
 {
     char buf;
-    for (size_t index = 0; index < gpioLineCount; index++)
+    auto result = ::lseek(fd, 0, SEEK_SET);
+
+    if (result < 0)
     {
-        auto result = ::lseek(config.gpios[index].fd, 0, SEEK_SET);
+        throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+            IOError();
+    }
 
-        if (result < 0)
-        {
-            lg2::error("{TYPE}: Gpio fd lseek error: {ERROR}", "TYPE",
-                       getFormFactorType(), "ERROR", errno);
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-                IOError();
-        }
+    result = ::read(fd, &buf, sizeof(buf));
+    if (result < 0)
+    {
+        throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
+            IOError();
+    }
+    return buf;
+}
 
-        result = ::read(config.gpios[index].fd, &buf, sizeof(buf));
-        if (result < 0)
+void HostSelector::setInitialHostSelectorValue()
+{
+    size_t hsPosMapped = 0;
+
+    try
+    {
+        if (config.type == ConfigType::gpio)
         {
-            lg2::error("{TYPE}: Gpio fd read error: {ERROR}", "TYPE",
-                       getFormFactorType(), "ERROR", errno);
-            throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-                IOError();
+            for (size_t index = 0; index < gpioLineCount; index++)
+            {
+                GpioState gpioState =
+                    (getValueFromFd(config.gpios[index].fd) == '0')
+                        ? (GpioState::deassert)
+                        : (GpioState::assert);
+                setHostSelectorValue(config.gpios[index].fd, gpioState);
+            }
+            hsPosMapped = getMappedHSConfig(hostSelectorPosition);
         }
-        GpioState gpioState = (buf == '0') ? (GpioState::deassert)
-                                           : (GpioState::assert);
-        setHostSelectorValue(config.gpios[index].fd, gpioState);
-        size_t hsPosMapped = getMappedHSConfig(hostSelectorPosition);
-        if (hsPosMapped != INVALID_INDEX)
+        else if (config.type == ConfigType::cpld)
         {
-            position(hsPosMapped, true);
+            hsPosMapped = getValueFromFd(config.cpld.cpldMappedFd) - '0';
         }
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("{TYPE}: exception while reading fd : {ERROR}", "TYPE",
+                   getFormFactorType(), "ERROR", e.what());
+    }
+
+    if (hsPosMapped != INVALID_INDEX)
+    {
+        position(hsPosMapped, true);
     }
 }
 
@@ -98,34 +120,32 @@ void HostSelector::setHostSelectorValue(int fd, GpioState state)
 void HostSelector::handleEvent(sd_event_source* /* es */, int fd,
                                uint32_t /* revents */)
 {
-    int n = -1;
     char buf = '0';
-
-    n = ::lseek(fd, 0, SEEK_SET);
-
-    if (n < 0)
+    try
     {
-        lg2::error("{TYPE}: Gpio fd lseek error: {ERROR}", "TYPE",
-                   getFormFactorType(), "ERROR", errno);
+        buf = getValueFromFd(fd);
+    }
+    catch (const std::exception& e)
+    {
+        lg2::error("{TYPE}: exception while reading fd : {ERROR}", "TYPE",
+                   getFormFactorType(), "ERROR", e.what());
         return;
     }
 
-    n = ::read(fd, &buf, sizeof(buf));
-    if (n < 0)
+    size_t hsPosMapped = 0;
+    if (config.type == ConfigType::gpio)
     {
-        lg2::error("{TYPE}: Gpio fd read error: {ERROR}", "TYPE",
-                   getFormFactorType(), "ERROR", errno);
-        throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
-            IOError();
+        // read the gpio state for the io event received
+        GpioState gpioState = (buf == '0') ? (GpioState::deassert)
+                                           : (GpioState::assert);
+
+        setHostSelectorValue(fd, gpioState);
+        hsPosMapped = getMappedHSConfig(hostSelectorPosition);
     }
-
-    // read the gpio state for the io event received
-    GpioState gpioState = (buf == '0') ? (GpioState::deassert)
-                                       : (GpioState::assert);
-
-    setHostSelectorValue(fd, gpioState);
-
-    size_t hsPosMapped = getMappedHSConfig(hostSelectorPosition);
+    else if (config.type == ConfigType::cpld)
+    {
+        hsPosMapped = buf - '0';
+    }
 
     if (hsPosMapped != INVALID_INDEX)
     {

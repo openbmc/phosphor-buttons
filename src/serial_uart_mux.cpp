@@ -62,7 +62,7 @@ void SerialUartMux::configSerialConsoleMux(size_t position)
     for (size_t uartMuxSel = 0; uartMuxSel < gpioLineCount; uartMuxSel++)
     {
         auto gpioState = GpioState::invalid;
-        gpioInfo gpioConfig = config.gpios[uartMuxSel];
+        GpioInfo gpioConfig = config.gpios[uartMuxSel];
 
         if (gpioConfig.name == SERIAL_UART_RX_GPIO)
         {

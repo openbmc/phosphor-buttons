@@ -1,14 +1,14 @@
 #pragma once
 
+#include "button_config.hpp"
 #include "button_interface.hpp"
-#include "gpio.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 
 #include <unordered_map>
 
 using buttonIfCreatorMethod = std::function<std::unique_ptr<ButtonIface>(
-    sdbusplus::bus_t& bus, EventPtr& event, buttonConfig& buttonCfg)>;
+    sdbusplus::bus_t& bus, EventPtr& event, ButtonConfig& buttonCfg)>;
 
 /**
  * @brief This is abstract factory for the creating phosphor buttons objects
@@ -37,7 +37,7 @@ class ButtonFactory
     {
         buttonIfaceRegistry[std::string(T::getFormFactorName())] =
             [](sdbusplus::bus_t& bus, EventPtr& event,
-               buttonConfig& buttonCfg) {
+               ButtonConfig& buttonCfg) {
             return std::make_unique<T>(bus, T::getDbusObjectPath(), event,
                                        buttonCfg);
         };
@@ -49,7 +49,7 @@ class ButtonFactory
     std::unique_ptr<ButtonIface> createInstance(const std::string& name,
                                                 sdbusplus::bus_t& bus,
                                                 EventPtr& event,
-                                                buttonConfig& buttonCfg)
+                                                ButtonConfig& buttonCfg)
     {
         // find matching name in the registry and call factory method.
         auto objectIter = buttonIfaceRegistry.find(name);
