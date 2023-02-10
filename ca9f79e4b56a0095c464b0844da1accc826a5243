@@ -70,6 +70,41 @@
       "parentUuid": "7f37950f_491b15a8",
       "revId": "ca9f79e4b56a0095c464b0844da1accc826a5243",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7884f819_5d832595",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2023-02-10T06:33:04Z",
+      "side": 1,
+      "message": "ok, great.\nIt is a good approach overall.",
+      "parentUuid": "e726c751_f7940ac7",
+      "revId": "ca9f79e4b56a0095c464b0844da1accc826a5243",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d267d62_b1233c1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2023-02-10T06:33:04Z",
+      "side": 1,
+      "message": "Cool.",
+      "revId": "ca9f79e4b56a0095c464b0844da1accc826a5243",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
