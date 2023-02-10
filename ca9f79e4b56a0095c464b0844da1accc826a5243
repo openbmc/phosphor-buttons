@@ -16,6 +16,24 @@
       "message": "Whether it is merged into our OpenBMC linux repo or not?\nIf not what\u0027s the impact?",
       "revId": "ca9f79e4b56a0095c464b0844da1accc826a5243",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4927f5be_1d64e16b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-02-10T01:46:19Z",
+      "side": 1,
+      "message": "Hi Kuiying,the CLD driver has not been merged. \nIf the user does not config cpld_definitions, the button service will not be affected",
+      "parentUuid": "156057a9_79e711fa",
+      "revId": "ca9f79e4b56a0095c464b0844da1accc826a5243",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
