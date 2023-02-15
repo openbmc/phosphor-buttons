@@ -240,6 +240,24 @@
       "parentUuid": "94ea685e_9aa05a63",
       "revId": "ca9f79e4b56a0095c464b0844da1accc826a5243",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd0bc039_80266a91",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-02-15T08:37:47Z",
+      "side": 1,
+      "message": "Hi Matt, thanks for your info. \nAfter I use the gpio config in our system, when the service start up the handler service do have a singal log happened. \nThe signal won\u0027t pop up after I add the read before sd_event_add_io.\nThe commit had been changed, please check it. Thx",
+      "parentUuid": "3c4272c5_7afb8537",
+      "revId": "ca9f79e4b56a0095c464b0844da1accc826a5243",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
