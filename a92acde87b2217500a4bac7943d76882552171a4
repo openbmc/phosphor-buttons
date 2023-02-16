@@ -39,6 +39,30 @@
       },
       "revId": "a92acde87b2217500a4bac7943d76882552171a4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e95c78d_952d8fa2",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-02-16T03:31:48Z",
+      "side": 1,
+      "message": "Hi Matt, because in our CLD driver it needs to read two bytes at the time (one is value, the other is line feed)\nWe will survey if we could remove out that line feed char in our driver.",
+      "parentUuid": "a253b9a0_be2f76d0",
+      "range": {
+        "startLine": 84,
+        "startChar": 49,
+        "endLine": 84,
+        "endChar": 50
+      },
+      "revId": "a92acde87b2217500a4bac7943d76882552171a4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
