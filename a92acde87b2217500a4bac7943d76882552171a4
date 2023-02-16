@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7a56951_72e5c7a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-02-16T03:29:40Z",
+      "side": 1,
+      "message": "Hi Matt, because in our CLD driver it needs to read two bytes at the time (one is value, the other is line feed) \nWe will survey if we could remove out that line feed char in our driver.",
+      "revId": "a92acde87b2217500a4bac7943d76882552171a4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a253b9a0_be2f76d0",
