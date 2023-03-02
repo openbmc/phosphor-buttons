@@ -55,6 +55,7 @@ struct gpioInfo
 struct buttonConfig
 {
     std::string formFactorName;   // name of the button interface
+    size_t index;       // number of chassis that the button belongs
     std::vector<gpioInfo> gpios;  // holds single or group gpio config
     nlohmann::json extraJsonInfo; // corresponding to button interface
 };
