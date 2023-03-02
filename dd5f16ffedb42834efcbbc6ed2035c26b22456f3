@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d64bffd_3275c2a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-03-02T08:30:55Z",
+      "side": 1,
+      "message": "The CI test failed because ‘pressingDuration’ was not declared in this scope, which is a new declared signal in phosphor-dbus-interfaces, so there\u0027s a dependency that this commit should be merged after the signal was added in commit below:\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-dbus-interfaces/+/59703",
+      "revId": "dd5f16ffedb42834efcbbc6ed2035c26b22456f3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
