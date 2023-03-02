@@ -9,6 +9,16 @@ project(
     ]
 )
 
+host_instances = '0'
+if get_option('host-instances') != ''
+  host_instances = get_option('host-instances')
+endif
+
+support_multi_cycle = 'false'
+if get_option('support-multi-cycle')
+  support_multi_cycle = 'true'
+endif
+
 conf_data = configuration_data()
 conf_data.set_quoted('POWER_DBUS_OBJECT_NAME',
                  '/xyz/openbmc_project/Chassis/Buttons/Power0')
@@ -31,7 +41,11 @@ conf_data.set_quoted('HOST_STATE_OBJECT_NAME',
                  '/xyz/openbmc_project/state/host')
 conf_data.set_quoted('ID_LED_GROUP', get_option('id-led-group'))
 
+conf_data.set_quoted('INSTANCES',host_instances)
+conf_data.set_quoted('SUPPORT_MULTI_CYCLE',support_multi_cycle)
+
 conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))
+conf_data.set('MULTI_CYCLE_LIMIT_MS', get_option('multi-cycle-limit-ms'))
 conf_data.set('LOOKUP_GPIO_BASE', get_option('lookup-gpio-base').enabled())
 
 configure_file(output: 'config.h',
