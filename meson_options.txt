@@ -13,8 +13,28 @@ option(
 )
 
 option(
+    'longer-press-time-ms',
+    type : 'integer',
+    value: 8000,
+    description : 'Time to longer press the button'
+)
+
+option(
     'lookup-gpio-base',
     type : 'feature',
     value: 'enabled',
     description : 'Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0.'
+)
+
+option(
+    'support-longer-press',
+    type : 'boolean',
+    value: false,
+    description : 'Set to true if support press behavior that longer than long-press.'
+)
+
+option(
+    'host-instances',
+    type: 'string',
+    description: 'Host Instances that can be defined by project, for example: 0 1 2 3 4'
 )
