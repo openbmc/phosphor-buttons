@@ -1,6 +1,9 @@
 #pragma once
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/bus/match.hpp>
+#include <string>
+#include <sstream>
+#include "config.h"
 
 namespace phosphor
 {
@@ -10,11 +13,27 @@ enum class PowerEvent
 {
     powerPressed,
     longPowerPressed,
+    longerPowerPressed,
     resetPressed,
     powerReleased,
     longPowerReleased,
     resetReleased
 };
+
+inline static int numberOfChassis()
+{
+  int chassisnum;
+  size_t found = 0;
+
+  for (int i = 0; found != std::string::npos; i++)
+  {
+      found = static_cast<std::string>(INSTANCES).find(std::to_string(i));
+      chassisnum = i - 1;
+  }
+
+  return chassisnum;
+}
+
 /**
  * @class Handler
  *
@@ -53,16 +72,6 @@ class Handler
      * @param[in] msg - sdbusplus message from signal
      */
     void powerReleased(sdbusplus::message_t& msg);
-
-    /**
-     * @brief The handler for a long power button press
-     *
-     * If the system is currently powered on, it will
-     * perform an immediate power off.
-     *
-     * @param[in] msg - sdbusplus message from signal
-     */
-    void longPowerPressed(sdbusplus::message_t& msg);
 
     /**
      * @brief The handler for an ID button press
@@ -138,7 +147,7 @@ class Handler
      *
      * @return void
      */
-    void handlePowerEvent(PowerEvent powerEventType);
+    void handlePowerEvent(PowerEvent powerEventType, std::string chassisNum);
 
     /**
      * @brief sdbusplus connection object
@@ -154,6 +163,11 @@ class Handler
      * @brief Matches on the power button long press released signal
      */
     std::unique_ptr<sdbusplus::bus::match_t> powerButtonLongPressed;
+
+    /**
+     * @brief Matches on the multi power button released signal
+     */
+    std::vector<std::shared_ptr<sdbusplus::bus::match_t>> multiPowerButtonReleased;
 
     /**
      * @brief Matches on the ID button released signal
