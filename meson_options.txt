@@ -13,8 +13,28 @@ option(
 )
 
 option(
+    'multi-cycle-limit-ms',
+    type : 'integer',
+    value: 8000,
+    description : 'Timed required to be considered to do power cycle or off'
+)
+
+option(
     'lookup-gpio-base',
     type : 'feature',
     value: 'enabled',
     description : 'Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0.'
+)
+
+option(
+    'support-multi-cycle',
+    type : 'boolean',
+    value: false,
+    description : 'Set to true if support both power cycle and off over multi power button.'
+)
+
+option(
+    'host-instances',
+    type: 'string',
+    description: 'Host Instances that can be defined by project, for example: 0 1 2 3 4'
 )
