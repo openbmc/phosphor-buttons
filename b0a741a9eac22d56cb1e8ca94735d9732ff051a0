@@ -16,6 +16,98 @@
       "message": "Hi all, we already updated our CLD driver for one byte valid. And modified our code to read one byte at a time. But the CI fail because of power interface yaml has been changed. Even this commit doesn\u0027t modify power button but still needs to wait until https://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/59701 merged first.",
       "revId": "b0a741a9eac22d56cb1e8ca94735d9732ff051a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27507bf9_7d76a734",
+        "filename": "inc/button_config.hpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001049
+      },
+      "writtenOn": "2023-03-31T17:11:43Z",
+      "side": 1,
+      "message": "Is this correct naming convention? \n\nIt should be upper camel case rt?",
+      "range": {
+        "startLine": 18,
+        "startChar": 7,
+        "endLine": 18,
+        "endChar": 19
+      },
+      "revId": "b0a741a9eac22d56cb1e8ca94735d9732ff051a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51304ab8_863484d9",
+        "filename": "inc/button_interface.hpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1001049
+      },
+      "writtenOn": "2023-03-31T17:11:43Z",
+      "side": 1,
+      "message": "Suggestion:\nif (fd)",
+      "range": {
+        "startLine": 100,
+        "startChar": 16,
+        "endLine": 100,
+        "endChar": 27
+      },
+      "revId": "b0a741a9eac22d56cb1e8ca94735d9732ff051a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9882dda0_b48317aa",
+        "filename": "inc/cpld.hpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001049
+      },
+      "writtenOn": "2023-03-31T17:11:43Z",
+      "side": 1,
+      "message": "upper camel case",
+      "range": {
+        "startLine": 10,
+        "startChar": 7,
+        "endLine": 10,
+        "endChar": 15
+      },
+      "revId": "b0a741a9eac22d56cb1e8ca94735d9732ff051a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ebcd8d8_d816695c",
+        "filename": "inc/cpld.hpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001049
+      },
+      "writtenOn": "2023-03-31T17:11:43Z",
+      "side": 1,
+      "message": "give better names to variable",
+      "range": {
+        "startLine": 15,
+        "startChar": 8,
+        "endLine": 15,
+        "endChar": 10
+      },
+      "revId": "b0a741a9eac22d56cb1e8ca94735d9732ff051a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
