@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99ddf4d6_7e7e2ca7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-03-31T21:24:56Z",
+      "side": 1,
+      "message": "Wrapping for commit messages should be 72 for the body (see https://github.com/openbmc/docs/blob/master/CONTRIBUTING.md#formatting-commit-messages)",
+      "revId": "5d149f397dda1c24bf21fdfc6b6701102e49e512",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0c2b9fb_e7f0d3be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-03-31T21:24:56Z",
+      "side": 1,
+      "message": "can you add what the new object paths you\u0027re adding are, and what the new behaviors are?",
+      "revId": "5d149f397dda1c24bf21fdfc6b6701102e49e512",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148c768c_23963d40",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-03-31T21:24:56Z",
+      "side": 1,
+      "message": "may as well move this to the .cpp file",
+      "revId": "5d149f397dda1c24bf21fdfc6b6701102e49e512",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f2aa85_9eb1290d",
+        "filename": "meson_options.txt",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-03-31T21:24:56Z",
+      "side": 1,
+      "message": "maybe, \u0027Timed required to be considered a longer press\u0027.",
+      "range": {
+        "startLine": 19,
+        "startChar": 24,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "5d149f397dda1c24bf21fdfc6b6701102e49e512",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9e4ece4_b02ce43b",
+        "filename": "meson_options.txt",
+        "patchSetId": 16
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-03-31T21:24:56Z",
+      "side": 1,
+      "message": "that is",
+      "range": {
+        "startLine": 33,
+        "startChar": 56,
+        "endLine": 33,
+        "endChar": 62
+      },
+      "revId": "5d149f397dda1c24bf21fdfc6b6701102e49e512",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dacd8d6f_97a1bff7",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-03-31T21:24:56Z",
+      "side": 1,
+      "message": "can you add a comment on why the host-selector button service can\u0027t be present for this to be done?",
+      "revId": "5d149f397dda1c24bf21fdfc6b6701102e49e512",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29d22155_3bc56b19",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-03-31T21:24:56Z",
+      "side": 1,
+      "message": "can remove.",
+      "range": {
+        "startLine": 353,
+        "startChar": 54,
+        "endLine": 353,
+        "endChar": 63
+      },
+      "revId": "5d149f397dda1c24bf21fdfc6b6701102e49e512",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
