@@ -39,6 +39,7 @@ configure_file(output: 'config.h',
 )
 
 sdbusplus_dep = dependency('sdbusplus')
+sdeventplus_dep = dependency('sdeventplus')
 phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
 phosphor_logging_dep = dependency('phosphor-logging')
 gpioplus_dep = dependency('gpioplus')
@@ -59,6 +60,7 @@ deps = [
     phosphor_logging_dep,
     nlohmann_json_dep,
     gpioplus_dep,
+    sdeventplus_dep,
 ]
 
 sources_buttons = [
