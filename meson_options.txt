@@ -18,3 +18,10 @@ option(
     value: 'enabled',
     description : 'Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0.'
 )
+
+option(
+    'power-button-handler',
+    type: 'combo',
+    choices: ['default', 'host_then_chassis_poweroff'],
+    value: 'default'
+)
