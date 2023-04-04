@@ -2,6 +2,8 @@
 
 #include "button_handler.hpp"
 
+#include "power_button_handler_factory.hpp"
+
 #include <phosphor-logging/lg2.hpp>
 #include <xyz/openbmc_project/State/Chassis/server.hpp>
 #include <xyz/openbmc_project/State/Host/server.hpp>
@@ -42,16 +44,25 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
         if (!getService(POWER_DBUS_OBJECT_NAME, powerButtonIface).empty())
         {
             lg2::info("Starting power button handler");
-            powerButtonReleased = std::make_unique<sdbusplus::bus::match_t>(
-                bus,
-                sdbusRule::type::signal() + sdbusRule::member("Released") +
-                    sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
-                    sdbusRule::interface(powerButtonIface),
-                std::bind(std::mem_fn(&Handler::powerReleased), this,
-                          std::placeholders::_1));
+
+            // Check for a custom handler
+            powerButtonHandler =
+                PowerButtonHandlerFactory::instance().createHandler(bus);
+
+            if (!powerButtonHandler)
+            {
+                powerButtonReleased = std::make_unique<sdbusplus::bus::match_t>(
+                    bus,
+                    sdbusRule::type::signal() + sdbusRule::member("Released") +
+                        sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
+                        sdbusRule::interface(powerButtonIface),
+                    std::bind(std::mem_fn(&Handler::powerReleased), this,
+                              std::placeholders::_1));
+            }
         }
 
-        if (getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty())
+        if (getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty() &&
+            !powerButtonHandler)
         {
             lg2::info("Starting multi power button handler");
             int chassisMax = numberOfChassis();

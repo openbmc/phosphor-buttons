@@ -43,6 +43,7 @@ conf_data.set_quoted('ID_LED_GROUP', get_option('id-led-group'))
 
 conf_data.set_quoted('INSTANCES',host_instances)
 conf_data.set_quoted('SUPPORT_LONGER_PRESS',support_longer_press)
+conf_data.set_quoted('POWER_BUTTON_HANDLER', get_option('power-button-handler'))
 
 conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))
 conf_data.set('LONGER_PRESS_TIME_MS', get_option('longer-press-time-ms'))
@@ -91,6 +92,7 @@ sources_buttons = [
 sources_handler = [
     'src/button_handler_main.cpp',
     'src/button_handler.cpp',
+    'src/host_then_chassis_poweroff.cpp',
 ]
 
 executable(
