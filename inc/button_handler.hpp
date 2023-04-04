@@ -1,4 +1,7 @@
 #pragma once
+
+#include "power_button_profile.hpp"
+
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/bus/match.hpp>
 
@@ -157,6 +160,11 @@ class Handler
      * @brief Matches on the ocp debug host selector  button released signal
      */
     std::unique_ptr<sdbusplus::bus::match_t> debugHSButtonReleased;
+
+    /**
+     * @brief The custom power handler profile object.
+     */
+    std::unique_ptr<PowerButtonProfile> powerButtonProfile;
 };
 
 } // namespace button

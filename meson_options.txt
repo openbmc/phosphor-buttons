@@ -18,3 +18,11 @@ option(
     value: 'enabled',
     description : 'Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0.'
 )
+
+option(
+    'power-button-profile',
+    type: 'combo',
+    choices: ['default', 'host_then_chassis_poweroff'],
+    value: 'default',
+    description : 'Used to select a custom power button behavior profile.'
+)
