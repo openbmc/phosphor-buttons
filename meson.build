@@ -31,6 +31,8 @@ conf_data.set_quoted('HOST_STATE_OBJECT_NAME',
                  '/xyz/openbmc_project/state/host')
 conf_data.set_quoted('ID_LED_GROUP', get_option('id-led-group'))
 
+conf_data.set_quoted('POWER_BUTTON_PROFILE', get_option('power-button-profile'))
+
 conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))
 conf_data.set('LOOKUP_GPIO_BASE', get_option('lookup-gpio-base').enabled())
 
@@ -77,6 +79,7 @@ sources_buttons = [
 sources_handler = [
     'src/button_handler_main.cpp',
     'src/button_handler.cpp',
+    'src/host_then_chassis_poweroff.cpp',
 ]
 
 executable(
