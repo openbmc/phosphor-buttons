@@ -1,12 +1,53 @@
 # phosphor-buttons
 
 Phosphor-buttons has a collection of IO event handler interfaces for physical
-inputs which are part of OCP front panel.
+inputs which are typically part of some sort of panel.
 
 It defines an individual dbus interface object for each physical button/switch
-inputs such as power button, reset button etc. Each of this button interfaces
-monitors it's associated io for event changes and calls the respective event
-handlers.
+inputs such as power button, reset button etc. Each button interface monitors
+its associated IO for event changes and emits signals that the button-handler
+application listens for.
+
+## Button Behavior
+
+### Power Button
+
+All events occur when the button is released.
+
+If the power is off, power on the host.
+
+If the power is on, it depends on how long the press was and which options are
+enabled:
+
+- Short press: Do a host power off
+- Long press, as determined by the 'long-press-time-ms' meson option: Do a
+  chassis (hard) power off.
+
+#### Custom Power Button Behaviors
+
+The 'power-button-profile' meson option can be used to select custom power
+button profiles that have different behaviors.
+
+Available profiles are:
+
+- host_then_chassis_poweroff: When power is on, short presses are ignored and a
+  long press issues a host power off first and then a chassis power off if held
+  past a certain time. [This class](inc/host_then_chassis_poweroff.hpp) has
+  additional details.
+
+### Multi-Host Buttons
+
+See [this section below](#group-gpio-config).
+
+### Reset Button
+
+When released, reboots the host.
+
+### ID Button
+
+When released, toggles the 'enclosure_identify' LED group provided by the
+phosphor-led-manager repository. The group name can be changed using the
+'id-led-group' meson option.
 
 ## Gpio defs config
 
