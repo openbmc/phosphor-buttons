@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d4efdec_128bd45c",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-04-05T15:42:23Z",
+      "side": 1,
+      "message": "cppcheck complained about this:\ncppcheck: Uninitialized variable: chassisNumFind",
+      "revId": "5d149f397dda1c24bf21fdfc6b6701102e49e512",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35f2aa85_9eb1290d",
         "filename": "meson_options.txt",
         "patchSetId": 16
