@@ -1,0 +1,356 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b18afafd_2d37b6ca",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "If it is a number, why is it a string?  Seems like a lousy API.\n\nChange parameter name so it isn\u0027t tied to multi-chassis.  This can be reused for other purposes.\n\n`index` as the name?",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d71852_8526f860",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "explicit ButtonIFRegister(size_t count)\n\n1. Use explicit for single-parameter constructors.\n2. Don\u0027t tie this to chassis.  We can have multiple buttons for other reasons.\n3. Use size_t for things which are countable.",
+      "range": {
+        "startLine": 96,
+        "startChar": 21,
+        "endLine": 96,
+        "endChar": 24
+      },
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d30526e_fba332ee",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 99,
+        "startChar": 13,
+        "endLine": 99,
+        "endChar": 16
+      },
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12f9c1f9_f8e687b8",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "`size_t`, never int for countable things.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f976661_7d5e786a",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "This is a very difficult to read for-loop.  Please refactor this function to be more obvious.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d05a74b_f51721dc",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "This `find` unfortunately matches \"1\" if the only instance is \"10\".  I\u0027m not sure if that is what you intend.\n\nWhy do we require them to be in order?  You can have a system design with\n4 slots, but knowingly takes double-width cards.  You might number them 1,3 for consistency with a system that takes single-width cards.  (Halfdome is exactly this design w.r.t. Yv3.5 chassis).",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22c7a7c1_37f50b5e",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "If you turn INSTANCES into a vector of strings somewhere else, this becomes a lot easier.\n\n```\nreturn std::accumulate(std::begin(INSTANCES), std::end(INSTANCES), 0, [](auto m, auto s){ return std::max(m, std::atoi(s)); }); \n```",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29eda046_4393d543",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "Don\u0027t embed the word \u0027chassis\u0027 so much in generic code.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0d27a4_ba2900e7",
+        "filename": "inc/gpio.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "`index`.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cb3bf7e_58451af0",
+        "filename": "meson.build",
+        "patchSetId": 19
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "We got rid of \"LONGER\" in the dbus.  I think this meson update needs to be looked at.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54e49058_dd546174",
+        "filename": "meson_config.h.in",
+        "patchSetId": 19
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "Since INSTANCES is intended to be quoted, you can probably get the compiler to turn this into a vector\u003cstring\u003e here.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e613459a_e4467a51",
+        "filename": "meson_options.txt",
+        "patchSetId": 19
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "Remove.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5d59dc1_dba2702e",
+        "filename": "meson_options.txt",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "Need a default of 0?",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1697e5e_dc502e04",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "We should not be listening to our own dbus signal here.  Calculate the released time in the released function.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f615caab_382cf245",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "This implies chassis is a single-digit number.  Please don\u0027t make shortcuts like this.  We may want to support 16-slot chassis designs.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b600dff5_77ec799a",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "I don\u0027t understand why we\u0027re overwriting the string from 223.  If we got a signal for a specific path, shouldn\u0027t we handle that instead of worrying about the selector?  I\u0027m confused by what this code is accomplishing now that you\u0027ve added `chassisPath`.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0f0384b_89776e2e",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "Can we save the results of this somewhere as a boolean?  You seem to be using it multiple times and each one of these are an expensive mapper lookup.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34775897_ad3c775d",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "Remove \"longer\" support, right?",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce59fd0a_1fbd0573",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "Need to get rid of \"longer\"?",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57732fab_5dc05f88",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-06T11:15:01Z",
+      "side": 1,
+      "message": "If you need to start using the message, delete the commented out variable name.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
