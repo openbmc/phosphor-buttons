@@ -229,6 +229,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa908974_34ef653a",
+        "filename": "src/main.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T03:45:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e311085b_ded41a33",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 24
+      },
+      "revId": "b0a741a9eac22d56cb1e8ca94735d9732ff051a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5ce0719_545e8361",
@@ -242,6 +266,24 @@
       "writtenOn": "2023-03-31T21:33:07Z",
       "side": 1,
       "message": "if cpld_definitions isn\u0027t present, won\u0027t this crash?",
+      "revId": "b0a741a9eac22d56cb1e8ca94735d9732ff051a0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec774022_164897a4",
+        "filename": "src/main.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T03:45:17Z",
+      "side": 1,
+      "message": "Hi Matt, it won\u0027t crash. The cpldDefs only get the size of zero json element if \"cpld_definitions\" doesn\u0027t find. And it won\u0027t go into the for loop.",
+      "parentUuid": "c5ce0719_545e8361",
       "revId": "b0a741a9eac22d56cb1e8ca94735d9732ff051a0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
