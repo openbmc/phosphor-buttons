@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "899f96e5_f58d16f8",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "b18afafd_2d37b6ca",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18d71852_8526f860",
         "filename": "inc/button_factory.hpp",
         "patchSetId": 19
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e90a814_8b48744d",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "18d71852_8526f860",
+      "range": {
+        "startLine": 96,
+        "startChar": 21,
+        "endLine": 96,
+        "endChar": 24
+      },
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d30526e_fba332ee",
         "filename": "inc/button_factory.hpp",
         "patchSetId": 19
@@ -54,6 +96,30 @@
       "writtenOn": "2023-04-06T11:15:01Z",
       "side": 1,
       "message": "size_t",
+      "range": {
+        "startLine": 99,
+        "startChar": 13,
+        "endLine": 99,
+        "endChar": 16
+      },
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7071023_2bf355a9",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "7d30526e_fba332ee",
       "range": {
         "startLine": 99,
         "startChar": 13,
@@ -100,6 +166,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a81e8b4_4c6c79de",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "4f976661_7d5e786a",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3da244f6_51a1d0c4",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "12f9c1f9_f8e687b8",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d05a74b_f51721dc",
         "filename": "inc/button_handler.hpp",
         "patchSetId": 19
@@ -111,6 +213,24 @@
       "writtenOn": "2023-04-06T11:15:01Z",
       "side": 1,
       "message": "This `find` unfortunately matches \"1\" if the only instance is \"10\".  I\u0027m not sure if that is what you intend.\n\nWhy do we require them to be in order?  You can have a system design with\n4 slots, but knowingly takes double-width cards.  You might number them 1,3 for consistency with a system that takes single-width cards.  (Halfdome is exactly this design w.r.t. Yv3.5 chassis).",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "737e8b43_c8196083",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "The contain of INSTANCES came from machine conf, it will be used in both phosphor-buttons and phosphor-state-manager so that no duplicate code was added, the in-order rules has been used since project Yosemitev2 and Bletchley.\n\nAfter verified, the number \"10\" can be correctly parsed if the INSTANCE content follow the rule that deviding the in-order string with space as meson option\u0027s description shows.",
+      "parentUuid": "2d05a74b_f51721dc",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -134,6 +254,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "137abe8d_2aea5fdf",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after tried and verified, thank you for your correction.",
+      "parentUuid": "22c7a7c1_37f50b5e",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29eda046_4393d543",
         "filename": "inc/button_handler.hpp",
         "patchSetId": 19
@@ -145,6 +283,24 @@
       "writtenOn": "2023-04-06T11:15:01Z",
       "side": 1,
       "message": "Don\u0027t embed the word \u0027chassis\u0027 so much in generic code.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72a3ecf9_2ad03e1f",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "29eda046_4393d543",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -168,6 +324,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ded64814_b3e80833",
+        "filename": "inc/gpio.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "5c0d27a4_ba2900e7",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0cb3bf7e_58451af0",
         "filename": "meson.build",
         "patchSetId": 19
@@ -179,6 +353,24 @@
       "writtenOn": "2023-04-06T11:15:01Z",
       "side": 1,
       "message": "We got rid of \"LONGER\" in the dbus.  I think this meson update needs to be looked at.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32d3e55b_c1e10d8f",
+        "filename": "meson.build",
+        "patchSetId": 19
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "0cb3bf7e_58451af0",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -202,6 +394,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26f04412_626fec61",
+        "filename": "meson_config.h.in",
+        "patchSetId": 19
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after tried and verified, thank you for your correction.",
+      "parentUuid": "54e49058_dd546174",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e613459a_e4467a51",
         "filename": "meson_options.txt",
         "patchSetId": 19
@@ -219,6 +429,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1be339ed_3f20dbc1",
+        "filename": "meson_options.txt",
+        "patchSetId": 19
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "e613459a_e4467a51",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b5d59dc1_dba2702e",
         "filename": "meson_options.txt",
         "patchSetId": 19
@@ -230,6 +458,24 @@
       "writtenOn": "2023-04-06T11:15:01Z",
       "side": 1,
       "message": "Need a default of 0?",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "881457a4_c393c80d",
+        "filename": "meson_options.txt",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "The default value 0 was set in mesno.build.",
+      "parentUuid": "b5d59dc1_dba2702e",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -304,6 +550,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbb8e08d_48bf16dd",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "e0f0384b_89776e2e",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34775897_ad3c775d",
         "filename": "src/button_handler.cpp",
         "patchSetId": 19
@@ -315,6 +579,24 @@
       "writtenOn": "2023-04-06T11:15:01Z",
       "side": 1,
       "message": "Remove \"longer\" support, right?",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b92852b_98b3bcf6",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "34775897_ad3c775d",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -338,6 +620,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d77208c_3ff32162",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "ce59fd0a_1fbd0573",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57732fab_5dc05f88",
         "filename": "src/button_handler.cpp",
         "patchSetId": 19
@@ -349,6 +649,24 @@
       "writtenOn": "2023-04-06T11:15:01Z",
       "side": 1,
       "message": "If you need to start using the message, delete the commented out variable name.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bd40bee_c7239603",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-07T08:19:57Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "57732fab_5dc05f88",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
