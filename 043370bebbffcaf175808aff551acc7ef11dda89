@@ -497,6 +497,60 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5b0702_e3afec54",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-10T10:14:31Z",
+      "side": 1,
+      "message": "Bus handler here has already creates all kinds of button matches including single power button, reset button, id button and host select button.\n\nI\u0027m not sure about whether I misunderstand your suggestion or not , would you like to design other way that entering event handler without all these matches in this commit? or to simplify commit\u0027s intention, it\u0027s more suitable to revise these matches in future change.",
+      "parentUuid": "d1697e5e_dc502e04",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1a829f3_0c2f7f7f",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-10T10:14:31Z",
+      "side": 1,
+      "message": "Tj",
+      "parentUuid": "d1697e5e_dc502e04",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02b7fffc_acdfb109",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-10T10:14:31Z",
+      "side": 1,
+      "message": "Matches were created for not only listening the signal that already with press duration from power_button.cpp 88 by follow former single-power button behavior (42~51), but also identifying the object path from signal\u0027s message.\n\nI afraid that if these matches can\u0027t be used, the event handler in power_button.cpp needs more details for identifying which slot\u0027s button was trigger.",
+      "parentUuid": "d1697e5e_dc502e04",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f615caab_382cf245",
@@ -516,6 +570,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "872f4065_e7a7b000",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-10T10:14:31Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "f615caab_382cf245",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b600dff5_77ec799a",
         "filename": "src/button_handler.cpp",
         "patchSetId": 19
@@ -527,6 +599,24 @@
       "writtenOn": "2023-04-06T11:15:01Z",
       "side": 1,
       "message": "I don\u0027t understand why we\u0027re overwriting the string from 223.  If we got a signal for a specific path, shouldn\u0027t we handle that instead of worrying about the selector?  I\u0027m confused by what this code is accomplishing now that you\u0027ve added `chassisPath`.",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70a0fb90_e5c5e961",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-10T10:14:31Z",
+      "side": 1,
+      "message": "To reserve the behavior of multi host system with host selector button like Yosemitev2, hostNumStr will be overwriting according to dbus service of host selector recorded if host selector button is used.",
+      "parentUuid": "b600dff5_77ec799a",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
