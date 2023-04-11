@@ -531,6 +531,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6d3ef37_4ea59280",
+        "filename": "meson.build",
+        "patchSetId": 19
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:20:34Z",
+      "side": 1,
+      "message": "Revised and verified as above, thank you for your correction.",
+      "parentUuid": "32d3e55b_c1e10d8f",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54e49058_dd546174",
@@ -796,6 +814,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22af2de4_68d7216b",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:20:34Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "872f4065_e7a7b000",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b600dff5_77ec799a",
@@ -866,6 +902,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5ff2593_d281fc00",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:20:34Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "dbb8e08d_48bf16dd",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34775897_ad3c775d",
@@ -897,6 +951,24 @@
       "side": 1,
       "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
       "parentUuid": "34775897_ad3c775d",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99d9397a_f4fff756",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:20:34Z",
+      "side": 1,
+      "message": "Revised and verified as above, thank you for your correction.",
+      "parentUuid": "9b92852b_98b3bcf6",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -936,6 +1008,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e25497e_d94ee134",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:20:34Z",
+      "side": 1,
+      "message": "Revised and verified as above, thank you for your correction.",
+      "parentUuid": "2d77208c_3ff32162",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57732fab_5dc05f88",
@@ -967,6 +1057,24 @@
       "side": 1,
       "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
       "parentUuid": "57732fab_5dc05f88",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2029ce_872fcf57",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:20:34Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "0bd40bee_c7239603",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
