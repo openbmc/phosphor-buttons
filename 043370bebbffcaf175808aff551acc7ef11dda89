@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61e97c36_b58e45f8",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "899f96e5_f58d16f8",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18d71852_8526f860",
@@ -83,6 +101,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b05b23b_5ae2bde3",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "2e90a814_8b48744d",
+      "range": {
+        "startLine": 96,
+        "startChar": 21,
+        "endLine": 96,
+        "endChar": 24
+      },
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d30526e_fba332ee",
@@ -120,6 +162,30 @@
       "side": 1,
       "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
       "parentUuid": "7d30526e_fba332ee",
+      "range": {
+        "startLine": 99,
+        "startChar": 13,
+        "endLine": 99,
+        "endChar": 16
+      },
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22662e89_279d680b",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "d7071023_2bf355a9",
       "range": {
         "startLine": 99,
         "startChar": 13,
@@ -200,6 +266,42 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09965df3_235c3e78",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "3da244f6_51a1d0c4",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71d727ae_0fc738ca",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "6a81e8b4_4c6c79de",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d05a74b_f51721dc",
@@ -270,6 +372,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "796fa029_b94cbd11",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "137abe8d_2aea5fdf",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29eda046_4393d543",
@@ -305,6 +425,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25b734d8_fe33f45b",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "72a3ecf9_2ad03e1f",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c0d27a4_ba2900e7",
@@ -336,6 +474,24 @@
       "side": 1,
       "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
       "parentUuid": "5c0d27a4_ba2900e7",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddb00af2_a03714a6",
+        "filename": "inc/gpio.hpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Revised and verified, thank you for your correction.",
+      "parentUuid": "ded64814_b3e80833",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -410,6 +566,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36810274_30def85c",
+        "filename": "meson_config.h.in",
+        "patchSetId": 19
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Revised from function numberOfChassis() thank you for your correction.",
+      "parentUuid": "26f04412_626fec61",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e613459a_e4467a51",
@@ -441,6 +615,24 @@
       "side": 1,
       "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
       "parentUuid": "e613459a_e4467a51",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b77d3859_01f81ad7",
+        "filename": "meson_options.txt",
+        "patchSetId": 19
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-11T03:10:05Z",
+      "side": 1,
+      "message": "Rename to \"multi-cycle-limit-ms\" for identifying between power cycle and power off, thank you for your correction.",
+      "parentUuid": "1be339ed_3f20dbc1",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
