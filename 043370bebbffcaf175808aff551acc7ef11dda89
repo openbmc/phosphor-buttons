@@ -797,6 +797,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5da797a7_89611925",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-04-12T13:24:31Z",
+      "side": 1,
+      "message": "there\u0027s 2 applications in this repo:  \u0027buttons\u0027 watches the GPIOs and emits signals.  \u0027button-handler\u0027, this application, listens for the signals.",
+      "parentUuid": "666ec242_58e3160b",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f615caab_382cf245",
