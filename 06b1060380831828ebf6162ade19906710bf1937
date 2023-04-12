@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26c9096c_dad2abb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T13:08:44Z",
+      "side": 1,
+      "message": "Removed pre-existing CI failure due to missing PDI signal parameter.",
+      "revId": "06b1060380831828ebf6162ade19906710bf1937",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
