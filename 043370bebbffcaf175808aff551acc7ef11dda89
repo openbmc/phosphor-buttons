@@ -779,6 +779,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "666ec242_58e3160b",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:22:30Z",
+      "side": 1,
+      "message": "I\u0027m surprised it works, to be honest.  Usually you can\u0027t listen to signals from your own process in dbus...\n\nCan leave it as is if you think it is working.",
+      "parentUuid": "74698318_32ebae2f",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f615caab_382cf245",
@@ -863,6 +881,24 @@
       "side": 1,
       "message": "To reserve the behavior of multi host system with host selector button like Yosemitev2, hostNumStr will be overwriting according to dbus service of host selector recorded if host selector button is used.",
       "parentUuid": "b600dff5_77ec799a",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0d06f44_61d665ac",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:22:30Z",
+      "side": 1,
+      "message": "Can you leave some comments in the code to explain this, please?",
+      "parentUuid": "70a0fb90_e5c5e961",
       "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },

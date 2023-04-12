@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ae693e5_60348cc9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:22:30Z",
+      "side": 1,
+      "message": "I don\u0027t really like the way this is defined.  It doesn\u0027t seem like it really needs to be an option and it too hard-coded in the current implementation.\n\nFor a button, we have a set of \u003clength, behavior\u003e.  Whatever length of time a button is held for, we perform the behavior associated with that length.  We should probably make that some sort of json config rather than a bunch of compile-time options.",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8911579_cc4a3e0f",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:22:30Z",
+      "side": 1,
+      "message": "I don\u0027t think this is entirely what you want.  Currently INSTANCES is still a std::string.  This accumulate is simply finding the largest character in the string, which is likely not what you want.\n\nWe would need to do something to split INSTANCES into a vector\u003cstring\u003e.  I think this can be done at compile time in the meson_config.h.in",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd78f1a2_676d379a",
+        "filename": "meson_config.h.in",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:22:30Z",
+      "side": 1,
+      "message": "Since this is C++, we should probably make this `meson_config.hpp.in`?",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23fa02a4_27666612",
+        "filename": "meson_config.h.in",
+        "patchSetId": 24
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:22:30Z",
+      "side": 1,
+      "message": "constexpr?",
+      "range": {
+        "startLine": 3,
+        "startChar": 14,
+        "endLine": 3,
+        "endChar": 19
+      },
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3719517_9ab3dd77",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:22:30Z",
+      "side": 1,
+      "message": "isSelectorExist?",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8632285b_6c9ed612",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:22:30Z",
+      "side": 1,
+      "message": "We shouldn\u0027t need to do string casting for a compile-time boolean like this.",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffe940c3_eb18b605",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T02:22:30Z",
+      "side": 1,
+      "message": "Let\u0027s split this and the code to handle removal of \"pressedLong\" in 1 commit and then add the \"multi-press\" support in a different commit.  This part should be easy to get done.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
