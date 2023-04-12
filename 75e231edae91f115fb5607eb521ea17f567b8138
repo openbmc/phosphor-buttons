@@ -18,6 +18,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63c08e8e_aed36836",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-12T15:59:48Z",
+      "side": 1,
+      "message": "It has taken too long to get a commit in that fixes this repository and allows phosphor-dbus-interfaces to compile.  I\u0027ve submitted https://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/62425 as a simple fix to get this repository compiling again.  This commit will need to be rebased.\n\nI think it is still worth while to split this commit into two parts:\n\n1. Remove \u0027longPressed\u0027 support and do all the needed updates in button_handler to extract the duration from Released instead.\n2. Revamp this commit so that \u0027multi-button\u0027 is not as hard coded but is more configuration based.",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8911579_cc4a3e0f",
