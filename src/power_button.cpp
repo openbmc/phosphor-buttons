@@ -87,7 +87,8 @@ void PowerButton::handleEvent(sd_event_source* /* es */, int fd,
         else
         {
             // released
-            released();
+            released(std::chrono::duration_cast<std::chrono::microseconds>(d)
+                         .count());
         }
     }
 }
