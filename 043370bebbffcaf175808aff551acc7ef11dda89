@@ -923,6 +923,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0996165_dfafffb9",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-13T01:39:30Z",
+      "side": 1,
+      "message": "I\u0027ll added the description, thank you for your suggestion.",
+      "parentUuid": "b0d06f44_61d665ac",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0f0384b_89776e2e",
         "filename": "src/button_handler.cpp",
         "patchSetId": 19

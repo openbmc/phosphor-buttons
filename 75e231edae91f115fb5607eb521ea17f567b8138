@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9c4cf93_accddce8",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-13T01:39:30Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after tried and verified, thank you for your correction.",
+      "parentUuid": "a8911579_cc4a3e0f",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd78f1a2_676d379a",
         "filename": "meson_config.h.in",
         "patchSetId": 24
@@ -65,6 +83,24 @@
       "writtenOn": "2023-04-12T02:22:30Z",
       "side": 1,
       "message": "Since this is C++, we should probably make this `meson_config.hpp.in`?",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd439721_fee088f8",
+        "filename": "meson_config.h.in",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-13T01:39:30Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after tried and verified, thank you for your correction.",
+      "parentUuid": "cd78f1a2_676d379a",
       "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -94,6 +130,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "18fcb18b_5dd01917",
+        "filename": "meson_config.h.in",
+        "patchSetId": 24
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-13T01:39:30Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after tried and verified, thank you for your correction.",
+      "parentUuid": "23fa02a4_27666612",
+      "range": {
+        "startLine": 3,
+        "startChar": 14,
+        "endLine": 3,
+        "endChar": 19
+      },
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3719517_9ab3dd77",
         "filename": "src/button_handler.cpp",
         "patchSetId": 24
@@ -105,6 +165,24 @@
       "writtenOn": "2023-04-12T02:22:30Z",
       "side": 1,
       "message": "isSelectorExist?",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26f13b06_1a5b6a39",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-13T01:39:30Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "f3719517_9ab3dd77",
       "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -128,6 +206,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2db63b11_1d36c6e3",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-13T01:39:30Z",
+      "side": 1,
+      "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
+      "parentUuid": "8632285b_6c9ed612",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffe940c3_eb18b605",
         "filename": "src/power_button.cpp",
         "patchSetId": 24
@@ -139,6 +235,30 @@
       "writtenOn": "2023-04-12T02:22:30Z",
       "side": 1,
       "message": "Let\u0027s split this and the code to handle removal of \"pressedLong\" in 1 commit and then add the \"multi-press\" support in a different commit.  This part should be easy to get done.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c59916a3_710687fa",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-13T01:39:30Z",
+      "side": 1,
+      "message": "I\u0027ll split them to 2 commits as description, thank you for your correction.",
+      "parentUuid": "ffe940c3_eb18b605",
       "range": {
         "startLine": 85,
         "startChar": 0,
