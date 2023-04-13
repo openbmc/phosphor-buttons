@@ -16,6 +16,24 @@
       "message": "Does anyone know how to handle the ci fail problem? It seems to get the latest phosphor-dbus-interfaces, but currently, the openbmc SRCREV hasn\u0027t updated to the latest one. I\u0027m a bit confused about it.",
       "revId": "8a81d3bbb47c2d383c41101bbe7739c281c4cffa",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45c8383c_72ee3506",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-13T02:05:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07c571a4_ccd94d13",
+      "revId": "8a81d3bbb47c2d383c41101bbe7739c281c4cffa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
