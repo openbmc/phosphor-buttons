@@ -77,18 +77,9 @@ void PowerButton::handleEvent(sd_event_source* /* es */, int fd,
             "POWER_BUTTON: released");
 
         auto now = std::chrono::steady_clock::now();
-        auto d = std::chrono::duration_cast<std::chrono::milliseconds>(
+        auto d = std::chrono::duration_cast<std::chrono::microseconds>(
             now - getPressTime());
-
-        if (d > std::chrono::milliseconds(LONG_PRESS_TIME_MS))
-        {
-            pressedLong();
-        }
-        else
-        {
-            // released
-            released(std::chrono::duration_cast<std::chrono::microseconds>(d)
-                         .count());
-        }
+        // released
+        released(d.count());
     }
 }
