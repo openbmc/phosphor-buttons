@@ -46,14 +46,6 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
                     sdbusRule::interface(powerButtonIface),
                 std::bind(std::mem_fn(&Handler::powerReleased), this,
                           std::placeholders::_1));
-
-            powerButtonLongPressed = std::make_unique<sdbusplus::bus::match_t>(
-                bus,
-                sdbusRule::type::signal() + sdbusRule::member("PressedLong") +
-                    sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
-                    sdbusRule::interface(powerButtonIface),
-                std::bind(std::mem_fn(&Handler::longPowerPressed), this,
-                          std::placeholders::_1));
         }
     }
     catch (const sdbusplus::exception_t& e)
@@ -186,12 +178,15 @@ bool Handler::poweredOn(size_t hostNumber) const
            Host::convertHostStateFromString(std::get<std::string>(state));
 }
 
-void Handler::handlePowerEvent(PowerEvent powerEventType)
+void Handler::handlePowerEvent(PowerEvent powerEventType,
+                               std::chrono::microseconds duration)
 {
     std::string objPathName;
     std::string dbusIfaceName;
     std::string transitionName;
     std::variant<Host::Transition, Chassis::Transition> transition;
+    uint64_t durationMs =
+        std::chrono::duration_cast<std::chrono::milliseconds>(duration).count();
 
     size_t hostNumber = 0;
     auto isMultiHostSystem = isMultiHost();
@@ -206,7 +201,8 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
 
     // ignore  power and reset button events if BMC is selected.
     if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
-        (powerEventType != PowerEvent::longPowerPressed))
+        (powerEventType != PowerEvent::powerReleased) &&
+        (durationMs <= LONG_PRESS_TIME_MS))
     {
         lg2::info(
             "handlePowerEvent : BMC selected on multi-host system. ignoring power and reset button events...");
@@ -217,52 +213,54 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     {
         case PowerEvent::powerReleased:
         {
-            objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
-            dbusIfaceName = hostIface;
-            transitionName = "RequestedHostTransition";
-
-            transition = Host::Transition::On;
-
-            if (poweredOn(hostNumber))
+            if (durationMs <= LONG_PRESS_TIME_MS)
             {
-                transition = Host::Transition::Off;
+                objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
+                dbusIfaceName = hostIface;
+                transitionName = "RequestedHostTransition";
+
+                transition = Host::Transition::On;
+
+                if (poweredOn(hostNumber))
+                {
+                    transition = Host::Transition::Off;
+                }
+                lg2::info("handlePowerEvent : Handle power button press ");
+
+                break;
             }
-            lg2::info("handlePowerEvent : Handle power button press ");
-
-            break;
-        }
-        case PowerEvent::longPowerPressed:
-        {
-            dbusIfaceName = chassisIface;
-            transitionName = "RequestedPowerTransition";
-            objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
-            transition = Chassis::Transition::Off;
-
-            /*  multi host system :
-                    hosts (1 to N) - host shutdown
-                    bmc (0) - sled cycle
-                single host system :
-                    host(0) - host shutdown
-            */
-            if (isMultiHostSystem && (hostNumber == BMC_POSITION))
+            else
             {
+                dbusIfaceName = chassisIface;
+                transitionName = "RequestedPowerTransition";
+                objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+                transition = Chassis::Transition::Off;
+
+                /*  multi host system :
+                        hosts (1 to N) - host shutdown
+                        bmc (0) - sled cycle
+                    single host system :
+                        host(0) - host shutdown
+                */
+                if (isMultiHostSystem && (hostNumber == BMC_POSITION))
+                {
 #if CHASSIS_SYSTEM_RESET_ENABLED
-                objPathName = CHASSISSYSTEM_STATE_OBJECT_NAME + hostNumStr;
-                transition = Chassis::Transition::PowerCycle;
+                    objPathName = CHASSISSYSTEM_STATE_OBJECT_NAME + hostNumStr;
+                    transition = Chassis::Transition::PowerCycle;
 #else
-                return;
+                    return;
 #endif
+                }
+                else if (!poweredOn(hostNumber))
+                {
+                    lg2::info(
+                        "Power is off so ignoring long power button press");
+                    return;
+                }
+                lg2::info("handlePowerEvent : handle long power button press");
+                break;
             }
-            else if (!poweredOn(hostNumber))
-            {
-                lg2::info("Power is off so ignoring long power button press");
-                return;
-            }
-            lg2::info("handlePowerEvent : handle long power button press");
-
-            break;
         }
-
         case PowerEvent::resetReleased:
         {
             objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
@@ -294,27 +292,19 @@ void Handler::handlePowerEvent(PowerEvent powerEventType)
     method.append(dbusIfaceName, transitionName, transition);
     bus.call(method);
 }
-void Handler::powerReleased(sdbusplus::message_t& /* msg */)
+void Handler::powerReleased(sdbusplus::message_t& msg)
 {
     try
     {
-        handlePowerEvent(PowerEvent::powerReleased);
+        uint64_t time;
+        msg.read(time);
+
+        handlePowerEvent(PowerEvent::powerReleased,
+                         std::chrono::microseconds(time));
     }
     catch (const sdbusplus::exception_t& e)
     {
         lg2::error("Failed power state change on a power button press: {ERROR}",
-                   "ERROR", e);
-    }
-}
-void Handler::longPowerPressed(sdbusplus::message_t& /* msg */)
-{
-    try
-    {
-        handlePowerEvent(PowerEvent::longPowerPressed);
-    }
-    catch (const sdbusplus::exception_t& e)
-    {
-        lg2::error("Failed powering off on long power button press: {ERROR}",
                    "ERROR", e);
     }
 }
@@ -323,7 +313,9 @@ void Handler::resetReleased(sdbusplus::message_t& /* msg */)
 {
     try
     {
-        handlePowerEvent(PowerEvent::resetReleased);
+        // No need to calculate duration, set to 0.
+        handlePowerEvent(PowerEvent::resetReleased,
+                         std::chrono::microseconds(0));
     }
     catch (const sdbusplus::exception_t& e)
     {
