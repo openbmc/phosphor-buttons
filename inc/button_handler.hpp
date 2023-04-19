@@ -9,10 +9,8 @@ namespace button
 enum class PowerEvent
 {
     powerPressed,
-    longPowerPressed,
     resetPressed,
     powerReleased,
-    longPowerReleased,
     resetReleased
 };
 /**
@@ -47,22 +45,11 @@ class Handler
     /**
      * @brief The handler for a power button press
      *
-     * It will power on the system if it's currently off,
-     * else it will soft power it off.
+     * It will do power action according to the pressing duration.
      *
      * @param[in] msg - sdbusplus message from signal
      */
     void powerReleased(sdbusplus::message_t& msg);
-
-    /**
-     * @brief The handler for a long power button press
-     *
-     * If the system is currently powered on, it will
-     * perform an immediate power off.
-     *
-     * @param[in] msg - sdbusplus message from signal
-     */
-    void longPowerPressed(sdbusplus::message_t& msg);
 
     /**
      * @brief The handler for an ID button press
@@ -138,7 +125,8 @@ class Handler
      *
      * @return void
      */
-    void handlePowerEvent(PowerEvent powerEventType);
+    void handlePowerEvent(PowerEvent powerEventType,
+                          std::chrono::microseconds duration);
 
     /**
      * @brief sdbusplus connection object
