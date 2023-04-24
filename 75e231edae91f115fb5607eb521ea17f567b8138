@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "480a055c_8cd84866",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-24T01:46:48Z",
+      "side": 1,
+      "message": "There\u0027s some point of view, would you please to to confirm them?\n\n1. Former projects\u0027 button json conf have already set and added from their own corresponding project layer. To avoid that former projects crashed without the option \"long-press-time-ms\", this option needs to be kept instead changing all former projects\u0027 json conf.\n\n2. So far, button conf is parsed from buttons, so adding json parsing when starting button handlder insteat transfer the  \nso that button handler",
+      "parentUuid": "0ae693e5_60348cc9",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "63c08e8e_aed36836",
@@ -259,6 +277,30 @@
       "side": 1,
       "message": "I\u0027ll split them to 2 commits as description, thank you for your correction.",
       "parentUuid": "ffe940c3_eb18b605",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a39f688c_b8a877d6",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-04-24T01:46:48Z",
+      "side": 1,
+      "message": "Commit for removing power button long press has been done:\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/62665\n\nThank you for your reviewing.",
+      "parentUuid": "c59916a3_710687fa",
       "range": {
         "startLine": 85,
         "startChar": 0,
