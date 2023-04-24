@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb693a9_a703430d",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-24T14:51:36Z",
+      "side": 1,
+      "message": "Please use std::chrono type here.",
+      "range": {
+        "startLine": 128,
+        "startChar": 53,
+        "endLine": 128,
+        "endChar": 70
+      },
+      "revId": "437586c3ac0ca4930d5f84fdfc627bfd631f2c7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1c1d6d9_788e6431",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-24T14:51:36Z",
+      "side": 1,
+      "message": "You can\u0027t change the units here.  The dbus interface explicitly specifies microseconds.\n\nhttps://github.com/openbmc/phosphor-dbus-interfaces/blob/927d0930ca70a3767ffae6ae092d51d3a8415250/yaml/xyz/openbmc_project/Chassis/Buttons/Power.interface.yaml#L36",
+      "revId": "437586c3ac0ca4930d5f84fdfc627bfd631f2c7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
