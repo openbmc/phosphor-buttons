@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f122f634_5268dca5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-05-05T01:46:24Z",
+      "side": 1,
+      "message": "point 2 above will be implemented by following steps:\n1. Probe json conf on dbus.\n2. Button handler get conf through bus get properties and save into struct.\n\nThis change will be done as soon as possible,thank you for your correction.",
+      "parentUuid": "480a055c_8cd84866",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "63c08e8e_aed36836",
@@ -325,6 +343,30 @@
       "side": 1,
       "message": "Now I think you need to rebase this commit on master since 62665 merged?",
       "parentUuid": "a39f688c_b8a877d6",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22c2e92e_345821d8",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-05-05T01:46:24Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll rebase this commit and update once I complete the other change for parsing power button behavior from json conf, thank you for reviewing.",
+      "parentUuid": "00a63fd2_a5887230",
       "range": {
         "startLine": 85,
         "startChar": 0,
