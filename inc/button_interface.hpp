@@ -28,8 +28,7 @@ class ButtonIface
                 IOError();
         }
     }
-    virtual ~ButtonIface()
-    {}
+    virtual ~ButtonIface() {}
 
     /**
      * @brief This method is called from sd-event provided callback function

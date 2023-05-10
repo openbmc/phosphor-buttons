@@ -38,9 +38,9 @@ class ButtonFactory
         buttonIfaceRegistry[std::string(T::getFormFactorName())] =
             [](sdbusplus::bus_t& bus, EventPtr& event,
                buttonConfig& buttonCfg) {
-                return std::make_unique<T>(bus, T::getDbusObjectPath(), event,
-                                           buttonCfg);
-            };
+            return std::make_unique<T>(bus, T::getDbusObjectPath(), event,
+                                       buttonCfg);
+        };
     }
     /**
      * @brief this method returns the button interface object

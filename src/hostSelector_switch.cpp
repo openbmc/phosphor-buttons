@@ -60,8 +60,8 @@ void HostSelector::setInitialHostSelectorValue()
             throw sdbusplus::xyz::openbmc_project::Chassis::Common::Error::
                 IOError();
         }
-        GpioState gpioState =
-            (buf == '0') ? (GpioState::deassert) : (GpioState::assert);
+        GpioState gpioState = (buf == '0') ? (GpioState::deassert)
+                                           : (GpioState::assert);
         setHostSelectorValue(config.gpios[index].fd, gpioState);
         size_t hsPosMapped = getMappedHSConfig(hostSelectorPosition);
         if (hsPosMapped != INVALID_INDEX)
@@ -120,8 +120,8 @@ void HostSelector::handleEvent(sd_event_source* /* es */, int fd,
     }
 
     // read the gpio state for the io event received
-    GpioState gpioState =
-        (buf == '0') ? (GpioState::deassert) : (GpioState::assert);
+    GpioState gpioState = (buf == '0') ? (GpioState::deassert)
+                                       : (GpioState::assert);
 
     setHostSelectorValue(fd, gpioState);
 

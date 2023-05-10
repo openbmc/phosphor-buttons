@@ -72,8 +72,7 @@ class SerialUartMux final : public ButtonIface
     void configSerialConsoleMux(size_t position);
     bool isOCPDebugCardPresent();
 
-    void handleEvent(sd_event_source*, int, uint32_t)
-    {}
+    void handleEvent(sd_event_source*, int, uint32_t) {}
 
   protected:
     size_t gpioLineCount;
