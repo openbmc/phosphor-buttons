@@ -89,6 +89,16 @@ int main(void)
             gpioInfo gpioCfg;
             gpioCfg.number = getGpioNum(gpioConfig["pin"]);
             gpioCfg.direction = gpioConfig["direction"];
+            if (gpioConfig.contains("multi-action"))
+            {
+                const auto& multiActCfg = gpioConfig["multi-action"];
+                for (const auto& ActCfg : multiActCfg)
+                {
+                    gpioCfg.actionDuration.emplace_hint(
+                        gpioCfg.actionDuration.end(), ActCfg["duration"],
+                        ActCfg["action"]);
+                }
+            }
             buttonCfg.gpios.push_back(gpioCfg);
         }
         auto tempButtonIf = ButtonFactory::instance().createInstance(
