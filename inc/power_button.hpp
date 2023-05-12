@@ -15,11 +15,10 @@
 */
 
 #pragma once
-#include "config.h"
-
 #include "button_factory.hpp"
 #include "button_interface.hpp"
 #include "common.hpp"
+#include "config.hpp"
 #include "gpio.hpp"
 #include "xyz/openbmc_project/Chassis/Buttons/Power/server.hpp"
 #include "xyz/openbmc_project/Chassis/Common/error.hpp"
@@ -46,6 +45,7 @@ class PowerButton :
         ButtonIface(bus, event, buttonCfg)
     {
         init();
+        multiAction(buttonCfg.gpios[0].actionDuration, true);
     }
 
     ~PowerButton()
