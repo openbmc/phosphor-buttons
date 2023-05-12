@@ -222,3 +222,53 @@ lines and serial_uart_rx line.
   }
 }
 ```
+
+## Multiple power gpio config example
+
+This config is used for configs with multiple power buttons on each slots and
+whole sled, or for which needs multi-level chassis power control behavior.
+
+name - this is name of the specific gpio line, "POWER_BUTTON" + the index of
+chassis instance
+
+- pin - this represents the pin number from linux dts file.
+- multi-action - default no action, set the corresponding behavior with
+  following format:
+- duration - activate when pulling gpio over this value (unit: millisecond)
+- action - chassis power control behavior
+
+```json
+{
+  "gpio_definitions": [
+    {
+      "name": "POWER_BUTTON0",
+      "pin": "I6",
+      "direction": "both",
+      "multi-action": [
+        {
+        "duration": 4000,
+          "action": "chassis cycle"
+        }
+      ]
+    },
+    {
+      "name": "POWER_BUTTON1",
+      "pin": "V0",
+      "direction": "both",
+      "multi-action": [
+        {
+          "duration": 0,
+          "action": "chassis on"
+	},
+        {
+          "duration": 4000,
+          "action": "chassis cycle"
+        },
+        {
+          "duration": 8000,
+          "action": "chassis off"
+	}
+      ]
+    }
+}
+```
