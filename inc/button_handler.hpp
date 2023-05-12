@@ -1,6 +1,13 @@
 #pragma once
+#include "config.hpp"
+
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/bus/match.hpp>
+
+#include <algorithm>
+#include <numeric>
+#include <sstream>
+#include <string>
 
 namespace phosphor
 {
@@ -13,6 +20,12 @@ enum class PowerEvent
     powerReleased,
     resetReleased
 };
+
+inline static size_t numberOfChassis()
+{
+    return instances.size();
+}
+
 /**
  * @class Handler
  *
@@ -125,7 +138,7 @@ class Handler
      *
      * @return void
      */
-    void handlePowerEvent(PowerEvent powerEventType,
+    void handlePowerEvent(PowerEvent powerEventType, std::string objectPath,
                           std::chrono::microseconds duration);
 
     /**
@@ -142,6 +155,12 @@ class Handler
      * @brief Matches on the power button long press released signal
      */
     std::unique_ptr<sdbusplus::bus::match_t> powerButtonLongPressed;
+
+    /**
+     * @brief Matches on the multi power button released signal
+     */
+    std::vector<std::shared_ptr<sdbusplus::bus::match_t>>
+        multiPowerButtonReleased;
 
     /**
      * @brief Matches on the ID button released signal
