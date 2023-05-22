@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dde02e5_2934ec5a",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000348
+      },
+      "writtenOn": "2023-05-22T04:25:38Z",
+      "side": 1,
+      "message": "missing doxygen tag",
+      "revId": "d5a036358283ea4df4ba085ae64b1ebd6092785e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29839289_bcedb506",
+        "filename": "inc/host_then_chassis_poweroff.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000348
+      },
+      "writtenOn": "2023-05-22T04:25:38Z",
+      "side": 1,
+      "message": "Do we plan on having the counter in the LCD panel for FPO and DPO ? \nhttps://www.ibm.com/docs/en/power8/8284-22A?topic\u003dasmi-controlling-system-power-using-control-panel.",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 12
+      },
+      "revId": "d5a036358283ea4df4ba085ae64b1ebd6092785e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aaea8d1_7c76a3c2",
+        "filename": "src/host_then_chassis_poweroff.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000348
+      },
+      "writtenOn": "2023-05-22T04:25:38Z",
+      "side": 1,
+      "message": "is it good to have interdependent header files , a change in it may require a change in this code in future ?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "d5a036358283ea4df4ba085ae64b1ebd6092785e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
