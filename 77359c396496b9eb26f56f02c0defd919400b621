@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "466c9c0a_423275a6",
+        "filename": "src/button_handler_main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000348
+      },
+      "writtenOn": "2023-05-22T03:36:19Z",
+      "side": 1,
+      "message": "do we not need a try catch for exceptions here?",
+      "revId": "77359c396496b9eb26f56f02c0defd919400b621",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
