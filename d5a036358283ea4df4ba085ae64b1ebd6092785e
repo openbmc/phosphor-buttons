@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4934fead_d856b049",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-05-22T16:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dde02e5_2934ec5a",
+      "revId": "d5a036358283ea4df4ba085ae64b1ebd6092785e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29839289_bcedb506",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3c778f3_9150a70f",
+        "filename": "inc/host_then_chassis_poweroff.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-05-22T16:22:49Z",
+      "side": 1,
+      "message": "I set the code up with a 1 second timer such that we can do that if necessary.\n\nSince this code can\u0027t call any com.ibm panel interfaces, we\u0027d need to come up with a different way, maybe emitting countdown(time remaining) signals that the panel code could watch?\n\nWhat would you think of something like that?",
+      "parentUuid": "29839289_bcedb506",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 12
+      },
+      "revId": "d5a036358283ea4df4ba085ae64b1ebd6092785e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8aaea8d1_7c76a3c2",
         "filename": "src/host_then_chassis_poweroff.cpp",
         "patchSetId": 4
@@ -54,6 +96,30 @@
       "writtenOn": "2023-05-22T04:25:38Z",
       "side": 1,
       "message": "is it good to have interdependent header files , a change in it may require a change in this code in future ?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "d5a036358283ea4df4ba085ae64b1ebd6092785e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd2fbefa_c8938d7e",
+        "filename": "src/host_then_chassis_poweroff.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-05-22T16:22:49Z",
+      "side": 1,
+      "message": "hmm, not sure I follow the question?  We  need the enum values these headers provide.",
+      "parentUuid": "8aaea8d1_7c76a3c2",
       "range": {
         "startLine": 8,
         "startChar": 0,
