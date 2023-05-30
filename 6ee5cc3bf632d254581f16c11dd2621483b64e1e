@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cd3e396_e7b26a1b",
+        "filename": "README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000163
+      },
+      "writtenOn": "2023-05-30T23:04:53Z",
+      "side": 1,
+      "message": "prefer \"IO\"",
+      "revId": "6ee5cc3bf632d254581f16c11dd2621483b64e1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef71cd34_61a4a8b5",
+        "filename": "README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000163
+      },
+      "writtenOn": "2023-05-30T23:04:53Z",
+      "side": 1,
+      "message": "Is this correct? If I press and hold the power button, my machine powers off after three seconds and that is when I know when it is okay to release the power button.",
+      "revId": "6ee5cc3bf632d254581f16c11dd2621483b64e1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8285182_3af2f943",
+        "filename": "README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000163
+      },
+      "writtenOn": "2023-05-30T23:04:53Z",
+      "side": 1,
+      "message": "prefer \"behaviors\"",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "6ee5cc3bf632d254581f16c11dd2621483b64e1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
