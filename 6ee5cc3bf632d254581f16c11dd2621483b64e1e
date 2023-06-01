@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb1d270c_d2ac1140",
+        "filename": "README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-06-01T18:15:03Z",
+      "side": 1,
+      "message": "Yea.  There\u0027s no handler for the \u0027pressed\u0027 signal in button_handler.cpp.\n\nDoesn\u0027t x86-power-control also handle the power button?  Maybe your system uses that?",
+      "parentUuid": "ef71cd34_61a4a8b5",
+      "revId": "6ee5cc3bf632d254581f16c11dd2621483b64e1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8285182_3af2f943",
         "filename": "README.md",
         "patchSetId": 5
