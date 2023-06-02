@@ -223,6 +223,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7ccf261_835c332b",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-02T08:14:05Z",
+      "side": 1,
+      "message": "Revised, thank you.",
+      "parentUuid": "26f13b06_1a5b6a39",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8632285b_6c9ed612",
@@ -254,6 +272,24 @@
       "side": 1,
       "message": "I\u0027ll force commit after revised and verified, thank you for your correction.",
       "parentUuid": "8632285b_6c9ed612",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee024a9f_d9ae9810",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-02T08:14:05Z",
+      "side": 1,
+      "message": "The power control identification has been revised, \ntherefore no more meson option was needed, thank you.",
+      "parentUuid": "2db63b11_1d36c6e3",
       "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },

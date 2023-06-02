@@ -939,6 +939,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2a8a5f8_e1593547",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-02T08:14:05Z",
+      "side": 1,
+      "message": "Add description for two power button modes, thank you.",
+      "parentUuid": "e0996165_dfafffb9",
+      "revId": "043370bebbffcaf175808aff551acc7ef11dda89",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0f0384b_89776e2e",
