@@ -242,6 +242,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e57534f4_ee758c2d",
+        "filename": "meson_config.h.in",
+        "patchSetId": 24
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-02T08:21:25Z",
+      "side": 1,
+      "message": "Corrected, thank you.",
+      "parentUuid": "18fcb18b_5dd01917",
+      "range": {
+        "startLine": 3,
+        "startChar": 14,
+        "endLine": 3,
+        "endChar": 19
+      },
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3719517_9ab3dd77",
@@ -457,6 +481,30 @@
       "side": 1,
       "message": "Yes, I\u0027ll rebase this commit and update once I complete the other change for parsing power button behavior from json conf, thank you for reviewing.",
       "parentUuid": "00a63fd2_a5887230",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "022cf3d3_93e431c7",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-02T08:21:25Z",
+      "side": 1,
+      "message": "Commit has been re-based, thank you.",
+      "parentUuid": "22c2e92e_345821d8",
       "range": {
         "startLine": 85,
         "startChar": 0,
