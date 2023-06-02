@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2af886ec_237da126",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-02T08:16:38Z",
+      "side": 1,
+      "message": "Revised, multi-level power behavior can be supported by json conf, thank you.",
+      "parentUuid": "f122f634_5268dca5",
+      "revId": "75e231edae91f115fb5607eb521ea17f567b8138",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "63c08e8e_aed36836",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 24
