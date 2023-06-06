@@ -16,6 +16,86 @@
       "message": "The CI test failed is due to following commit hasn\u0027t merged yet.\nPlease help to review:\nhttps://gerrit.openbmc.org/c/openbmc/phosphor-dbus-interfaces/+/63945",
       "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e51c3422_5fedf3c0",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-06-06T15:28:40Z",
+      "side": 1,
+      "message": "as I mentioned in the PDI review, it would be good if we could get these to be enums.",
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e934a6_5db0809b",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-06-06T15:28:40Z",
+      "side": 1,
+      "message": "can you provide the complete name of the system here and who makes it so that others in the future can look online for more info?",
+      "range": {
+        "startLine": 51,
+        "startChar": 37,
+        "endLine": 51,
+        "endChar": 40
+      },
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ba79368_750b7e18",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-06-06T15:28:40Z",
+      "side": 1,
+      "message": "will this still all work for the existing systems out there with a single normal power button and the original JSON definitions?",
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "833461e5_db9f3285",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-06-06T15:28:40Z",
+      "side": 1,
+      "message": "I don\u0027t think you need this line.  sdbusplus will always throw an exception if there is a problem. Patrick can correct me if I\u0027m wrong.",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 37
+      },
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
