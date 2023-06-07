@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08e5453a_3fee76e7",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-07T08:51:24Z",
+      "side": 1,
+      "message": "Replied in the phosphor-dbus-interfaces review, thank you for the suggestion.",
+      "parentUuid": "e51c3422_5fedf3c0",
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5e934a6_5db0809b",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-06-06T15:28:40Z",
       "side": 1,
       "message": "can you provide the complete name of the system here and who makes it so that others in the future can look online for more info?",
+      "range": {
+        "startLine": 51,
+        "startChar": 37,
+        "endLine": 51,
+        "endChar": 40
+      },
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3b8f537_8d996190",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-07T08:51:24Z",
+      "side": 1,
+      "message": "Revised, thank you for correction.",
+      "parentUuid": "e5e934a6_5db0809b",
       "range": {
         "startLine": 51,
         "startChar": 37,
@@ -75,6 +117,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a877206_f23d0f07",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-07T08:51:24Z",
+      "side": 1,
+      "message": "The former configurations for other platform\u0027s single button still works with original design.",
+      "parentUuid": "0ba79368_750b7e18",
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "833461e5_db9f3285",
@@ -88,6 +148,30 @@
       "writtenOn": "2023-06-06T15:28:40Z",
       "side": 1,
       "message": "I don\u0027t think you need this line.  sdbusplus will always throw an exception if there is a problem. Patrick can correct me if I\u0027m wrong.",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 37
+      },
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "158e0940_b2c0b4a6",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-07T08:51:24Z",
+      "side": 1,
+      "message": "As your suggestion, should I revise this partition into try-catch?\nOr i\u0027m afraid that there are some unexpected error in following steps that put properties into map multiPwrBtnActConf.",
+      "parentUuid": "833461e5_db9f3285",
       "range": {
         "startLine": 72,
         "startChar": 8,
