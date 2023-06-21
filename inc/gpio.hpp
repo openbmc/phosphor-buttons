@@ -15,6 +15,8 @@
 */
 #pragma once
 
+#include "button_handler.hpp"
+
 #include <nlohmann/json.hpp>
 #include <sdbusplus/bus.hpp>
 
@@ -51,6 +53,16 @@ struct GpioInfo
     std::string name;
     std::string direction;
     GpioPolarity polarity;
+    std::map<uint16_t, PwrCtl> actionDuration; // duration, action
+};
+
+// this struct represents button interface
+struct buttonConfig
+{
+    std::string formFactorName;   // name of the button interface
+    size_t index;                 // number of chassis that the button belongs
+    std::vector<gpioInfo> gpios;  // holds single or group gpio config
+    nlohmann::json extraJsonInfo; // corresponding to button interface
 };
 
 /**

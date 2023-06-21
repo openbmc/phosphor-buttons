@@ -14,9 +14,10 @@
 // limitations under the License.
 */
 
-#include "config.h"
+#include "gpio.hpp"
 
 #include "button_config.hpp"
+#include "config.hpp"
 
 #include <error.h>
 #include <fcntl.h>
@@ -89,6 +90,7 @@ uint32_t getGpioBase()
     // Look for a /sys/class/gpio/gpiochip*/label file
     // with a value of GPIO_BASE_LABEL_NAME.  Then read
     // the base value from the 'base' file in that directory.
+
 #ifdef LOOKUP_GPIO_BASE
     for (auto& f : fs::directory_iterator(gpioDev))
     {
