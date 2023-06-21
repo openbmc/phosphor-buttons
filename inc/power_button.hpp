@@ -15,11 +15,10 @@
 */
 
 #pragma once
-#include "config.h"
-
 #include "button_factory.hpp"
 #include "button_interface.hpp"
 #include "common.hpp"
+#include "config.hpp"
 #include "gpio.hpp"
 #include "xyz/openbmc_project/Chassis/Buttons/Power/server.hpp"
 #include "xyz/openbmc_project/Chassis/Common/error.hpp"
@@ -46,6 +45,29 @@ class PowerButton :
         ButtonIface(bus, event, buttonCfg)
     {
         init();
+        std::map<uint16_t, PowerControl> dbusActionDuration;
+        for (const auto& entry : buttonCfg.gpios[0].actionDuration)
+        {
+            uint16_t key = entry.first;
+            PwrCtl value = entry.second;
+
+            PowerControl convertedValue;
+            switch (value)
+            {
+                case PwrCtl::chassisOn:
+                    convertedValue = PowerControl::ChassisOn;
+                    break;
+                case PwrCtl::chassisOff:
+                    convertedValue = PowerControl::ChassisOff;
+                    break;
+                case PwrCtl::chassisCycle:
+                    convertedValue = PowerControl::ChassisCycle;
+                    break;
+            }
+
+            dbusActionDuration[key] = convertedValue;
+        }
+        multiAction(dbusActionDuration, true);
     }
 
     ~PowerButton()

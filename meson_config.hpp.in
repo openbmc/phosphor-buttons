@@ -1,0 +1,57 @@
+#pragma once
+
+#include <stdbool.h>
+
+#include <algorithm>
+#include <array>
+#include <cstring>
+#include <string>
+#include <string_view>
+#include <vector>
+
+#define POWER_DBUS_OBJECT_NAME "/xyz/openbmc_project/Chassis/Buttons/Power0"
+#define RESET_DBUS_OBJECT_NAME "/xyz/openbmc_project/Chassis/Buttons/Reset0"
+#define ID_DBUS_OBJECT_NAME "/xyz/openbmc_project/Chassis/Buttons/ID0"
+#define HS_DBUS_OBJECT_NAME "/xyz/openbmc_project/Chassis/Buttons/HostSelector"
+#define DBG_HS_DBUS_OBJECT_NAME                                                \
+    "/xyz/openbmc_project/Chassis/Buttons/DebugHostSelector"
+#define SERIAL_CONSOLE_MUX_DBUS_OBJECT_NAME                                    \
+    "/xyz/openbmc_project/Chassis/Buttons/SerialUartMux"
+#define GPIO_BASE_LABEL_NAME "1e780000.gpio"
+#define CHASSIS_STATE_OBJECT_NAME "/xyz/openbmc_project/state/chassis"
+#define CHASSISSYSTEM_STATE_OBJECT_NAME                                        \
+    "/xyz/openbmc_project/state/chassis_system"
+#define HOST_STATE_OBJECT_NAME "/xyz/openbmc_project/state/host"
+#define LOOKUP_GPIO_BASE @LOOKUP_GPIO_BASE @
+
+constexpr inline static const char INSTANCES[] = @INSTANCES@;
+constexpr inline static const char* ID_LED_GROUP = @ID_LED_GROUP@;
+constexpr inline static const int LONG_PRESS_TIME_MS = @LONG_PRESS_TIME_MS@;
+
+constexpr std::size_t INSTANCES_SIZE = sizeof(INSTANCES);
+constexpr std::size_t INSTANCE_COUNT =
+    std::count(std::begin(INSTANCES), std::end(INSTANCES), ' ') + 1;
+
+constexpr std::array<std::string_view, INSTANCE_COUNT> parse_instances()
+{
+    std::array<std::string_view, INSTANCE_COUNT> instances;
+    std::size_t start_pos = 0;
+    for (std::size_t i = 0; i < INSTANCE_COUNT; i++)
+    {
+        const auto end_pos =
+            INSTANCES_SIZE <= start_pos
+                ? std::string_view::npos
+                : std::min(INSTANCES_SIZE,
+                           start_pos + std::strlen(INSTANCES + start_pos));
+        if (start_pos != end_pos)
+        {
+            const auto value_str =
+                std::string_view(INSTANCES + start_pos, end_pos - start_pos);
+            instances[i] = value_str;
+        }
+        start_pos = end_pos + 1;
+    }
+    return instances;
+}
+
+constexpr inline static const auto instances = parse_instances();
