@@ -53,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6492ed33_653b6c79",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-21T09:49:05Z",
+      "side": 1,
+      "message": "Revised with phosphor-dbus-interfaces change, thank you for correction",
+      "parentUuid": "08e5453a_3fee76e7",
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5e934a6_5db0809b",
