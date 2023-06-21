@@ -24,6 +24,13 @@
 #include <fstream>
 static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 
+nlohmann::json gpioDefs;
+
+std::map<std::string, PwrCtl> chassisPwrCtlStrs = {
+    {"chassis on", PwrCtl::chassisOn},
+    {"chassis off", PwrCtl::chassisOff},
+    {"chassis cycle", PwrCtl::chassisCycle}};
+
 int main(void)
 {
     nlohmann::json gpioDefs;
@@ -117,6 +124,25 @@ int main(void)
             GpioInfo gpioCfg;
             gpioCfg.number = getGpioNum(gpioConfig["pin"]);
             gpioCfg.direction = gpioConfig["direction"];
+            if (gpioConfig.contains("multi-action"))
+            {
+                const auto& multiActCfg = gpioConfig["multi-action"];
+                for (const auto& ActCfg : multiActCfg)
+                {
+                    auto chassisPwrCtl =
+                        chassisPwrCtlStrs.find(ActCfg["action"]);
+                    if (chassisPwrCtl != chassisPwrCtlStrs.end())
+                    {
+                        gpioCfg.actionDuration.emplace_hint(
+                            gpioCfg.actionDuration.end(), ActCfg["duration"],
+                            chassisPwrCtl->second);
+                    }
+                    else
+                    {
+                        lg2::info("unknown power button action");
+                    }
+                }
+            }
             buttonCfg.gpios.push_back(gpioCfg);
         }
         auto tempButtonIf = ButtonFactory::instance().createInstance(
