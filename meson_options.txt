@@ -18,3 +18,9 @@ option(
     value: 'enabled',
     description : 'Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0.'
 )
+
+option(
+    'host-instances',
+    type: 'string',
+    description: 'Host Instances that can be defined by project, for example: 0 1 2 3 4'
+)

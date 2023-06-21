@@ -1,5 +1,5 @@
 
-#include "config.h"
+#include "config.hpp"
 
 #include "button_config.hpp"
 
