@@ -71,6 +71,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbde0bad_83639535",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2023-06-21T09:55:21Z",
+      "side": 1,
+      "message": "The CI test result will be fixed after phosphor-dbus-interfaces change merged",
+      "parentUuid": "6492ed33_653b6c79",
+      "revId": "5f5a12956894eb2668edf5a7fddc94cabc8357b3",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5e934a6_5db0809b",
