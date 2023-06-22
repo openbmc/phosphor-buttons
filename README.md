@@ -41,7 +41,11 @@ See [this section below](#group-gpio-config).
 
 ### Reset Button
 
-When released, reboots the host.
+When released:
+
+- If 'reset-button-do-warm-reboot' meson option is set to enabled, hard reset
+  the host.
+- Otherwise, reboots the host (default behavior)
 
 ### ID Button
 

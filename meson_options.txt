@@ -26,3 +26,10 @@ option(
     value: 'default',
     description : 'Used to select a custom power button behavior profile.'
 )
+
+option(
+    'reset-button-do-warm-reboot',
+    type : 'feature',
+    value : 'disabled',
+    description : 'Enable warm reboot of the reset button'
+)
