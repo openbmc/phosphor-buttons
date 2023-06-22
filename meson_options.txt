@@ -18,3 +18,10 @@ option(
     value: 'enabled',
     description : 'Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0.'
 )
+
+option(
+    'warm-reboot',
+    type : 'feature',
+    value : 'disabled',
+    description : 'Enable warm reboot of the reset button'
+)

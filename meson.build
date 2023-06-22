@@ -33,6 +33,7 @@ conf_data.set_quoted('ID_LED_GROUP', get_option('id-led-group'))
 
 conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))
 conf_data.set('LOOKUP_GPIO_BASE', get_option('lookup-gpio-base').enabled())
+conf_data.set('ENABLE_WARM_REBOOT', get_option('warm-reboot').enabled())
 
 configure_file(output: 'config.h',
     configuration: conf_data
