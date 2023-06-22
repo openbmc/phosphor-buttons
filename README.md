@@ -290,3 +290,10 @@ lines and serial_uart_rx line.
   }
 }
 ```
+
+### Reset Button
+
+When released:
+
+- If 'warm-reboot' meson option is set to enabled, hard reset the host.
+- Otherwise, reboots the host (default behavior)
