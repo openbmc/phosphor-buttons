@@ -284,7 +284,11 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
             }
 
             lg2::info("Handling reset button press");
+#ifdef ENABLE_RESET_BUTTON_DO_WARM_REBOOT
+            transition = Host::Transition::ForceWarmReboot;
+#else
             transition = Host::Transition::Reboot;
+#endif
             break;
         }
         default:
