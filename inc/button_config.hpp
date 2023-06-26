@@ -1,6 +1,5 @@
 #pragma once
-#include "config.h"
-
+#include "config.hpp"
 #include "cpld.hpp"
 #include "gpio.hpp"
 
