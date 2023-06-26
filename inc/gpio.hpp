@@ -21,6 +21,8 @@
 #include <string>
 #include <vector>
 
+#include "button_handler.hpp"
+
 struct ButtonConfig;
 
 // enum to represent gpio states
@@ -51,6 +53,7 @@ struct GpioInfo
     std::string name;
     std::string direction;
     GpioPolarity polarity;
+    std::map<uint16_t, PwrCtl> actionDuration; // duration, action
 };
 
 /**
