@@ -1,4 +1,4 @@
-#include "config.h"
+#include "config.hpp"
 
 #include "host_then_chassis_poweroff.hpp"
 

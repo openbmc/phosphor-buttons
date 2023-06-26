@@ -15,6 +15,8 @@
 */
 #pragma once
 
+#include "button_handler.hpp"
+
 #include <nlohmann/json.hpp>
 #include <sdbusplus/bus.hpp>
 
