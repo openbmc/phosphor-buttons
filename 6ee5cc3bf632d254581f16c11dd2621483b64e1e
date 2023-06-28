@@ -71,6 +71,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ed6c6c_6597ca41",
+        "filename": "README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-06-28T21:03:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb1d270c_d2ac1140",
+      "revId": "6ee5cc3bf632d254581f16c11dd2621483b64e1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8285182_3af2f943",
@@ -84,6 +102,30 @@
       "writtenOn": "2023-05-30T23:04:53Z",
       "side": 1,
       "message": "prefer \"behaviors\"",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "6ee5cc3bf632d254581f16c11dd2621483b64e1e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e407e490_7b1ab2f0",
+        "filename": "README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-06-28T21:03:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8285182_3af2f943",
       "range": {
         "startLine": 31,
         "startChar": 10,
