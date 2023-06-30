@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93ba8e9a_64a5f840",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-06-30T18:00:30Z",
+      "side": 1,
+      "message": "The readme was just updated with more information.  Can you also add a blurb about this new option?",
+      "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a757f41_ed1b0fed",
+        "filename": "meson_options.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-06-30T18:00:30Z",
+      "side": 1,
+      "message": "can you mention the reset button in this name somewhere so it\u0027s obvious what it\u0027s for?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 16
+      },
+      "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
