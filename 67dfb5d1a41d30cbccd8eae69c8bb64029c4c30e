@@ -39,6 +39,30 @@
       },
       "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7188e468_37e59383",
+        "filename": "meson_options.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001561
+      },
+      "writtenOn": "2023-07-03T04:46:44Z",
+      "side": 1,
+      "message": "A similar approach at: https://github.com/openbmc/phosphor-state-manager/blob/2038e4925b56c4c7471c763794d02b4bf94f3ae8/meson_options.txt#L99q",
+      "parentUuid": "6a757f41_ed1b0fed",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 16
+      },
+      "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
