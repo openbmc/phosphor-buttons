@@ -177,6 +177,30 @@
       },
       "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b9ff260_054eaa4e",
+        "filename": "meson_options.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-07-07T13:13:00Z",
+      "side": 1,
+      "message": "Yea, that one sounds good.",
+      "parentUuid": "6c0b4840_6850194e",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 16
+      },
+      "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
