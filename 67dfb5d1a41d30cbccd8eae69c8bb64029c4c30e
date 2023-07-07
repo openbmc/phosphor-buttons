@@ -129,6 +129,30 @@
       },
       "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51dd1350_d2f01e4a",
+        "filename": "meson_options.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001561
+      },
+      "writtenOn": "2023-07-07T09:21:12Z",
+      "side": 1,
+      "message": "Maybe the names \"button-warm-reboot\" \"warm-reboot-btn\"? or any other names are your suggestions?",
+      "parentUuid": "c802db27_c178b0c9",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 16
+      },
+      "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
