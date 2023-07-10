@@ -22,6 +22,40 @@
       },
       "revId": "ef3820b37ddd27b2ea5fa0620b57d6ecaa343a1f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2e1375c_955d6ff8",
+        "filename": "README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-10T18:35:05Z",
+      "side": 1,
+      "message": "You seem to have a different concept of hard reset or warm reboot.  To me when I hear hard reset I think of a total power  down (possibly including standby rails).\n\nMaybe your hard reset is activating effectively the same reset as is held during power up while leaving power asserted.\n\ncan we match the transition name and the meson option name.\n\u003eforce a warm reset of the host",
+      "revId": "ef3820b37ddd27b2ea5fa0620b57d6ecaa343a1f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe98b022_2681750c",
+        "filename": "README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000021
+      },
+      "writtenOn": "2023-07-10T18:35:05Z",
+      "side": 1,
+      "message": "to clarify, this initiates a possibly software controlled reboot of the host?",
+      "revId": "ef3820b37ddd27b2ea5fa0620b57d6ecaa343a1f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
