@@ -43,6 +43,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9549a243_19aff8f1",
+        "filename": "README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2023-07-11T09:42:39Z",
+      "side": 1,
+      "message": "The use of warm-reboot option is just to follow the same option from phosphor-state-manager. Refer to https://github.com/openbmc/phosphor-state-manager/blob/2038e4925b56c4c7471c763794d02b4bf94f3ae8/meson_options.txt#L99\n\nI think that power down then up is the concept of power cycle. Hard reset in my system is to trigger system\u0027s SYS_RESET signal to reset entire the CPU while keeping the system power ON. This is the same as IPMI\u0027s chassis power reset and Redfish\u0027s ForceRestart operation\n\nDo you mean to change the meson option name to reset-button-do-force-warm-reboot?",
+      "parentUuid": "e2e1375c_955d6ff8",
+      "revId": "ef3820b37ddd27b2ea5fa0620b57d6ecaa343a1f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe98b022_2681750c",
         "filename": "README.md",
         "patchSetId": 7
