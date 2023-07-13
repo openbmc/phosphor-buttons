@@ -1,0 +1,7 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Kuiying Wang <wangkuiying.wky@alibaba-inc.com>
+Submitted-by: Patrick Williams <patrick@stwcx.xyz>
+Submitted-at: Thu, 13 Jul 2023 10:21:42 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/64844
+Project: openbmc/phosphor-buttons
+Branch: refs/heads/master
