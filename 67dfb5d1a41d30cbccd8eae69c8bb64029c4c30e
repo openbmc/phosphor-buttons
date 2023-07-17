@@ -302,6 +302,24 @@
       "parentUuid": "1d11f87f_2b12d4b4",
       "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eab72a06_3c3c9b9d",
+        "filename": "meson_options.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000940
+      },
+      "writtenOn": "2023-07-17T13:52:33Z",
+      "side": 1,
+      "message": "yes, changing from ‘off’ to ‘on’ would be better.\nAs Huy takes vacation this week, I will make the change when back to work tomorrow",
+      "parentUuid": "4f47df3f_f490dd81",
+      "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
