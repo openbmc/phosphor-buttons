@@ -320,6 +320,24 @@
       "parentUuid": "4f47df3f_f490dd81",
       "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a94e97ea_a4e3281b",
+        "filename": "meson_options.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2023-07-18T13:04:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eab72a06_3c3c9b9d",
+      "revId": "67dfb5d1a41d30cbccd8eae69c8bb64029c4c30e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
