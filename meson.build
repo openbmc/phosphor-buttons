@@ -109,12 +109,14 @@ systemd_system_unit_dir = systemd.get_variable(
         'systemdsystemunitdir',
         pkgconfig_define: ['prefix', get_option('prefix')])
 
-configure_file(input: 'service_files/phosphor-button-handler.service',
-                output: 'phosphor-button-handler.service',
-                copy: true,
-                install_dir: systemd_system_unit_dir)
-
-configure_file(input: 'service_files/xyz.openbmc_project.Chassis.Buttons.service',
-                output: 'xyz.openbmc_project.Chassis.Buttons.service',
-                copy: true,
-                install_dir: systemd_system_unit_dir)
+fs = import('fs')
+fs.copyfile(
+    'service_files/phosphor-button-handler.service',
+    install: true,
+    install_dir: systemd_system_unit_dir
+)
+fs.copyfile(
+    'service_files/xyz.openbmc_project.Chassis.Buttons.service',
+    install: true,
+    install_dir: systemd_system_unit_dir
+)
