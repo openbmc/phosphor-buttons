@@ -1,6 +1,5 @@
 #include "serial_uart_mux.hpp"
 
-#include "xyz/openbmc_project/Chassis/Buttons/HostSelector/client.hpp"
 #include "xyz/openbmc_project/Chassis/Buttons/HostSelector/server.hpp"
 
 #include <error.h>
@@ -9,10 +8,10 @@
 namespace sdbusRule = sdbusplus::bus::match::rules;
 // add the button iface class to registry
 static ButtonIFRegister<SerialUartMux> buttonRegister;
-namespace HostSelectorServerObj =
-    sdbusplus::xyz::openbmc_project::Chassis::Buttons::server;
-namespace HostSelectorClientObj =
-    sdbusplus::xyz::openbmc_project::Chassis::Buttons::client::HostSelector;
+using HostSelectorServerObj =
+    sdbusplus::server::xyz::openbmc_project::chassis::buttons::HostSelector;
+using HostSelectorClientObj =
+    sdbusplus::common::xyz::openbmc_project::chassis::buttons::HostSelector;
 
 constexpr std::string_view SERIAL_UART_RX_GPIO = "serial_uart_rx";
 void SerialUartMux::init()
@@ -82,8 +81,7 @@ void SerialUartMux::configSerialConsoleMux(size_t position)
 void SerialUartMux::hostSelectorPositionChanged(sdbusplus::message_t& msg)
 {
     std::string interface;
-    std::map<std::string,
-             HostSelectorServerObj::HostSelector::PropertiesVariant>
+    std::map<std::string, HostSelectorServerObj::PropertiesVariant>
         propertiesChanged;
     lg2::info("hostSelectorPositionChanged callback : {BUTTON_TYPE}",
               "BUTTON_TYPE", getFormFactorName());
