@@ -41,21 +41,12 @@ configure_file(output: 'config.h',
     configuration: conf_data
 )
 
-sdbusplus_dep = dependency('sdbusplus')
-sdeventplus_dep = dependency('sdeventplus')
+gpioplus_dep = dependency('gpioplus')
+nlohmann_json_dep = dependency('nlohmann_json', include_type: 'system')
 phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
 phosphor_logging_dep = dependency('phosphor-logging')
-gpioplus_dep = dependency('gpioplus')
-
-cpp = meson.get_compiler('cpp')
-if cpp.has_header_symbol(
-        'nlohmann/json.hpp',
-        'nlohmann::json::string_t',
-        required:false)
-    nlohmann_json_dep = declare_dependency()
-else
-    nlohmann_json_dep = dependency('nlohmann-json')
-endif
+sdbusplus_dep = dependency('sdbusplus')
+sdeventplus_dep = dependency('sdeventplus')
 
 deps = [
     sdbusplus_dep,
