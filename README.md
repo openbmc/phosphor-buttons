@@ -63,6 +63,10 @@ should be mentioned in the gpio defs json file -
 2. An array consists of single or multiple gpio configs associated with the
    specific button interface.
 
+A gpio can be mapped using the "pin" or "num" keyword. The "pin" key uses
+alphanumerical references while the "num" key supports the integer pin
+number.
+
 ## example gpio def Json config
 
 ```json

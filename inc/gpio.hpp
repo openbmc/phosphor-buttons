@@ -74,6 +74,8 @@ uint32_t getGpioNum(const std::string& gpioPin);
 void setGpioState(int fd, GpioPolarity polarity, GpioState state);
 // Get gpio state based on polarity
 GpioState getGpioState(int fd, GpioPolarity polarity);
+// Get gpio base number
+uint32_t getGpioBase();
 
 // global json object which holds gpio_defs.json configs
 extern nlohmann::json gpioDefs;
