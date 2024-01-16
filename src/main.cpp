@@ -103,7 +103,17 @@ int main(void)
             for (const auto& config : groupGpio)
             {
                 GpioInfo gpioCfg;
-                gpioCfg.number = getGpioNum(config["pin"]);
+                if (gpioConfig.contains("pin"))
+                {
+                    // When "pin" key is used, parse as alphanumeric
+                    gpioCfg.number = getGpioNum(gpioConfig.at("pin"));
+                }
+                else
+                {
+                    // Without "pin", "num" is assumed and parsed as an integer
+                    gpioCfg.number = getGpioBase() +
+                                     (uint32_t)gpioConfig.at("num");
+                }
                 gpioCfg.direction = config["direction"];
                 gpioCfg.name = config["name"];
                 gpioCfg.polarity = (config["polarity"] == "active_high")
@@ -115,7 +125,16 @@ int main(void)
         else
         {
             GpioInfo gpioCfg;
-            gpioCfg.number = getGpioNum(gpioConfig["pin"]);
+            if (gpioConfig.contains("pin"))
+            {
+                // When "pin" key is used, parse as alphanumeric
+                gpioCfg.number = getGpioNum(gpioConfig.at("pin"));
+            }
+            else
+            {
+                // Without "pin", "num" is assumed and parsed as an integer
+                gpioCfg.number = getGpioBase() + (uint32_t)gpioConfig.at("num");
+            }
             gpioCfg.direction = gpioConfig["direction"];
             buttonCfg.gpios.push_back(gpioCfg);
         }
