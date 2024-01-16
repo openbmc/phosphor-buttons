@@ -115,7 +115,16 @@ int main(void)
         else
         {
             GpioInfo gpioCfg;
-            gpioCfg.number = getGpioNum(gpioConfig["pin"]);
+            if (gpioConfig.contains("pin"))
+            {
+                // When "pin" key is used, parse as alphanumeric
+                gpioCfg.number = getGpioNum(gpioConfig.at("pin"));
+            }
+            else
+            {
+                // Without "pin", "num" is assumed and parsed as an integer
+                gpioCfg.number = gpioConfig.at("num");
+            }
             gpioCfg.direction = gpioConfig["direction"];
             buttonCfg.gpios.push_back(gpioCfg);
         }
