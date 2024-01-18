@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b75b27d6_89af75db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001538
+      },
+      "writtenOn": "2024-01-18T16:28:25Z",
+      "side": 1,
+      "message": "Reasons it is needed is in the above sentences, but I also expanded the previous sentence to align with the skeleton/libobmc_intf support.",
+      "parentUuid": "a3a03f68_a3fd0bff",
+      "revId": "53927379e1e00f6f449553a570e0a448baf4c53f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80da0545_e64a12df",
         "filename": "src/main.cpp",
         "patchSetId": 4
@@ -31,6 +49,30 @@
       "writtenOn": "2024-01-17T16:36:49Z",
       "side": 1,
       "message": "would like to avoid C style casts.  Since gpioConfig is JSON, you can do\ngpioConfig.at(\"num\").get\u003cuint32_t\u003e();",
+      "range": {
+        "startLine": 115,
+        "startChar": 37,
+        "endLine": 115,
+        "endChar": 47
+      },
+      "revId": "53927379e1e00f6f449553a570e0a448baf4c53f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e2423d9_a794231a",
+        "filename": "src/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1001538
+      },
+      "writtenOn": "2024-01-18T16:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80da0545_e64a12df",
       "range": {
         "startLine": 115,
         "startChar": 37,
