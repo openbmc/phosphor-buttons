@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "345bab27_da39b927",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-01-18T19:17:46Z",
+      "side": 1,
+      "message": "just curious, which BMC only has numerically labeled GPIOs?",
+      "revId": "988e5d3f005d51a7739b76a8c322c27c0ae79336",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acb6528c_eca36663",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-01-18T19:17:46Z",
+      "side": 1,
+      "message": "Can you add a blurb somewhere in README.md that shows this feature?",
+      "revId": "988e5d3f005d51a7739b76a8c322c27c0ae79336",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
