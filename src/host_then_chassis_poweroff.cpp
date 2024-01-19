@@ -17,7 +17,7 @@ static PowerButtonProfileRegister<HostThenChassisPowerOff> profileRegister;
 namespace service
 {
 constexpr auto bmcState = "xyz.openbmc_project.State.BMC";
-constexpr auto chassisState = "xyz.openbmc_project.State.Chassis";
+constexpr auto chassisState = "xyz.openbmc_project.State.Chassis0";
 constexpr auto hostState = "xyz.openbmc_project.State.Host";
 } // namespace service
 
