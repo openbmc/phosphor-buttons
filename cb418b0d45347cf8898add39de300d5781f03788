@@ -1,0 +1,11 @@
+Code-Review+2: Kuiying Wang <wangkuiying.wky@alibaba-inc.com>
+Code-Review+1: Matt Spinler <spinler@us.ibm.com>
+Code-Review+1: Charles Boyer <Charles.Boyer@fii-usa.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Jonico Eustaquio <jonico.eustaquio@fii-na.com>
+Submitted-at: Tue, 20 Feb 2024 15:50:23 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/68862
+Comments-Total: 12
+Comments-Unresolved: 2
+Project: openbmc/phosphor-buttons
+Branch: refs/heads/master
