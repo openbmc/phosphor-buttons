@@ -294,8 +294,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
         default:
         {
             lg2::error("{EVENT} is invalid power event. skipping...", "EVENT",
-                       static_cast<std::underlying_type_t<PowerEvent>>(
-                           powerEventType));
+                       powerEventType);
 
             return;
         }
