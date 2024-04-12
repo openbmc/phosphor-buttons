@@ -37,7 +37,7 @@ conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))
 conf_data.set('LOOKUP_GPIO_BASE', get_option('lookup-gpio-base').allowed())
 conf_data.set('ENABLE_RESET_BUTTON_DO_WARM_REBOOT', get_option('reset-button-do-warm-reboot').allowed())
 
-configure_file(output: 'config.h',
+configure_file(output: 'config.hpp',
     configuration: conf_data
 )
 

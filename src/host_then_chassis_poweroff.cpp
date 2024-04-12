@@ -1,7 +1,6 @@
-#include "config.h"
-
 #include "host_then_chassis_poweroff.hpp"
 
+#include "config.hpp"
 #include "power_button_profile_factory.hpp"
 
 #include <phosphor-logging/lg2.hpp>

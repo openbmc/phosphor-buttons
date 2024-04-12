@@ -14,9 +14,8 @@
 // limitations under the License.
 */
 
-#include "config.h"
-
 #include "button_config.hpp"
+#include "config.hpp"
 
 #include <error.h>
 #include <fcntl.h>
