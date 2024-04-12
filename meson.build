@@ -9,7 +9,13 @@ project(
     ]
 )
 
+host_instances = '0'
+if get_option('host-instances') != ''
+  host_instances = get_option('host-instances')
+endif
+
 conf_data = configuration_data()
+conf_data.set_quoted('INSTANCES',host_instances)
 conf_data.set_quoted('ID_LED_GROUP', get_option('id-led-group'))
 conf_data.set_quoted('POWER_BUTTON_PROFILE', get_option('power-button-profile'))
 conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))

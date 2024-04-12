@@ -24,6 +24,8 @@
 #include <fstream>
 static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 
+nlohmann::json gpioDefs;
+
 int main(void)
 {
     nlohmann::json gpioDefs;
