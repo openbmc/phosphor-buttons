@@ -16,8 +16,12 @@
 
 #include "power_button.hpp"
 
+#include "button_handler.hpp"
+
 // add the button iface class to registry
 static ButtonIFRegister<PowerButton> buttonRegister;
+static ButtonIFRegister<PowerButton>
+    multiButtonRegister(phosphor::button::numberOfChassis());
 
 void PowerButton::simPress()
 {
