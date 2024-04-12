@@ -1,11 +1,18 @@
 #include "button_handler.hpp"
 
 #include "config.hpp"
+#include "gpio.hpp"
 #include "power_button_profile_factory.hpp"
 
 #include <phosphor-logging/lg2.hpp>
+#include <xyz/openbmc_project/Chassis/Buttons/Power/server.hpp>
 #include <xyz/openbmc_project/State/Chassis/server.hpp>
 #include <xyz/openbmc_project/State/Host/server.hpp>
+
+#include <fstream>
+#include <iostream>
+#include <string>
+
 namespace phosphor
 {
 namespace button
@@ -13,6 +20,12 @@ namespace button
 
 namespace sdbusRule = sdbusplus::bus::match::rules;
 using namespace sdbusplus::xyz::openbmc_project::State::server;
+using namespace sdbusplus::xyz::openbmc_project::Chassis::Buttons::server;
+
+std::map<std::string, Chassis::Transition> chassisPwrCtls = {
+    {"chassis-on", Chassis::Transition::On},
+    {"chassis-off", Chassis::Transition::Off},
+    {"chassis-cycle", Chassis::Transition::PowerCycle}};
 
 constexpr auto chassisIface = "xyz.openbmc_project.State.Chassis";
 constexpr auto hostIface = "xyz.openbmc_project.State.Host";
@@ -33,8 +46,61 @@ constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
 constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
 constexpr auto BMC_POSITION = 0;
 
+bool hostSelectButtonMode = false;
+bool isButtonMultiActionSupport = true;
+
+std::vector<std::map<uint16_t, Chassis::Transition>> multiPwrBtnActConf;
+
 Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
 {
+    /* So far, there are two modes for multi-host power control
+    - host select button mode, e.g.: Yosemite V2
+    only one power button with host select switch,
+    which's interface for handling target host,
+    in the case, hostSelectButtonMode = true
+    - multi power button mode, e.g.: Greatlakes
+    each slot/sled has its own power button,
+    in the case, hostSelectButtonMode = false */
+    hostSelectButtonMode =
+        !getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty();
+    size_t powerButtonCount = 1;
+    if (!hostSelectButtonMode)
+    {
+        powerButtonCount = phosphor::button::numberOfChassis();
+    }
+
+    std::ifstream gpios{gpioDefFile};
+    auto configDefJson = nlohmann::json::parse(gpios, nullptr, true);
+    nlohmann::json gpioDefs = configDefJson["gpio_definitions"];
+
+    for (const auto& gpioConfig : gpioDefs)
+    {
+        if (gpioConfig.contains("multi-action"))
+        {
+            std::map<uint16_t, Chassis::Transition> mapEntry;
+            const auto& multiActCfg = gpioConfig["multi-action"];
+            for (const auto& ActCfg : multiActCfg)
+            {
+                auto chassisPwrCtl = chassisPwrCtls.find(ActCfg["action"]);
+                if (chassisPwrCtl != chassisPwrCtls.end())
+                {
+                    auto duration = ActCfg["duration"].get<uint16_t>();
+                    mapEntry[duration] = chassisPwrCtl->second;
+                }
+                else
+                {
+                    lg2::info("unknown power button action");
+                }
+            }
+            multiPwrBtnActConf.emplace_back(mapEntry);
+        }
+        else
+        {
+            isButtonMultiActionSupport = false;
+            break;
+        }
+    }
+
     try
     {
         if (!getService(POWER_DBUS_OBJECT_NAME, powerButtonIface).empty())
@@ -56,10 +122,30 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
                               std::placeholders::_1));
             }
         }
+
+        if (!hostSelectButtonMode && isButtonMultiActionSupport)
+        {
+            lg2::info("Starting multi power button handler");
+            for (size_t countIter = 1; countIter < powerButtonCount; countIter++)
+            {
+                std::unique_ptr<sdbusplus::bus::match_t>
+                    multiPowerReleaseMatch =
+                        std::make_unique<sdbusplus::bus::match_t>(
+                            bus,
+                            sdbusRule::type::signal() +
+                                sdbusRule::member("Released") +
+                                sdbusRule::path(POWER_DBUS_OBJECT_NAME +
+                                                std::to_string(countIter)) +
+                                sdbusRule::interface(powerButtonIface),
+                            std::bind(std::mem_fn(&Handler::powerReleased),
+                                      this, std::placeholders::_1));
+                multiPowerButtonReleased.emplace_back(std::move(multiPowerReleaseMatch));
+            }
+        }
     }
     catch (const sdbusplus::exception_t& e)
     {
-        // The button wasn't implemented
+        lg2::error("Error creating power button handler: {ERROR}", "ERROR", e);
     }
 
     try
@@ -121,8 +207,14 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
 }
 bool Handler::isMultiHost()
 {
-    // return true in case host selector object is available
-    return (!getService(HS_DBUS_OBJECT_NAME, hostSelectorIface).empty());
+    if (static_cast<std::string>(INSTANCES) != "0")
+    {
+        return true;
+    }
+    else
+    {
+        return (hostSelectButtonMode);
+    }
 }
 std::string Handler::getService(const std::string& path,
                                 const std::string& interface) const
@@ -188,6 +280,7 @@ bool Handler::poweredOn(size_t hostNumber) const
 }
 
 void Handler::handlePowerEvent(PowerEvent powerEventType,
+                               std::string objectPath,
                                std::chrono::microseconds duration)
 {
     std::string objPathName;
@@ -196,30 +289,45 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
     std::variant<Host::Transition, Chassis::Transition> transition;
 
     size_t hostNumber = 0;
+    std::string hostNumStr =
+        objectPath.substr(std::string(POWER_DBUS_OBJECT_NAME).length());
     auto isMultiHostSystem = isMultiHost();
-    if (isMultiHostSystem)
+
+    if (hostSelectButtonMode)
     {
         hostNumber = getHostSelectorValue();
         lg2::info("Multi-host system detected : {POSITION}", "POSITION",
                   hostNumber);
-    }
 
-    std::string hostNumStr = std::to_string(hostNumber);
+        hostNumStr = std::to_string(hostNumber);
 
-    // ignore  power and reset button events if BMC is selected.
-    if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
-        (powerEventType != PowerEvent::powerReleased) &&
-        (duration <= LONG_PRESS_TIME_MS))
-    {
-        lg2::info(
-            "handlePowerEvent : BMC selected on multi-host system. ignoring power and reset button events...");
-        return;
+        // ignore  power and reset button events if BMC is selected.
+        if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
+            (powerEventType != PowerEvent::powerReleased) &&
+            (duration <= LONG_PRESS_TIME_MS))
+        {
+            lg2::info(
+                "handlePowerEvent : BMC selected on multi-host system. ignoring power and reset button events...");
+            return;
+        }
     }
 
     switch (powerEventType)
     {
         case PowerEvent::powerReleased:
         {
+            for (const auto& iter : multiPwrBtnActConf[stoi(hostNumStr) - 1])
+            {
+                if (duration > std::chrono::milliseconds(iter.first))
+                {
+                    dbusIfaceName = chassisIface;
+                    transitionName = "RequestedPowerTransition";
+                    objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+                    transition = iter.second;
+                }
+            }
+            break;
+
             if (duration <= LONG_PRESS_TIME_MS)
             {
                 objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
@@ -233,7 +341,6 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
                     transition = Host::Transition::Off;
                 }
                 lg2::info("handlePowerEvent : Handle power button press ");
-
                 break;
             }
             else
@@ -302,6 +409,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
     method.append(dbusIfaceName, transitionName, transition);
     bus.call(method);
 }
+
 void Handler::powerReleased(sdbusplus::message_t& msg)
 {
     try
@@ -309,7 +417,7 @@ void Handler::powerReleased(sdbusplus::message_t& msg)
         uint64_t time;
         msg.read(time);
 
-        handlePowerEvent(PowerEvent::powerReleased,
+        handlePowerEvent(PowerEvent::powerReleased, msg.get_path(),
                          std::chrono::microseconds(time));
     }
     catch (const sdbusplus::exception_t& e)
@@ -319,12 +427,12 @@ void Handler::powerReleased(sdbusplus::message_t& msg)
     }
 }
 
-void Handler::resetReleased(sdbusplus::message_t& /* msg */)
+void Handler::resetReleased(sdbusplus::message_t& msg)
 {
     try
     {
         // No need to calculate duration, set to 0.
-        handlePowerEvent(PowerEvent::resetReleased,
+        handlePowerEvent(PowerEvent::resetReleased, msg.get_path(),
                          std::chrono::microseconds(0));
     }
     catch (const sdbusplus::exception_t& e)
