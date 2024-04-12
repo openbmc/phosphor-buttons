@@ -194,8 +194,6 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
     std::string dbusIfaceName;
     std::string transitionName;
     std::variant<Host::Transition, Chassis::Transition> transition;
-    uint64_t durationMs =
-        std::chrono::duration_cast<std::chrono::milliseconds>(duration).count();
 
     size_t hostNumber = 0;
     auto isMultiHostSystem = isMultiHost();
@@ -211,7 +209,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
     // ignore  power and reset button events if BMC is selected.
     if (isMultiHostSystem && (hostNumber == BMC_POSITION) &&
         (powerEventType != PowerEvent::powerReleased) &&
-        (durationMs <= LONG_PRESS_TIME_MS))
+        (duration <= LONG_PRESS_TIME_MS))
     {
         lg2::info(
             "handlePowerEvent : BMC selected on multi-host system. ignoring power and reset button events...");
@@ -222,7 +220,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
     {
         case PowerEvent::powerReleased:
         {
-            if (durationMs <= LONG_PRESS_TIME_MS)
+            if (duration <= LONG_PRESS_TIME_MS)
             {
                 objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
                 dbusIfaceName = hostIface;
