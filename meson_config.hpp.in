@@ -1,6 +1,10 @@
 #pragma once
 
+#include <algorithm>
+#include <array>
 #include <chrono>
+#include <cstring>
+#include <string_view>
 
 constexpr inline auto POWER_DBUS_OBJECT_NAME =
     "/xyz/openbmc_project/Chassis/Buttons/Power0";
@@ -29,3 +33,32 @@ constexpr inline auto POWER_BUTTON_PROFILE = @POWER_BUTTON_PROFILE@;
 constexpr inline auto ID_LED_GROUP = @ID_LED_GROUP@;
 constexpr inline const auto LONG_PRESS_TIME_MS =
     std::chrono::milliseconds(@LONG_PRESS_TIME_MS@);
+
+constexpr inline static const char INSTANCES[] = @INSTANCES@;
+constexpr size_t INSTANCES_SIZE = sizeof(INSTANCES);
+constexpr size_t INSTANCE_COUNT =
+    std::count(std::begin(INSTANCES), std::end(INSTANCES), ' ') + 1;
+
+constexpr std::array<std::string_view, INSTANCE_COUNT> parse_instances()
+{
+    std::array<std::string_view, INSTANCE_COUNT> instances;
+    std::size_t start_pos = 0;
+    for (std::size_t i = 0; i < INSTANCE_COUNT; i++)
+    {
+        const auto end_pos =
+            INSTANCES_SIZE <= start_pos
+                ? std::string_view::npos
+                : std::min(INSTANCES_SIZE,
+                           start_pos + std::strlen(INSTANCES + start_pos));
+        if (start_pos != end_pos)
+        {
+            const auto value_str =
+                std::string_view(INSTANCES + start_pos, end_pos - start_pos);
+            instances[i] = value_str;
+        }
+        start_pos = end_pos + 1;
+    }
+    return instances;
+}
+
+constexpr inline static const auto instances = parse_instances();
