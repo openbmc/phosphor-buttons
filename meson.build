@@ -9,35 +9,21 @@ project(
     ]
 )
 
+host_instances = '0'
+if get_option('host-instances') != ''
+  host_instances = get_option('host-instances')
+endif
+
 conf_data = configuration_data()
-conf_data.set_quoted('POWER_DBUS_OBJECT_NAME',
-                 '/xyz/openbmc_project/Chassis/Buttons/Power0')
-conf_data.set_quoted('RESET_DBUS_OBJECT_NAME',
-                 '/xyz/openbmc_project/Chassis/Buttons/Reset0')
-conf_data.set_quoted('ID_DBUS_OBJECT_NAME',
-                 '/xyz/openbmc_project/Chassis/Buttons/ID0')
-conf_data.set_quoted('HS_DBUS_OBJECT_NAME',
-                 '/xyz/openbmc_project/Chassis/Buttons/HostSelector')
-conf_data.set_quoted('DBG_HS_DBUS_OBJECT_NAME',
-                 '/xyz/openbmc_project/Chassis/Buttons/DebugHostSelector')
-conf_data.set_quoted('SERIAL_CONSOLE_MUX_DBUS_OBJECT_NAME',
-                 '/xyz/openbmc_project/Chassis/Buttons/SerialUartMux')
-conf_data.set_quoted('GPIO_BASE_LABEL_NAME', '1e780000.gpio')
-conf_data.set_quoted('CHASSIS_STATE_OBJECT_NAME',
-                 '/xyz/openbmc_project/state/chassis')
-conf_data.set_quoted('CHASSISSYSTEM_STATE_OBJECT_NAME',
-                 '/xyz/openbmc_project/state/chassis_system')
-conf_data.set_quoted('HOST_STATE_OBJECT_NAME',
-                 '/xyz/openbmc_project/state/host')
 conf_data.set_quoted('ID_LED_GROUP', get_option('id-led-group'))
-
 conf_data.set_quoted('POWER_BUTTON_PROFILE', get_option('power-button-profile'))
-
 conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))
 conf_data.set('LOOKUP_GPIO_BASE', get_option('lookup-gpio-base').allowed())
 conf_data.set('ENABLE_RESET_BUTTON_DO_WARM_REBOOT', get_option('reset-button-do-warm-reboot').allowed())
 
-configure_file(output: 'config.hpp',
+configure_file(
+    input: 'meson_config.hpp.in',
+    output: 'config.hpp',
     configuration: conf_data
 )
 
