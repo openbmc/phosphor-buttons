@@ -249,6 +249,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "25065bff_25463c59",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-04-18T03:18:33Z",
+      "side": 1,
+      "message": "If the `@INSTANCES@` value, which comes from the meson option, had commas already we could turn this into an array without any parsing at all.\n\n```\nconstexpr inline static auto INSTANCES \u003d std::to_array({ @INSTANCES@ });\n```\n\nThis would require the meson option to be something like `1, 2, 3, 4`.",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6abdb27d_f58d9d21",
         "filename": "meson_config.hpp.in",
         "patchSetId": 45
