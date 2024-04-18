@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b16d9d27_7b1c3d97",
+        "filename": "README.md",
+        "patchSetId": 45
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "It doesn\u0027t parse the string actually, just in case to ensure the configs here are following the order of host instance we provided from meson option",
+      "parentUuid": "78166481_fbd350b0",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 16
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6240c986_9186722d",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "Please fix formatting.  I\u0027m surprised this passes CI like this.",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 35
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50ec635a_9a2ccf59",
+        "filename": "README.md",
+        "patchSetId": 45
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Corrected, thank you for reviewing.",
+      "parentUuid": "6240c986_9186722d",
       "range": {
         "startLine": 324,
         "startChar": 0,
@@ -64,6 +112,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4af70082_a14376c1",
+        "filename": "README.md",
+        "patchSetId": 45
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Corrected, thank you for reviewing.",
+      "parentUuid": "40534572_cf146cc7",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46d8cc5f_97f50fe2",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "nit: You could avoid generating this twice by saving the results of to_string.  (since it is also generated on line 55)",
+      "range": {
+        "startLine": 50,
+        "startChar": 28,
+        "endLine": 50,
+        "endChar": 49
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30843339_eab821c6",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "46d8cc5f_97f50fe2",
       "range": {
         "startLine": 50,
         "startChar": 28,
@@ -104,6 +194,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bc44454_73896f76",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Recovered, thank you for reviewing.",
+      "parentUuid": "ccbe3054_21e538c3",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad235721_8a439b8a",
@@ -127,6 +235,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95d4b2a6_3215e8da",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "ad235721_8a439b8a",
+      "range": {
+        "startLine": 171,
+        "startChar": 21,
+        "endLine": 171,
+        "endChar": 31
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c80d3184_4f2f7875",
@@ -140,6 +272,24 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "Why not put a default in meson.options?",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c5c7b72_98f32911",
+        "filename": "meson.build",
+        "patchSetId": 45
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "c80d3184_4f2f7875",
       "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -178,6 +328,42 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbdb2657_c75cb71b",
+        "filename": "meson.options",
+        "patchSetId": 45
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "5ef11b3e_81bffbc0",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f081bce5_7c260bf4",
+        "filename": "meson.options",
+        "patchSetId": 45
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "The reason using meson option \"host-instance\" is that the partition about creating ButtonRegister(L22~24) in power_button.cpp is prior to any runtime-parsing about gpio_conf, it is used for create multiple button object for pressing signal, not for distinguishing between single-host or multi-host. In fact, most of former project were using single power button even it\u0027s multi-host.",
+      "parentUuid": "354c2b1e_f4c7d2d1",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1903c18_630302a2",
@@ -191,6 +377,30 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "Please drop `0` since this is an invalid configuration to have 0 in a multi-host system.",
+      "range": {
+        "startLine": 40,
+        "startChar": 65,
+        "endLine": 40,
+        "endChar": 88
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c602195d_684097b5",
+        "filename": "meson.options",
+        "patchSetId": 45
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "d1903c18_630302a2",
       "range": {
         "startLine": 40,
         "startChar": 65,
@@ -264,6 +474,54 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "022b0914_971184e2",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "It would build failed after changed into auto ptr.",
+      "parentUuid": "1ca27e25_e2063d3d",
+      "range": {
+        "startLine": 37,
+        "startChar": 24,
+        "endLine": 37,
+        "endChar": 47
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbb17f9d_030084a3",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "d8ae489d_95d456eb",
+      "range": {
+        "startLine": 37,
+        "startChar": 17,
+        "endLine": 37,
+        "endChar": 23
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6abdb27d_f58d9d21",
@@ -304,6 +562,48 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d6a4e6a_8aff7ebb",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "45736446_dadcdabe",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29afcf5d_bc4eeac1",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "6abdb27d_f58d9d21",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 16
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66934b5a_36d3e4e1",
@@ -317,6 +617,30 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "nit: `auto`.",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 16
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4da9162_b9dcc0db",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "66934b5a_36d3e4e1",
       "range": {
         "startLine": 39,
         "startChar": 10,
@@ -344,6 +668,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f0f2ff5_7688c30f",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "8f86e2cd_73106381",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e40b22da_d591d6e7",
@@ -357,6 +699,30 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "nit: `consteval`.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 9
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24c1fe72_5d3ba923",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "e40b22da_d591d6e7",
       "range": {
         "startLine": 42,
         "startChar": 0,
@@ -390,6 +756,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32655990_fe038720",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "0f9058ff_2ba91f32",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 75
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4fb3d7b_70db068f",
@@ -407,6 +797,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6997887b_1d88b034",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "it has been moved into config header.\nI\u0027ll change the filepath with all former porjects bbappend in following indepent comit.\nThank you for reviewing.",
+      "parentUuid": "f4fb3d7b_70db068f",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01b5d2d0_203f155c",
@@ -420,6 +828,30 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "What is this?  Please don\u0027t make unknown abbreviation.",
+      "range": {
+        "startLine": 50,
+        "startChar": 12,
+        "endLine": 50,
+        "endChar": 26
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d936fd9e_8e6993a6",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "01b5d2d0_203f155c",
       "range": {
         "startLine": 50,
         "startChar": 12,
@@ -453,6 +885,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebff1db9_b2f41029",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "635cc279_9fee0909",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 36
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c202886_0fd11a10",
@@ -466,6 +922,30 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "And which is which?  Shouldn\u0027t you use an enumeration?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 46
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a7ae532_bda46130",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Using bool hostSelectButtonMode to identify two modes, \nthe description has been added.",
+      "parentUuid": "9c202886_0fd11a10",
       "range": {
         "startLine": 57,
         "startChar": 0,
@@ -499,6 +979,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dc0e17c_96dab1b6",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "hostSelectorIface is one-only instance in yosemite2, corresponding to the buttion to switch the host index target that one-only power button pressing to.\n\nI add this partition is for splitting the behavior between yosemite2 and multiple powe button design.",
+      "parentUuid": "3452219a_a0c98d31",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 18
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ddd442d_98647131",
@@ -512,6 +1016,30 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "Please spell out these.  It makes it really hard to read what these are rapidly because they just become a collection of random letters.",
+      "range": {
+        "startLine": 65,
+        "startChar": 11,
+        "endLine": 65,
+        "endChar": 22
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05f87343_8a2bd68f",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "8ddd442d_98647131",
       "range": {
         "startLine": 65,
         "startChar": 11,
@@ -545,6 +1073,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bca9cfa8_0c749664",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Field \"ation\" and \"duration\" are parallel,\nonly be parsed when conf is including \"multi-action\" string.\nWould you please to descript about your concern?",
+      "parentUuid": "468167e2_5f5cc5ef",
+      "range": {
+        "startLine": 81,
+        "startChar": 29,
+        "endLine": 81,
+        "endChar": 35
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7a8ee56_d7e94545",
@@ -558,6 +1110,24 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "You should probably convert `duration` to std::chrono::milliseconds right here.",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71661138_dccecba3",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "It has been converted at L320 fro comparing with actual pressing time",
+      "parentUuid": "f7a8ee56_d7e94545",
       "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -602,6 +1172,48 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d5eb159_5ed69dd5",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Corrected, thank you for reviewing.",
+      "parentUuid": "e54c29e2_eba30ac2",
+      "range": {
+        "startLine": 98,
+        "startChar": 12,
+        "endLine": 98,
+        "endChar": 28
+      },
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af648e3_1cc091b3",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "If one button missing this config, the code will not goes L95 to emplace the config into the vector, it may cause all button\u0027s config shifts.\n\nIt can also be covered even if it actually one action for button, just set like:\n     \"multi-action\": [\n        {\n          \"duration\": 4000,\n          \"action\": \"chassis cycle\"\n        },\n      ]",
+      "parentUuid": "da039184_10f9fc96",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45049f45_478df7c6",
@@ -615,6 +1227,24 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "nit: `Error creating power button handler`?",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73c544cb_452ae995",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "45049f45_478df7c6",
       "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -636,6 +1266,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d81a735_a62b743b",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "The reason using meson option is that the partition about creating ButtonRegister(L22~24) in power_button.cpp is prior to any runtime-parsing about gpio_conf.",
+      "parentUuid": "6c88aaf3_52092e46",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8fa1f9a_92f2284f",
@@ -649,6 +1297,24 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "Don\u0027t we have `hostNumber`?  Why parse a string again?",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad91a1c_779ea8a6",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "hostNumber is only used in hostSelectButton case (e.g. yosemite2)\nhostNumStr is got from objectpath of button pressing signal, it also be used in L324.",
+      "parentUuid": "a8fa1f9a_92f2284f",
       "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -670,6 +1336,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "552f817c_23402687",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Recovered, thank you for reviewing.",
+      "parentUuid": "f999df34_760263ac",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5495e673_eb4514ad",
@@ -687,6 +1371,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfd7e743_012b0313",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "5495e673_eb4514ad",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac3f59fe_d73e31f8",
@@ -700,6 +1402,24 @@
       "writtenOn": "2024-04-12T22:12:27Z",
       "side": 1,
       "message": "?\n\nHow is this different than line 31?",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08de4aac_c7b64428",
+        "filename": "src/main.cpp",
+        "patchSetId": 45
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T08:57:35Z",
+      "side": 1,
+      "message": "Revised, thank you for reviewing.",
+      "parentUuid": "ac3f59fe_d73e31f8",
       "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
