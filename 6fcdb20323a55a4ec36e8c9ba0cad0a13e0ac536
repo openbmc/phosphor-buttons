@@ -524,6 +524,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e441468_55948f05",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 45
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001618
+      },
+      "writtenOn": "2024-04-18T09:25:57Z",
+      "side": 1,
+      "message": "Thank you so much for the sueggestion to simplify the code design.\n\nSo far the host instance is came from OBMC_CHASSIS_INSTANCES, that also be uesd in phosphor-state-manager, should I try to add comma in meson option or define the host instance used in phsphor-button individually?",
+      "parentUuid": "25065bff_25463c59",
+      "revId": "6fcdb20323a55a4ec36e8c9ba0cad0a13e0ac536",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6abdb27d_f58d9d21",
         "filename": "meson_config.hpp.in",
         "patchSetId": 45
