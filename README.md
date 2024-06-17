@@ -230,7 +230,7 @@ the configuration is provided below.
 ### Serial uart mux config
 
 Similar to host selector there are multiple gpios associated with the serial
-uart mux. These gpio configs are specificed as part of json array
+uart mux. These gpio configs are specified as part of json array
 "group_gpio_config".
 
 Here the serial uart mux output is accessed via OCP debug card. SO the OCP debug

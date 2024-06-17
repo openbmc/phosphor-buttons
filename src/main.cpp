@@ -91,7 +91,7 @@ int main(void)
         buttonCfg.extraJsonInfo = gpioConfig;
         buttonCfg.type = ConfigType::gpio;
 
-        /* The folloing code checks if the gpio config read
+        /* The following code checks if the gpio config read
         from json file is single gpio config or group gpio config,
         based on that further data is processed. */
         lg2::debug("Found button config : {FORM_FACTOR_NAME}",
