@@ -263,7 +263,7 @@ int configGpio(GpioInfo& gpioConfig, ButtonConfig& buttonIFConfig)
         }
         devPath.clear();
 
-        // For gpio configured as ‘both’, it is an interrupt pin and trigged on
+        // For gpio configured as ‘both’, it is an interrupt pin and triggered on
         // both rising and falling signals
         devPath = gpioDev + "/gpio" + std::to_string(gpioNum) + "/edge";
 
