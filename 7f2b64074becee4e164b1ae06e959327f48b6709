@@ -16,6 +16,24 @@
       "message": "Please fix build issue.",
       "revId": "7f2b64074becee4e164b1ae06e959327f48b6709",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9539e7b6_e6e75c07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-06-18T09:37:29Z",
+      "side": 1,
+      "message": "done.",
+      "parentUuid": "5d3e1843_443bfdad",
+      "revId": "7f2b64074becee4e164b1ae06e959327f48b6709",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
