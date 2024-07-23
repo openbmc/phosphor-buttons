@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df29c1f_d4790c7a",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-07-23T18:34:11Z",
+      "side": 1,
+      "message": "can these just be part of the class rather than globals?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0d7a3da_22ad29f2",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-07-23T18:34:11Z",
+      "side": 1,
+      "message": "const std::string\u0026 is preferred.",
+      "range": {
+        "startLine": 153,
+        "startChar": 52,
+        "endLine": 153,
+        "endChar": 64
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6328e2e_aff51516",
+        "filename": "inc/gpio.hpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-07-23T18:34:11Z",
+      "side": 1,
+      "message": "was this added on purpose?",
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39bf5d28_b2699217",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-07-23T18:34:11Z",
+      "side": 1,
+      "message": "can be const",
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c79f03d_69e26eb0",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-07-23T18:34:11Z",
+      "side": 1,
+      "message": "lg2::error is probably more appropriate\n\nI wonder if it would be better to just throw an exception here and crash so the app doesn\u0027t just keep running and not handle the button press.",
+      "range": {
+        "startLine": 92,
+        "startChar": 25,
+        "endLine": 92,
+        "endChar": 30
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d90efcf3_f545f517",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-07-23T18:34:11Z",
+      "side": 1,
+      "message": "multiPwrBtnActConf is still populated even without the multi-power button config, right?",
+      "range": {
+        "startLine": 321,
+        "startChar": 35,
+        "endLine": 321,
+        "endChar": 77
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
