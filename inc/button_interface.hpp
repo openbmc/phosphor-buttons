@@ -12,8 +12,7 @@ class ButtonIface
   public:
     ButtonIface(sdbusplus::bus_t& bus, EventPtr& event, ButtonConfig& buttonCfg,
                 sd_event_io_handler_t handler = ButtonIface::EventHandler) :
-        bus(bus),
-        event(event), config(buttonCfg), callbackHandler(handler)
+        bus(bus), event(event), config(buttonCfg), callbackHandler(handler)
     {
         int ret = -1;
         std::string configType;

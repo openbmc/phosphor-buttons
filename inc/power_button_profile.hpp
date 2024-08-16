@@ -35,13 +35,13 @@ class PowerButtonProfile
                          sdbusRule::interface(powerButtonInterface),
                      std::bind(&PowerButtonProfile::pressedHandler, this,
                                std::placeholders::_1)),
-        releasedMatch(bus,
-                      sdbusRule::type::signal() +
-                          sdbusRule::member("Released") +
-                          sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
-                          sdbusRule::interface(powerButtonInterface),
-                      std::bind(&PowerButtonProfile::releasedHandler, this,
-                                std::placeholders::_1))
+        releasedMatch(
+            bus,
+            sdbusRule::type::signal() + sdbusRule::member("Released") +
+                sdbusRule::path(POWER_DBUS_OBJECT_NAME) +
+                sdbusRule::interface(powerButtonInterface),
+            std::bind(&PowerButtonProfile::releasedHandler, this,
+                      std::placeholders::_1))
     {}
 
     virtual ~PowerButtonProfile() = default;

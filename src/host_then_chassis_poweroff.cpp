@@ -134,9 +134,9 @@ void HostThenChassisPowerOff::hostTransition(Host::Transition transition)
         lg2::info("Power button action requesting host transition of {TRANS}",
                   "TRANS", std::get<std::string>(state));
 
-        auto method = bus.new_method_call(service::hostState,
-                                          object_path::hostState,
-                                          interface::property, "Set");
+        auto method =
+            bus.new_method_call(service::hostState, object_path::hostState,
+                                interface::property, "Set");
         method.append(interface::hostState, "RequestedHostTransition", state);
 
         bus.call(method);
@@ -214,9 +214,9 @@ bool HostThenChassisPowerOff::isBmcReady() const
 
     try
     {
-        auto method = bus.new_method_call(service::bmcState,
-                                          object_path::bmcState,
-                                          interface::property, "Get");
+        auto method =
+            bus.new_method_call(service::bmcState, object_path::bmcState,
+                                interface::property, "Get");
         method.append(interface::bmcState, "CurrentBMCState");
         auto result = bus.call(method);
 

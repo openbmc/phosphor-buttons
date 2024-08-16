@@ -136,8 +136,8 @@ void HostSelector::handleEvent(sd_event_source* /* es */, int fd,
     if (config.type == ConfigType::gpio)
     {
         // read the gpio state for the io event received
-        GpioState gpioState = (buf == '0') ? (GpioState::deassert)
-                                           : (GpioState::assert);
+        GpioState gpioState =
+            (buf == '0') ? (GpioState::deassert) : (GpioState::assert);
 
         setHostSelectorValue(fd, gpioState);
         hsPosMapped = getMappedHSConfig(hostSelectorPosition);

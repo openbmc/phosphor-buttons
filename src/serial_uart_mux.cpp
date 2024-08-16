@@ -40,8 +40,8 @@ void SerialUartMux::init()
 // check the debug card present pin
 bool SerialUartMux::isOCPDebugCardPresent()
 {
-    auto gpioState = getGpioState(debugCardPresentGpio.fd,
-                                  debugCardPresentGpio.polarity);
+    auto gpioState =
+        getGpioState(debugCardPresentGpio.fd, debugCardPresentGpio.polarity);
     return (gpioState == GpioState::assert);
 }
 // set the serial uart MUX to select the console w.r.t host selector position
@@ -65,8 +65,8 @@ void SerialUartMux::configSerialConsoleMux(size_t position)
 
         if (gpioConfig.name == SERIAL_UART_RX_GPIO)
         {
-            gpioState = debugCardPresent ? GpioState::assert
-                                         : GpioState::deassert;
+            gpioState =
+                debugCardPresent ? GpioState::assert : GpioState::deassert;
         }
         else
         {
