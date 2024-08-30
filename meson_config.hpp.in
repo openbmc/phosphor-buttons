@@ -1,6 +1,10 @@
 #pragma once
 
+#include <algorithm>
+#include <array>
 #include <chrono>
+#include <cstring>
+#include <string_view>
 
 constexpr inline auto POWER_DBUS_OBJECT_NAME =
     "/xyz/openbmc_project/Chassis/Buttons/Power0";
@@ -23,9 +27,12 @@ constexpr inline auto HOST_STATE_OBJECT_NAME =
     "/xyz/openbmc_project/state/host";
 
 constexpr inline auto GPIO_BASE_LABEL_NAME = "1e780000.gpio";
+constexpr inline auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 #define LOOKUP_GPIO_BASE @LOOKUP_GPIO_BASE@
 
 constexpr inline auto POWER_BUTTON_PROFILE = @POWER_BUTTON_PROFILE@;
 constexpr inline auto ID_LED_GROUP = @ID_LED_GROUP@;
 constexpr inline const auto LONG_PRESS_TIME_MS =
     std::chrono::milliseconds(@LONG_PRESS_TIME_MS@);
+
+constexpr inline static auto instances = std::to_array({ @INSTANCES@ });
