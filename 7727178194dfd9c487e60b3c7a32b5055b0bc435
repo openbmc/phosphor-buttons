@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "adef8ca9_dac4cc58",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002129
+      },
+      "writtenOn": "2024-09-04T01:14:56Z",
+      "side": 1,
+      "message": "I have implemented the changes. Please review the new commit at your convenience.",
+      "parentUuid": "8df29c1f_d4790c7a",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0d7a3da_22ad29f2",
         "filename": "inc/button_handler.hpp",
         "patchSetId": 48
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-23T18:34:11Z",
       "side": 1,
       "message": "const std::string\u0026 is preferred.",
+      "range": {
+        "startLine": 153,
+        "startChar": 52,
+        "endLine": 153,
+        "endChar": 64
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57555406_709142ee",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1002129
+      },
+      "writtenOn": "2024-09-04T01:14:56Z",
+      "side": 1,
+      "message": "I have implemented the changes. Please review the new commit at your convenience.",
+      "parentUuid": "f0d7a3da_22ad29f2",
       "range": {
         "startLine": 153,
         "startChar": 52,
@@ -66,6 +114,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26a21f62_3c29d3fa",
+        "filename": "inc/gpio.hpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002129
+      },
+      "writtenOn": "2024-09-04T01:14:56Z",
+      "side": 1,
+      "message": "Thank you for your reminder. I have removed that part, and after testing, I found it does not affect the functionality.",
+      "parentUuid": "d6328e2e_aff51516",
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39bf5d28_b2699217",
         "filename": "src/button_handler.cpp",
         "patchSetId": 48
@@ -77,6 +143,24 @@
       "writtenOn": "2024-07-23T18:34:11Z",
       "side": 1,
       "message": "can be const",
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7b232a9_360c6e27",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002129
+      },
+      "writtenOn": "2024-09-04T01:14:56Z",
+      "side": 1,
+      "message": "I have implemented the changes. Please review the new commit at your convenience.",
+      "parentUuid": "39bf5d28_b2699217",
       "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -106,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65244f6e_94f1d048",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1002129
+      },
+      "writtenOn": "2024-09-04T01:14:56Z",
+      "side": 1,
+      "message": "I have implemented the changes. Please review the new commit at your convenience.",
+      "parentUuid": "5c79f03d_69e26eb0",
+      "range": {
+        "startLine": 92,
+        "startChar": 25,
+        "endLine": 92,
+        "endChar": 30
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d90efcf3_f545f517",
         "filename": "src/button_handler.cpp",
         "patchSetId": 48
@@ -117,6 +225,30 @@
       "writtenOn": "2024-07-23T18:34:11Z",
       "side": 1,
       "message": "multiPwrBtnActConf is still populated even without the multi-power button config, right?",
+      "range": {
+        "startLine": 321,
+        "startChar": 35,
+        "endLine": 321,
+        "endChar": 77
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8180076_0ff955f9",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1002129
+      },
+      "writtenOn": "2024-09-04T01:14:56Z",
+      "side": 1,
+      "message": "multiPwrBtnActConf is populated only if the gpio_definitions JSON contains the multi-action configuration.\nIf no multi-action configuration is found, multiPwrBtnActConf remains empty, and isButtonMultiActionSupport is set to false.\nTherefore, multiPwrBtnActConf is not populated without the multi-action configuration.",
+      "parentUuid": "d90efcf3_f545f517",
       "range": {
         "startLine": 321,
         "startChar": 35,
