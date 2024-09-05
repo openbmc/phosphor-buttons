@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9eb82225_5df7858c",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-09-05T18:53:14Z",
+      "side": 1,
+      "message": "When you\u0027ve made the changes, you can mark the comment as Resolved. (or just hit the \u0027done\u0027 button in gerrit and it\u0027ll do it for you)",
+      "parentUuid": "adef8ca9_dac4cc58",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0d7a3da_22ad29f2",
         "filename": "inc/button_handler.hpp",
         "patchSetId": 48
@@ -249,6 +273,30 @@
       "side": 1,
       "message": "multiPwrBtnActConf is populated only if the gpio_definitions JSON contains the multi-action configuration.\nIf no multi-action configuration is found, multiPwrBtnActConf remains empty, and isButtonMultiActionSupport is set to false.\nTherefore, multiPwrBtnActConf is not populated without the multi-action configuration.",
       "parentUuid": "d90efcf3_f545f517",
+      "range": {
+        "startLine": 321,
+        "startChar": 35,
+        "endLine": 321,
+        "endChar": 77
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad559583_01fd6701",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2024-09-05T18:53:14Z",
+      "side": 1,
+      "message": "What stops the code from getting to line 318 in that case?",
+      "parentUuid": "c8180076_0ff955f9",
       "range": {
         "startLine": 321,
         "startChar": 35,
