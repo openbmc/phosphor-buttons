@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bbff1afd_210b1fd5",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002129
+      },
+      "writtenOn": "2024-09-09T08:18:54Z",
+      "side": 1,
+      "message": "Thanks, I get it.",
+      "parentUuid": "9eb82225_5df7858c",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0d7a3da_22ad29f2",
         "filename": "inc/button_handler.hpp",
         "patchSetId": 48
@@ -297,6 +321,30 @@
       "side": 1,
       "message": "What stops the code from getting to line 318 in that case?",
       "parentUuid": "c8180076_0ff955f9",
+      "range": {
+        "startLine": 321,
+        "startChar": 35,
+        "endLine": 321,
+        "endChar": 77
+      },
+      "revId": "7727178194dfd9c487e60b3c7a32b5055b0bc435",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f105eaaa_8fa1c52d",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 48
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1002129
+      },
+      "writtenOn": "2024-09-09T08:18:54Z",
+      "side": 1,
+      "message": "If ButtonMultiAction are not support, multiPwrBtnActConf would be empty and the code would not get to line 318.",
+      "parentUuid": "ad559583_01fd6701",
       "range": {
         "startLine": 321,
         "startChar": 35,
