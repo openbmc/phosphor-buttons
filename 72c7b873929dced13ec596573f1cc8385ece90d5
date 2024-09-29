@@ -71,6 +71,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a809b585_7c3f2bc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 50
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000411
+      },
+      "writtenOn": "2024-09-29T09:39:46Z",
+      "side": 1,
+      "message": "Changes look good to me.",
+      "revId": "72c7b873929dced13ec596573f1cc8385ece90d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a400865d_3a3a87b5",
@@ -84,6 +101,24 @@
       "writtenOn": "2024-09-29T05:32:34Z",
       "side": 1,
       "message": "Remove this file from PR as this file doesn\u0027t have any code changes.",
+      "revId": "72c7b873929dced13ec596573f1cc8385ece90d5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9998ed3_97b3bce7",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 50
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000411
+      },
+      "writtenOn": "2024-09-29T09:39:46Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "a400865d_3a3a87b5",
       "revId": "72c7b873929dced13ec596573f1cc8385ece90d5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
