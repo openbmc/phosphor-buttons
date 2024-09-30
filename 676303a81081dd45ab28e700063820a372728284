@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7bd01e37_8e6cdf3f",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 51
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-09-30T20:34:06Z",
+      "side": 1,
+      "message": "CI runs clang-format and doesn\u0027t show any issue here.  What are you seeing?",
+      "parentUuid": "0dc7d12d_c907e96a",
+      "revId": "676303a81081dd45ab28e700063820a372728284",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2393036d_b3fa43d3",
         "filename": "src/button_handler.cpp",
         "patchSetId": 51
