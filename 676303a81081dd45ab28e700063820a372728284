@@ -16,6 +16,40 @@
       "message": "better to just read the value here from getService, instead of using \"NOT\" operator. as you are gonna recheck it at line 64.",
       "revId": "676303a81081dd45ab28e700063820a372728284",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dc7d12d_c907e96a",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 51
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2024-09-30T18:13:39Z",
+      "side": 1,
+      "message": "nit: run clang formatting",
+      "revId": "676303a81081dd45ab28e700063820a372728284",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2393036d_b3fa43d3",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 51
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2024-09-30T18:13:39Z",
+      "side": 1,
+      "message": "nit:remove this new line.",
+      "revId": "676303a81081dd45ab28e700063820a372728284",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
