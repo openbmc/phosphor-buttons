@@ -22,7 +22,6 @@
 #include <phosphor-logging/lg2.hpp>
 
 #include <fstream>
-static constexpr auto gpioDefFile = "/etc/default/obmc/gpio/gpio_defs.json";
 
 int main(void)
 {
