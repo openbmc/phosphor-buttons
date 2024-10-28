@@ -70,48 +70,48 @@ alphanumerical references while the "num" key supports the integer pin number.
 
 ```json
 {
-    "gpio_definitions": [
+  "gpio_definitions": [
+    {
+      "name": "POWER_BUTTON",
+      "gpio_config": [
         {
-            "name": "POWER_BUTTON",
-            "gpio_config" :[
-               {
-                "pin": "D0",
-                "direction": "both"
-               }
-            ]
-        },
+          "pin": "D0",
+          "direction": "both"
+        }
+      ]
+    },
+    {
+      "name": "RESET_BUTTON",
+      "gpio_config": [
         {
-            "name": "RESET_BUTTON",
-            "gpio_config" :[
-                {
-                "pin": "AB0",
-                "direction": "both"
-                 }
-            ]
-        },
-        {
-            "name" : "HOST_SELECTOR",
+          "pin": "AB0",
+          "direction": "both"
+        }
+      ]
+    },
+    {
+      "name": "HOST_SELECTOR",
 
-            "group_gpio_config" : [
-            {
-                "pin": "AA4",
-                "direction": "both"
-            },
-            {
-                "pin": "AA5",
-                "direction": "both"
-            },
-            {
-                "pin": "AA6",
-                "direction": "both"
-            },
-            {
-                "pin": "AA7",
-                "direction": "both"
-            }
-            ]
+      "group_gpio_config": [
+        {
+          "pin": "AA4",
+          "direction": "both"
         },
-
+        {
+          "pin": "AA5",
+          "direction": "both"
+        },
+        {
+          "pin": "AA6",
+          "direction": "both"
+        },
+        {
+          "pin": "AA7",
+          "direction": "both"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -122,10 +122,10 @@ gpio such as power button,reset button, OCP debug card host select button.
 
 ```json
 {
-    "name": "POWER_BUTTON",
-    "pin": "D0",
-    "direction": "both"
-},
+  "name": "POWER_BUTTON",
+  "pin": "D0",
+  "direction": "both"
+}
 ```
 
 **Note:** this config is used by most of the other platforms so this format is
