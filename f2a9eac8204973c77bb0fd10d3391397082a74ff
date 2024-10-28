@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f19b071_d77a94de",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-10-28T17:42:29Z",
+      "side": 1,
+      "message": "All of this string casting is pretty ugly.  Should we change the `getFormFactorName()` and `getDbusObjectPath()` interfaces to return a `std::string` instead of a `std::string_view`?",
+      "range": {
+        "startLine": 50,
+        "startChar": 28,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5007a925_01a8b8ec",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-10-28T17:42:29Z",
+      "side": 1,
+      "message": "Why are we doing this math?  Starting at 1 is non-obvious.  We at least need a comment here.\n\nIf this has to do with yosemite4 being multi-host (and host starting at 1), doesn\u0027t that break non-multi-host implementations?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 5
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c751d05_b360cde1",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 54
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-10-28T17:42:29Z",
+      "side": 1,
+      "message": "Why did we add all these includes?  We\u0027re only using `array` and `chrono` now.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1872feb2_64f20bd2",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-10-28T17:42:29Z",
+      "side": 1,
+      "message": "Why are we starting at 1?  We at least need a comment here, right?",
+      "range": {
+        "startLine": 126,
+        "startChar": 36,
+        "endLine": 126,
+        "endChar": 38
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af38e991_636d92d3",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-10-28T17:42:29Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this code is doing.  We\u0027re iterating through multiple configuration entries ... but doesn\u0027t each iteration overwrite the last?  Are we missing a conditional?",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 13
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b9345ba_96faacc7",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-10-28T17:42:29Z",
+      "side": 1,
+      "message": "Do we want to register any if `numberOfChassis` is 1?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 61
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
