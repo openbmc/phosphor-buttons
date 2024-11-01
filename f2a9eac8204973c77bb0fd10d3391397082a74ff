@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "768954c5_2fe947fd",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-01T08:51:25Z",
+      "side": 1,
+      "message": "We are currently addressing this issue.\nWe have found that modifying \u0027std::string_view\u0027 to \u0027std::string\u0027 will require significant changes; otherwise, the code will not compile.",
+      "parentUuid": "0f19b071_d77a94de",
+      "range": {
+        "startLine": 50,
+        "startChar": 28,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5007a925_01a8b8ec",
         "filename": "inc/button_factory.hpp",
         "patchSetId": 54
@@ -37,6 +61,30 @@
       "writtenOn": "2024-10-28T17:42:29Z",
       "side": 1,
       "message": "Why are we doing this math?  Starting at 1 is non-obvious.  We at least need a comment here.\n\nIf this has to do with yosemite4 being multi-host (and host starting at 1), doesn\u0027t that break non-multi-host implementations?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 5
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c9e0ee7_7ae45b77",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-01T08:51:25Z",
+      "side": 1,
+      "message": "We are working to clarify the issue. \nIf it makes sense, we will add a comment to explain why the iteration starts at 1.",
+      "parentUuid": "5007a925_01a8b8ec",
       "range": {
         "startLine": 95,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f48a735_1daa80a5",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 54
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-01T08:51:25Z",
+      "side": 1,
+      "message": "We will remove the redundant includes and commit along with the other fixes.",
+      "parentUuid": "3c751d05_b360cde1",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1872feb2_64f20bd2",
         "filename": "src/button_handler.cpp",
         "patchSetId": 54
@@ -83,6 +155,30 @@
       "writtenOn": "2024-10-28T17:42:29Z",
       "side": 1,
       "message": "Why are we starting at 1?  We at least need a comment here, right?",
+      "range": {
+        "startLine": 126,
+        "startChar": 36,
+        "endLine": 126,
+        "endChar": 38
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8072ebd8_45a4648c",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-01T08:51:25Z",
+      "side": 1,
+      "message": "We are working to clarify the issue.\nIf it makes sense, we will add a comment to explain why the iteration starts at 1.",
+      "parentUuid": "1872feb2_64f20bd2",
       "range": {
         "startLine": 126,
         "startChar": 36,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1aa74aff_0cbf4541",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-01T08:51:25Z",
+      "side": 1,
+      "message": "The code iterates through a configuration list for power button actions, checks if a given duration exceeds a threshold, and sets several variables accordingly.\nWe will modify the code to ensure that the loop exits after the first match.",
+      "parentUuid": "af38e991_636d92d3",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 13
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4b9345ba_96faacc7",
         "filename": "src/power_button.cpp",
         "patchSetId": 54
@@ -129,6 +249,30 @@
       "writtenOn": "2024-10-28T17:42:29Z",
       "side": 1,
       "message": "Do we want to register any if `numberOfChassis` is 1?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 61
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b460879_5a8fb3a8",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-01T08:51:25Z",
+      "side": 1,
+      "message": "We want to clarify what you meant by that statement.\nAre you suggesting that we could remove either \u0027buttonRegister\u0027 or \u0027multiButtonRegister\u0027?",
+      "parentUuid": "4b9345ba_96faacc7",
       "range": {
         "startLine": 23,
         "startChar": 0,
