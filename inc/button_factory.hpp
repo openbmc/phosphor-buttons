@@ -35,13 +35,28 @@ class ButtonFactory
     template <typename T>
     void addToRegistry()
     {
-        buttonIfaceRegistry[std::string(T::getFormFactorName())] =
+        buttonIfaceRegistry[T::getFormFactorName()] =
             [](sdbusplus::bus_t& bus, EventPtr& event,
                ButtonConfig& buttonCfg) {
-                return std::make_unique<T>(bus, T::getDbusObjectPath(), event,
+                return std::make_unique<T>(bus, T::getDbusObjectPath().c_str(), event,
                                            buttonCfg);
             };
     }
+
+    template <typename T>
+    void addToRegistry(size_t index)
+    {
+        auto indexStr = std::to_string(index);
+        buttonIfaceRegistry[T::getFormFactorName() + indexStr] =
+            [=](sdbusplus::bus_t& bus, EventPtr& event,
+                ButtonConfig& buttonCfg) {
+                return std::make_unique<T>(
+                    bus,
+                    (T::getDbusObjectPath() + indexStr).c_str(),
+                    event, buttonCfg);
+            };
+    }
+
     /**
      * @brief this method returns the button interface object
      *    corresponding to the button formfactor name provided
@@ -75,5 +90,15 @@ class ButtonIFRegister
     {
         // register the class factory function
         ButtonFactory::instance().addToRegistry<T>();
+    }
+
+    explicit ButtonIFRegister(size_t count)
+    {
+        // register the class factory function
+        // The index, 'countIter', starts at 1 and increments, representing slot_1 through slot_N.
+        for (size_t countIter = 1; countIter <= count; countIter++)
+        {
+            ButtonFactory::instance().addToRegistry<T>(countIter);
+        }
     }
 };

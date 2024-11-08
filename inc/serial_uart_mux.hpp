@@ -14,9 +14,9 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/bus/match.hpp>
-static constexpr std::string_view DEBUG_CARD_PRESENT_GPIO =
+static const std::string DEBUG_CARD_PRESENT_GPIO =
     "debug_card_present";
-static constexpr std::string_view SERIAL_CONSOLE_SWITCH = "SERIAL_UART_MUX";
+static const std::string SERIAL_CONSOLE_SWITCH = "SERIAL_UART_MUX";
 
 class SerialUartMux final : public ButtonIface
 {
@@ -58,11 +58,11 @@ class SerialUartMux final : public ButtonIface
         deInit();
     }
     void init() override;
-    static const std::string_view getFormFactorName()
+    static const std::string getFormFactorName()
     {
         return SERIAL_CONSOLE_SWITCH;
     }
-    static const char* getDbusObjectPath()
+    static const std::string getDbusObjectPath()
     {
         return "NO_DBUS_OBJECT";
     }

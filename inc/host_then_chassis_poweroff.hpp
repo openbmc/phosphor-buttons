@@ -61,7 +61,7 @@ class HostThenChassisPowerOff : public PowerButtonProfile
      * @brief Returns the name that matches the value in
      *        meson_options.txt.
      */
-    static constexpr std::string_view getName()
+    static const std::string getName()
     {
         return "host_then_chassis_poweroff";
     }
