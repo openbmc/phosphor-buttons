@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8938fadc_b0c62b7f",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-08T06:39:13Z",
+      "side": 1,
+      "message": "We have replaced ```std::string_view``` with ```std::string``` and run tests.\nWe will commit these changes along with other fixes.",
+      "parentUuid": "768954c5_2fe947fd",
+      "range": {
+        "startLine": 50,
+        "startChar": 28,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5007a925_01a8b8ec",
         "filename": "inc/button_factory.hpp",
         "patchSetId": 54
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "We are working to clarify the issue. \nIf it makes sense, we will add a comment to explain why the iteration starts at 1.",
       "parentUuid": "5007a925_01a8b8ec",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 5
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "347b2cd2_23dda1a9",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-08T06:39:13Z",
+      "side": 1,
+      "message": "The index ```countIter``` starts at 1 and increments, representing slot_1 through slot_N.\nWe will add a comment here.",
+      "parentUuid": "9c9e0ee7_7ae45b77",
       "range": {
         "startLine": 95,
         "startChar": 0,
@@ -191,6 +239,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d95d465_66c3b8da",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-08T06:39:13Z",
+      "side": 1,
+      "message": "The index ```countIter``` starts at 1 and increments, representing slot_1 through slot_N.\nWe will add a comment here.",
+      "parentUuid": "8072ebd8_45a4648c",
+      "range": {
+        "startLine": 126,
+        "startChar": 36,
+        "endLine": 126,
+        "endChar": 38
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af38e991_636d92d3",
         "filename": "src/button_handler.cpp",
         "patchSetId": 54
@@ -226,6 +298,30 @@
       "side": 1,
       "message": "The code iterates through a configuration list for power button actions, checks if a given duration exceeds a threshold, and sets several variables accordingly.\nWe will modify the code to ensure that the loop exits after the first match.",
       "parentUuid": "af38e991_636d92d3",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 13
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab423f36_f85b409e",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-08T06:39:13Z",
+      "side": 1,
+      "message": "We ran a test and found that adding a break inside the condition causes the power buttons to have no effect.\nWe are currently debugging and will commit other changes first.",
+      "parentUuid": "1aa74aff_0cbf4541",
       "range": {
         "startLine": 318,
         "startChar": 0,
@@ -297,6 +393,30 @@
       "side": 1,
       "message": "My understanding is that you only want a \"button\" or a \"multi-button\" and \"multi-button\" is intended for multi-host scenarios?  In that case, I don\u0027t think we need to create an instance when there is only 1 chassis.",
       "parentUuid": "6b460879_5a8fb3a8",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 61
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b95f4835_59ed9eea",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-08T06:39:13Z",
+      "side": 1,
+      "message": "Okay, we removed ```buttonRegister``` and ran the test.",
+      "parentUuid": "d58a4337_6d684012",
       "range": {
         "startLine": 23,
         "startChar": 0,
