@@ -29,7 +29,7 @@
 
 #include <chrono>
 
-static constexpr std::string_view POWER_BUTTON = "POWER_BUTTON";
+static const std::string POWER_BUTTON = "POWER_BUTTON";
 
 class PowerButton :
     public sdbusplus::server::object_t<
@@ -55,11 +55,11 @@ class PowerButton :
     void simPress() override;
     void simLongPress() override;
 
-    static constexpr std::string_view getFormFactorName()
+    static const std::string getFormFactorName()
     {
         return POWER_BUTTON;
     }
-    static constexpr const char* getDbusObjectPath()
+    static const std::string getDbusObjectPath()
     {
         return POWER_DBUS_OBJECT_NAME;
     }

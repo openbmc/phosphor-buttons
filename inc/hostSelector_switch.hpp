@@ -15,7 +15,7 @@
 #include <fstream>
 #include <iostream>
 
-static constexpr std::string_view HOST_SELECTOR = "HOST_SELECTOR";
+static const std::string HOST_SELECTOR = "HOST_SELECTOR";
 
 static constexpr auto INVALID_INDEX = std::numeric_limits<size_t>::max();
 
@@ -51,12 +51,12 @@ class HostSelector final :
         deInit();
     }
 
-    static constexpr std::string_view getFormFactorName()
+    static const std::string getFormFactorName()
     {
         return HOST_SELECTOR;
     }
 
-    static const char* getDbusObjectPath()
+    static const std::string getDbusObjectPath()
     {
         return HS_DBUS_OBJECT_NAME;
     }
