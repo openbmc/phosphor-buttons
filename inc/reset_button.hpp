@@ -27,7 +27,7 @@
 
 #include <phosphor-logging/elog-errors.hpp>
 
-static constexpr std::string_view RESET_BUTTON = "RESET_BUTTON";
+static const std::string RESET_BUTTON = "RESET_BUTTON";
 
 class ResetButton :
     public sdbusplus::server::object_t<
@@ -52,12 +52,12 @@ class ResetButton :
 
     void simPress() override;
 
-    static constexpr std::string_view getFormFactorName()
+    static const std::string getFormFactorName()
     {
         return RESET_BUTTON;
     }
 
-    static constexpr const char* getDbusObjectPath()
+    static const std::string getDbusObjectPath()
     {
         return RESET_DBUS_OBJECT_NAME;
     }

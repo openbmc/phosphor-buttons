@@ -27,7 +27,7 @@
 
 #include <phosphor-logging/elog-errors.hpp>
 
-static constexpr std::string_view ID_BUTTON = "ID_BTN";
+static const std::string ID_BUTTON = "ID_BTN";
 
 class IDButton :
     public sdbusplus::server::object_t<
@@ -52,11 +52,11 @@ class IDButton :
 
     void simPress() override;
 
-    static constexpr std::string_view getFormFactorName()
+    static const std::string getFormFactorName()
     {
         return ID_BUTTON;
     }
-    static constexpr const char* getDbusObjectPath()
+    static const std::string getDbusObjectPath()
     {
         return ID_DBUS_OBJECT_NAME;
     }

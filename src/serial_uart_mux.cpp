@@ -13,7 +13,7 @@ using HostSelectorServerObj =
 using HostSelectorClientObj =
     sdbusplus::common::xyz::openbmc_project::chassis::buttons::HostSelector;
 
-constexpr std::string_view SERIAL_UART_RX_GPIO = "serial_uart_rx";
+const std::string SERIAL_UART_RX_GPIO = "serial_uart_rx";
 void SerialUartMux::init()
 {
     try

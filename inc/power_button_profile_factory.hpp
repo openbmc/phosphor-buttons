@@ -33,7 +33,7 @@ class PowerButtonProfileFactory
     template <typename T>
     void addToRegistry()
     {
-        profileRegistry[std::string(T::getName())] = [](sdbusplus::bus_t& bus) {
+        profileRegistry[T::getName()] = [](sdbusplus::bus_t& bus) {
             return std::make_unique<T>(bus);
         };
     }
