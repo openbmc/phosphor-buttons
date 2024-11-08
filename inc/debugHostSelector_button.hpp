@@ -13,8 +13,7 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/lg2.hpp>
 
-static constexpr std::string_view DEBUG_SELECTOR_BUTTON =
-    "DEBUG_SELECTOR_BUTTON";
+static constexpr auto DEBUG_SELECTOR_BUTTON = "DEBUG_SELECTOR_BUTTON";
 
 class DebugHostSelector final :
     public sdbusplus::server::object_t<
@@ -44,12 +43,12 @@ class DebugHostSelector final :
     void simLongPress() override;
     void handleEvent(sd_event_source* es, int fd, uint32_t revents) override;
 
-    static constexpr std::string_view getFormFactorName()
+    static constexpr std::string getFormFactorName()
     {
         return DEBUG_SELECTOR_BUTTON;
     }
 
-    static const char* getDbusObjectPath()
+    static constexpr std::string getDbusObjectPath()
     {
         return DBG_HS_DBUS_OBJECT_NAME;
     }
