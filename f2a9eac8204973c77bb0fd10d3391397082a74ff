@@ -72,6 +72,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "115cd14c_3590a06a",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-11T01:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8938fadc_b0c62b7f",
+      "range": {
+        "startLine": 50,
+        "startChar": 28,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5007a925_01a8b8ec",
@@ -143,6 +167,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b145bccb_5aed11fb",
+        "filename": "inc/button_factory.hpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-11T01:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "347b2cd2_23dda1a9",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 5
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c751d05_b360cde1",
@@ -180,6 +228,30 @@
       "side": 1,
       "message": "We will remove the redundant includes and commit along with the other fixes.",
       "parentUuid": "3c751d05_b360cde1",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70b4ec06_edaa2573",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 54
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-11T01:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f48a735_1daa80a5",
       "range": {
         "startLine": 3,
         "startChar": 0,
@@ -251,6 +323,30 @@
       "side": 1,
       "message": "The index ```countIter``` starts at 1 and increments, representing slot_1 through slot_N.\nWe will add a comment here.",
       "parentUuid": "8072ebd8_45a4648c",
+      "range": {
+        "startLine": 126,
+        "startChar": 36,
+        "endLine": 126,
+        "endChar": 38
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "248c0add_fbb2b1c0",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-11T01:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d95d465_66c3b8da",
       "range": {
         "startLine": 126,
         "startChar": 36,
@@ -417,6 +513,30 @@
       "side": 1,
       "message": "Okay, we removed ```buttonRegister``` and ran the test.",
       "parentUuid": "d58a4337_6d684012",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 61
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fcb8a7e_55bcea09",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-11T01:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b95f4835_59ed9eea",
       "range": {
         "startLine": 23,
         "startChar": 0,
