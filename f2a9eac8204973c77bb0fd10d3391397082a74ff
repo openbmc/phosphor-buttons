@@ -428,6 +428,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cdc53de_dc259d15",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-14T07:28:15Z",
+      "side": 1,
+      "message": "We have finally clarified the code.\n\nIn the JSON file ```obmc-phosphor-buttons/gpio_defs.json```, the relevant section is as follows:\n\n```\n\"multi-action\": [\n    {\n        \"duration\": 0,\n        \"action\": \"chassis-on\"\n    },\n    {\n        \"duration\": 4000,\n        \"action\": \"chassis-cycle\"\n    },\n    {\n        \"duration\": 8000,\n        \"action\": \"chassis-off\"\n    }\n]\n```\n\nThe condition within the iteration compares the duration with the values defined in the JSON configuration.\n\nFor example, if the duration is 5000 milliseconds:\n\n5000 \u003e 0, so the action is set to ```chassis-on```.\n5000 \u003e 4000, so the action is updated to ```chassis-cycle```.\n5000 \u003c 8000, so the condition is not met for ```chassis-off```.\nAs a result, the final action is \"chassis-cycle\".\n\nIf we were to add a ```break``` statement in the condition, the loop would exit after the first match, and the action would always be \"chassis-on\".\n\nTherefore, the code is correct and makes sense. No changes are needed.",
+      "parentUuid": "ab423f36_f85b409e",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 13
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b9345ba_96faacc7",
