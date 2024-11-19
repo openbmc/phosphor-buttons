@@ -452,6 +452,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c16f1f0a_aee7145f",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 54
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1002131
+      },
+      "writtenOn": "2024-11-19T08:59:43Z",
+      "side": 1,
+      "message": "Hi @patrick@stwcx.xyz, @spinler@us.ibm.com, and @smriti.ayushi@linux.intel.com,\n\nCould you please review the changes and merge them when you have a moment?\nThank you.",
+      "parentUuid": "4cdc53de_dc259d15",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 13
+      },
+      "revId": "f2a9eac8204973c77bb0fd10d3391397082a74ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b9345ba_96faacc7",
