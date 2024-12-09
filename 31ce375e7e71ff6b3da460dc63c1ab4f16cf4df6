@@ -1,0 +1,9 @@
+Code-Review+1: Patrick Williams <patrick@stwcx.xyz>
+Code-Review+2: Matt Spinler <spinler@us.ibm.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Rush Chen <rush.chen.wiwynn@gmail.com>
+Submitted-at: Mon, 09 Dec 2024 02:22:11 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/59701
+Comments-Total: 266
+Project: openbmc/phosphor-buttons
+Branch: refs/heads/master
