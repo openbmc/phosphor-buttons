@@ -1,29 +1,29 @@
 project(
-    'phosphor-buttons', 'cpp',
+    'phosphor-buttons',
+    'cpp',
     version: '1.0.0',
     meson_version: '>=1.1.1',
-    default_options: [
-        'warning_level=3',
-        'werror=true',
-        'cpp_std=c++23',
-    ]
+    default_options: ['warning_level=3', 'werror=true', 'cpp_std=c++23'],
 )
 
 host_instances = get_option('host-instances')
 formatted_instances = host_instances.replace(' ', ', ')
 
 conf_data = configuration_data()
-conf_data.set('INSTANCES',formatted_instances)
+conf_data.set('INSTANCES', formatted_instances)
 conf_data.set_quoted('ID_LED_GROUP', get_option('id-led-group'))
 conf_data.set_quoted('POWER_BUTTON_PROFILE', get_option('power-button-profile'))
 conf_data.set('LONG_PRESS_TIME_MS', get_option('long-press-time-ms'))
 conf_data.set('LOOKUP_GPIO_BASE', get_option('lookup-gpio-base').allowed())
-conf_data.set('ENABLE_RESET_BUTTON_DO_WARM_REBOOT', get_option('reset-button-do-warm-reboot').allowed())
+conf_data.set(
+    'ENABLE_RESET_BUTTON_DO_WARM_REBOOT',
+    get_option('reset-button-do-warm-reboot').allowed(),
+)
 
 configure_file(
     input: 'meson_config.hpp.in',
     output: 'config.hpp',
-    configuration: conf_data
+    configuration: conf_data,
 )
 
 gpioplus_dep = dependency('gpioplus')
@@ -67,7 +67,7 @@ executable(
     include_directories: ['inc'],
     dependencies: deps,
     install: true,
-    install_dir: get_option('bindir')
+    install_dir: get_option('bindir'),
 )
 
 executable(
@@ -77,22 +77,23 @@ executable(
     include_directories: ['inc'],
     dependencies: deps,
     install: true,
-    install_dir: get_option('bindir')
+    install_dir: get_option('bindir'),
 )
 
 systemd = dependency('systemd')
 systemd_system_unit_dir = systemd.get_variable(
-        'systemdsystemunitdir',
-        pkgconfig_define: ['prefix', get_option('prefix')])
+    'systemdsystemunitdir',
+    pkgconfig_define: ['prefix', get_option('prefix')],
+)
 
 fs = import('fs')
 fs.copyfile(
     'service_files/phosphor-button-handler.service',
     install: true,
-    install_dir: systemd_system_unit_dir
+    install_dir: systemd_system_unit_dir,
 )
 fs.copyfile(
     'service_files/xyz.openbmc_project.Chassis.Buttons.service',
     install: true,
-    install_dir: systemd_system_unit_dir
+    install_dir: systemd_system_unit_dir,
 )
