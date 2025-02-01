@@ -60,9 +60,9 @@ class ButtonFactory
      * @brief this method returns the button interface object
      *    corresponding to the button formfactor name provided
      */
-    std::unique_ptr<ButtonIface>
-        createInstance(const std::string& name, sdbusplus::bus_t& bus,
-                       EventPtr& event, ButtonConfig& buttonCfg)
+    std::unique_ptr<ButtonIface> createInstance(
+        const std::string& name, sdbusplus::bus_t& bus, EventPtr& event,
+        ButtonConfig& buttonCfg)
     {
         // find matching name in the registry and call factory method.
         auto objectIter = buttonIfaceRegistry.find(name);
