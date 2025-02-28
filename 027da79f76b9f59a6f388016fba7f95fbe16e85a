@@ -16,6 +16,24 @@
       "message": "The failing CI is caused by a non-linted Meson config. Will fix that in a different patch request.",
       "revId": "027da79f76b9f59a6f388016fba7f95fbe16e85a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e99cc91a_47a0831f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002321
+      },
+      "writtenOn": "2025-02-28T13:18:09Z",
+      "side": 1,
+      "message": "Submitted in https://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/78552 .\n\nOnce the meson lint fix is merged, I\u0027ll rebase this one.",
+      "parentUuid": "661ece1f_ebc04fc2",
+      "revId": "027da79f76b9f59a6f388016fba7f95fbe16e85a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
