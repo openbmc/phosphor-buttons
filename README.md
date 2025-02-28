@@ -73,21 +73,13 @@ alphanumerical references while the "num" key supports the integer pin number.
   "gpio_definitions": [
     {
       "name": "POWER_BUTTON",
-      "gpio_config": [
-        {
-          "pin": "D0",
-          "direction": "both"
-        }
-      ]
+      "pin": "D0",
+      "direction": "both"
     },
     {
       "name": "RESET_BUTTON",
-      "gpio_config": [
-        {
-          "pin": "AB0",
-          "direction": "both"
-        }
-      ]
+      "pin": "AB0",
+      "direction": "both"
     },
     {
       "name": "HOST_SELECTOR",
