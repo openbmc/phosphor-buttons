@@ -1,22 +1,22 @@
 option(
     'id-led-group',
-    type : 'string',
+    type: 'string',
     value: 'enclosure_identify',
-    description : 'The identify LED group name'
+    description: 'The identify LED group name',
 )
 
 option(
     'long-press-time-ms',
-    type : 'integer',
+    type: 'integer',
     value: 3000,
-    description : 'Time to long press the button'
+    description: 'Time to long press the button',
 )
 
 option(
     'lookup-gpio-base',
-    type : 'feature',
+    type: 'feature',
     value: 'enabled',
-    description : 'Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0.'
+    description: 'Look up the GPIO base value in /sys/class/gpio. Otherwise use a base of 0.',
 )
 
 option(
@@ -24,19 +24,19 @@ option(
     type: 'combo',
     choices: ['default', 'host_then_chassis_poweroff'],
     value: 'default',
-    description : 'Used to select a custom power button behavior profile.'
+    description: 'Used to select a custom power button behavior profile.',
 )
 
 option(
     'reset-button-do-warm-reboot',
-    type : 'feature',
-    value : 'disabled',
-    description : 'Enable warm reboot on the reset button'
+    type: 'feature',
+    value: 'disabled',
+    description: 'Enable warm reboot on the reset button',
 )
 
 option(
     'host-instances',
     type: 'string',
     value: '0',
-    description: 'Host Instances that can be defined by project, for example: 1 2 3 4'
+    description: 'Host Instances that can be defined by project, for example: 1 2 3 4',
 )
