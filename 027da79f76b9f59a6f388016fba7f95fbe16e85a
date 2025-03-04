@@ -34,6 +34,24 @@
       "parentUuid": "661ece1f_ebc04fc2",
       "revId": "027da79f76b9f59a6f388016fba7f95fbe16e85a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5368ce_31b35e12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2025-03-04T15:03:35Z",
+      "side": 1,
+      "message": "I merged https://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/77767 to fix the CI issues (it was older), so this can be rebased now.",
+      "parentUuid": "e99cc91a_47a0831f",
+      "revId": "027da79f76b9f59a6f388016fba7f95fbe16e85a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
