@@ -5,6 +5,35 @@
 
 #include <phosphor-logging/lg2.hpp>
 
+#include <systemd/sd-event.h>
+#include "gpio.hpp"
+
+int HostSelector::pollTimerCallback(sd_event_source* source,
+                                    uint64_t usec,
+                                    void* userdata)
+{
+    auto* hs = static_cast<HostSelector*>(userdata);
+
+    for (auto& g : hs->config.gpios)
+    {
+        auto st = getGpioState(g.fd, g.polarity);
+        hs->setHostSelectorValue(g.fd, st);
+        lg2::debug("GPIO {NUM} state is {STATE}", "NUM", g.number,
+               "STATE", st);
+    }
+
+    size_t pos = hs->getMappedHSConfig(hs->hostSelectorPosition);
+    if (pos != INVALID_INDEX)
+    {
+        hs->position(pos);
+    }
+
+    int interval = hs->config.extraJsonInfo.value("polling_interval_ms", 3000);
+    sd_event_source_set_time(source, usec + uint64_t(interval) * 1000);
+    sd_event_source_set_enabled(source, SD_EVENT_ON);
+
+    return 0;
+}
 // add the button iface class to registry
 static ButtonIFRegister<HostSelector> buttonRegister;
 
@@ -85,6 +114,30 @@ void HostSelector::setInitialHostSelectorValue()
     {
         lg2::error("{TYPE}: exception while reading fd : {ERROR}", "TYPE",
                    getFormFactorType(), "ERROR", e.what());
+    }
+
+    if (config.extraJsonInfo.value("polling_mode", false))
+    {
+        // If polling mode is enabled, set up a timer to poll the GPIO state
+        int interval = config.extraJsonInfo.value("polling_interval_ms", 50);
+        sd_event_source* timerSource = nullptr;
+        int rc = sd_event_add_time(
+            event.get(),
+            &timerSource,
+            CLOCK_MONOTONIC,
+            0,
+            (uint64_t)interval * 1000,
+            pollTimerCallback,
+            this
+        );
+        if (rc < 0)
+        {
+            lg2::error("Failed to start poll timer: {ERR}", "ERR", rc);
+        }
+        else
+        {
+            lg2::info("Started polling mode: {MS}ms", "MS", interval);
+        }
     }
 
     if (hsPosMapped != INVALID_INDEX)

@@ -66,6 +66,10 @@ class HostSelector final :
     void setInitialHostSelectorValue(void);
     void setHostSelectorValue(int fd, GpioState state);
     char getValueFromFd(int fd);
+    sd_event_source* pollTimer_ = nullptr;
+    static int pollTimerCallback(sd_event_source* source,
+                                 uint64_t usec,
+                                 void* userdata);
 
   protected:
     size_t hostSelectorPosition = 0;
