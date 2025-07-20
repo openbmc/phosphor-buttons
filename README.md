@@ -143,6 +143,19 @@ in a json array named group_gpio_config.
   the value read from the host selector gpios is mapped to the respective host
   number.
 
+**Optional: Polling Configuration** Some platforms expose the host selector via
+a CPLD as GPIO inputs without edge-triggered interrupt support (e.g., no edge
+detection on GPIOs). In such situations, software-based polling mode can be
+enabled using the following optional fields in the JSON configuration:
+
+- **polling_mode** : Set to `true` to enable polling mode.
+- **polling_interval_ms** (optional): Polling interval in milliseconds. Defaults
+  to `1000` ms if not specified.
+
+### Config Example
+
+#### A.Interrupt example
+
 Example : The value of "7" derived from the 4 host select gpio lines are mapped
 to host position 1.
 
@@ -188,6 +201,54 @@ to host position 1.
     "13": 2,
     "14": 3,
     "15": 4
+  }
+}
+```
+
+#### B.Polling example
+
+```json
+{
+  "name": "HOST_SELECTOR",
+  "polling_mode": true,
+  "polling_interval_ms": 3000,
+  "group_gpio_config": [
+    {
+      "name": "host_select_sel_0",
+      "num": 2340,
+      "direction": "in",
+      "polarity": "active_low"
+    },
+    {
+      "name": "host_select_sel_1",
+      "num": 2341,
+      "direction": "in",
+      "polarity": "active_low"
+    },
+    {
+      "name": "host_select_sel_2",
+      "num": 2342,
+      "direction": "in",
+      "polarity": "active_low"
+    },
+    {
+      "name": "host_select_sel_3",
+      "num": 2343,
+      "direction": "in",
+      "polarity": "active_low"
+    }
+  ],
+  "max_position": 8,
+  "host_selector_map": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8
   }
 }
 ```

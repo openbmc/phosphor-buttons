@@ -11,9 +11,17 @@
 
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
+#include <sdeventplus/event.hpp>
+#include <sdeventplus/utility/timer.hpp>
 
+#include <chrono>
 #include <fstream>
 #include <iostream>
+#include <optional>
+
+using sdeventplus::ClockId;
+using sdeventplus::Event;
+using Timer = sdeventplus::utility::Timer<ClockId::Monotonic>;
 
 static constexpr auto HOST_SELECTOR = "HOST_SELECTOR";
 
@@ -66,10 +74,15 @@ class HostSelector final :
     void setInitialHostSelectorValue(void);
     void setHostSelectorValue(int fd, GpioState state);
     char getValueFromFd(int fd);
+    void pollGpioState();
+
+  private:
+    std::optional<Timer> pollTimer;
 
   protected:
     size_t hostSelectorPosition = 0;
     size_t gpioLineCount;
+    size_t previousPos = INVALID_INDEX;
 
     // map of read Host selector switch value and corresponding host number
     // value.
