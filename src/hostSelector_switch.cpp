@@ -1,7 +1,10 @@
 
 #include "hostSelector_switch.hpp"
 
+#include "gpio.hpp"
+
 #include <error.h>
+#include <systemd/sd-event.h>
 
 #include <phosphor-logging/lg2.hpp>
 
@@ -87,6 +90,19 @@ void HostSelector::setInitialHostSelectorValue()
                    getFormFactorType(), "ERROR", e.what());
     }
 
+    if (config.extraJsonInfo.value("polling_mode", false))
+    {
+        // If polling mode is enabled, set up a timer to poll the GPIO state
+        int intervalMs =
+            config.extraJsonInfo.value("polling_interval_ms", 1000);
+        auto event = Event::get_default();
+        pollTimer.emplace(
+            event, [this](Timer&) { pollGpioState(); },
+            std::chrono::milliseconds(intervalMs));
+        pollTimer->setEnabled(true);
+        lg2::info("Started polling mode: {MS}ms", "MS", intervalMs);
+    }
+
     if (hsPosMapped != INVALID_INDEX)
     {
         position(hsPosMapped, true);
@@ -150,5 +166,25 @@ void HostSelector::handleEvent(sd_event_source* /* es */, int fd,
     if (hsPosMapped != INVALID_INDEX)
     {
         position(hsPosMapped);
+    }
+}
+
+void HostSelector::pollGpioState()
+{
+    for (const auto& gpioInfo : config.gpios)
+    {
+        GpioState state = getGpioState(gpioInfo.fd, gpioInfo.polarity);
+        setHostSelectorValue(gpioInfo.fd, state);
+        lg2::debug("[LGPIO {NUM} state is {STATE}", "NUM", gpioInfo.number,
+                   "STATE", state);
+    }
+
+    size_t currentPos = getMappedHSConfig(hostSelectorPosition);
+
+    if (currentPos != INVALID_INDEX && currentPos != previousPos)
+    {
+        position(currentPos);
+        previousPos = currentPos;
+        lg2::info("Host selector position updated to {POS}", "POS", currentPos);
     }
 }
