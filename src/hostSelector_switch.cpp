@@ -1,10 +1,46 @@
 
 #include "hostSelector_switch.hpp"
 
+#include "gpio.hpp"
+
 #include <error.h>
+#include <systemd/sd-event.h>
 
 #include <phosphor-logging/lg2.hpp>
 
+int HostSelector::pollTimerHandler(sd_event_source* eventSource, uint64_t usec,
+                                   void* userData)
+{
+    auto* hostSelector = static_cast<HostSelector*>(userData);
+
+    for (const auto& gpioInfo : hostSelector->config.gpios)
+    {
+        // Read raw '0'/'1' and convert to logical GpioState based on polarity
+        GpioState state = getGpioState(gpioInfo.fd, gpioInfo.polarity);
+
+        // Update the internal bitmask: deassert → set bit, assert → clear bit
+        hostSelector->setHostSelectorValue(gpioInfo.fd, state);
+
+        lg2::debug("GPIO {NUM} state is {STATE}", "NUM", gpioInfo.number,
+                   "STATE", state);
+    }
+
+    size_t mappedIndex =
+        hostSelector->getMappedHSConfig(hostSelector->hostSelectorPosition);
+    if (mappedIndex != INVALID_INDEX)
+    {
+        hostSelector->position(mappedIndex);
+    }
+
+    int intervalMs =
+        hostSelector->config.extraJsonInfo.value("polling_interval_ms", 2000);
+    uint64_t nextUsec = usec + uint64_t(intervalMs) * 1000;
+
+    sd_event_source_set_time(eventSource, nextUsec);
+    sd_event_source_set_enabled(eventSource, SD_EVENT_ON);
+
+    return 0;
+}
 // add the button iface class to registry
 static ButtonIFRegister<HostSelector> buttonRegister;
 
@@ -85,6 +121,24 @@ void HostSelector::setInitialHostSelectorValue()
     {
         lg2::error("{TYPE}: exception while reading fd : {ERROR}", "TYPE",
                    getFormFactorType(), "ERROR", e.what());
+    }
+
+    if (config.extraJsonInfo.value("polling_mode", false))
+    {
+        // If polling mode is enabled, set up a timer to poll the GPIO state
+        int intervalMs = config.extraJsonInfo.value("polling_interval_ms", 50);
+        sd_event_source* timerSource = nullptr;
+        int rc = sd_event_add_time(event.get(), &timerSource, CLOCK_MONOTONIC,
+                                   0, (uint64_t)intervalMs * 1000,
+                                   pollTimerHandler, this);
+        if (rc < 0)
+        {
+            lg2::error("Failed to start poll timer: {ERR}", "ERR", rc);
+        }
+        else
+        {
+            lg2::info("Started polling mode: {MS}ms", "MS", intervalMs);
+        }
     }
 
     if (hsPosMapped != INVALID_INDEX)
