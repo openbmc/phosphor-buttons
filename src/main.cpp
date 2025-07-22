@@ -102,15 +102,15 @@ int main(void)
             for (const auto& config : groupGpio)
             {
                 GpioInfo gpioCfg;
-                if (gpioConfig.contains("pin"))
+                if (config.contains("pin"))
                 {
                     // When "pin" key is used, parse as alphanumeric
-                    gpioCfg.number = getGpioNum(gpioConfig.at("pin"));
+                    gpioCfg.number = getGpioNum(config.at("pin"));
                 }
                 else
                 {
                     // Without "pin", "num" is assumed and parsed as an integer
-                    gpioCfg.number = gpioConfig.at("num").get<uint32_t>();
+                    gpioCfg.number = config.at("num").get<uint32_t>();
                 }
                 gpioCfg.direction = config["direction"];
                 gpioCfg.name = config["name"];
