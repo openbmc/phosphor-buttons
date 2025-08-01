@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2869be7c_69b22a58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-08-01T09:04:04Z",
+      "side": 1,
+      "message": "The README file has been updated to include the new functionality.",
+      "parentUuid": "b3978da9_cd84c4aa",
+      "revId": "15f437373a7ed30de841a6015585cd6ed4a7a581",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5f90c5f_603b545b",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-07-30T16:05:21Z",
       "side": 1,
       "message": "Both the sdbusplus and sdeventplus repos provide Timer classes that wrap the sd_event calls that can be used here.  If you just search for Timer on openbmc github you\u0027ll see all sorts of examples.",
+      "revId": "15f437373a7ed30de841a6015585cd6ed4a7a581",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7199c9f_0c07d4f7",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-08-01T09:04:04Z",
+      "side": 1,
+      "message": "Thank you for your suggestions and review. I have updated the code according to your feedback and refactored the timer implementation to use sdeventplus::utility::Timer (as in the OpenBMC examples). All local tests pass. Please kindly help review again. Thank you!",
+      "parentUuid": "c5f90c5f_603b545b",
       "revId": "15f437373a7ed30de841a6015585cd6ed4a7a581",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
