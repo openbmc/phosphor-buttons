@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe03bdd6_f75882c2",
+        "filename": "inc/hostSelector_switch.hpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-08-03T06:34:49Z",
+      "side": 1,
+      "message": "Thanks for the comment!\nYes, I’ve already removed pollTimer_ in the latest patchset.",
+      "parentUuid": "6805c217_9e58b647",
+      "range": {
+        "startLine": 77,
+        "startChar": 3,
+        "endLine": 77,
+        "endChar": 42
+      },
+      "revId": "ac64d0993e2e00ad9106f0b2dd1d14b91be8f781",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a5de344_771e72b5",
@@ -47,6 +71,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48e12b76_bf87717d",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-08-03T06:34:49Z",
+      "side": 1,
+      "message": "Thanks for the comment!\nYes, I’ve already removed pollTimer_ in the latest patchset.",
+      "parentUuid": "1a5de344_771e72b5",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "ac64d0993e2e00ad9106f0b2dd1d14b91be8f781",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3d36801_6137866f",
@@ -60,6 +108,30 @@
       "writtenOn": "2025-08-01T22:07:23Z",
       "side": 1,
       "message": "unmatched bracket...",
+      "range": {
+        "startLine": 178,
+        "startChar": 20,
+        "endLine": 178,
+        "endChar": 21
+      },
+      "revId": "ac64d0993e2e00ad9106f0b2dd1d14b91be8f781",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8afe8ef8_4f03383c",
+        "filename": "src/hostSelector_switch.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-08-03T06:34:49Z",
+      "side": 1,
+      "message": "Hi @spinler@us.ibm.com\nApologies for the mistake, and thanks for catching it. The unmatched bracket and related code have been removed in the latest patchset.",
+      "parentUuid": "b3d36801_6137866f",
       "range": {
         "startLine": 178,
         "startChar": 20,
