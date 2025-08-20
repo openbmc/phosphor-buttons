@@ -2,6 +2,7 @@
 
 #include "button_config.hpp"
 #include "button_interface.hpp"
+#include "config.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 
@@ -93,12 +94,21 @@ class ButtonIFRegister
 
     explicit ButtonIFRegister(size_t count)
     {
-        // register the class factory function
-        // The index, 'countIter', starts at 1 and increments,
-        // representing slot_1 through slot_N.
-        for (size_t countIter = 1; countIter <= count; countIter++)
+        // The JSON power button definitions only have an instance in
+        // their name if there is more than 1 chassis.
+        if (instances.size() > 1)
         {
-            ButtonFactory::instance().addToRegistry<T>(countIter);
+            // register the class factory function
+            // The index, 'countIter', starts at 1 and increments,
+            // representing slot_1 through slot_N.
+            for (size_t countIter = 1; countIter <= count; countIter++)
+            {
+                ButtonFactory::instance().addToRegistry<T>(countIter);
+            }
+        }
+        else
+        {
+            ButtonFactory::instance().addToRegistry<T>();
         }
     }
 };
