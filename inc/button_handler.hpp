@@ -199,9 +199,9 @@ class Handler
     bool hostSelectButtonMode = false;
 
     /**
-     * @brief Flag to indicate if the button supports multi action
+     * @brief Flag to indicate if the button is a virtual button
      */
-    bool isButtonMultiActionSupport = true;
+    bool virtualButton = false;
 };
 
 } // namespace button
