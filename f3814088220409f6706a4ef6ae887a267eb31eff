@@ -16,6 +16,24 @@
       "message": "Is this code done?\n\nYou appear to have removed the support for having profiles, which are still required.\n\nAnd in the code below, it doesn\u0027t look like you\u0027re using any of the code you wrote above?",
       "revId": "f3814088220409f6706a4ef6ae887a267eb31eff",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cee3aed_5f0b94c1",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-10-16T07:07:43Z",
+      "side": 1,
+      "message": "Hi @spinler@us.ibm.com,\n\nThank you for catching that issue.\n\nI\u0027ve addressed both concerns in Patch Set 8:\n\n1. **PowerButtonProfile support**: Restored the profile factory check. Now the code \n   properly delegates to custom profiles when available, and only uses the dynamic \n   discovery fallback when no profile exists.\n\n2. **Unused variable**: The `buttonMode` variable was intended to provide runtime \n   visibility into which mode (host select button vs. multi-power button) the system \n   is using. However, since it\u0027s not strictly necessary, I\u0027ve removed it to reduce \n   code clutter.\n\nThe core logic now works as follows:\n- Check if HostSelector exists and whether it\u0027s virtual\n- Set `hostSelectButtonMode` accordingly\n- Register power button handlers (via profile if available, otherwise fallback)\n\nPlease review Patch Set 8 and let me know if you have any additional feedback.\n\nThank you very much!",
+      "parentUuid": "3904d0a2_b299be36",
+      "revId": "f3814088220409f6706a4ef6ae887a267eb31eff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
