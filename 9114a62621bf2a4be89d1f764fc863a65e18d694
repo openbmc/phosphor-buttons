@@ -16,6 +16,24 @@
       "message": "is the \u0027isButtonMultiActionSupport\u0027 code still needed here and below?",
       "revId": "9114a62621bf2a4be89d1f764fc863a65e18d694",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f39fed5_89fb47e3",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-10-27T08:13:54Z",
+      "side": 1,
+      "message": "Hi @spinler@us.ibm.com,\n\n#### Thanks for calling this out — I think the code is likely unnecessary here(and below).\n\n#### Here’s why I think this may not be needed:\n#### 1) Scope of the flag\n`isButtonMultiActionSupport` is used to decide whether we register multiple Power1~N “Released” signals. That mixes policy with topology. The flag should influence how power actions are handled, not whether we register multiple matches.\n\n#### 2) Brittleness. \nThe scan over gpio_definitions is fragile: the absence of a multi-action field in even one entry triggers `else { isButtonMultiActionSupport \u003d false; break; }`, forcing the flag to false. This is not robust and can cause under-detection of multi-button setups.\n\n#### Here are some journal log records(currrent mechanism not incude this gerrit change):\n```\u003d\nOct 26 23:52:56 bmc systemd[1]: Started Phosphor Button Handler.\nOct 26 23:52:56 bmc button-handler[6994]: [Liora] hostSelectButtonMode \u003d True\nOct 26 23:52:56 bmc button-handler[6994]: [Liora] isButtonMultiActionSupport: True (default)\nOct 26 23:52:56 bmc button-handler[6994]: [Liora] gpioConfig: {\"direction\":\"both\",\"multi-action\":[...],\"name\":\"POWER_BUTTON1\",\"pin\":\"Q0\"}\n...\nOct 26 23:52:56 bmc button-handler[6994]: [Liora] gpioConfig: {...\"name\":\"HOST_SELECTOR\",\"polling_interval_ms\":2000,\"polling_mode\":true}\nOct 26 23:52:56 bmc button-handler[6994]: [Liora]Set isButtonMultiActionSupport flag to  False\n\n```\n\n#### Regarding the above: I’ve removed isButtonMultiActionSupport since the current implementation doesn’t consume it.\n\n#### Would you prefer that we keep it? If needed, I can leave it declared in the .hpp as a policy knob for potential future use.",
+      "parentUuid": "21d6ef9b_cfec741b",
+      "revId": "9114a62621bf2a4be89d1f764fc863a65e18d694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
