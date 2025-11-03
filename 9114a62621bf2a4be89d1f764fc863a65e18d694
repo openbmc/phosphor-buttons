@@ -52,6 +52,29 @@
       "parentUuid": "1f39fed5_89fb47e3",
       "revId": "9114a62621bf2a4be89d1f764fc863a65e18d694",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7620261_a76be57f",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2025-11-03T20:20:08Z",
+      "side": 1,
+      "message": "Now that this holds all of the power button release matches, even on a single power button system, the \u0027powerButtonReleased\u0027 class member can now be removed.",
+      "range": {
+        "startLine": 138,
+        "startChar": 19,
+        "endLine": 138,
+        "endChar": 45
+      },
+      "revId": "9114a62621bf2a4be89d1f764fc863a65e18d694",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
