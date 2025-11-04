@@ -22,6 +22,30 @@
       },
       "revId": "f7383a635bd07e327cfbc7f5790ba79b5c76dfa6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54f1c763_69f5fc08",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2025-11-04T15:26:16Z",
+      "side": 1,
+      "message": "I don\u0027t have an issue with it.\n\nBTW, could you add a tested statement that shows it working on both the 2 different models, I guess yosemite v2 and great lakes?",
+      "parentUuid": "0ea03ed9_5862d9d1",
+      "range": {
+        "startLine": 199,
+        "startChar": 9,
+        "endLine": 199,
+        "endChar": 23
+      },
+      "revId": "f7383a635bd07e327cfbc7f5790ba79b5c76dfa6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
