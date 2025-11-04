@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea03ed9_5862d9d1",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-11-04T01:14:54Z",
+      "side": 1,
+      "message": "Hi @spinler@us.ibm.com,\n\nWhen you have a moment, could you please let me know if the virtualButton flag mechanism is acceptable from your perspective? If you’re comfortable with this approach, I’d like to move https://gerrit.openbmc.org/c/openbmc/openbmc/+/84422\nto Active and drive it in parallel.\nThank you for your guidance!",
+      "range": {
+        "startLine": 199,
+        "startChar": 9,
+        "endLine": 199,
+        "endChar": 23
+      },
+      "revId": "f7383a635bd07e327cfbc7f5790ba79b5c76dfa6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
