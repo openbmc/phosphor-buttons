@@ -46,6 +46,30 @@
       },
       "revId": "f7383a635bd07e327cfbc7f5790ba79b5c76dfa6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c551d412_22656269",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-11-05T11:53:12Z",
+      "side": 1,
+      "message": "Hi @spinler@us.ibm.com,\nThanks for the review and the suggestion. Unfortunately we don’t have access to Yosemite V2 or Great Lakes hardware, so we’re not able to run those tests on our side. We’ve validated on Yosemite V4 (multi power button mode) and the test log has been added to the commit.\n\nTest Log:\n```\nroot@bmc:~# cat /etc/default/obmc/gpio/gpio_defs.json | grep -i -E \"POWER_BUTTON|HOST_SELECTOR|virtual_button\"\n            \"name\": \"POWER_BUTTON1\",\n            \"name\": \"POWER_BUTTON2\",\n            \"name\": \"POWER_BUTTON3\",\n            \"name\": \"POWER_BUTTON4\",\n            \"name\": \"POWER_BUTTON5\",\n            \"name\": \"POWER_BUTTON6\",\n            \"name\": \"POWER_BUTTON7\",\n            \"name\": \"POWER_BUTTON8\",\n            \"name\": \"HOST_SELECTOR\",\n            \"virtual_button\": true,\n\nroot@bmc:~# systemctl status phosphor-button-handler.service\n● phosphor-button-handler.service - Phosphor Button Handler\n     Loaded: loaded (/usr/lib/systemd/system/phosphor-button-handler.service; enabled; preset: enabled)\n     Active: active (running) since Wed 2025-11-05 03:09:06 PST; 7s ago\n Invocation: 81fd455a960e4c6cb201712d71219cb2\n   Main PID: 9319 (button-handler)\n      Tasks: 1 (limit: 1961)\n     Memory: 324K (peak: 1M)\n        CPU: 65ms\n     CGroup: /system.slice/phosphor-button-handler.service\n             └─9319 /usr/bin/button-handler\n\nNov 05 03:09:06 bmc button-handler[9319]: hostSelectButtonMode: False\nNov 05 03:09:06 bmc button-handler[9319]: Starting power button handler\nNov 05 03:09:06 bmc button-handler[9319]: Registering power button handler for: /xyz/openbmc_project/Chassis/Buttons/Power01\nNov 05 03:09:06 bmc button-handler[9319]: Registering power button handler for: /xyz/openbmc_project/Chassis/Buttons/Power02\nNov 05 03:09:06 bmc button-handler[9319]: Registering power button handler for: /xyz/openbmc_project/Chassis/Buttons/Power03\nNov 05 03:09:06 bmc button-handler[9319]: Registering power button handler for: /xyz/openbmc_project/Chassis/Buttons/Power04\nNov 05 03:09:06 bmc button-handler[9319]: Registering power button handler for: /xyz/openbmc_project/Chassis/Buttons/Power05\nNov 05 03:09:06 bmc button-handler[9319]: Registering power button handler for: /xyz/openbmc_project/Chassis/Buttons/Power06\nNov 05 03:09:06 bmc button-handler[9319]: Registering power button handler for: /xyz/openbmc_project/Chassis/Buttons/Power07\nNov 05 03:09:06 bmc button-handler[9319]: Registering power button handler for: /xyz/openbmc_project/Chassis/Buttons/Power08\n\n```",
+      "parentUuid": "54f1c763_69f5fc08",
+      "range": {
+        "startLine": 199,
+        "startChar": 9,
+        "endLine": 199,
+        "endChar": 23
+      },
+      "revId": "f7383a635bd07e327cfbc7f5790ba79b5c76dfa6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
