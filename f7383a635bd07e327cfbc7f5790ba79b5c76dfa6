@@ -70,6 +70,30 @@
       },
       "revId": "f7383a635bd07e327cfbc7f5790ba79b5c76dfa6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "541b549f_74736286",
+        "filename": "inc/button_handler.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000212
+      },
+      "writtenOn": "2025-11-06T02:54:10Z",
+      "side": 1,
+      "message": "@spinler@us.ibm.com we dont support Y2 and Great Lakes anymore and Patrick already removed them from the openbmc/openbmc/meta-facebook tree. So Y4 is the only multi-host one we have at the moment.",
+      "parentUuid": "c551d412_22656269",
+      "range": {
+        "startLine": 199,
+        "startChar": 9,
+        "endLine": 199,
+        "endChar": 23
+      },
+      "revId": "f7383a635bd07e327cfbc7f5790ba79b5c76dfa6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
