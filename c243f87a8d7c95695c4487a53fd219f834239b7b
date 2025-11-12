@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5864666_1e66972a",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-11-12T21:02:45Z",
+      "side": 1,
+      "message": "With a default like this, when you have the if-conditions fail, we silently fall back to 0.  This is potentially wrong.\n\nCan you write the code as a lambda so that we can get the value all in one shot and report a failure if we cannot deduce the correct value?",
+      "range": {
+        "startLine": 290,
+        "startChar": 29,
+        "endLine": 290,
+        "endChar": 33
+      },
+      "revId": "c243f87a8d7c95695c4487a53fd219f834239b7b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d457482f_cb1da0f7",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-11-12T21:02:45Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me why the old code didn\u0027t work and the new code does.  The paths here are the same length as they use to be.\n\nWe shouldn\u0027t hard-code object paths in the middle of code like this; is there an alternative?",
+      "revId": "c243f87a8d7c95695c4487a53fd219f834239b7b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fe4e4c5_eb34b180",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-11-12T21:02:45Z",
+      "side": 1,
+      "message": "Please use `starts_with` for clarity.",
+      "revId": "c243f87a8d7c95695c4487a53fd219f834239b7b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69458024_688bf5d6",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-11-12T21:02:45Z",
+      "side": 1,
+      "message": "What is the need for this extra check?",
+      "revId": "c243f87a8d7c95695c4487a53fd219f834239b7b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1ceec4e_3ebd5b37",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-11-12T21:02:45Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me why this is necessary or correct.  What was the behavior without this?\n\nIs it possible that multiPwrBtnActConf only contains some of the hosts but not all of them?  Won\u0027t that still lead to potentially the wrong behavior?",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 13
+      },
+      "revId": "c243f87a8d7c95695c4487a53fd219f834239b7b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
