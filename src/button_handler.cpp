@@ -287,8 +287,36 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
     std::variant<Host::Transition, Chassis::Transition> transition;
 
     size_t hostNumber = 0;
-    std::string hostNumStr =
-        objectPath.substr(std::string(POWER_DBUS_OBJECT_NAME).length());
+    std::string hostNumStr = "0";
+    std::string resetPrefix = "/xyz/openbmc_project/Chassis/Buttons/Reset";
+    std::string powerPrefix = "/xyz/openbmc_project/Chassis/Buttons/Power";
+    switch (powerEventType)
+    {
+        case PowerEvent::powerReleased:
+        {
+            if (objectPath.rfind(powerPrefix, 0) == 0 && objectPath.size() > powerPrefix.size())
+            {
+                hostNumStr = objectPath.substr(powerPrefix.size());
+            }
+            break;
+        }
+        case PowerEvent::resetReleased:
+        {
+            if (objectPath.rfind(resetPrefix, 0) == 0 && objectPath.size() > resetPrefix.size())
+            {
+                hostNumStr = objectPath.substr(resetPrefix.size());
+            }
+            break;
+        }
+        default:
+        {
+            lg2::error("{EVENT} is invalid power event. skipping...", "EVENT",
+                       powerEventType);
+
+            return;
+        }
+    }
+
     auto isMultiHostSystem = isMultiHost();
 
     if (hostSelectButtonMode)
@@ -314,17 +342,20 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
     {
         case PowerEvent::powerReleased:
         {
-            for (const auto& iter : multiPwrBtnActConf[stoi(hostNumStr) - 1])
+            if (!multiPwrBtnActConf.empty())
             {
-                if (duration > std::chrono::milliseconds(iter.first))
+                for (const auto& iter : multiPwrBtnActConf[stoi(hostNumStr) - 1])
                 {
-                    dbusIfaceName = chassisIface;
-                    transitionName = "RequestedPowerTransition";
-                    objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
-                    transition = iter.second;
+                    if (duration > std::chrono::milliseconds(iter.first))
+                    {
+                        dbusIfaceName = chassisIface;
+                        transitionName = "RequestedPowerTransition";
+                        objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+                        transition = iter.second;
+                        break;
+                    }
                 }
             }
-            break;
 
             if (duration <= LONG_PRESS_TIME_MS)
             {
@@ -386,7 +417,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
             }
 
             lg2::info("Handling reset button press");
-#ifdef ENABLE_RESET_BUTTON_DO_WARM_REBOOT
+#if ENABLE_RESET_BUTTON_DO_WARM_REBOOT
             transition = Host::Transition::ForceWarmReboot;
 #else
             transition = Host::Transition::Reboot;
