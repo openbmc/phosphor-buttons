@@ -47,7 +47,12 @@ constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
 constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
 constexpr auto BMC_POSITION = 0;
 
-std::vector<std::map<uint16_t, Chassis::Transition>> multiPwrBtnActConf;
+constexpr auto POWER_BUTTON = "POWER_BUTTON";
+
+using MultiPwrActions = std::map<uint16_t, Chassis::Transition>;
+using MultiPwrBtnMap  = std::map<std::string, MultiPwrActions>;  // key = host number (1,2,3...)
+
+MultiPwrBtnMap multiPwrBtnActConf;
 
 Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
 {
@@ -71,7 +76,7 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
     {
         if (gpioConfig.contains("multi-action"))
         {
-            std::map<uint16_t, Chassis::Transition> mapEntry;
+            MultiPwrActions mapEntry;
             const auto& multiActCfg = gpioConfig["multi-action"];
             for (const auto& ActCfg : multiActCfg)
             {
@@ -86,7 +91,21 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
                     lg2::error("unknown power button action");
                 }
             }
-            multiPwrBtnActConf.emplace_back(mapEntry);
+
+            auto btnName = gpioConfig.value("name","");
+            if (btnName.starts_with(POWER_BUTTON))
+            {
+                std::string btnNumberStr = btnName.substr(std::strlen(POWER_BUTTON));
+                multiPwrBtnActConf.emplace(btnNumberStr, std::move(mapEntry));
+            }
+            else if (btnName.starts_with(RESET_BUTTON))
+            {
+                continue;
+                // TODO:
+                // std::string btnNumberStr = btnName.substr(std::strlen(RESET_BUTTON));
+                // multiRstBtnActConf.emplace(btnNumberStr, std::move(mapEntry));
+
+            }
         }
 
         if (gpioConfig.value("name", "") == "HOST_SELECTOR")
@@ -314,17 +333,22 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
     {
         case PowerEvent::powerReleased:
         {
-            for (const auto& iter : multiPwrBtnActConf[stoi(hostNumStr) - 1])
+            auto it = multiPwrBtnActConf.find(hostNumStr);
+            if (it != multiPwrBtnActConf.end())
             {
-                if (duration > std::chrono::milliseconds(iter.first))
+                auto& actions = it->second;
+                for (const auto& [thresholdMs, action] : actions)
                 {
-                    dbusIfaceName = chassisIface;
-                    transitionName = "RequestedPowerTransition";
-                    objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
-                    transition = iter.second;
+                    if (duration > std::chrono::milliseconds(thresholdMs))
+                    {
+                        dbusIfaceName = chassisIface;
+                        transitionName = "RequestedPowerTransition";
+                        objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+                        transition = action;
+                    }
                 }
+                break;
             }
-            break;
 
             if (duration <= LONG_PRESS_TIME_MS)
             {
