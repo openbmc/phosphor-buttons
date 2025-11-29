@@ -87,6 +87,30 @@
       },
       "revId": "957b7943e247b855f973421ec1fab8ec397ea952",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02aea8af_313314dd",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-11-29T17:28:40Z",
+      "side": 1,
+      "message": "Hi @spinler@us.ibm.com,\n\nThank you for tagging me to review this change.\n\n**Regarding your concern about line 347 and the empty object path on line 434:**\n\nYou\u0027re right to point this out. If the condition on line 347 is never true (i.e., the button press duration doesn\u0027t exceed any of the configured thresholds), then `objPathName` will remain empty, which would cause a failure at line 434. As you mentioned, this issue existed before this change, but it\u0027s worth addressing.\n\nI think we can fix this by modifying line 356 to check if `objPathName` has been set. If it hasn\u0027t, we should allow the code to fall through to the existing fallback logic below instead of breaking out of the switch case:\n\n```\nif (!objPathName.empty())\n{\n    break;\n}\n// If objPathName is still empty, continue to fallback logic\n```\nThis way, if no multi-action threshold is matched, the system will gracefully fall back to the default power button behavior.\n\n### Additional issues I found while reviewing this change:\n\n### 1.Line 353 (the inner break statement): \nThis break should be removed because multiPwrBtnActConf may contain multiple power policies with increasing duration thresholds. The current code will always apply the first matching policy and never reach longer-duration policies. We should continue iterating to find the best matching threshold.\n\n### 2.Line 315 (hostNumStr format issue): \nIn our multi-button configuration, getHostNumStr() returns \"01\", which creates an invalid path like \"/xyz/openbmc_project/state/chassis01\" instead of the correct \"/xyz/openbmc_project/state/chassis1\".\n\nHere\u0027s our D-Bus tree for reference:\n```\nroot@bmc:~# busctl tree xyz.openbmc_project.Chassis.Buttons\n└─ /xyz\n  └─ /xyz/openbmc_project\n    └─ /xyz/openbmc_project/Chassis\n      └─ /xyz/openbmc_project/Chassis/Buttons\n        ├─ /xyz/openbmc_project/Chassis/Buttons/Power01\n        ├─ /xyz/openbmc_project/Chassis/Buttons/Power02\n        ...\n```\n### 3.Line 345 (vector indexing): \nI agree that multiPwrBtnActConf[stoi(hostNumStr) - 1] could cause problems. I believe the multi-action feature is not exclusively for multi-button scenarios; it should also work for a single button. The purpose of multi-action is to support multiple power policies (based on press duration) for any given button. Therefore, I have some ideas to strengthen how multiPwrBtnActConf is captured and applied.I\u0027ve prepared a patch addressing these issues that might be helpful: https://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/85636\n\nI\u0027d appreciate your thoughts and feedback on this approach.\n\nThanks, Liora",
+      "parentUuid": "97c5973a_efe3af3f",
+      "range": {
+        "startLine": 353,
+        "startChar": 24,
+        "endLine": 353,
+        "endChar": 30
+      },
+      "revId": "957b7943e247b855f973421ec1fab8ec397ea952",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
