@@ -111,6 +111,30 @@
       },
       "revId": "957b7943e247b855f973421ec1fab8ec397ea952",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d168dcfc_57e2b9bd",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2025-12-01T22:41:53Z",
+      "side": 1,
+      "message": "Unresolving.",
+      "parentUuid": "02aea8af_313314dd",
+      "range": {
+        "startLine": 353,
+        "startChar": 24,
+        "endLine": 353,
+        "endChar": 30
+      },
+      "revId": "957b7943e247b855f973421ec1fab8ec397ea952",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
