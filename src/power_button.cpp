@@ -18,6 +18,12 @@
 
 #include "button_handler.hpp"
 
+#include <phosphor-logging/commit.hpp>
+#include <phosphor-logging/lg2.hpp>
+#include <xyz/openbmc_project/Chassis/Buttons/Button/event.hpp>
+
+#include <exception>
+
 // add the button iface class to registry
 static ButtonIFRegister<PowerButton> multiButtonRegister(
     phosphor::button::numberOfChassis());
@@ -52,23 +58,20 @@ void PowerButton::handleEvent(sd_event_source* /* es */, int fd,
 
     if (n < 0)
     {
-        phosphor::logging::log<phosphor::logging::level::ERR>(
-            "POWER_BUTTON: lseek error!");
+        lg2::error("POWER_BUTTON: lseek error!");
         return;
     }
 
     n = ::read(fd, &buf, sizeof(buf));
     if (n < 0)
     {
-        phosphor::logging::log<phosphor::logging::level::ERR>(
-            "POWER_BUTTON: read error!");
+        lg2::error("POWER_BUTTON: read error!");
         return;
     }
 
     if (buf == '0')
     {
-        phosphor::logging::log<phosphor::logging::level::DEBUG>(
-            "POWER_BUTTON: pressed");
+        lg2::debug("POWER_BUTTON: pressed");
 
         updatePressedTime();
         // emit pressed signal
@@ -76,12 +79,28 @@ void PowerButton::handleEvent(sd_event_source* /* es */, int fd,
     }
     else
     {
-        phosphor::logging::log<phosphor::logging::level::DEBUG>(
-            "POWER_BUTTON: released");
+        lg2::debug("POWER_BUTTON: released");
 
         auto now = std::chrono::steady_clock::now();
         auto d = std::chrono::duration_cast<std::chrono::microseconds>(
             now - getPressTime());
+        auto dMs = std::chrono::duration_cast<std::chrono::milliseconds>(d);
+
+        using ButtonPressed = sdbusplus::event::xyz::openbmc_project::chassis::
+            buttons::Button::ButtonPressed;
+
+        try
+        {
+            lg2::commit(ButtonPressed("BUTTON_NAME", objPath, "ENGAGE_DURATION",
+                                      dMs.count()));
+        }
+        catch (const std::exception& e)
+        {
+            lg2::error(
+                "POWER_BUTTON: failed to commit ButtonPressed event: {ERROR}",
+                "ERROR", e);
+        }
+
         // released
         released(d.count());
     }
