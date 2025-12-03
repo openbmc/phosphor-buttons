@@ -42,7 +42,7 @@ class PowerButton :
         sdbusplus::server::object_t<
             sdbusplus::xyz::openbmc_project::Chassis::Buttons::server::Power>(
             bus, path),
-        ButtonIface(bus, event, buttonCfg)
+        ButtonIface(bus, event, buttonCfg), objPath(path)
     {
         init();
     }
@@ -68,5 +68,6 @@ class PowerButton :
     void handleEvent(sd_event_source* es, int fd, uint32_t revents) override;
 
   protected:
+    std::string objPath;
     decltype(std::chrono::steady_clock::now()) pressedTime;
 };
