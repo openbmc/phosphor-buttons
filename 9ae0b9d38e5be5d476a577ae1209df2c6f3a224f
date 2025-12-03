@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da0e8eb3_b265447d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002547
+      },
+      "writtenOn": "2025-12-03T07:45:39Z",
+      "side": 1,
+      "message": "This patch is blocked by [phosphor-dbus-interfaces Change 80259](https://gerrit.openbmc.org/c/openbmc/phosphor-dbus-interfaces/+/80259) which adds the `ButtonPressed` event definition. CI will pass once that dependency is merged.",
+      "revId": "9ae0b9d38e5be5d476a577ae1209df2c6f3a224f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
