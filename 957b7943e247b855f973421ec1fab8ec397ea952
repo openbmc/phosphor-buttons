@@ -135,6 +135,30 @@
       },
       "revId": "957b7943e247b855f973421ec1fab8ec397ea952",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb55f33f_a7efa15b",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1002711
+      },
+      "writtenOn": "2025-12-05T11:36:49Z",
+      "side": 1,
+      "message": "Thanks. Liora.\n1.Line 353 (the inner break statement):  \u003c--- I have changed.\n2 \u0026 3 : I don\u0027t changed it, because we don\u0027t use multiPwrBtnActConf and multi-button configure. I am not familiar with this part and hard to verify this at my side. Just keep the origin code.",
+      "parentUuid": "d168dcfc_57e2b9bd",
+      "range": {
+        "startLine": 353,
+        "startChar": 24,
+        "endLine": 353,
+        "endChar": 30
+      },
+      "revId": "957b7943e247b855f973421ec1fab8ec397ea952",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
