@@ -16,6 +16,46 @@
       "message": "This patch is blocked by [phosphor-dbus-interfaces Change 80259](https://gerrit.openbmc.org/c/openbmc/phosphor-dbus-interfaces/+/80259) which adds the `ButtonPressed` event definition. CI will pass once that dependency is merged.",
       "revId": "9ae0b9d38e5be5d476a577ae1209df2c6f3a224f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4721d825_35d5583d",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2025-12-15T19:12:01Z",
+      "side": 1,
+      "message": "If you have this, you don\u0027t need the lg2:: qualifiers below.  Personally I\u0027d prefer the lg2:: but i\u0027m fine with either.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "9ae0b9d38e5be5d476a577ae1209df2c6f3a224f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e97776f6_1a914be3",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2025-12-15T19:12:01Z",
+      "side": 1,
+      "message": "Should maybe be a separate commit, but OK this time.",
+      "revId": "9ae0b9d38e5be5d476a577ae1209df2c6f3a224f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
