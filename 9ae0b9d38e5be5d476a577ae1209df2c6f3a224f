@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b4a1cf07_91563afb",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002547
+      },
+      "writtenOn": "2025-12-16T05:37:50Z",
+      "side": 1,
+      "message": "Thanks, Matt. Dropped PHOSPHOR_LOG2_USING and kept the explicit lg2:: prefixes.",
+      "parentUuid": "4721d825_35d5583d",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "9ae0b9d38e5be5d476a577ae1209df2c6f3a224f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e97776f6_1a914be3",
         "filename": "src/power_button.cpp",
         "patchSetId": 1
