@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d9153d2_503401d4",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-12-17T16:43:00Z",
+      "side": 1,
+      "message": "To be clear, this is not an issue with getHostNumStr() in isolation, but with\nthe interaction between DBus object path construction and its parsing.\n\nI think addressing this before merging would help avoid regressing multi FIO\nbutton behavior.",
+      "parentUuid": "f946b4c1_a917a081",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "e9f8de57654411e54bca341c166d4f4eaee923db",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d7dfc08_43db870f",
         "filename": "src/button_handler.cpp",
         "patchSetId": 8
