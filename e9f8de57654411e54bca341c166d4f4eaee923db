@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f946b4c1_a917a081",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-12-17T16:19:35Z",
+      "side": 1,
+      "message": "Hi @patrick@stwcx.xyz,\n\nThanks for calling this out — let me clarify where the \"01\" is coming from.\n\nYou’re right that if getHostNumStr() is viewed in isolation, the use of\nsubstr(len - 1) suggests that only a single character would be returned.\nThat’s also why this behavior is not obvious from that function alone.\n\nThe key detail is how the DBus object path is constructed.\n`POWER_DBUS_OBJECT_NAME` is defined as:\n```\n  \"/xyz/openbmc_project/Chassis/Buttons/Power0\"\n```\nIn button_factory, for multi-instance buttons, the object path is built as:\n```\n  getDbusObjectPath() + indexStr\n```\nAs a result, the actual DBus objects created are, for example:\n```\n  root@bmc:~# busctl tree xyz.openbmc_project.Chassis.Buttons\n  └─ /xyz/openbmc_project/Chassis/Buttons/Power01\n  └─ /xyz/openbmc_project/Chassis/Buttons/Power02\n  ...\n```\nGiven these zero-padded object names, the substring logic in getHostNumStr()\ncan return values like \"01\" rather than just \"1\". This is the concern I was\nraising, as it can lead to constructing an invalid chassis state path and\ncause the multi FIO power button to have no effect.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "e9f8de57654411e54bca341c166d4f4eaee923db",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d7dfc08_43db870f",
         "filename": "src/button_handler.cpp",
         "patchSetId": 8
