@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ad0161e_c35cb4b7",
+        "filename": "meson_config.hpp.in",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002711
+      },
+      "writtenOn": "2025-12-17T19:26:10Z",
+      "side": 1,
+      "message": "I think there are two ways to fix this.\nA) modify getHostNumStr(), let it return string depend on isMultiHost().\nB) modify  void addToRegistry(size_t index) let DBus Obj like following:\n```\n  root@bmc:~# busctl tree xyz.openbmc_project.Chassis.Buttons\n  └─ /xyz/openbmc_project/Chassis/Buttons/Power1\n  └─ /xyz/openbmc_project/Chassis/Buttons/Power2\n```\nB-way:  This is better but I can\u0027t verify this on my platform.",
+      "parentUuid": "2d9153d2_503401d4",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "e9f8de57654411e54bca341c166d4f4eaee923db",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d7dfc08_43db870f",
         "filename": "src/button_handler.cpp",
         "patchSetId": 8
