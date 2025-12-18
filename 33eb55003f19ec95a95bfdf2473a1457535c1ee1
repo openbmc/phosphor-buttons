@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c2ad1d3_b633583b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002229
+      },
+      "writtenOn": "2025-12-18T03:49:02Z",
+      "side": 1,
+      "message": "Hi @spinler@us.ibm.com, @patrick@stwcx.xyz,\n\nCould you please help review again when you have a chance?\nThis change normalizes the DBus object paths for multi-instance buttons\n(e.g. Power1/Power2 instead of Power01/Power02) to avoid zero-padding issues.\n\nMuch appreciated!",
+      "revId": "33eb55003f19ec95a95bfdf2473a1457535c1ee1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
