@@ -16,6 +16,29 @@
       "message": "Hi @spinler@us.ibm.com, @patrick@stwcx.xyz,\n\nCould you please help review again when you have a chance?\nThis change normalizes the DBus object paths for multi-instance buttons\n(e.g. Power1/Power2 instead of Power01/Power02) to avoid zero-padding issues.\n\nMuch appreciated!",
       "revId": "33eb55003f19ec95a95bfdf2473a1457535c1ee1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "177fdf84_fc63f6f7",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2026-01-02T22:04:16Z",
+      "side": 1,
+      "message": "nit: you can leave off the .what() for lg2, it can understand exceptions.",
+      "range": {
+        "startLine": 324,
+        "startChar": 65,
+        "endLine": 324,
+        "endChar": 72
+      },
+      "revId": "33eb55003f19ec95a95bfdf2473a1457535c1ee1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
