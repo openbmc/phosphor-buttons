@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4813b3dc_2585c0a8",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2026-01-15T20:44:02Z",
+      "side": 1,
+      "message": "remove TODO\u0027s and commented out code.",
+      "revId": "44adbe6727c724f438bf6b9daa4ce0f4ac154a7d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
