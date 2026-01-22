@@ -32,6 +32,7 @@ phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
 phosphor_logging_dep = dependency('phosphor-logging')
 sdbusplus_dep = dependency('sdbusplus')
 sdeventplus_dep = dependency('sdeventplus')
+libgpiod = dependency('libgpiod')
 
 deps = [
     sdbusplus_dep,
@@ -40,6 +41,7 @@ deps = [
     nlohmann_json_dep,
     gpioplus_dep,
     sdeventplus_dep,
+    libgpiod,
 ]
 
 sources_buttons = [
