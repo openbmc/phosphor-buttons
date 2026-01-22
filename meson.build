@@ -27,6 +27,7 @@ configure_file(
 )
 
 gpioplus_dep = dependency('gpioplus')
+libgpiod = dependency('libgpiod')
 nlohmann_json_dep = dependency('nlohmann_json', include_type: 'system')
 phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
 phosphor_logging_dep = dependency('phosphor-logging')
@@ -40,6 +41,7 @@ deps = [
     nlohmann_json_dep,
     gpioplus_dep,
     sdeventplus_dep,
+    libgpiod,
 ]
 
 sources_buttons = [

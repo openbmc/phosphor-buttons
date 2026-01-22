@@ -19,6 +19,7 @@
 
 #include <error.h>
 #include <fcntl.h>
+#include <gpiod.h>
 #include <unistd.h>
 
 #include <gpioplus/utility/aspeed.hpp>
@@ -124,6 +125,54 @@ uint32_t getGpioNum(const std::string& gpioPin)
     auto offset = gpioplus::utility::aspeed::nameToOffset(gpioPin);
 
     return getGpioBase() + offset;
+}
+
+uint32_t getGpioNumLineName(const std::string& lineName)
+{
+    /* GPIO line */
+    gpiod_line* line = nullptr;
+    line = gpiod_line_find(lineName.c_str());
+
+    if (line == nullptr)
+    {
+        lg2::error("Failed to find the {GPIO}", "GPIO", lineName);
+        throw std::runtime_error("Could not find GPIO line!");
+    }
+
+    uint32_t offset = gpiod_line_offset(line);
+    gpiod_chip* chip = gpiod_line_get_chip(line);
+    const char* chip_name = gpiod_chip_name(chip);
+
+    // get the base number from sysfs
+    uint32_t base = 0;
+    std::string s_chip_name(chip_name);
+    bool found = false;
+
+    for (const auto& entry : fs::directory_iterator(gpioDev))
+    {
+        // entry.path() gives the exported name (e.g., "gpiochip320")
+        // so we need to look inside the folder for the 'device/chip_name' file
+        if (fs::exists(entry.path() / "device" / s_chip_name))
+        {
+            std::ifstream baseStream(entry.path() / "base");
+            if (baseStream >> base)
+            {
+                found = true;
+            }
+            break;
+        }
+    }
+
+    gpiod_chip_close(chip);
+
+    if (!found)
+    {
+        lg2::error("Could not find GPIO base");
+        throw std::runtime_error("Could not find GPIO base!");
+    }
+
+    uint32_t global_id = base + offset;
+    return global_id;
 }
 
 int configGroupGpio(ButtonConfig& buttonIFConfig)
