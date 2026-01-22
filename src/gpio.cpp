@@ -19,6 +19,7 @@
 
 #include <error.h>
 #include <fcntl.h>
+#include <gpiod.hpp>
 #include <unistd.h>
 
 #include <gpioplus/utility/aspeed.hpp>
@@ -124,6 +125,45 @@ uint32_t getGpioNum(const std::string& gpioPin)
     auto offset = gpioplus::utility::aspeed::nameToOffset(gpioPin);
 
     return getGpioBase() + offset;
+}
+
+uint32_t getGpioLineNumFromName(const std::string& lineName)
+{
+    // Revise with c++ api
+    gpiod::line line = gpiod::find_line(lineName);
+    
+    if (!line)
+    {
+        lg2::error("Failed to find the {GPIO}", "GPIO", lineName);
+        throw std::runtime_error("Could not find GPIO line!");
+    }
+
+    uint32_t offset = line.offset();
+    std::string chip_name = line.get_chip().name();
+    uint32_t base = 0;
+    bool found = false;
+
+    for (const auto& entry : fs::directory_iterator(gpioDev))
+    {
+        // Check if this sysfs entry corresponds to our chip
+        if (fs::exists(entry.path() / "device" / chip_name))
+        {
+            std::ifstream baseStream(entry.path() / "base");
+            if (baseStream >> base)
+            {
+                found = true;
+            }
+            break;
+        }
+    }
+
+    if (!found)
+    {
+        lg2::error("Could not find GPIO base for chip {CHIP}", "CHIP", chip_name);
+        throw std::runtime_error("Could not find GPIO base!");
+    }
+
+    return base + offset;
 }
 
 int configGroupGpio(ButtonConfig& buttonIFConfig)
