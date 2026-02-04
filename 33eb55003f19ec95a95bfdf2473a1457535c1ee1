@@ -1,0 +1,10 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Matt Spinler <spinler@us.ibm.com>
+Code-Review+2: Kuiying Wang <wangkuiying.wky@alibaba-inc.com>
+Submitted-by: Colin Huang <colin.huang2@amd.com>
+Submitted-at: Wed, 04 Feb 2026 05:39:09 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/phosphor-buttons/+/85179
+Comments-Total: 39
+Comments-Unresolved: 1
+Project: openbmc/phosphor-buttons
+Branch: refs/heads/master
