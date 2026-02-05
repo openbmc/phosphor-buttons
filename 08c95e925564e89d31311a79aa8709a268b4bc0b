@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746b173e_b0b19fc3",
+        "filename": "meson.build",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2026-02-05T16:51:41Z",
+      "side": 1,
+      "message": "can you also add a wrap file for libgpiod and make sure the project still builds with standalone meson",
+      "revId": "08c95e925564e89d31311a79aa8709a268b4bc0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "562d63be_fefe7b7e",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2026-02-05T16:51:41Z",
+      "side": 1,
+      "message": "the name implies it is returning a name, which it isn\u0027t.  Maybe instead something like getGpioLineNumFromName?",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 27
+      },
+      "revId": "08c95e925564e89d31311a79aa8709a268b4bc0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56e5db68_cf899635",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2026-02-05T16:51:41Z",
+      "side": 1,
+      "message": "gpiod has c++ APIs (can check other repos for examples) that would be better to use here.",
+      "range": {
+        "startLine": 134,
+        "startChar": 12,
+        "endLine": 134,
+        "endChar": 26
+      },
+      "revId": "08c95e925564e89d31311a79aa8709a268b4bc0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087ab151_ce86010d",
+        "filename": "src/gpio.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2026-02-05T16:51:41Z",
+      "side": 1,
+      "message": "nit: camelCase",
+      "range": {
+        "startLine": 148,
+        "startChar": 15,
+        "endLine": 148,
+        "endChar": 27
+      },
+      "revId": "08c95e925564e89d31311a79aa8709a268b4bc0b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
