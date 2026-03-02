@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f98046d_d2692c56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002831
+      },
+      "writtenOn": "2026-03-02T19:21:40Z",
+      "side": 1,
+      "message": "Minor suggestion: Since the function returns base + offset (global GPIO number), would it make sense to rename it to something like getGlobalGpioNumberFromName() for clarity? The current name might also be interpreted as returning the chip-local offset.",
+      "revId": "31f3dff0c15ace58be8f9dfc86a7f9e809995d5b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
