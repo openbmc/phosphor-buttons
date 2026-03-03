@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e6c83e6_9331e27a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002831
+      },
+      "writtenOn": "2026-03-03T09:03:49Z",
+      "side": 1,
+      "message": "since, The chip is unique,, there is only one sysfs directory that will have the corrosponding device/chip_name. so no point in iterating over other entries if its a read fail.\n\nhow about something like::\n\nif (!(baseStream \u003e\u003e base))\n{\nthrow std::runtime_error(\"Failed to read Base for chip\");\n}\nfound \u003d true;\nbreak;",
+      "revId": "95d33f1ef178d5d905b78a1e43fd3c91b2f53a22",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
