@@ -16,6 +16,24 @@
       "message": "since, The chip is unique,, there is only one sysfs directory that will have the corrosponding device/chip_name. so no point in iterating over other entries if its a read fail.\n\nhow about something like::\n\nif (!(baseStream \u003e\u003e base))\n{\nthrow std::runtime_error(\"Failed to read Base for chip\");\n}\nfound \u003d true;\nbreak;",
       "revId": "95d33f1ef178d5d905b78a1e43fd3c91b2f53a22",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de3c581e_8b9fcbba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002462
+      },
+      "writtenOn": "2026-03-05T02:00:26Z",
+      "side": 1,
+      "message": "We are currently using the newer 6.18.13 kernel, which features different sysfs entries for GPIO management. For instance, while gpiochip2 exists under both the chip2 and gpiochip756 directories, only gpiochip756 contains the base file.\n\nroot@bmc:~# ls /sys/class/gpio/*/device/gpiochip2\n/sys/class/gpio/chip2/device/gpiochip2:\ndev                   of_node               power                 subsystem             uevent                waiting_for_supplier\n\n/sys/class/gpio/gpiochip756/device/gpiochip2:\ndev                   of_node               power                 subsystem             uevent                waiting_for_supplier\nroot@bmc:~# ls /sys/class/gpio/chip2\ndevice     export     label      ngpio      power      subsystem  uevent     unexport\nroot@bmc:~# ls /sys/class/gpio/gpiochip756\nbase       device     label      ngpio      power      subsystem  uevent",
+      "parentUuid": "5e6c83e6_9331e27a",
+      "revId": "95d33f1ef178d5d905b78a1e43fd3c91b2f53a22",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
