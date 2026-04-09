@@ -1,5 +1,4 @@
 #include "button_handler.hpp"
-
 #include "config.hpp"
 #include "gpio.hpp"
 #include "power_button_profile_factory.hpp"
@@ -37,6 +36,11 @@ const std::map<std::string, PwrTransition> pwrCtls = {
     {"host-graceful-warm-reboot", Host::Transition::GracefulWarmReboot},
     {"host-force-warm-reboot", Host::Transition::ForceWarmReboot}};
 
+const std::map<std::string, PwrState> pwrStates = {
+    {"powered-on", PwrState::on},
+    {"powered-off", PwrState::off},
+};
+
 constexpr auto chassisIface = "xyz.openbmc_project.State.Chassis";
 constexpr auto hostIface = "xyz.openbmc_project.State.Host";
 constexpr auto powerButtonIface = "xyz.openbmc_project.Chassis.Buttons.Power";
@@ -56,7 +60,8 @@ constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
 constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
 constexpr auto BMC_POSITION = 0;
 
-std::vector<std::map<uint16_t, PwrTransition>> multiPwrBtnActConf;
+std::vector<std::vector<std::tuple<uint16_t, PwrTransition, PwrState>>>
+    multiPwrBtnActConf;
 
 Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
 {
@@ -80,7 +85,7 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
     {
         if (gpioConfig.contains("multi-action"))
         {
-            std::map<uint16_t, PwrTransition> mapEntry;
+            std::vector<std::tuple<uint16_t, PwrTransition, PwrState>> mapEntry;
             const auto& multiActCfg = gpioConfig["multi-action"];
             for (const auto& ActCfg : multiActCfg)
             {
@@ -88,13 +93,38 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
                 if (pwrCtl != pwrCtls.end())
                 {
                     auto duration = ActCfg["duration"].get<uint16_t>();
-                    mapEntry[duration] = pwrCtl->second;
+
+                    if (ActCfg.contains("state"))
+                    {
+                        if (auto pwrState = pwrStates.find(ActCfg["state"]);
+                            pwrState != pwrStates.end())
+                        {
+                            mapEntry.emplace_back(duration, pwrCtl->second,
+                                                  pwrState->second);
+                        }
+                        else
+                        {
+                            lg2::error("unknown power button condition");
+                        }
+                    }
+                    else
+                    {
+                        // fallback to default behavior:
+                        // applies to both power state
+                        mapEntry.emplace_back(duration, pwrCtl->second,
+                                              PwrState::any);
+                    }
                 }
                 else
                 {
                     lg2::error("unknown power button action");
                 }
             }
+            // sort the array according to the duration
+            // to preserve the previous std::map sorted behavior
+            std::sort(mapEntry.begin(), mapEntry.end(), [](auto lhs, auto rhs) {
+                return std::get<uint16_t>(lhs) < std::get<uint16_t>(rhs);
+            });
             multiPwrBtnActConf.emplace_back(mapEntry);
         }
 
@@ -359,12 +389,21 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
         {
             if (!multiPwrBtnActConf.empty())
             {
+                auto isPoweredOn = poweredOn(hostNumber);
                 for (const auto& iter :
                      multiPwrBtnActConf[stoi(hostNumStr) - 1])
                 {
-                    if (duration > std::chrono::milliseconds(iter.first))
+                    if (duration >
+                        std::chrono::milliseconds(std::get<uint16_t>(iter)))
                     {
-                        transition = iter.second;
+                        auto requiredState = std::get<PwrState>(iter);
+                        if ((requiredState == PwrState::off && isPoweredOn) or
+                            (requiredState == PwrState::on && !isPoweredOn))
+                        {
+                            continue;
+                        }
+
+                        transition = std::get<PwrTransition>(iter);
                     }
                 }
                 if (!objPathName.empty())

@@ -30,6 +30,13 @@ enum class PwrCtl
     chassisCycle,
 };
 
+enum class PwrState
+{
+    on,
+    off,
+    any,
+};
+
 inline static size_t numberOfChassis()
 {
     return instances.size();
