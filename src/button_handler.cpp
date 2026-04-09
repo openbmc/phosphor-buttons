@@ -11,6 +11,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <optional>
 #include <string>
 
 namespace phosphor
@@ -23,10 +24,18 @@ using namespace sdbusplus::xyz::openbmc_project::State::server;
 using namespace sdbusplus::xyz::openbmc_project::Chassis::Buttons::server;
 using GetSubTreePathsType = std::vector<std::string>;
 
-const std::map<std::string, Chassis::Transition> chassisPwrCtls = {
+using PwrTransition =
+    std::optional<std::variant<Host::Transition, Chassis::Transition>>;
+const std::map<std::string, PwrTransition> pwrCtls = {
+    {"no-op", std::nullopt},
     {"chassis-on", Chassis::Transition::On},
     {"chassis-off", Chassis::Transition::Off},
-    {"chassis-cycle", Chassis::Transition::PowerCycle}};
+    {"chassis-cycle", Chassis::Transition::PowerCycle},
+    {"host-off", Host::Transition::Off},
+    {"host-on", Host::Transition::On},
+    {"host-reboot", Host::Transition::Reboot},
+    {"host-graceful-warm-reboot", Host::Transition::GracefulWarmReboot},
+    {"host-force-warm-reboot", Host::Transition::ForceWarmReboot}};
 
 constexpr auto chassisIface = "xyz.openbmc_project.State.Chassis";
 constexpr auto hostIface = "xyz.openbmc_project.State.Host";
@@ -47,7 +56,7 @@ constexpr auto mapperObjPath = "/xyz/openbmc_project/object_mapper";
 constexpr auto mapperService = "xyz.openbmc_project.ObjectMapper";
 constexpr auto BMC_POSITION = 0;
 
-std::vector<std::map<uint16_t, Chassis::Transition>> multiPwrBtnActConf;
+std::vector<std::map<uint16_t, PwrTransition>> multiPwrBtnActConf;
 
 Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
 {
@@ -71,15 +80,15 @@ Handler::Handler(sdbusplus::bus_t& bus) : bus(bus)
     {
         if (gpioConfig.contains("multi-action"))
         {
-            std::map<uint16_t, Chassis::Transition> mapEntry;
+            std::map<uint16_t, PwrTransition> mapEntry;
             const auto& multiActCfg = gpioConfig["multi-action"];
             for (const auto& ActCfg : multiActCfg)
             {
-                auto chassisPwrCtl = chassisPwrCtls.find(ActCfg["action"]);
-                if (chassisPwrCtl != chassisPwrCtls.end())
+                auto pwrCtl = pwrCtls.find(ActCfg["action"]);
+                if (pwrCtl != pwrCtls.end())
                 {
                     auto duration = ActCfg["duration"].get<uint16_t>();
-                    mapEntry[duration] = chassisPwrCtl->second;
+                    mapEntry[duration] = pwrCtl->second;
                 }
                 else
                 {
@@ -307,9 +316,7 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
                                std::chrono::microseconds duration)
 {
     std::string objPathName;
-    std::string dbusIfaceName;
-    std::string transitionName;
-    std::variant<Host::Transition, Chassis::Transition> transition;
+    PwrTransition transition;
 
     size_t hostNumber = 0;
     std::string hostNumStr;
@@ -357,9 +364,6 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
                 {
                     if (duration > std::chrono::milliseconds(iter.first))
                     {
-                        dbusIfaceName = chassisIface;
-                        transitionName = "RequestedPowerTransition";
-                        objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
                         transition = iter.second;
                     }
                 }
@@ -372,10 +376,6 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
 
             if (duration <= LONG_PRESS_TIME_MS)
             {
-                objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
-                dbusIfaceName = hostIface;
-                transitionName = "RequestedHostTransition";
-
                 transition = Host::Transition::On;
 
                 if (poweredOn(hostNumber))
@@ -387,9 +387,6 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
             }
             else
             {
-                dbusIfaceName = chassisIface;
-                transitionName = "RequestedPowerTransition";
-                objPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
                 transition = Chassis::Transition::Off;
 
                 /*  multi host system :
@@ -419,10 +416,6 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
         }
         case PowerEvent::resetReleased:
         {
-            objPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
-            dbusIfaceName = hostIface;
-            transitionName = "RequestedHostTransition";
-
             if (!poweredOn(hostNumber))
             {
                 lg2::info("Power is off so ignoring reset button press");
@@ -445,10 +438,44 @@ void Handler::handlePowerEvent(PowerEvent powerEventType,
             return;
         }
     }
+
+    if (!transition)
+    {
+        return;
+    }
+
+    std::string dbusIfaceName;
+    std::string transitionName;
+    std::string defaultObjPathName;
+
+    if (std::holds_alternative<Chassis::Transition>(*transition))
+    {
+        dbusIfaceName = chassisIface;
+        transitionName = "RequestedPowerTransition";
+        defaultObjPathName = CHASSIS_STATE_OBJECT_NAME + hostNumStr;
+    }
+    else if (std::holds_alternative<Host::Transition>(*transition))
+    {
+        dbusIfaceName = hostIface;
+        transitionName = "RequestedHostTransition";
+        defaultObjPathName = HOST_STATE_OBJECT_NAME + hostNumStr;
+    }
+    else
+    {
+        lg2::error("unhandled transition type");
+        return;
+    }
+
+    // Allow overriding object path
+    if (objPathName.empty())
+    {
+        objPathName = defaultObjPathName;
+    }
+
     auto service = getService(objPathName.c_str(), dbusIfaceName);
     auto method = bus.new_method_call(service.c_str(), objPathName.c_str(),
                                       propertyIface, "Set");
-    method.append(dbusIfaceName, transitionName, transition);
+    method.append(dbusIfaceName, transitionName, *transition);
     bus.call(method);
 }
 
