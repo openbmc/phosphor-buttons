@@ -34,6 +34,23 @@
       "parentUuid": "5e6c83e6_9331e27a",
       "revId": "95d33f1ef178d5d905b78a1e43fd3c91b2f53a22",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ac5ea22_837aa704",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002462
+      },
+      "writtenOn": "2026-04-13T02:27:26Z",
+      "side": 1,
+      "message": "Just a friendly ping on this patch. Let me know if there are any further revisions needed, or if it\u0027s ready for a +2.",
+      "revId": "95d33f1ef178d5d905b78a1e43fd3c91b2f53a22",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
