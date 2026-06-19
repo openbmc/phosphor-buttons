@@ -23,7 +23,7 @@ void SerialUartMux::init()
         std::string matchPattern = sdbusRule::propertiesChanged(
             HS_DBUS_OBJECT_NAME, HostSelectorClientObj::interface);
 
-        hostPositionChanged = std::make_unique<sdbusplus::bus::match_t>(
+        hostPositionChanged = std::make_unique<sdbusplus::match>(
             bus, matchPattern,
             std::bind(std::mem_fn(&SerialUartMux::hostSelectorPositionChanged),
                       this, std::placeholders::_1));

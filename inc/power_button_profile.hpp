@@ -65,8 +65,8 @@ class PowerButtonProfile
     sdbusplus::bus_t& bus;
 
   private:
-    sdbusplus::bus::match_t pressedMatch;
-    sdbusplus::bus::match_t releasedMatch;
+    sdbusplus::match pressedMatch;
+    sdbusplus::match releasedMatch;
 };
 
 } // namespace phosphor::button
