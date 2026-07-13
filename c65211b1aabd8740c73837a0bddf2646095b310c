@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "63db9a09_f49f16de",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000218
+      },
+      "writtenOn": "2026-07-13T01:59:51Z",
+      "side": 1,
+      "message": "The feature is well-motivated, the refactor is a net structural improvement, and the design of PwrTransition is sound. Before merge, please:\nRequired: remove the dead if (objPathName.empty()) override or wire up its intended caller.\nRequired: add at least a table-driven unit test covering each new action and the no-op filter.\nShould: either add the two missing ColdReboot variants for symmetry or state in the commit message why they\u0027re excluded.\nShould: document no-op semantics (dead-zone vs placeholder) in README or a comment near pwrCtls.\nNice-to-have: downgrade the unreachable lg2::error and add a collision warning on duplicate durations.",
+      "revId": "c65211b1aabd8740c73837a0bddf2646095b310c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "285b3a94_55d7f9ad",
         "filename": "src/button_handler.cpp",
         "patchSetId": 1
