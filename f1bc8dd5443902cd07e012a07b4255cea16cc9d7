@@ -16,6 +16,42 @@
       "message": "What\u0027s your end goal here - what config are you trying to add for your system that doesn\u0027t currently work?",
       "revId": "f1bc8dd5443902cd07e012a07b4255cea16cc9d7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b83c4bd_ab455c27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001839
+      },
+      "writtenOn": "2026-07-13T02:29:04Z",
+      "side": 1,
+      "message": "The config in the commit message does not work. Essentially, if Host is powered off, I would like to turn on Host regardless of the duration pressed.",
+      "parentUuid": "7569788a_e3a42e48",
+      "revId": "f1bc8dd5443902cd07e012a07b4255cea16cc9d7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a869195b_da0f5a69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001839
+      },
+      "writtenOn": "2026-07-13T02:29:04Z",
+      "side": 1,
+      "message": "Essentially",
+      "parentUuid": "7569788a_e3a42e48",
+      "revId": "f1bc8dd5443902cd07e012a07b4255cea16cc9d7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
