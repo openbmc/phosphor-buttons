@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d52bface_f112c361",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001839
+      },
+      "writtenOn": "2026-07-13T02:24:19Z",
+      "side": 1,
+      "message": "1. See the `CHASSIS_SYSTEM_RESET_ENABLED` `#ifdef` block. We can definitely infer `Transition` -\u003e D-Bus interface, but the object path is not safe to infer. I don\u0027t want to break anyone code.\n2. I don\u0027t see any existing test infrastructure.\n3. [There does not seem to be `ColdReboot` on `Host::Transition`?](https://github.com/openbmc/phosphor-dbus-interfaces/blob/e9458fbea279667ff4a41be2898b2e7b0b30c931/yaml/xyz/openbmc_project/State/Host.interface.yaml#L41-L63)\n4. I thought it was clear enough, but seems like it does need a comment.\n5. I firmly believe if someone adds a new variant to `PwrTransition` and not handle it, **it is a bug and should be treated as an error**. Duration checking seems out of scope for this patchset.",
+      "parentUuid": "63db9a09_f49f16de",
+      "revId": "c65211b1aabd8740c73837a0bddf2646095b310c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "285b3a94_55d7f9ad",
         "filename": "src/button_handler.cpp",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2026-05-26T14:29:23Z",
       "side": 1,
       "message": "why is this one necessary?",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "c65211b1aabd8740c73837a0bddf2646095b310c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27210e8d_df82d0a8",
+        "filename": "src/button_handler.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1001839
+      },
+      "writtenOn": "2026-07-13T02:24:19Z",
+      "side": 1,
+      "message": "That entry is for overriding purpose, perhaps only useful for host state filter - I added for completeness. For example, you might configure durations that apply to any state, then override the durations for in a certain state only.\n\nYou could work around that by exhaustively specify all combinations of state and durations though. But a noop action does not seem to be too unreasonable to me.",
+      "parentUuid": "285b3a94_55d7f9ad",
       "range": {
         "startLine": 30,
         "startChar": 3,
