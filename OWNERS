@@ -32,7 +32,6 @@
 # data within them will be kept sorted.
 
 owners:
-- wangkuiying.wky@alibaba-inc.com
 - spinler@us.ibm.com
 - vernon.mauery@gmail.com
 
@@ -41,9 +40,6 @@ reviewers:
 matchers:
 
 openbmc:
-- name: Kuiying Wang
-  email: wangkuiying.wky@alibaba-inc.com
-  discord: Kwin
 - name: Matt Spinler
   email: spinler@us.ibm.com
   discord: mspinler
