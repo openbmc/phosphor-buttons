@@ -22,6 +22,30 @@
       },
       "revId": "ac5b9b54a8abdb2ac825323016b303c987805e06",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6ba7dec_76a611d2",
+        "filename": "src/power_button.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1002547
+      },
+      "writtenOn": "2026-07-31T01:22:58Z",
+      "side": 1,
+      "message": "Thanks. Done.",
+      "parentUuid": "1bade61a_409fc916",
+      "range": {
+        "startLine": 94,
+        "startChar": 38,
+        "endLine": 94,
+        "endChar": 76
+      },
+      "revId": "ac5b9b54a8abdb2ac825323016b303c987805e06",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
